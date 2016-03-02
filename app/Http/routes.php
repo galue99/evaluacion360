@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::Resource('/', 'EncuestaController');
+Route::Resource('/persons', 'PersonController');
+Route::Resource('/encuesta', 'EncuestaController');
