@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', function () {
-    return view('admin_template');
-});
+Route::Resource('/', 'EncuestaController');
+Route::Resource('/persons', 'PersonController');
+Route::Resource('/encuesta', 'EncuestaController');
+
