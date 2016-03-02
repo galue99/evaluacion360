@@ -42,20 +42,21 @@
             </div>
 
             <!-- Sidebar Menu -->
+            @section('sidebar')
             <ul class="sidebar-menu">
-              @section('sidebar')
-                <li class="header">HEADER</li>
-                <li class="active"><a href="#"><span>Link</span></a></li>
+                <li class="header">&nbsp</li>
 
                 <li class="treeview">
-                    <a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <a href="#"><i class="fa fa-file-text"></i>
+                      <span>Encuestas</span>
+                    </a>
                     <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
+                        <li><a href="/encuesta">Encuestas</a></li>
+                        <li><a href="#">Nueva Encuesta</a></li>
                     </ul>
                 </li>
-              @show
             </ul>
+            @show
             <!-- /.sidebar-menu -->
           </section>
         </aside>
@@ -64,6 +65,8 @@
         <div class="content-wrapper">
           <!-- Content Header (Page header) -->
           <section class="content-header">
+
+            <h1>@yield('content-header')</h1>
 
           </section>
 

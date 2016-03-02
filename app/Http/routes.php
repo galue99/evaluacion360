@@ -19,3 +19,5 @@ Route::Resource('/', 'EncuestaController');
 Route::Resource('/persons', 'PersonController');
 Route::Resource('/encuesta', 'EncuestaController');
 
+Route::Resource('/login', 'LoginController');
+

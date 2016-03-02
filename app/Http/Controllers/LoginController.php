@@ -2,28 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Encuesta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Response;
 
-class EncuestaController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null) {
-        // if ($id == null) {
-        //     return Encuesta::orderBy('id', 'asc')->get();
-        // } else {
-        //     return $this->show($id);
-        // }
-        return View('encuesta.index');
-
+    public function index()
+    {
+        return View('login.index');
     }
 
     /**
@@ -55,19 +48,7 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
-        $encuesta   = Encuesta::find($id);
-        $persona    = Encuesta::find($id)->persona;
-        $items      = Encuesta::find($id)->items;
-        $frases     = Encuesta::find($id)->frases;
-
-        return Response::json([
-            'Success' => [
-                'encuesta' => $encuesta,
-                'persona'  => $persona,
-                'items'    => $items,
-                'frases'   => $frases,
-            ]
-        ], 200);
+        //
     }
 
     /**
