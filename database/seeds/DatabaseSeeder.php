@@ -490,6 +490,45 @@ class DatabaseSeeder extends Seeder
 
         /* End Frases */
 
+        /* Start Evaluadores */
+
+        DB::table('evaluadores')->insert([
+            'full_name' => str_random(100),
+            'email' => str_random(10).'@gmail.com',
+            'is_active' => true,
+            'encuesta_id' => 1
+        ]);
+
+        DB::table('evaluadores')->insert([
+            'full_name' => str_random(100),
+            'email' => str_random(10).'@gmail.com',
+            'is_active' => true,
+            'encuesta_id' => 1
+        ]);
+
+        DB::table('evaluadores')->insert([
+            'full_name' => str_random(100),
+            'email' => str_random(10).'@gmail.com',
+            'is_active' => true,
+            'encuesta_id' => 1
+        ]);
+
+        DB::table('evaluadores')->insert([
+            'full_name' => str_random(100),
+            'email' => str_random(10).'@gmail.com',
+            'is_active' => true,
+            'encuesta_id' => 1
+        ]);
+
+        DB::table('evaluadores')->insert([
+            'full_name' => str_random(100),
+            'email' => str_random(10).'@gmail.com',
+            'is_active' => true,
+            'encuesta_id' => 1
+        ]);
+
+        /* End Evaluadores */
+
         Model::reguard();
     }
 }

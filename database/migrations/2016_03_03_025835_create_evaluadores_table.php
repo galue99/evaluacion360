@@ -17,6 +17,8 @@ class CreateEvaluadoresTable extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->boolean('is_active');
+            $table->integer('encuesta_id')->unsigned();
+            $table->foreign('encuesta_id')->references('id')->on('encuestas');
             $table->timestamp('created_at');
         });
     }

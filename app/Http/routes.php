@@ -20,4 +20,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::Resource('/encuesta', 'EncuestaController');
     Route::get('logout', 'AuthController@logout');
 });
-

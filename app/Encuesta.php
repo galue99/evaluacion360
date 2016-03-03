@@ -24,4 +24,9 @@ class Encuesta extends Model
         return $this->hasManyThrough('App\Frase', 'App\Item', 'encuesta_id', 'items_id');
     }
 
+    public function evaluador()
+    {
+        return $this->hasMany('App\Evaluador');
+    }
+
 }

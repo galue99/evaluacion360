@@ -59,13 +59,15 @@ class EncuestaController extends Controller
         $persona    = Encuesta::find($id)->persona;
         $items      = Encuesta::find($id)->items;
         $frases     = Encuesta::find($id)->frases;
+        $evaluador  = Encuesta::find($id)->evaluador;
 
         return Response::json([
             'Success' => [
-                'encuesta' => $encuesta,
-                'persona'  => $persona,
-                'items'    => $items,
-                'frases'   => $frases,
+                'encuesta'  => $encuesta,
+                'persona'   => $persona,
+                'items'     => $items,
+                'frases'    => $frases,
+                'evaluador' => $evaluador
             ]
         ], 200);
     }
