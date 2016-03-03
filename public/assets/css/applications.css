@@ -1,0 +1,20 @@
+
+.box-divider{
+    border-bottom: solid 1px #F4F4F4;
+    margin: 10px 0;
+    width: 100%;
+}
+.pull-center{
+    margin-left: auto;
+    margin-right: auto;
+    float: initial;
+}
+.separate{
+    margin-bottom: 10px;
+}
+.fa-blue{
+    color: #047EA9;
+}
+.fa-red{
+    color:#F82824;
+}

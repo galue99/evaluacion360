@@ -16,6 +16,7 @@ Route::Resource('login', 'AuthController');
 Route::group(['middleware' => 'auth'], function () {
     //Route::Resource('/', 'EncuestaController');
     Route::Resource('/persons', 'PersonController');
+    Route::Resource('/evaluadores', 'EvaluadoresController');
     Route::Resource('/encuesta', 'EncuestaController');
     Route::get('logout', 'AuthController@logout');
 });

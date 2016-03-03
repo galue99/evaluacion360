@@ -10,7 +10,7 @@
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/assets/css/applications.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
     </head>
@@ -55,6 +55,14 @@
                         <li><a href="#">Nueva Encuesta</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-users"></i>
+                      <span>Usuarios</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/evaluadores">Evaluadores</a></li>
+                    </ul>
+                </li>
             </ul>
             @show
             <!-- /.sidebar-menu -->
@@ -89,7 +97,11 @@
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/evaluadores_view_movel.js") }}" type="text/javascript"></script>
+      
+      
       <script src="{{ asset ("/knockout/models/example.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/knockout/view_models/example_view_movel.js.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/example_view_movel.js") }}" type="text/javascript"></script>
     </body>
 </html>
