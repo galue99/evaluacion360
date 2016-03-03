@@ -21,8 +21,11 @@ class AuthController extends Controller
      */
 
     public function index() {
-
-        return view('login/index');
+        if(Auth::user()){
+            return Redirect::to('/admin');
+        }else{
+            return view('login/index');
+        }
     }
 
     public function login(LoginRequest $request) {
@@ -50,7 +53,7 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
         {
-            return redirect()->intended('admin/encuesta');
+            return Redirect::to('/admin');
         }
 
         return Redirect::to('login');

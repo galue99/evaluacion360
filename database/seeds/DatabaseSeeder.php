@@ -16,12 +16,33 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(UserTableSeeder::class);
 
+        /* Start RolUser */
+        DB::table('roluser')->insert([
+            'name' => 'administrador',
+        ]);
+
+        DB::table('roluser')->insert([
+            'name' => 'encuestado',
+        ]);
+
+        DB::table('roluser')->insert([
+            'name' => 'encuestador',
+        ]);
+
+        /* End RolUser */
+
+
+        /* Star User */
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name'     => 'admin',
+            'idrol'    => 1,
+            'email'    => 'admin@gmail.com',
             'password' => Hash::make('admin'),
         ]);
 
+        /* End User */
+
+        /* Start Personas */
         DB::table('personas')->insert([
             'firstname' => 'Jhon',
             'lastname' => 'Prueba',
@@ -496,35 +517,40 @@ class DatabaseSeeder extends Seeder
             'full_name' => str_random(100),
             'email' => str_random(10).'@gmail.com',
             'is_active' => true,
-            'encuesta_id' => 1
+            'encuesta_id' => 1,
+            'password' => Hash::make('admin'),
         ]);
 
         DB::table('evaluadores')->insert([
             'full_name' => str_random(100),
             'email' => str_random(10).'@gmail.com',
             'is_active' => true,
-            'encuesta_id' => 1
+            'encuesta_id' => 1,
+            'password' => Hash::make('admin'),
         ]);
 
         DB::table('evaluadores')->insert([
             'full_name' => str_random(100),
             'email' => str_random(10).'@gmail.com',
             'is_active' => true,
-            'encuesta_id' => 1
+            'encuesta_id' => 1,
+            'password' => Hash::make('admin'),
         ]);
 
         DB::table('evaluadores')->insert([
             'full_name' => str_random(100),
             'email' => str_random(10).'@gmail.com',
             'is_active' => true,
-            'encuesta_id' => 1
+            'encuesta_id' => 1,
+            'password' => Hash::make('admin'),
         ]);
 
         DB::table('evaluadores')->insert([
             'full_name' => str_random(100),
             'email' => str_random(10).'@gmail.com',
             'is_active' => true,
-            'encuesta_id' => 1
+            'encuesta_id' => 1,
+            'password' => Hash::make('admin'),
         ]);
 
         /* End Evaluadores */

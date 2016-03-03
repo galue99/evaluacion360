@@ -7,37 +7,34 @@ use Illuminate\Contracts\Auth\Guard;
 
 class RedirectIfAuthenticated
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var Guard
-     */
     protected $auth;
-
-    /**
-     * Create a new filter instance.
-     *
-     * @param  Guard  $auth
-     * @return void
-     */
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
     }
-
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/login');
+            switch ($this->auth->user()->idrol)
+            {
+                case '1':
+                    # Administrador
+                    return redirect()->to('admin');
+                    break;
+                case '2':
+                    # Responsable de Área
+                    return redirect()->to('encuestado');
+                    break;
+                case '3':
+                    # Secretaria
+                    return redirect()->to('encuestador');
+                    break;
+                default:
+                    return redirect()->to('/login');
+                    break;
+            }
+            return redirect('/admin');
         }
-
         return $next($request);
     }
 }
