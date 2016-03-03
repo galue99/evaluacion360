@@ -88,5 +88,8 @@
       <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/example.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/example_view_movel.js.js") }}" type="text/javascript"></script>
     </body>
 </html>
