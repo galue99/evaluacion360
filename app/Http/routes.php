@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::Resource('login', 'AuthController');
+
+Route::group(['middleware' => 'auth'], function () {
+    //Route::Resource('/', 'EncuestaController');
+    Route::Resource('/persons', 'PersonController');
+    Route::Resource('/encuesta', 'EncuestaController');
+    Route::get('logout', 'AuthController@logout');
 });
-
-Route::Resource('/', 'EncuestaController');
-Route::Resource('/persons', 'PersonController');
-Route::Resource('/encuesta', 'EncuestaController');
-
-Route::Resource('/login', 'LoginController');
 

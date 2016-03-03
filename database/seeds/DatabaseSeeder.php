@@ -15,6 +15,13 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         // $this->call(UserTableSeeder::class);
+
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin'),
+        ]);
+
         DB::table('personas')->insert([
             'firstname' => 'Jhon',
             'lastname' => 'Prueba',
