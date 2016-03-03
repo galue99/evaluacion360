@@ -51,7 +51,7 @@
                       <span>Encuestas</span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/encuesta">Encuestas</a></li>
+                        <li><a href="/admin/encuesta">Encuestas</a></li>
                         <li><a href="#">Nueva Encuesta</a></li>
                     </ul>
                 </li>
@@ -60,7 +60,7 @@
                       <span>Usuarios</span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/evaluadores">Evaluadores</a></li>
+                        <li><a href="/admin/evaluadores">Evaluadores</a></li>
                     </ul>
                 </li>
             </ul>

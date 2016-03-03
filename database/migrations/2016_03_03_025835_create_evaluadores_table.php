@@ -17,6 +17,7 @@ class CreateEvaluadoresTable extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->boolean('is_active');
+            $table->string('password');
             $table->timestamp('created_at');
         });
     }

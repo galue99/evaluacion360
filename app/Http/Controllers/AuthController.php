@@ -50,7 +50,7 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
         {
-            return redirect()->intended('encuesta');
+            return redirect()->intended('admin/encuesta');
         }
 
         return Redirect::to('login');
