@@ -14,9 +14,15 @@ class EvaluadoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        return 'Hello World';
+        $users = [];
+        if ($this->isJSON($request)){
+            return  $users;
+        } else {
+            return View('evaluadores.index');
+        }
     }
 
     /**

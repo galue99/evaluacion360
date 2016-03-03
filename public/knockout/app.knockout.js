@@ -2,9 +2,11 @@
 	'use strict';
 	$(document).ready(function(){
 
-		var variable = document.getElementById("")
-		if (variable != null){
-			ko.applyBindings(new ReportsTicketsSold(), document.getElementById(""));
+		var evaluadores = document.getElementById("evaluadores")
+		if (evaluadores != null){
+			ko.applyBindings(new evaluadoresViewModel(), document.getElementById("evaluadores"));
 		}
+
+		
 	});
 })();
