@@ -6,6 +6,5 @@ function encuestaViewModel(){
 
 	self.toggleEncuesta = function(){
 		self.showForm(!self.showForm())
-		console.log(self.showForm());
 	};
 }

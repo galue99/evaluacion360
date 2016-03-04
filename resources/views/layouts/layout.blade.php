@@ -11,6 +11,7 @@
         <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/assets/css/applications.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/assets/css/animate.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
     </head>
@@ -26,7 +27,19 @@
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
               <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </a>
+
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+                <li>
+                  <a href="" data-toggle="control-sidebar">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </header>
         <aside class="main-sidebar">
           <section class="sidebar">
@@ -52,7 +65,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="/admin/encuesta">Encuestas</a></li>
-                        <li><a href="#">Nueva Encuesta</a></li>
+                        <li><a href="/admin/create">Nueva Encuesta</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

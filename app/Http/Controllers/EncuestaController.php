@@ -16,7 +16,7 @@ class EncuestaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null) {
+    public function index() {
         // if ($id == null) {
         //     return Encuesta::orderBy('id', 'asc')->get();
         // } else {
