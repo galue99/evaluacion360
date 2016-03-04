@@ -98,10 +98,10 @@
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/knockout/view_models/evaluadores_view_movel.js") }}" type="text/javascript"></script>
-      
+      <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/encuesta_view_model.js") }}" type="text/javascript"></script>
       
       <script src="{{ asset ("/knockout/models/example.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/knockout/view_models/example_view_movel.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/example_view_model.js") }}" type="text/javascript"></script>
     </body>
 </html>

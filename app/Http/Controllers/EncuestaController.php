@@ -33,7 +33,7 @@ class EncuestaController extends Controller
      */
     public function create()
     {
-        //
+        return View('encuesta.nueva_encuesta');
     }
 
     /**
