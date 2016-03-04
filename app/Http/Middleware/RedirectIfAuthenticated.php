@@ -22,12 +22,12 @@ class RedirectIfAuthenticated
                     return redirect()->to('admin');
                     break;
                 case '2':
-                    # Responsable de Área
+                    # Encuestado
                     return redirect()->to('encuestado');
                     break;
                 case '3':
-                    # Secretaria
-                    return redirect()->to('encuestador');
+                    # Evaluado
+                    return redirect()->to('evaluado');
                     break;
                 default:
                     return redirect()->to('/login');

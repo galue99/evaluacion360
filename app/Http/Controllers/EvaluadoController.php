@@ -7,22 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class EvaluadoresController extends Controller
+class EvaluadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function index(Request $request)
+    public function index()
     {
-        $users = [];
-        if ($this->isJSON($request)){
-            return  $users;
-        } else {
-            return View('evaluadores.index');
-        }
+        //
     }
 
     /**

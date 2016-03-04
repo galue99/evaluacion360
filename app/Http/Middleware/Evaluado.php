@@ -5,7 +5,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Closure;
 use Session;
 
-class Encuestador
+class Evaluado
 {
     protected $auth;
     public function __construct(Guard $auth)
@@ -23,12 +23,12 @@ class Encuestador
                 break;
 
             case '2':
-                # Responsable de Área
+                # Encuestado
                 return redirect()->to('encuestado');
                 break;
 
             case '3':
-                # Secretaria
+                # Evaluado
                 //return redirect()->to('encuestador');
                 break;
 

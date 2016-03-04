@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluadoresTable extends Migration
+class CreateEncuestadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,13 @@ class CreateEvaluadoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluadores', function (Blueprint $table) {
+        Schema::create('encuestados', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('full_name');
-            $table->string('email');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('is_active');
             $table->integer('encuesta_id')->unsigned();
             $table->foreign('encuesta_id')->references('id')->on('encuestas');
-            $table->string('password');
             $table->timestamp('created_at');
         });
     }
@@ -31,6 +30,6 @@ class CreateEvaluadoresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('evaluadores');
+        Schema::drop('encuestados');
     }
 }

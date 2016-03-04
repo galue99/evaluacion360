@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'password'  => Hash::make('admin'),
             'dni'       => '16817353',
             'deparment' => 'Ventas',
-            'position'  => 'Supervisor',
+            'position'  => 'Vendedor',
             'is_active' => true,
         ]);
 
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'password'  => Hash::make('admin'),
             'dni'       => '16877354',
             'deparment' => 'Ventas',
-            'position'  => 'Supervisor',
+            'position'  => 'Vendedor',
             'is_active' => true,
         ]);
 
@@ -134,46 +134,55 @@ class DatabaseSeeder extends Seeder
         /* Start Encuestas db seed */
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => true,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
+            'is_active' => false,
             'user_id' => 3,
         ]);
 
@@ -526,44 +535,34 @@ class DatabaseSeeder extends Seeder
 
         /* Start Evaluadores */
 
-        DB::table('evaluadores')->insert([
-            'full_name' => str_random(100),
-            'email' => str_random(10).'@gmail.com',
+        DB::table('encuestados')->insert([
+            'user_id' => 4,
             'is_active' => true,
             'encuesta_id' => 1,
-            'password' => Hash::make('admin'),
         ]);
 
-        DB::table('evaluadores')->insert([
-            'full_name' => str_random(100),
-            'email' => str_random(10).'@gmail.com',
+        DB::table('encuestados')->insert([
+            'user_id' => 3,
             'is_active' => true,
             'encuesta_id' => 1,
-            'password' => Hash::make('admin'),
         ]);
 
-        DB::table('evaluadores')->insert([
-            'full_name' => str_random(100),
-            'email' => str_random(10).'@gmail.com',
+        DB::table('encuestados')->insert([
+            'user_id' => 3,
             'is_active' => true,
             'encuesta_id' => 1,
-            'password' => Hash::make('admin'),
         ]);
 
-        DB::table('evaluadores')->insert([
-            'full_name' => str_random(100),
-            'email' => str_random(10).'@gmail.com',
+        DB::table('encuestados')->insert([
+            'user_id' => 2,
             'is_active' => true,
-            'encuesta_id' => 1,
-            'password' => Hash::make('admin'),
+            'encuesta_id' => 2,
         ]);
 
-        DB::table('evaluadores')->insert([
-            'full_name' => str_random(100),
-            'email' => str_random(10).'@gmail.com',
+        DB::table('encuestados')->insert([
+            'user_id' => 2,
             'is_active' => true,
             'encuesta_id' => 1,
-            'password' => Hash::make('admin'),
         ]);
 
         /* End Evaluadores */

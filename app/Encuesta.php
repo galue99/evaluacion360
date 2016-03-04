@@ -10,6 +10,7 @@ class Encuesta extends Model
 
     protected $fillable = ['date', 'persona_id'];
 
+
     public function user() {
         return $this->belongsTo('App\User');
     }
@@ -24,9 +25,9 @@ class Encuesta extends Model
         return $this->hasManyThrough('App\Frase', 'App\Item', 'encuesta_id', 'items_id');
     }
 
-    public function evaluador()
+    public function encuestado()
     {
-        return $this->hasMany('App\Evaluador');
+        return $this->hasMany('App\Encuestado');
     }
 
 }

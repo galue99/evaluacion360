@@ -22,7 +22,7 @@ class EncuestaController extends Controller
         // } else {
         //     return $this->show($id);
         // }
-        return View('encuesta.index');
+        return View('admin.index');
 
     }
 
@@ -33,7 +33,7 @@ class EncuestaController extends Controller
      */
     public function create()
     {
-        return View('encuesta.nueva_encuesta');
+        return View('admin.index');
     }
 
     /**
@@ -55,19 +55,19 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
-        $encuesta   = Encuesta::find($id);
-        $persona    = Encuesta::find($id)->user;
-        $items      = Encuesta::find($id)->items;
-        $frases     = Encuesta::find($id)->frases;
-        $evaluador  = Encuesta::find($id)->evaluador;
+        $encuesta    = Encuesta::find($id);
+        $persona     = Encuesta::find($id)->user;
+        $items       = Encuesta::find($id)->items;
+        $frases      = Encuesta::find($id)->frases;
+        $encuestado  = Encuesta::find($id)->encuestado;
 
         return Response::json([
             'Success' => [
-                'encuesta'  => $encuesta,
+                'admin'  => $encuesta,
                 'persona'   => $persona,
                 'items'     => $items,
                 'frases'    => $frases,
-                'evaluador' => $evaluador
+                'encuestado' => $encuestado
             ]
         ], 200);
     }

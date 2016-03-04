@@ -29,7 +29,7 @@ class Encuestado
 
             case '3':
                 # Secretaria
-                return redirect()->to('encuestador');
+                return redirect()->to('evaluado');
                 break;
 
             default:

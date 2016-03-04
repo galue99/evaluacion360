@@ -34,7 +34,7 @@
             <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="" data-toggle="control-sidebar">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
+                  <a href="{{ URL::to('/logout') }}">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
                 </li>
               </ul>
             </div>
@@ -72,7 +72,7 @@
                             <span>Usuarios</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/evaluadores">Evaluadores</a></li>
+                            <li><a href="/admin/users">Evaluadores</a></li>
                         </ul>
                     </li>
                 @endif

@@ -14,9 +14,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $users = [];
+        if ($this->isJSON($request)){
+            return  $users;
+        } else {
+            return View('admin.add_user');
+        }
     }
 
     /**

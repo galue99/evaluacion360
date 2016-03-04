@@ -14,31 +14,29 @@ Route::Resource('/', 'AuthController');
 
 Route::Resource('/login', 'AuthController');
 
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('logout', 'AuthController@logout');
+});
+
 Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], function () {
 
     Route::Resource('/', 'EncuestaController');
-
-    Route::Resource('/persons', 'PersonController');
-    Route::Resource('/evaluadores', 'EvaluadoresController');
     Route::Resource('/encuesta', 'EncuestaController');
-    Route::get('logout', 'AuthController@logout');
-    //Route::Resource('/', 'EncuestaController');
+    Route::Resource('/users', 'UserController');
 
 });
 
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    Route::get('logout', 'AuthController@logout');
+    Route::Resource('/', 'EncuestadoController');
+    Route::Resource('/encuesta', 'EncuestadoController');
 
 });
 
-Route::group( ['middleware' => ['auth', 'encuestador'], 'prefix'=>'encuestador'], function() {
+Route::group( ['middleware' => ['auth', 'evaluado'], 'prefix'=>'evaluado'], function() {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::get('logout', 'AuthController@logout');
 });
 

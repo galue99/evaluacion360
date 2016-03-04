@@ -2,26 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Persona;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Auth;
 
-class PersonController extends Controller
+class EncuestadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null) {
-        if ($id == null) {
-            return Persona::orderBy('id', 'asc')->get();
-        } else {
-            return $this->show($id);
+    public function index()
+    {
+        if(Auth::user()->is_active == 1){
+            $id = Auth::user()->id;
+            $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
+            //return View('encuestado.encuesta');
+            return ($encuestas);
+        }else{
+            return View('welcome');
         }
+
     }
 
     /**
@@ -53,13 +60,12 @@ class PersonController extends Controller
      */
     public function show($id)
     {
-        $person    = Persona::find($id);
-        $encuestas = Persona::find($id)->encuesta;
+        $encuesta = User::find($id)->encuesta;
+
 
         return Response::json([
             'Success' => [
-                'person' => $person,
-                'encuestas' => $encuestas
+                'admin'  => $encuesta,
             ]
         ], 200);
     }
