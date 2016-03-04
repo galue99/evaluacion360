@@ -31,7 +31,6 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-
             <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
                 <li>
@@ -49,8 +48,8 @@
                   <img src="{{ asset("/bower_components/AdminLTE/dist/img/user8-128x128.jpg") }}" class="img-circle" alt="User Image" />
               </div>
               <div class="pull-left info">
-                  <p>Administrador</p>
-                  <a href="#">Supervisor</a>
+                  <p>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</p>
+                  <a href="#">{{Auth::user()->position}}</a>
               </div>
             </div>
 
@@ -58,24 +57,25 @@
             @section('sidebar')
             <ul class="sidebar-menu">
                 <li class="header">&nbsp</li>
-
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-file-text"></i>
-                      <span>Encuestas</span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/admin/encuesta">Encuestas</a></li>
-                        <li><a href="/admin/create">Nueva Encuesta</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-users"></i>
-                      <span>Usuarios</span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/admin/evaluadores">Evaluadores</a></li>
-                    </ul>
-                </li>
+                @if(Auth::user()->idrol == 1)
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-file-text"></i>
+                            <span>Encuestas</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/admin/encuesta">Encuestas</a></li>
+                            <li><a href="/admin/create">Nueva Encuesta</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/admin/evaluadores">Evaluadores</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
             @show
             <!-- /.sidebar-menu -->

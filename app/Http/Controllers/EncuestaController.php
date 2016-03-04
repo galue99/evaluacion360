@@ -56,7 +56,7 @@ class EncuestaController extends Controller
     public function show($id)
     {
         $encuesta   = Encuesta::find($id);
-        $persona    = Encuesta::find($id)->persona;
+        $persona    = Encuesta::find($id)->user;
         $items      = Encuesta::find($id)->items;
         $frases     = Encuesta::find($id)->frases;
         $evaluador  = Encuesta::find($id)->evaluador;

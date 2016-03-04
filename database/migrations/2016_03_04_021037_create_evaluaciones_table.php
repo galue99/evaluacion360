@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonasTable extends Migration
+class CreateEvaluacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,10 @@ class CreatePersonasTable extends Migration
      */
     public function up()
     {
-        Schema::create('personas', function (Blueprint $table) {
+        Schema::create('evaluaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('dni')->unique();
-            $table->string('deparment');
-            $table->string('position');
-            $table->string('email')->unique();
+            $table->string('name');
+            $table->integer('value');
             $table->timestamp('created_at');
         });
     }
@@ -31,6 +27,6 @@ class CreatePersonasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('personas');
+        Schema::drop('evaluaciones');
     }
 }
