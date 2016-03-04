@@ -40,6 +40,20 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
+        DB::table('users')->insert([
+            'name'     => 'admin',
+            'idrol'    => 2,
+            'email'    => 'admin1@gmail.com',
+            'password' => Hash::make('admin'),
+        ]);
+
+        DB::table('users')->insert([
+            'name'     => 'admin',
+            'idrol'    => 3,
+            'email'    => 'admin3@gmail.com',
+            'password' => Hash::make('admin'),
+        ]);
+
         /* End User */
 
         /* Start Personas */
