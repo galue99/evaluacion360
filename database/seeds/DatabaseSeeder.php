@@ -40,6 +40,18 @@ class DatabaseSeeder extends Seeder
             'email'     => 'admin@gmail.com',
             'password'  => Hash::make('admin'),
             'dni'       => '16877353',
+            'deparment' => 'Administrador',
+            'position'  => 'Administrador',
+            'is_active' => true,
+        ]);
+
+        DB::table('users')->insert([
+            'firstname' => 'Jhon',
+            'lastname'  => 'Doe Doe',
+            'idrol'     => 2,
+            'email'     => 'admin1@gmail.com',
+            'password'  => Hash::make('admin'),
+            'dni'       => '16817353',
             'deparment' => 'Ventas',
             'position'  => 'Supervisor',
             'is_active' => true,
@@ -49,7 +61,7 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Jhon',
             'lastname'  => 'Doe1',
             'idrol'     => 2,
-            'email'     => 'admin1@gmail.com',
+            'email'     => 'admin2@gmail.com',
             'password'  => Hash::make('admin'),
             'dni'       => '16877350',
             'deparment' => 'Ventas',
@@ -122,17 +134,17 @@ class DatabaseSeeder extends Seeder
         /* Start Encuestas db seed */
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
-            'user_id' => 1,
+            'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'date' => '0000-00-00 00:00:00',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([

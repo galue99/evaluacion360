@@ -10,8 +10,8 @@ class Encuesta extends Model
 
     protected $fillable = ['date', 'persona_id'];
 
-    public function persona() {
-        return $this->belongsTo('App\Persona');
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 
     public function items()
