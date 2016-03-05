@@ -3,7 +3,7 @@ function Evaluadores(){
 
 	self.all = function(){
 		return $.ajax({
-			url: '/admin/user',
+			url: '/admin/users',
 			dataType: 'json',
 			method: 'GET',
 			contentType: "application/json"

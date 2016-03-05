@@ -56,15 +56,21 @@
 						    <tr>
 						      <th class="col-xs-2">Nombre Completo</th>
 						      <th class="col-xs-2">Email</th>
+						      <th class="col-xs-2">DNI</th>
+						      <th class="col-xs-2">Departamento</th>
+						      <th class="col-xs-2">Posicion</th>
 						      <th class="col-xs-2">Estatus</th>
 						      <th class="col-xs-2">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td></td>
-							    <td></td>
-							    <td></td>
+								<td data-bind="text: firstname + lastname"></td>
+							    <td data-bind="text: email"></td>
+							    <td data-bind="text: dni"></td>
+							    <td data-bind="text: deparment"></td>
+							    <td data-bind="text: position"></td>
+							    <td data-bind="text: is_active ? 'Activo' : 'Inactivo'"></td>
 							    <td>
 							    	<i class="fa fa-pencil fa-blue"></i>
 							    	<i class="fa fa-close fa-red"></i>
@@ -81,7 +87,4 @@
 		</div>
 	</div>
 </div>
-
-
-
 @stop
