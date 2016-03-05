@@ -45,7 +45,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+
+        $postData = Input::all();
+
+        $user->firstname = $request->input('firstname');
+        $user->lastname = $request->input('lastname');
+        $user->idrol = $request->input('idrol');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->dni = $request->input('dni');
+        $user->department = $request->input('department');
+        $user->position = $request->input('position');
+        $user->is_active = $request->input('is_active');
+
+        $user->save();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Save Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
