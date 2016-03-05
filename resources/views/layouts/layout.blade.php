@@ -14,6 +14,9 @@
         <link href="{{ asset("/assets/css/animate.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/sweetalert/dist/sweetalert.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/toastr/toastr.min.css")}}" rel="stylesheet" type="text/css" />
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
       <div class="wrapper">
@@ -108,6 +111,10 @@
 
       <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/sweetalert/dist/sweetalert.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/toastr/toastr.min.js") }}" type="text/javascript"></script>
+
+      
 
       <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
@@ -118,6 +125,7 @@
 
       <!-- Modelos Nockout -->
       <script src="{{ asset ("/knockout/models/evaluadores.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/miscelaneos.js") }}" type="text/javascript"></script>
 
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>

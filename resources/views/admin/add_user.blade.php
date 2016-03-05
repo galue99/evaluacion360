@@ -16,28 +16,58 @@
 				<div class="col-xs-12" data-bind="visible: showForm">
 					<form action="" class="form row" id="formEvaluadores">
 						<div class="col-xs-6 col-md-4 separate">
-					        <div class="form-group">
-				                <label class="label-control">Nombre Completo</label>
-				                <input type="text" name="firstname" class="form-control" data-bind="textInput: formData().fullname">
-					        </div>
+						    <div class="form-group">
+						        <label class="label-control">Nombre</label>
+						        <input type="text" name="firsname" class="form-control" data-bind="textInput: formData().firstname">
+						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
-					        <div class="form-group">
-				                <label class="label-control">Email</label>
-				                <input type="text" name="firstname" class="form-control" data-bind="textInput: formData().email">
-					        </div>
+						    <div class="form-group">
+						        <label class="label-control">Apellido</label>
+						        <input type="text" name="lastname" class="form-control" data-bind="textInput: formData().lastname">
+						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
-					        <div class="form-group">
-					        <label for="">Status</label>
-	                          <div class="col-sm-offset-2 col-sm-10">
-	                            <div class="checkbox">
-	                            	<label>
-	                                	<input type="checkbox"> Activo / Inactivo
-	                            	</label>
-	                            </div>
-	                          </div>
-	                        </div>
+						    <div class="form-group">
+						        <label class="label-control">cedula</label>
+						        <input type="number" name="dni" class="form-control" data-bind="textInput: formData().dni">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+						        <label class="label-control">Email</label>
+						        <input type="email" name="email" class="form-control" data-bind="textInput: formData().email">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+						        <label class="label-control">Departamento</label>
+						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().deparment">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+						        <label class="label-control">Posicion</label>
+						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().position">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+				            	<label class="label-control">Rol</label>    
+				                <select class="form-control" name="state" id="state" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', value: formData().idrol" ></select>
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+						    <label for="">Status</label>
+						      <div class="col-sm-offset-2 col-sm-10">
+						        <div class="checkbox">
+						        	<label>
+						            	<input type="checkbox" data-bind="textInput: formData().is_active"> Activo / Inactivo
+						        	</label>
+						        </div>
+						      </div>
+						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
 							<div class="form-group">
@@ -45,6 +75,8 @@
 								<button class="btn btn-danger" role="button" data-bind="click: toggleForm">Cancelar</button>
 							</div>
 						</div>
+
+
 					</form>
 				</div>
 				<!-- Form Evaluadores -->
