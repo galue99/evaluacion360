@@ -11,6 +11,7 @@
 			</div>
 			<div class="box-body">
 				<button class="btn btn-primary" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
+
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
 					<form action="" class="form row" id="formEvaluadores">
@@ -45,7 +46,8 @@
 							</div>
 						</div>
 					</form>
-				</div><!-- Form Evaluadores -->
+				</div>
+				<!-- Form Evaluadores -->
 				
 
 				<div class="table-responsive">
@@ -58,11 +60,11 @@
 						      <th class="col-xs-2">Acciones</th>
 						    </tr>
 						</thead>
-						<tbody>
+						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td>Data</td>
-							    <td>Data</td>
-							    <td>Data</td>
+								<td></td>
+							    <td></td>
+							    <td></td>
 							    <td>
 							    	<i class="fa fa-pencil fa-blue"></i>
 							    	<i class="fa fa-close fa-red"></i>

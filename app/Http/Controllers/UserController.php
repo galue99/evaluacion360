@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\User;
+use Validator;
+
 
 class UserController extends Controller
 {
@@ -16,7 +19,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = [];
+        $users = User::all();
         if ($this->isJSON($request)){
             return  $users;
         } else {
