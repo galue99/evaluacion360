@@ -23,12 +23,14 @@ class EncuestadoController extends Controller
         if(Auth::user()->is_active == 1){
             $id = Auth::user()->id;
             $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
-            //return View('encuestado.encuesta');
-            return ($encuestas);
+            if($encuestas == null){
+                return View('welcome');
+            }else{
+                return View('encuestado.encuesta');
+            }
         }else{
             return View('welcome');
         }
-
     }
 
     /**
