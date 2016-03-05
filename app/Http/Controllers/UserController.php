@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Response;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Validator;
 
 
@@ -55,7 +57,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = $request->input('password');
         $user->dni = $request->input('dni');
-        $user->department = $request->input('department');
+        $user->deparment = $request->input('deparment');
         $user->position = $request->input('position');
         $user->is_active = $request->input('is_active');
 
