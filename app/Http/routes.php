@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::Resource('/', 'EncuestaController');
     Route::Resource('/encuesta', 'EncuestaController');
     Route::Resource('/users', 'UserController');
+    Route::Resource('/roles', 'RolesController');
 
 });
 

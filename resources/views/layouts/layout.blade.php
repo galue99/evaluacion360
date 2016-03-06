@@ -14,6 +14,10 @@
         <link href="{{ asset("/assets/css/animate.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/sweetalert/dist/sweetalert.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/assets/css/switch_toggle.css")}}" rel="stylesheet" type="text/css" />
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
       <div class="wrapper">
@@ -72,7 +76,7 @@
                             <span>Usuarios</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/users">Evaluadores</a></li>
+                            <li><a href="/admin/users">Usuarios</a></li>
                         </ul>
                     </li>
                 @endif
@@ -108,13 +112,28 @@
 
       <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/sweetalert/dist/sweetalert.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/toastr/toastr.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/jquery-validation/dist/jquery.validate.js") }}" type="text/javascript"></script>
+
+      <!-- Validaciones de Formularios -->
+      <script src="{{ asset ("/validates/validate_user.js") }}" type="text/javascript"></script>
+
+      <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
+      
+      <!-- Appli Bindings -->
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
+
+      <!-- Modelos Nockout -->
+      <script src="{{ asset ("/knockout/models/evaluadores.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/miscelaneos.js") }}" type="text/javascript"></script>
+
+      <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/encuesta_view_model.js") }}" type="text/javascript"></script>
       
-      <script src="{{ asset ("/knockout/models/example.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/knockout/view_models/example_view_model.js") }}" type="text/javascript"></script>
+
     </body>
 </html>
