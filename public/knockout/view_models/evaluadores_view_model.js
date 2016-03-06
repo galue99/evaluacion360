@@ -6,7 +6,7 @@ function EvaluadoresViewModel(){
 	//arrays para datos
 	self.evaluadores = ko.observableArray();
 	self.roles = ko.observableArray();
-
+	self.selectedEvaluadores = ko.observable();
 	self.updateEvaluadores = ko.observable(false);
 
 	self.showForm = ko.observable(false);
@@ -44,14 +44,15 @@ function EvaluadoresViewModel(){
 	//para limpiar el formulario
 	self.clearForm = function(){
 		self.formData = ko.observable({
-		deparment: ko.observable(''),
-		dni: ko.observable(''),
-		email: ko.observable(''),
-		firstname: ko.observable(''),
-		idrol: ko.observable(''),
-		is_active: ko.observable(''),
-		lastname: ko.observable(''),
-		position: ko.observable('')
+			firstname: ko.observable(),
+			lastname: ko.observable(),
+			dni: ko.observable(),
+			email: ko.observable(),
+			deparment: ko.observable(),
+			position: ko.observable(),
+			idroluser: ko.observable(),
+			is_active: ko.observable(),
+			password: ko.observable()
 		});
 	}
 
@@ -75,7 +76,15 @@ function EvaluadoresViewModel(){
 
 
 	//buscamos el usuario para luego editarlo
-	
+	self.editEvaludores = function(data){
+		evaluador.find(data.id)
+		.done(function(response){
+			roles.all
+			self.updateEvaluadores(true);
+			self.toggleForm();
+			self.formData(response);
+		});
+	};
 
 	self.toggleForm = function(){
 		self.showForm(!self.showForm());

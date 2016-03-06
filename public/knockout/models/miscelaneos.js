@@ -1,6 +1,7 @@
 function Miscelaneos(){
 	var self = this;
 
+
 	self.allRoles = function(){
 		return $.ajax({
 			url: '/admin/roles',
@@ -9,4 +10,15 @@ function Miscelaneos(){
 			contentType: "application/json"
 		});
 	};
+
+	self.find = function(id){
+		return $.ajax({
+			url: '/admin/roles/'+ id,
+			dataType: 'json',
+			method: 'GET',
+		});
+	}
+
+
+
 }
