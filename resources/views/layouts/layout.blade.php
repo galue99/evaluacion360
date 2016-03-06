@@ -15,7 +15,7 @@
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/sweetalert/dist/sweetalert.css")}}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset("/bower_components/toastr/toastr.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -112,7 +112,7 @@
       <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/sweetalert/dist/sweetalert.min.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/bower_components/toastr/toastr.min.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/toastr/toastr.js") }}" type="text/javascript"></script>
 
       
 

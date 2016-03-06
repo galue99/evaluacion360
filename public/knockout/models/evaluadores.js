@@ -13,11 +13,11 @@ function Evaluadores(){
 	self.create = function(data){
 		return $.ajax({
 			url: '/admin/users',
-			data: data,
 			method: 'POST',
+			data: data,
 			dataType: 'json',
-			contentType: "application/json",
-			
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			contentType: "application/json"
 		});
 	};
 

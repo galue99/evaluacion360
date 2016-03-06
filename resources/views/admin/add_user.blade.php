@@ -41,20 +41,26 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
+						        <label class="label-control">Password</label>
+						        <input type="password" name="password" class="form-control" data-bind="textInput: formData().password">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
 						        <label class="label-control">Departamento</label>
-						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().deparment">
+						        <input type="text" name="deparment" class="form-control" data-bind="textInput: formData().deparment">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Posicion</label>
-						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().position">
+						        <input type="text" name="position" class="form-control" data-bind="textInput: formData().position">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 				            	<label class="label-control">Rol</label>    
-				                <select class="form-control" name="state" id="state" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', value: formData().idrol" ></select>
+				                <select class="form-control" name="idrol" id="state" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -63,7 +69,7 @@
 						      <div class="col-sm-offset-2 col-sm-10">
 						        <div class="checkbox">
 						        	<label>
-						            	<input type="checkbox" data-bind="textInput: formData().is_active"> Activo / Inactivo
+						            	<input type="checkbox" value="1" data-bind="checked: formData().is_active"> Activo / Inactivo
 						        	</label>
 						        </div>
 						      </div>
@@ -75,8 +81,6 @@
 								<button class="btn btn-danger" role="button" data-bind="click: toggleForm">Cancelar</button>
 							</div>
 						</div>
-
-
 					</form>
 				</div>
 				<!-- Form Evaluadores -->

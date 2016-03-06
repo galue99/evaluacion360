@@ -20,7 +20,8 @@ function EvaluadoresViewModel(){
 		deparment: ko.observable(),
 		position: ko.observable(),
 		idroluser: ko.observable(),
-		is_active: ko.observable()
+		is_active: ko.observable(),
+		password: ko.observable()
 	});
 
 
@@ -55,19 +56,19 @@ function EvaluadoresViewModel(){
 	}
 
 
-
+	//guardar el usuario
 	self.save = function(){
-		if (self.updateEvaluadores() == false){
-			console.log(self.formData());
-			evaluador.create(self.formData())
 
+		//chequeamos la variable para saber si es un update o un insert
+		if (self.updateEvaluadores() == false){
+			evaluador.create(self.formData())
 			.done(function(response){
 				self.toggleForm();
 				self.getEvaluadores();
-				toastr.succes('Usuario Creado con exito')
+				toastr.info('El usuario se ha guardado con exito');
 			})
 			.fail(function(response){
-				toastr.danger('ocurrio un error');
+				toastr.error('Ocurrio un error al intentar guardar el usuario');
 			});
 		}
 	};
