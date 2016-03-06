@@ -36,6 +36,7 @@ function Evaluadores(){
 			method: 'PUT',
 			data: data,
 			dataType: 'json',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			contentType: "application/json",
 		});
 	};
@@ -45,8 +46,8 @@ function Evaluadores(){
 			url: '/admin/users/'+id,
 			method: 'DELETE',
 			dataType: 'json',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			contentType: "application/json",
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	};
 

@@ -89,11 +89,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
 
-        //$postData = Input::all();
-
-        $user->save(Input::all());
     }
 
     /**
@@ -105,7 +101,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->firstname = $request->input('firstname');
+        $user->lastname  = $request->input('lastname');
+        $user->idrol     = $request->input('idrol');
+        $user->email     = $request->input('email');
+        $user->password  = Hash::make($request->input('password'));
+        $user->dni       = $request->input('dni');
+        $user->deparment = $request->input('deparment');
+        $user->position  = $request->input('position');
+        $user->is_active = $request->input('is_active');
+
+        $user->save();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Save Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -116,6 +131,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }
