@@ -32,7 +32,7 @@ function Evaluadores(){
 
 	self.update = function(id,data){
 		return $.ajax({
-			url: '/admin/users/'+ id,
+			url: '/admin/users/'+id,
 			method: 'PUT',
 			data: data,
 			dataType: 'json',

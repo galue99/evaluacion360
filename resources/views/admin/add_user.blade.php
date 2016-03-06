@@ -108,7 +108,7 @@
 							    <td data-bind="text: position"></td>
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'"></td>
 							    <td>
-							    	<i class="fa fa-pencil fa-blue" data-bind="click: $root.editEvaludores"></i>
+							    	<i class="fa fa-pencil fa-blue" data-bind="click: $root.editEvaluadores"></i>
 							    	<i class="fa fa-close fa-red"></i>
 							    </td>
 							</tr>
