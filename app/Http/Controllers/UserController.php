@@ -78,7 +78,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -89,7 +89,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        //$postData = Input::all();
+
+        $user->save(Input::all());
     }
 
     /**

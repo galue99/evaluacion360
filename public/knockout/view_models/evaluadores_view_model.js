@@ -19,7 +19,7 @@ function EvaluadoresViewModel(){
 		email: ko.observable(),
 		deparment: ko.observable(),
 		position: ko.observable(),
-		idroluser: ko.observable(),
+		idrol: ko.observable(),
 		is_active: ko.observable(),
 		password: ko.observable()
 	});
@@ -66,6 +66,7 @@ function EvaluadoresViewModel(){
 			.done(function(response){
 				self.toggleForm();
 				self.getEvaluadores();
+                self.clearForm();
 				toastr.info('El usuario se ha guardado con exito');
 			})
 			.fail(function(response){
