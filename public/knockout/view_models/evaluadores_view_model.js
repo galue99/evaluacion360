@@ -76,7 +76,6 @@ function EvaluadoresViewModel(){
 			//actualizando el usuario
 			evaluador.update(self.formData().id, self.formData())
 			.done(function(response){
-				console.log(response);
 				self.toggleForm();
 				self.getEvaluadores();
 				self.clearForm();
@@ -84,7 +83,7 @@ function EvaluadoresViewModel(){
 				toastr.info('El Usuario ha sido editado con exito');
 			})
 			.fail(function(response){
-				console.log(response);
+				toastr.error('Ha habido un error al actualizar el usuario');
 			});
 		};
 	};
