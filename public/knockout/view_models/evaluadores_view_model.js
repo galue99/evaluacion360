@@ -73,8 +73,10 @@ function EvaluadoresViewModel(){
 				toastr.error('Ocurrio un error al intentar guardar el usuario');
 			});
 		}else{
+			//actualizando el 
 			evaluador.update(self.formData().id, self.formData())
 			.done(function(response){
+				console.log(response);
 				self.toggleForm();
 				self.getEvaluadores();
 				self.clearForm();
@@ -92,7 +94,6 @@ function EvaluadoresViewModel(){
 	self.editEvaluadores = function(data){
 		evaluador.find(data.id)
 		.done(function(response){
-			roles.all
 			self.updateEvaluadores(true);
 			self.toggleForm();
 			self.formData(response);
