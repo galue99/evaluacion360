@@ -16,7 +16,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('items');
             $table->integer('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas');
+            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');;
             $table->timestamp('created_at');
         });
     }
