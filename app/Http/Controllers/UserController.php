@@ -49,16 +49,14 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $postData = Input::all();
-
         $user->firstname = $request->input('firstname');
-        $user->lastname = $request->input('lastname');
-        $user->idrol = $request->input('idrol');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->dni = $request->input('dni');
+        $user->lastname  = $request->input('lastname');
+        $user->idrol     = $request->input('idrol');
+        $user->email     = $request->input('email');
+        $user->password  = Hash::make($request->input('password'));
+        $user->dni       = $request->input('dni');
         $user->deparment = $request->input('deparment');
-        $user->position = $request->input('position');
+        $user->position  = $request->input('position');
         $user->is_active = $request->input('is_active');
 
         $user->save();

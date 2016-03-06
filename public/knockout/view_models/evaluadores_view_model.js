@@ -58,7 +58,7 @@ function EvaluadoresViewModel(){
 
 	self.save = function(){
 		if (self.updateEvaluadores() == false){
-			console.log(self.formData());
+
 			evaluador.create(self.formData())
 
 			.done(function(response){

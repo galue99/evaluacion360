@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-
 @section('content')
 <div class="row">
 	<div class="col-xs-11 pull-center" id="evaluadores">
@@ -18,7 +17,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
-						        <input type="text" name="firsname" class="form-control" data-bind="textInput: formData().firstname">
+						        <input type="text" name="firstname" class="form-control" data-bind="textInput: formData().firstname">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -29,7 +28,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">cedula</label>
+						        <label class="label-control">Cedula</label>
 						        <input type="number" name="dni" class="form-control" data-bind="textInput: formData().dni">
 						    </div>
 						</div>
@@ -42,46 +41,53 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Departamento</label>
-						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().deparment">
+						        <input type="text" name="department" class="form-control" data-bind="textInput: formData().deparment">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">Posicion</label>
-						        <input type="text" name="email" class="form-control" data-bind="textInput: formData().position">
+						        <label class="label-control">Cargo</label>
+						        <input type="text" name="position" class="form-control" data-bind="textInput: formData().position">
 						    </div>
 						</div>
-						<div class="col-xs-6 col-md-4 separate">
-						    <div class="form-group">
-				            	<label class="label-control">Rol</label>    
-				                <select class="form-control" name="state" id="state" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', value: formData().idrol" ></select>
-						    </div>
-						</div>
-						<div class="col-xs-6 col-md-4 separate">
-						    <div class="form-group">
-						    <label for="">Status</label>
-						      <div class="col-sm-offset-2 col-sm-10">
-						        <div class="checkbox">
-						        	<label>
-						            	<input type="checkbox" data-bind="textInput: formData().is_active"> Activo / Inactivo
-						        	</label>
-						        </div>
-						      </div>
-						    </div>
-						</div>
-						<div class="form-group col-xs-9 col-md-12 text-right">
-							<div class="form-group">
+						<div class="col-xs-6 col-md-4 separate">DNI</th>
+						      <th class="col-xs-2">Departamento</th>
+						      <th class="col-xs-2">Posicion</th>
+						      <th class="col-xs-2">Estatus</th>
+idrol	      <th class="col-xs-2">Acciones</th>
+						    </tr>
+						</thead>
+						<tbody data-bind="foreach: evaluadores">
+							<tr>
+								<td data-bind="text: firstname + lastname"></td>
+							    <td data-bind="text: email"></td>
+							    <td data-bind="text: dni"></td>
+							    <td data-bind="text: deparment"></td>
+							    <td data-bind="text: position"></td>
+							    <td data-bind="text: is_active ? 'Activo' : 'Inactivo'"></td>
+							    <td>
+			name="is_active" 				    	<i class="fa fa-pencil fa-blue"></i>
+							    	<i class="fa fa-close fa-red"></i>
+							    </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+			<div class="box-footer">
+
+			</div>
+		</div>
+	</div>
+</div>up">
 								<button class="btn btn-primary" data-bind="click: save">Guardar</button>
 								<button class="btn btn-danger" role="button" data-bind="click: toggleForm">Cancelar</button>
 							</div>
 						</div>
-
-
 					</form>
 				</div>
 				<!-- Form Evaluadores -->
-				
-
 				<div class="table-responsive">
 					<table id="" class="table table-bordered table-hover">
 						<thead>
@@ -97,7 +103,7 @@
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td data-bind="text: firstname + lastname"></td>
+								<td data-bind="text: firstname +' '+ lastname"></td>
 							    <td data-bind="text: email"></td>
 							    <td data-bind="text: dni"></td>
 							    <td data-bind="text: deparment"></td>
@@ -111,10 +117,8 @@
 						</tbody>
 					</table>					
 				</div>
-
 			</div>
 			<div class="box-footer">
-				
 			</div>
 		</div>
 	</div>

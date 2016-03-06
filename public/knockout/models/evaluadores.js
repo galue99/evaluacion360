@@ -17,7 +17,7 @@ function Evaluadores(){
 			method: 'POST',
 			dataType: 'json',
 			contentType: "application/json",
-			
+
 		});
 	};
 
