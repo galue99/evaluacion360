@@ -18,61 +18,56 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
-						        <input type="text" name="firstname" class="form-control" data-bind="textInput: formData().firstname">
+						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().firstname">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Apellido</label>
-						        <input type="text" name="lastname" class="form-control" data-bind="textInput: formData().lastname">
+						        <input type="text" name="lastname" id="lastname" class="form-control" data-bind="textInput: formData().lastname">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">cedula</label>
-						        <input type="number" name="dni" class="form-control" data-bind="textInput: formData().dni">
+						        <input type="number" name="dni" id="dni" class="form-control" data-bind="textInput: formData().dni">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Email</label>
-						        <input type="email" name="email" class="form-control" data-bind="textInput: formData().email">
+						        <input type="email" name="email" id="email" class="form-control" data-bind="textInput: formData().email">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Password</label>
-						        <input type="password" name="password" class="form-control" data-bind="textInput: formData().password">
+						        <input type="password" name="password" id="password" class="form-control" data-bind="textInput: formData().password">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Departamento</label>
-						        <input type="text" name="deparment" class="form-control" data-bind="textInput: formData().deparment">
+						        <input type="text" name="deparment" id="deparment" class="form-control" data-bind="textInput: formData().deparment">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Posicion</label>
-						        <input type="text" name="position" class="form-control" data-bind="textInput: formData().position">
+						        <input type="text" name="position" id="position" class="form-control" data-bind="textInput: formData().position">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 				            	<label class="label-control">Rol</label>    
-				                <select class="form-control" name="idrol" id="state" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
+				                <select class="form-control" name="idroluser" id="idroluser" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						    <label for="">Status</label>
-						      <div class="col-sm-offset-2 col-sm-10">
-						        <div class="checkbox">
-						        	<label>
-						            	<input type="checkbox" name="is_active" value="1" data-bind="checked: formData().is_active"> Activo / Inactivo
-						        	</label>
-						        </div>
-						      </div>
+						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
+                				<label for="status"></label>
 						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
