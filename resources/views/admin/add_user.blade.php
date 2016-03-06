@@ -18,7 +18,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
-						        <input type="text" name="firsname" class="form-control" data-bind="textInput: formData().firstname">
+						        <input type="text" name="firstname" class="form-control" data-bind="textInput: formData().firstname">
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -69,7 +69,7 @@
 						      <div class="col-sm-offset-2 col-sm-10">
 						        <div class="checkbox">
 						        	<label>
-						            	<input type="checkbox" value="1" data-bind="checked: formData().is_active"> Activo / Inactivo
+						            	<input type="checkbox" name="is_active" value="1" data-bind="checked: formData().is_active"> Activo / Inactivo
 						        	</label>
 						        </div>
 						      </div>
@@ -101,7 +101,7 @@
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td data-bind="text: firstname + lastname"></td>
+								<td data-bind="text: firstname + ' '+ lastname"></td>
 							    <td data-bind="text: email"></td>
 							    <td data-bind="text: dni"></td>
 							    <td data-bind="text: deparment"></td>

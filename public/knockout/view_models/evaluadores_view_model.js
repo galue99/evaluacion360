@@ -19,7 +19,7 @@ function EvaluadoresViewModel(){
 		email: ko.observable(),
 		deparment: ko.observable(),
 		position: ko.observable(),
-		idroluser: ko.observable(),
+		idrol: ko.observable(),
 		is_active: ko.observable(),
 		password: ko.observable()
 	});
