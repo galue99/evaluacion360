@@ -42,10 +42,11 @@ function Evaluadores(){
 
 	self.destroy = function(id){
 		return $.ajax({
-			url: '/admin/users/'+ id,
+			url: '/admin/users/'+id,
 			method: 'DELETE',
 			dataType: 'json',
 			contentType: "application/json",
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	};
 
