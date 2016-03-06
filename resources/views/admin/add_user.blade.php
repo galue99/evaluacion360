@@ -66,13 +66,8 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						    <label for="">Status</label>
-						      <div class="col-sm-offset-2 col-sm-10">
-						        <div class="checkbox">
-						        	<label>
-						            	<input type="checkbox" name="is_active" id="is_active" value="1" data-bind="checked: formData().is_active"> Activo / Inactivo
-						        	</label>
-						        </div>
-						      </div>
+						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
+                				<label for="status"></label>
 						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">

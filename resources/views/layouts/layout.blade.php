@@ -16,6 +16,7 @@
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/sweetalert/dist/sweetalert.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/assets/css/switch_toggle.css")}}" rel="stylesheet" type="text/css" />
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">

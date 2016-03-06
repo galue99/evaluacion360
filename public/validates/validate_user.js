@@ -62,6 +62,7 @@
             required: "El email es obligatorio",
             maxlength: "No debe pasar de 50 Caracteres",
             minlength: "Minimo de caractes 2",
+            email: "ingrese un email valido",
         },
         password:{
             required: "Campo contraseña es requerido",
