@@ -65,6 +65,7 @@ function EvaluadoresViewModel(){
 			.done(function(response){
 				self.toggleForm();
 				self.getEvaluadores();
+                self.clearForm();
 				toastr.info('El usuario se ha guardado con exito');
 			})
 			.fail(function(response){

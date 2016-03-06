@@ -106,7 +106,7 @@
 							    <td data-bind="text: dni"></td>
 							    <td data-bind="text: deparment"></td>
 							    <td data-bind="text: position"></td>
-							    <td data-bind="text: is_active ? 'Activo' : 'Inactivo'"></td>
+							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'"></td>
 							    <td>
 							    	<i class="fa fa-pencil fa-blue"></i>
 							    	<i class="fa fa-close fa-red"></i>
