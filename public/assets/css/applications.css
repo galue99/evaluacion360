@@ -25,3 +25,6 @@
 form#formPersonEval > .form-group .checkbox {
     padding-left: 20px;
 }
+.pointer{
+    cursor: pointer;
+}

@@ -101,6 +101,24 @@ function EvaluadoresViewModel(){
 		});
 	};
 
+	//Borrando Usuarios
+	self.removeEvaluadores = function(data){
+		swal({title: "¿Estas seguro?",
+			text: "que desea eliminar este usuario",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Eliminar",
+			closeOnConfirm: true },
+			function(){
+				evaluador.destroy(data.id)
+				.done(function(response){
+					toastr.info('Usuario removido con exito');
+					self.evaluadores.remove(data);
+				});
+			});
+	};
+
 	self.toggleForm = function(){
 		self.showForm(!self.showForm());
 	};
