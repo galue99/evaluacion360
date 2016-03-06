@@ -75,7 +75,7 @@
                             <span>Usuarios</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/users">Evaluadores</a></li>
+                            <li><a href="/admin/users">Usuarios</a></li>
                         </ul>
                     </li>
                 @endif
