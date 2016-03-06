@@ -26,5 +26,20 @@ form#formPersonEval > .form-group .checkbox {
     padding-left: 20px;
 }
 .pointer{
+    font-size: 1.2em;
     cursor: pointer;
+}
+.separate{
+    margin-bottom: 10px;
+}
+input + label.error,
+select + label.error{
+    color: #E05353;
+    font-size: .9em;
+    font-weight: 600;
+    margin-top: 5px;
+    position: absolute;
+}
+input[type="checkbox"] + label.error{
+    margin-top: 20px;
 }

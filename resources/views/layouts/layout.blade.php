@@ -113,8 +113,10 @@
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/sweetalert/dist/sweetalert.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/toastr/toastr.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/jquery-validation/dist/jquery.validate.js") }}" type="text/javascript"></script>
 
-      
+      <!-- Validaciones de Formularios -->
+      <script src="{{ asset ("/validates/validate_user.js") }}" type="text/javascript"></script>
 
       <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>

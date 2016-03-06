@@ -59,35 +59,37 @@ function EvaluadoresViewModel(){
 
 	//guardar el usuario
 	self.save = function(){
-
+		if ($('#formEvaluadores').valid()) {
 		//chequeamos la variable para saber si es un update o un insert
-		if (self.updateEvaluadores() == false){
-			evaluador.create(self.formData())
-			.done(function(response){
-				self.toggleForm();
-				self.getEvaluadores();
-                self.clearForm();
-				toastr.info('El usuario se ha guardado con exito');
-			})
-			.fail(function(response){
-				toastr.error('Ocurrio un error al intentar guardar el usuario');
-			});
-		}else{
+			if (self.updateEvaluadores() == false){
+				evaluador.create(self.formData())
+				.done(function(response){
+					self.toggleForm();
+					self.getEvaluadores();
+	                self.clearForm();
+					toastr.info('El usuario se ha guardado con exito');
+				})
+				.fail(function(response){
+					toastr.error('Ocurrio un error al intentar guardar el usuario');
+				});
+			}else{
 			//actualizando el usuario
-			evaluador.update(self.formData().id, self.formData())
-			.done(function(response){
-				self.toggleForm();
-				self.getEvaluadores();
-				self.clearForm();
-				self.updateEvaluadores(false);
-				toastr.info('El Usuario ha sido editado con exito');
-			})
-			.fail(function(response){
-				toastr.error('Ha habido un error al actualizar el usuario');
-			});
-		};
+				evaluador.update(self.formData().id, self.formData())
+				.done(function(response){
+					self.toggleForm();
+					self.getEvaluadores();
+					self.clearForm();
+					self.updateEvaluadores(false);
+					toastr.info('El Usuario ha sido editado con exito');
+				})
+				.fail(function(response){
+					toastr.error('Ha habido un error al actualizar el usuario');
+				});
+			};
+		}else{
+			toastr.warning('Debe completar todos los campos');
+		}
 	};
-
 
 
 	//buscamos el usuario para luego editarlo
