@@ -21,4 +21,32 @@ function Evaluadores(){
 		});
 	};
 
+	self.find = function(id){
+		return $.ajax({
+			url: '/admin/users/'+ id,
+			method: 'GET',
+			dataType: 'json',
+			contentType: "application/json",
+		});
+	};
+
+	self.update = function(id,data){
+		return $.ajax({
+			url: '/admin/users/'+ id,
+			method: 'PUT',
+			data: data,
+			dataType: 'json',
+			contentType: "application/json",
+		});
+	};
+
+	self.destroy = function(id){
+		return $.ajax({
+			url: '/admin/users/'+ id,
+			method: 'DELETE',
+			dataType: 'json',
+			contentType: "application/json",
+		});
+	};
+
 }

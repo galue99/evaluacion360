@@ -73,6 +73,10 @@ function EvaluadoresViewModel(){
 		}
 	};
 
+
+	//buscamos el usuario para luego editarlo
+	
+
 	self.toggleForm = function(){
 		self.showForm(!self.showForm());
 	};
