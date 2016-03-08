@@ -3,6 +3,7 @@ function testViewModel(){
 	var encuesta = new Test();
 
 	self.showForm = ko.observable(false);
+	self.Object1 = ko.observableArray();
 
 	console.log('este es el view model');
 
@@ -14,8 +15,7 @@ function testViewModel(){
 		encuesta.find()
 		.done(function(response){
 			Object.keys(response).forEach(function(items){
-				console.log(items, response[items]);
-
+				
 			});
 		});
 	};
