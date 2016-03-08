@@ -59,7 +59,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-				            	<label class="label-control">Rol</label>    
+				            	<label class="label-control">Rol</label>
 				                <select class="form-control" name="idroluser" id="idroluser" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
 						    </div>
 						</div>
