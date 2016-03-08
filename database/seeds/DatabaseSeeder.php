@@ -25,60 +25,76 @@ class DatabaseSeeder extends Seeder
             'name' => 'encuestado',
         ]);
 
-        DB::table('roluser')->insert([
-            'name' => 'encuestador',
+        /* End RolUser */
+
+        /* Start Relacion Evaluado */
+
+        DB::table('relacion_evaluado')->insert([
+            'name' => 'Auto-Evaluacion',
         ]);
 
-        /* End RolUser */
+        DB::table('relacion_evaluado')->insert([
+            'name' => 'Par',
+        ]);
+
+        DB::table('relacion_evaluado')->insert([
+            'name' => 'Jefe',
+        ]);
+
+        DB::table('relacion_evaluado')->insert([
+            'name' => 'Supervisado',
+        ]);
+
+        /* End Relacion Evaluado*/
 
 
         /* Star User */
         DB::table('users')->insert([
-            'firstname' => 'Jhon',
-            'lastname'  => 'Doe Doe',
-            'idrol'     => 1,
-            'email'     => 'admin@gmail.com',
-            'password'  => Hash::make('admin'),
-            'dni'       => '16877353',
-            'deparment' => 'Administrador',
-            'position'  => 'Administrador',
-            'is_active' => true,
+            'firstname'          => 'Jhon',
+            'lastname'           => 'Doe Doe',
+            'idrol'              => 1,
+            'email'              => 'admin@gmail.com',
+            'password'           => Hash::make('admin'),
+            'repassword'         => 'admin',
+            'dni'                => '16877353',
+            'position'           => 'Administrador',
+            'is_active'          => true,
         ]);
 
         DB::table('users')->insert([
-            'firstname' => 'Jhon',
-            'lastname'  => 'Doe Doe',
-            'idrol'     => 2,
-            'email'     => 'admin1@gmail.com',
-            'password'  => Hash::make('admin'),
-            'dni'       => '16817353',
-            'deparment' => 'Ventas',
-            'position'  => 'Vendedor',
-            'is_active' => true,
+            'firstname'          => 'Jhon',
+            'lastname'           => 'Doe Doe',
+            'idrol'              => 2,
+            'email'              => 'admin1@gmail.com',
+            'password'           => Hash::make('admin'),
+            'repassword'         => 'admin',
+            'dni'                => '16817353',
+            'position'           => 'Vendedor',
+            'is_active'          => true,
         ]);
 
         DB::table('users')->insert([
-            'firstname' => 'Jhon',
-            'lastname'  => 'Doe1',
-            'idrol'     => 2,
-            'email'     => 'admin2@gmail.com',
-            'password'  => Hash::make('admin'),
-            'dni'       => '16877350',
-            'deparment' => 'Ventas',
-            'position'  => 'Vendedor',
-            'is_active' => true,
+            'firstname'           => 'Jhon',
+            'lastname'            => 'Doe1',
+            'idrol'               => 2,
+            'email'               => 'admin2@gmail.com',
+            'password'            => Hash::make('admin'),
+            'repassword'         => 'admin',
+            'dni'                 => '16877350',
+            'position'            => 'Vendedor',
+            'is_active'           => true,
         ]);
 
         DB::table('users')->insert([
-            'firstname' => 'Jhon',
-            'lastname'  => 'Prueba',
-            'idrol'     => 3,
-            'email'     => 'admin3@gmail.com',
-            'password'  => Hash::make('admin'),
-            'dni'       => '16877354',
-            'deparment' => 'Ventas',
-            'position'  => 'Vendedor',
-            'is_active' => true,
+            'firstname'          => 'Jhon',
+            'lastname'           => 'Prueba',
+            'idrol'              => 2,
+            'email'              => 'admin3@gmail.com',
+            'password'           => Hash::make('admin'),
+            'repassword'         => 'admin',
+            'dni'                => '16877354',
+            'position'           => 'Vendedor',
+            'is_active'          => true,
         ]);
 
         /* End User */

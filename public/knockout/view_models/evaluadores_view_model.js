@@ -98,6 +98,7 @@ function EvaluadoresViewModel(){
 		.done(function(response){
 			self.updateEvaluadores(true);
 			self.toggleForm();
+			response.password = response.repassword;
 			self.formData(response);
 		});
 	};

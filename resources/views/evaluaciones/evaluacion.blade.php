@@ -96,7 +96,7 @@
 				<div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <td colspan="3" rowspan="2" class="text-center"><h2>Frases</h2></td>
+                            <td colspan="3" rowspan="2" class="text-center"><h2>Comportamiento</h2></td>
                             <td colspan="5" class="text-center"><h3>Escala de Evaluaciones</h3></td>
                         </tr>
                         <tr>
