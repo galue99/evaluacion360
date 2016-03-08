@@ -2,7 +2,7 @@
 @section('title','Nueva Encuestas')
 
 @section('content')
-<div class="row" id="NewTest">
+<!-- <div class="row" id="NewTest">
 	<div class="col-xs-10 pull-center animated" data-bind="visible: !showForm(), css: {fadeIn: !showForm()}">
 		<div class="box box-primary">
 			<div class="box-header with-border">
@@ -44,12 +44,12 @@
                  			</ul>
 	                 	</div>
 
-	                 	<dt class="attachment-heading text-left">Persona a evaluar.</dt>                 	
+	                 	<dt class="attachment-heading text-left">Persona a evaluar.</dt>
 	                 	<form action="" class="form" id="formPersonEval">
 	                 		<div class="form-group">
                  				<div class="checkbox">
                  					<label class="label-control">
-					                	<input type="checkbox"> Auto-Evaluacion 
+					                	<input type="checkbox"> Auto-Evaluacion
 					              	</label>
 					            </div>
 	                 		</div>
@@ -186,5 +186,46 @@
 			</div>
 		</div>
 	</div>
+</div> -->
+
+<div class="row" id="NewTest">
+<div class="col-xs-12 animated">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Nueva Encuesta</h3>
+			</div>
+			<div class="box-body">
+        <table>
+          <thead>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+			</div>
+			<div class="box-footer">
+				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
+				<button class="btn btn-primary pull-right">Siguiente</button>
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
 @stop
