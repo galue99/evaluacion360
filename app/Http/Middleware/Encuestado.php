@@ -27,10 +27,6 @@ class Encuestado
                 //return redirect()->to('responsable');
                 break;
 
-            case '3':
-                # Secretaria
-                return redirect()->to('evaluado');
-                break;
 
             default:
                 return redirect()->to('/');

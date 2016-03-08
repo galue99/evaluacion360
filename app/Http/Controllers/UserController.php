@@ -55,8 +55,8 @@ class UserController extends Controller
         $user->idrol     = $request->input('idrol');
         $user->email     = $request->input('email');
         $user->password  = Hash::make($request->input('password'));
+        $user->repassword = $request->input('password');
         $user->dni       = $request->input('dni');
-        $user->deparment = $request->input('deparment');
         $user->position  = $request->input('position');
         $user->is_active = $request->input('is_active');
 
@@ -111,8 +111,7 @@ class UserController extends Controller
             'idrol.required'      => 'Enter Rol',
             'email.required'      => 'Enter Email',
             'password.required'   => 'Enter Password',
-            'dni.required'        => 'Enter Dni',
-            'deparment.required' => 'Enter Department',
+            'dni.min'             => 'Min 3 Characters',
             'position.required'   => 'Enter Position',
             'is_active.required'  => 'Enter is Active',
         ];
@@ -123,8 +122,7 @@ class UserController extends Controller
             'idrol'       => 'required|string|min:1|max:2',
             'email'       => 'required|string|min:3|max:80',
             'password'    => 'required|string|min:3|max:30',
-            'dni'         => 'required|string|min:3|max:9',
-            'deparment'  => 'required|string|min:3|max:100',
+            'dni'         => 'string|min:3|max:9',
             'position'    => 'required|string|min:3|max:100',
             'is_active'   => 'required|string|max:10',
 
@@ -143,14 +141,14 @@ class UserController extends Controller
             ], 400);
         }
 
-        $user->firstname = $request->input('firstname');
-        $user->lastname  = $request->input('lastname');
-        $user->idrol     = $request->input('idrol');
-        $user->email     = $request->input('email');
-        $user->password  = Hash::make($request->input('password'));
-        $user->dni       = $request->input('dni');
-        $user->deparment = $request->input('deparment');
-        $user->position  = $request->input('position');
+        $user->firstname  = $request->input('firstname');
+        $user->lastname   = $request->input('lastname');
+        $user->idrol      = $request->input('idrol');
+        $user->email      = $request->input('email');
+        $user->password   = Hash::make($request->input('password'));
+        $user->repassword = $request->input('password');
+        $user->dni        = $request->input('dni');
+        $user->position   = $request->input('position');
         if($request->input('is_active') == 'true'){
             $user->is_active = 1;
         }else{

@@ -27,11 +27,6 @@ class Administrador
                 return redirect()->to('encuestado');
                 break;
 
-            case '3':
-                # Secretaria
-                return redirect()->to('evaluado');
-                break;
-
             default:
                 return redirect()->to('/');
                 break;

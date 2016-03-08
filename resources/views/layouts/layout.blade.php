@@ -64,11 +64,11 @@
                 @if(Auth::user()->idrol == 1)
                     <li class="treeview">
                         <a href="#"><i class="fa fa-file-text"></i>
-                            <span>Encuestas</span>
+                            <span>Evaluacion</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/encuesta">Encuestas</a></li>
-                            <li><a href="/admin/create">Nueva Encuesta</a></li>
+                            <li><a href="/admin/encuesta">Evaluaciones</a></li>
+                            <li><a href="/admin/create">Nueva Evaluación</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

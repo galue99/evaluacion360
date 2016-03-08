@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
                     break;
                 case '2':
                     # Encuestado
-                    return redirect()->to('encuestado');
+                    return redirect()->to('evaluaciones');
                     break;
                 case '3':
                     # Evaluado

@@ -26,7 +26,7 @@ class EncuestadoController extends Controller
             if($encuestas == null){
                 return View('welcome');
             }else{
-                return View('encuestado.encuesta');
+                return View('evaluaciones.evaluacion');
             }
         }else{
             return View('welcome');

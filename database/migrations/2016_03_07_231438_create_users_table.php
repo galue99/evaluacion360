@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->foreign('idrol')->references('idroluser')->on('roluser')->onUpdate('cascade');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->string('dni')->unique();
-            $table->string('deparment');
+            $table->string('repassword', 60)->nullable();
+            $table->string('dni')->nullable();
             $table->string('position');
             $table->boolean('is_active');
             $table->rememberToken();

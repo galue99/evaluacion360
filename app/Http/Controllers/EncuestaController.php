@@ -67,7 +67,7 @@ class EncuestaController extends Controller
                 'persona'   => $persona,
                 'items'     => $items,
                 'frases'    => $frases,
-                'encuestado' => $encuestado
+                'evaluaciones' => $encuestado
             ]
         ], 200);
     }
