@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {
 
     Route::Resource('/', 'EncuestadoController');
-    Route::Resource('/encuesta', 'EncuestadoController');
+    Route::Resource('/encuesta', 'EncuestaController');
 
 });
 
