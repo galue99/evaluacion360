@@ -22,7 +22,7 @@ class EncuestaController extends Controller
         // } else {
         //     return $this->show($id);
         // }
-        return View('admin.index');
+        return View('admin.evaluaciones');
 
     }
 
@@ -33,7 +33,7 @@ class EncuestaController extends Controller
      */
     public function create()
     {
-        return View('admin.index');
+        return View('admin.create');
     }
 
     /**
