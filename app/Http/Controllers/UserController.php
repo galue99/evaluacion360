@@ -103,6 +103,46 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
+        $postData = Input::all();
+
+        $messages = [
+            'firstname.required'  => 'Enter Firstname',
+            'lastname.required'   => 'Enter Lastname',
+            'idrol.required'      => 'Enter Rol',
+            'email.required'      => 'Enter Email',
+            'password.required'   => 'Enter Password',
+            'dni.required'        => 'Enter Dni',
+            'deparment.required' => 'Enter Department',
+            'position.required'   => 'Enter Position',
+            'is_active.required'  => 'Enter is Active',
+        ];
+
+        $rules = [
+            'firstname'   => 'required|string|min:3|max:30',
+            'lastname'    => 'required|string|min:3|max:30',
+            'idrol'       => 'required|string|min:1|max:2',
+            'email'       => 'required|string|min:3|max:80',
+            'password'    => 'required|string|min:3|max:30',
+            'dni'         => 'required|string|min:3|max:9',
+            'deparment'  => 'required|string|min:3|max:100',
+            'position'    => 'required|string|min:3|max:100',
+            'is_active'   => 'required|string|max:10',
+
+        ];
+
+        $validator = Validator::make($postData, $rules, $messages);
+
+        if ($validator->fails())
+        {
+            // send back to the page with the input data and errors
+            return Response::json([
+                'Error' => [
+                    'message'     => $validator->messages(),
+                    'status_code' => 400
+                ]
+            ], 400);
+        }
+
         $user->firstname = $request->input('firstname');
         $user->lastname  = $request->input('lastname');
         $user->idrol     = $request->input('idrol');
@@ -111,14 +151,19 @@ class UserController extends Controller
         $user->dni       = $request->input('dni');
         $user->deparment = $request->input('deparment');
         $user->position  = $request->input('position');
-        $user->is_active = $request->input('is_active');
+        if($request->input('is_active') == 'true'){
+            $user->is_active = 1;
+        }else{
+            $user->is_active = 0;
+        }
 
         $user->save();
 
         return Response::json([
             'Success' => [
                 'message'     => 'Record Save Exits',
-                'status_code' => 200
+                'status_code' => 200,
+                'is_active' => $request->input('is_active'),
             ]
         ], 200);
     }

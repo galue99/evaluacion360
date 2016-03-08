@@ -6,7 +6,7 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
-					Evaluadores
+					Usuarios
 				</h3>
 			</div>
 			<div class="box-body">
@@ -85,24 +85,24 @@
 					<table id="" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
-						      <th class="col-xs-2">Nombre Completo</th>
-						      <th class="col-xs-2">Email</th>
-						      <th class="col-xs-2">DNI</th>
-						      <th class="col-xs-2">Departamento</th>
-						      <th class="col-xs-2">Posicion</th>
-						      <th class="col-xs-2">Estatus</th>
-						      <th class="col-xs-2">Acciones</th>
+						      <th class="col-xs-2 text-center">Nombre Completo</th>
+						      <th class="col-xs-2 text-center">Email</th>
+						      <th class="col-xs-2 text-center">DNI</th>
+						      <th class="col-xs-2 text-center">Departamento</th>
+						      <th class="col-xs-2 text-center">Posicion</th>
+						      <th class="col-xs-2 text-center">Estatus</th>
+						      <th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td data-bind="text: firstname + ' '+ lastname"></td>
-							    <td data-bind="text: email"></td>
-							    <td data-bind="text: dni"></td>
-							    <td data-bind="text: deparment"></td>
-							    <td data-bind="text: position"></td>
-							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'"></td>
-							    <td>
+								<td data-bind="text: firstname + ' '+ lastname" class="text-center"></td>
+							    <td data-bind="text: email" class="text-center"></td>
+							    <td data-bind="text: dni" class="text-center"></td>
+							    <td data-bind="text: deparment" class="text-center"></td>
+							    <td data-bind="text: position" class="text-center"></td>
+							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
+							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
 							    </td>
