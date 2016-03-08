@@ -7,9 +7,9 @@
 			ko.applyBindings(new EvaluadoresViewModel(), document.getElementById("evaluadores"));
 		}
 
-		var NuevaEncuestas = document.getElementById("NuevaEncuestas")
+		var NuevaEncuestas = document.getElementById("NewTest")
 		if (NuevaEncuestas != null){
-			ko.applyBindings(new encuestaViewModel(), document.getElementById("NuevaEncuestas"));
+			ko.applyBindings(new testViewModel(), document.getElementById("NewTest"));
 		}
 
 		

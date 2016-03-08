@@ -2,7 +2,7 @@
 @section('title','Nueva Encuestas')
 
 @section('content')
-<div class="row" id="NuevaEncuestas">
+<div class="row" id="NewTest">
 	<div class="col-xs-10 pull-center animated" data-bind="visible: !showForm(), css: {fadeIn: !showForm()}">
 		<div class="box box-primary">
 			<div class="box-header with-border">

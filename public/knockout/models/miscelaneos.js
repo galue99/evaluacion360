@@ -7,7 +7,8 @@ function Miscelaneos(){
 			url: '/admin/roles',
 			dataType: 'json',
 			method: 'GET',
-			contentType: "application/json"
+			contentType: "application/json",
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	};
 
@@ -16,6 +17,8 @@ function Miscelaneos(){
 			url: '/admin/roles/'+ id,
 			dataType: 'json',
 			method: 'GET',
+			contentType: "application/json",
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	}
 
