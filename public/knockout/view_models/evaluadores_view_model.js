@@ -54,7 +54,8 @@ function EvaluadoresViewModel(){
 			is_active: ko.observable(),
 			password: ko.observable()
 		});
-	}
+		$('#formEvaluadores').validate().resetForm();
+	};
 
 
 	//guardar el usuario
