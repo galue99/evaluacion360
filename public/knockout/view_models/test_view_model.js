@@ -13,7 +13,10 @@ function testViewModel(){
 	self.findTest = function(){
 		encuesta.find()
 		.done(function(response){
-			console.log(response);
+			Object.keys(response).forEach(function(items){
+				console.log(items, response[items]);
+
+			});
 		});
 	};
 

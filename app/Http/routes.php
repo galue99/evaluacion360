@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], function () {
 
-    Route::Resource('/', 'EncuestaController');
+    Route::Resource('/', 'AdminController');
     Route::Resource('/encuesta', 'EncuestaController');
     Route::Resource('/users', 'UserController');
     Route::Resource('/roles', 'RolesController');
@@ -31,13 +31,8 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {
 
     Route::Resource('/', 'EncuestadoController');
-    Route::Resource('/encuesta', 'EncuestadoController');
+    Route::Resource('/encuesta', 'EncuestaController');
 
 });
 
-Route::group( ['middleware' => ['auth', 'evaluado'], 'prefix'=>'evaluado'], function() {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
 

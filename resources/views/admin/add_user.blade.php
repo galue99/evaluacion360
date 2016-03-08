@@ -29,7 +29,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">cedula</label>
+						        <label class="label-control">Nro. de Identificacion</label>
 						        <input type="number" name="dni" id="dni" class="form-control" data-bind="textInput: formData().dni">
 						    </div>
 						</div>
@@ -47,13 +47,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">Departamento</label>
-						        <input type="text" name="deparment" id="deparment" class="form-control" data-bind="textInput: formData().deparment">
-						    </div>
-						</div>
-						<div class="col-xs-6 col-md-4 separate">
-						    <div class="form-group">
-						        <label class="label-control">Posicion</label>
+						        <label class="label-control">Cargo</label>
 						        <input type="text" name="position" id="position" class="form-control" data-bind="textInput: formData().position">
 						    </div>
 						</div>
@@ -87,19 +81,17 @@
 						    <tr>
 						      <th class="col-xs-2 text-center">Nombre Completo</th>
 						      <th class="col-xs-2 text-center">Email</th>
-						      <th class="col-xs-2 text-center">DNI</th>
-						      <th class="col-xs-2 text-center">Departamento</th>
-						      <th class="col-xs-2 text-center">Posicion</th>
+						      <th class="col-xs-2 text-center">Nro. de Identificacion</th>
+						      <th class="col-xs-2 text-center">Cargo</th>
 						      <th class="col-xs-2 text-center">Estatus</th>
 						      <th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
 							<tr>
-								<td data-bind="text: firstname + ' '+ lastname" class="text-center"></td>
+								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
 							    <td data-bind="text: email" class="text-center"></td>
 							    <td data-bind="text: dni" class="text-center"></td>
-							    <td data-bind="text: deparment" class="text-center"></td>
 							    <td data-bind="text: position" class="text-center"></td>
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
