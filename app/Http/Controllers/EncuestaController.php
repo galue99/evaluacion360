@@ -55,7 +55,7 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
-        $encuesta    = Encuesta::with('user', 'frases', 'frases.items')->find($id);
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'encuestado')->find($id);
 
         return  Response::json($encuesta);
 //         $persona     = Encuesta::find($id)->user;

@@ -21,7 +21,6 @@
 	                 		<li>
 	                 			El objetivo es conocer lo que hace bien y lo que debe aprender cada supervisor, con la finalidad de tomar las acciones adecuadas de capacitación y desarrollo.
 	                 		</li>
-	                 	</div>
 	                 	<div class="attachment-text">
 	                 		<li>
 	                 			Agradecemos que tus respuestas sean lo más sinceras y cercanas a la realidad posible, ya que de esto depende que nuestros supervisores sean cada vez mejores.
@@ -192,35 +191,20 @@
 <div class="col-xs-12 animated">
 		<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 class="box-title">Nueva Encuesta</h3>
+				<h3 class="box-title" data-bind="text: $root.finish">Nueva Encuesta</h3>
+
 			</div>
 			<div class="box-body">
-        <table>
-          <thead>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <div >
+          <!-- ko if: $root.currentItem().frases.length > 0 -->
+          <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
+          <!-- /ko -->
+        </div>
 			</div>
 			<div class="box-footer">
 				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
-				<button class="btn btn-primary pull-right">Siguiente</button>
+				<button class="btn btn-primary pull-right" data-bind="click: next, visible: !finish()">Siguiente</button>
+        <button class="btn btn-primary pull-right" data-bind="click: next, visible: finish">Finalizar Encuesta</button>
 			</div>
 		</div>
 	</div>
