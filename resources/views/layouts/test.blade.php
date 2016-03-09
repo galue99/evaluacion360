@@ -18,16 +18,32 @@
         <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/assets/css/switch_toggle.css")}}" rel="stylesheet" type="text/css" />
     </head>
-    <body class="hold-transition login-page">
+    <body class="skin-blue sidebar-collapse">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a class="logo" href="/administrative">
+                <span class="logo-mini"><b>E</b>360</span>
+                <span class="logo-lg"><b>Evaluacion360</b></span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{ URL::to('/logout') }}">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="content-wrapper" style="background-color: #222d32">
+            <section class="content">
+                @yield('content')
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
 
-
-    
-    
-      @yield('content')
-
-
-
-
+    </div>
 
       <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
       <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>

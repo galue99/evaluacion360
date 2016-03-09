@@ -398,151 +398,151 @@ class DatabaseSeeder extends Seeder
         /* Start  Frases */
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Llega cinco (5) minutos antes de la hora de entrada',
             'item_id' => 1,
             'evaluacion_id' => 1,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Cumple con sus responsabilidades sin afectar los resultados de sus compañeros o el equipo.',
             'item_id' => 1,
             'evaluacion_id' => 2,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Toma en cuenta las necesidades y sentimientos de las personas de manera respetuosa y con un buen trato.',
             'item_id' => 1,
             'evaluacion_id' => 3,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Escucha las opiniones o sugerencias de los demás, mostrando respeto y agradecimiento.',
             'item_id' => 1,
             'evaluacion_id' => 4,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Motiva a su equipo, manteniendo una actitud positiva ante los cambios y nuevos retos.',
             'item_id' => 1,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Ayuda a sus compañeros, dando ideas para alcanzar la meta y mejorar el trabaj',
             'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Integra al empleado nuevo, mostrándole las instalaciones, 6 presentándolo a los demás, enseñándole cómo hacer el trabajo y haciéndolo sentir a gusto.',
             'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Es sincero (no dice mentiras) aunque no le convenga.',
             'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Reconoce cuando comete errores, ofreciendo disculpas.',
             'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Mantiene la confidencialidad, validando qué debe transmitir y qué no, evitando los chismes.',
             'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Sigue los lineamientos de la organización, de forma visible para los demás.',
             'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Es responsable y se comporta de acuerdo a los valores de la empresa.',
             'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Es respetuoso y amable con todas las personas.',
             'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Establece objetivos alcanzables y fáciles de medir, obteniendo los resultados esperados.',
             'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Fija prioridades, de acuerdo a su importancia.',
             'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Supera los obstáculos, de forma rápida y con entusiasmo.',
             'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
             'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
             'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Recibe las sugerencias de mejora, de buena manera.',
             'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Motiva al equipo a lograr los objetivos, con entusiasmo.',
             'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Presta atención a los detalles, tomando acción inmediata si se requiere.',
             'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Genera ideas de mejora y revisa si se pueden llevar a cabo.',
             'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Controla los niveles de calidad asegurándose que todos entienden las características del producto y del proceso.',
             'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Identifica fallas y las corrige, analizando las causas.',
             'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
-            'name' => str_random(100),
+            'name' => 'Propone acciones para aprovechar los recursos, con la persona adecuada.',
             'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
