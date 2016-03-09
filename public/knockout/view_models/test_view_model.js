@@ -20,7 +20,8 @@ function testViewModel(){
 		if (self.currentIndexFrase() == self.currentItem().frases.length  - 1 && !self.finish() ){
 			self.currentIndexFrase(0);
 			self.currentItem(self.items()[self.items.indexOf(self.currentItem()) + 1]);
-			self.finish( self.items.indexOf(self.currentItem()) == self.items().length - 1 )
+			self.finish( self.items.indexOf(self.currentItem()) == self.items().length - 1 );
+			
 		}else{
 			self.currentIndexFrase(self.currentIndexFrase() + 1);
 		}
