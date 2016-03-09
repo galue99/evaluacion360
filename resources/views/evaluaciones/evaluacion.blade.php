@@ -65,7 +65,7 @@
 			<div class="box-body">
                 <div class="attachment-block clearfix">
                     <div class="attachment-pushed">
-                        <h4 class="attachment-heading text-center"><strong>Categoria 1</strong></h4><br>
+                        <h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem() + 1"></span></strong></h4><br>
                         <table class="table">
                             <thead>
                                 <tr>
