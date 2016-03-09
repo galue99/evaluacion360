@@ -43,3 +43,6 @@ select + label.error{
 input[type="checkbox"] + label.error{
     margin-top: 20px;
 }
+#NewTest .box{
+    margin-top: 10%;
+}
