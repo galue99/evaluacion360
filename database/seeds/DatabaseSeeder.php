@@ -297,10 +297,10 @@ class DatabaseSeeder extends Seeder
             'encuesta_id' => 9,
         ]);
 
-        DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 1,
-        ]);
+//         DB::table('items')->insert([
+//             'items' => 8,
+//             'encuesta_id' => 1,
+//         ]);
 
         DB::table('items')->insert([
             'items' => 8,
@@ -342,10 +342,10 @@ class DatabaseSeeder extends Seeder
             'encuesta_id' => 9,
         ]);
 
-        DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 1,
-        ]);
+//         DB::table('items')->insert([
+//             'items' => 8,
+//             'encuesta_id' => 1,
+//         ]);
 
         DB::table('items')->insert([
             'items' => 8,
@@ -399,151 +399,151 @@ class DatabaseSeeder extends Seeder
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 1,
+            'item_id' => 1,
             'evaluacion_id' => 1,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 1,
+            'item_id' => 1,
             'evaluacion_id' => 2,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 1,
+            'item_id' => 1,
             'evaluacion_id' => 3,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 1,
+            'item_id' => 1,
             'evaluacion_id' => 4,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 1,
+            'item_id' => 1,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 2,
+            'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 2,
+            'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 2,
+            'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 2,
+            'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 2,
+            'item_id' => 2,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 3,
+            'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 3,
+            'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 3,
+            'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 3,
+            'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 3,
+            'item_id' => 3,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 4,
+            'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 4,
+            'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 4,
+            'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 4,
+            'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 4,
+            'item_id' => 4,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 5,
+            'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 5,
+            'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 5,
+            'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 5,
+            'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => str_random(100),
-            'items_id' => 5,
+            'item_id' => 5,
             'evaluacion_id' => 5,
         ]);
 
