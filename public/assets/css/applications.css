@@ -46,3 +46,13 @@ input[type="checkbox"] + label.error{
 #NewTest .box{
     margin-top: 10%;
 }
+#NewTest .box table tbody td:nth-child(1){
+    word-break: break-all;
+}
+#NewTest .box table tbody td:nth-child(2),
+#NewTest .box table tbody td:nth-child(3),
+#NewTest .box table tbody td:nth-child(4),
+#NewTest .box table tbody td:nth-child(5),
+#NewTest .box table tbody td:nth-child(6){
+    text-align: center;
+}
