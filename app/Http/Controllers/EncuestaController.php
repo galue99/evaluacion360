@@ -22,7 +22,7 @@ class EncuestaController extends Controller
         // } else {
         //     return $this->show($id);
         // }
-        return View('admin.index');
+        return View('admin.evaluaciones');
 
     }
 
@@ -33,7 +33,7 @@ class EncuestaController extends Controller
      */
     public function create()
     {
-        return View('admin.index');
+        return View('admin.create');
     }
 
     /**
@@ -55,21 +55,25 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
-        $encuesta    = Encuesta::find($id);
-        $persona     = Encuesta::find($id)->user;
-        $items       = Encuesta::find($id)->items;
-        $frases      = Encuesta::find($id)->frases;
-        $encuestado  = Encuesta::find($id)->encuestado;
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'encuestado')->find($id);
 
-        return Response::json([
-            'Success' => [
-                'admin'  => $encuesta,
-                'persona'   => $persona,
-                'items'     => $items,
-                'frases'    => $frases,
-                'evaluaciones' => $encuestado
-            ]
-        ], 200);
+        return  Response::json($encuesta);
+//         $persona     = Encuesta::find($id)->user;
+//         $items       = Encuesta::find($id)->items;
+//         $frases      = Encuesta::find($id)->frases;
+//         $encuestado  = Encuesta::find($id)->encuestado;
+
+
+
+//         return Response::json([
+//             'Success' => [
+//                 'admin'  => $encuesta,
+// //                 'persona'   => $persona,
+// //                 'items'     => $items,
+// //                 'frases'    => $frases,
+// //                 'evaluaciones' => $encuestado
+//             ]
+//         ], 200);
     }
 
     /**
