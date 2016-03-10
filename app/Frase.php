@@ -33,4 +33,8 @@ class Frase extends Model
     public function items() {
         return $this->belongsTo('App\Item');
     }
+
+    public function answers(){
+        return $this->hasMany('App\Answer');
+    }
 }

@@ -583,6 +583,429 @@ class DatabaseSeeder extends Seeder
 
         /* End Evaluadores */
 
+
+        /* Begind Answers */
+
+        /*frase 1 del item 1*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 1,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 1,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 1,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 1,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 1,
+        ]);
+
+        /*frase 2 del item 1*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 2,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 2,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 2,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 2,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 2,
+        ]);
+
+        /*frase 3 del item 1*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 3,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 3,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 3,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 3,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 3,
+        ]);
+
+        /*frase 4 del item 1*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 4,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 4,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 4,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 4,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 4,
+        ]);
+
+        /*frase 5 del item 1*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 5,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 5,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 5,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 5,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 5,
+        ]);
+
+
+        /*frase 1 del item 2*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 6,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 6,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 6,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 6,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 6,
+        ]);
+
+
+        /*frase 2 del item 2*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 7,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 7,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 7,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 7,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 7,
+        ]);
+
+
+        /*frase 3 del item 2*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 8,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 8,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 8,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 8,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 8,
+        ]);
+
+
+        /*frase 4 del item 2*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 9,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 9,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 9,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 9,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 9,
+        ]);
+
+
+        /*frase 5 del item 2*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 10,
+        ]);
+
+
+        /*frase 1 del item 3*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 11,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 11,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 11,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 11,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 11,
+        ]);
+
+
+        /*frase 2 del item 3*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 12,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 12,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 12,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 12,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 12,
+        ]);
+
+
+        /*frase 3 del item 3*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 13,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 13,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 13,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 13,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 13,
+        ]);
+
+
+        /*frase 4 del item 3*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 14,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 14,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 14,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 14,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 14,
+        ]);
+
+
+        /*frase 5 del item 3*/
+
+        DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frases_id' => 15,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frases_id' => 15,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frases_id' => 15,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frases_id' => 15,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frases_id' => 15,
+        ]);
+
+
+
+
+        
+
         Model::reguard();
     }
 }
