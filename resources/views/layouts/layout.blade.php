@@ -18,6 +18,10 @@
         <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/assets/css/switch_toggle.css")}}" rel="stylesheet" type="text/css" />
 
+
+
+
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
       <div class="wrapper">
@@ -122,7 +126,7 @@
       <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
-      
+
       <!-- Appli Bindings -->
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
 
@@ -134,7 +138,7 @@
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/test_view_model.js") }}" type="text/javascript"></script>
-      
+
 
     </body>
 </html>

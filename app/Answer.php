@@ -11,7 +11,7 @@ class Answer extends Model
    protected $fillable = ['name'];
 
 
-	public function items() {
+	public function frase() {
         return $this->belongsTo('App\Frase');
     }
 

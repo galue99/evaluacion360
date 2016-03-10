@@ -3,7 +3,6 @@ function testViewModel(){
 	var encuesta = new Test();
 
 	self.showForm = ko.observable(false);
-	self.Object1 = ko.observableArray();
 	self.items = ko.observableArray();
 	self.currentItem = ko.observable({frases: [{name: 'xx'}]});
 	self.currentIndexFrase = ko.observable(0);

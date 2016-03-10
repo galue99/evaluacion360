@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="row" id="NewTest">
-    <div class="col-xs-10 pull-center animated" data-bind="visible: !showForm(), css: {fadeIn: !showForm()}">
+    <div class="col-xs-12 col-md-10 pull-center animated" data-bind="visible: !showForm(), css: {fadeIn: !showForm()}">
         <div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Evaluacion 360</h3>
@@ -57,84 +57,34 @@
 
 
 
-	<div class="col-xs-10 pull-center animated" data-bind="visible: showForm, css: {fadeIn: showForm}">
+	<div class="col-xs-12 col-md-10 pull-center animated" data-bind="visible: showForm, css: {fadeIn: showForm}">
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">Gracias por estar aqui!</h3>
 			</div>
 			<div class="box-body">
-                <div class="attachment-block clearfix">
-                    <div class="attachment-pushed">
-                        <h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem() + 1"></span></strong></h4><br>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="col-xs-7 text-center">Pregunta</th>
-                                    <td>Nunca</td>
-                                    <td>Rara Vez</td>
-                                    <td>A veces</td>
-                                    <td>Casi Siempre</td>
-                                    <td>Siempre</td>
-                                </tr>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                    <!-- ko if: $root.currentItem().frases.length > 0 -->
-                                        <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
-                                    <!-- /ko -->
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                          <div class="radio">
-                                            <label>
-                                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                          <div class="radio">
-                                            <label>
-                                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                          <div class="radio">
-                                            <label>
-                                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                          <div class="radio">
-                                            <label>
-                                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                          <div class="radio">
-                                            <label>
-                                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                            </label>
-                                          </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-
+        <div class="attachment-block clearfix">
+          <div class="attachment-pushed">
+            <h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem() + 1"></span></strong></h4><br><div class="col-xs-12 col-sm-5">
+              <!-- ko if: $root.currentItem().frases.length > 0 -->
+                  <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
+              <!-- /ko -->
+              </div>
+              <div class="col-xs-12 col-sm-7" data-bind="foreach: $root.currentItem().frases[$root.currentIndexFrase()].answers">
+                <div class="col-xs-2 text-center">
+                  <div class="form-group">
+                    <div class="radio">
+                      <label class="label-control"><strong><span data-bind="text: name"></span></strong>
+                        <input type="radio" class="radioOptions" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                      </label>
                     </div>
-                </div>	
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+        </div>
 			</div>
 			<div class="box-footer">
 				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>

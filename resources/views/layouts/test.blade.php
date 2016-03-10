@@ -57,7 +57,7 @@
       <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
-      
+
       <!-- Appli Bindings -->
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
 

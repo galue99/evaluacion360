@@ -15,8 +15,8 @@ class CreateRespuestaParaFrasesTable extends Migration
         Schema::create('answers', function(Blueprint $table){
             $table->increments('idanswer');
             $table->string('name');
-            $table->integer('frases_id')->unsigned();
-            $table->foreign('frases_id')->references('id')->on('frases')->onDelete('cascade');
+            $table->integer('frase_id')->unsigned();
+            $table->foreign('frase_id')->references('id')->on('frases')->onDelete('cascade');
         });
     }
 

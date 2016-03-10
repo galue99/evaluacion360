@@ -590,135 +590,135 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 1,
+            'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 1,
+            'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 1,
+            'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 1,
+            'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 1,
+            'frase_id' => 1,
         ]);
 
         /*frase 2 del item 1*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 2,
+            'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 2,
+            'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 2,
+            'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 2,
+            'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 2,
+            'frase_id' => 2,
         ]);
 
         /*frase 3 del item 1*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 3,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 3,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 3,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 3,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 3,
+            'frase_id' => 3,
         ]);
 
         /*frase 4 del item 1*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 4,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 4,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 4,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 4,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 4,
+            'frase_id' => 4,
         ]);
 
         /*frase 5 del item 1*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 5,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 5,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 5,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 5,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 5,
+            'frase_id' => 5,
         ]);
 
 
@@ -726,27 +726,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 6,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 6,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 6,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 6,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 6,
+            'frase_id' => 6,
         ]);
 
 
@@ -754,27 +754,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 7,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 7,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 7,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 7,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 7,
+            'frase_id' => 7,
         ]);
 
 
@@ -782,27 +782,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 8,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 8,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 8,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 8,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 8,
+            'frase_id' => 8,
         ]);
 
 
@@ -810,27 +810,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 9,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 9,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 9,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 9,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 9,
+            'frase_id' => 9,
         ]);
 
 
@@ -838,27 +838,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 10,
+            'frase_id' => 10,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 10,
+            'frase_id' => 10,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 10,
+            'frase_id' => 10,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 10,
+            'frase_id' => 10,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 10,
+            'frase_id' => 10,
         ]);
 
 
@@ -866,27 +866,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 11,
+            'frase_id' => 11,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 11,
+            'frase_id' => 11,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 11,
+            'frase_id' => 11,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 11,
+            'frase_id' => 11,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 11,
+            'frase_id' => 11,
         ]);
 
 
@@ -894,27 +894,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 12,
+            'frase_id' => 12,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 12,
+            'frase_id' => 12,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 12,
+            'frase_id' => 12,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 12,
+            'frase_id' => 12,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 12,
+            'frase_id' => 12,
         ]);
 
 
@@ -922,27 +922,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 13,
+            'frase_id' => 13,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 13,
+            'frase_id' => 13,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 13,
+            'frase_id' => 13,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 13,
+            'frase_id' => 13,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 13,
+            'frase_id' => 13,
         ]);
 
 
@@ -950,27 +950,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 14,
+            'frase_id' => 14,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 14,
+            'frase_id' => 14,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 14,
+            'frase_id' => 14,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 14,
+            'frase_id' => 14,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 14,
+            'frase_id' => 14,
         ]);
 
 
@@ -978,27 +978,27 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frases_id' => 15,
+            'frase_id' => 15,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frases_id' => 15,
+            'frase_id' => 15,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frases_id' => 15,
+            'frase_id' => 15,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frases_id' => 15,
+            'frase_id' => 15,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frases_id' => 15,
+            'frase_id' => 15,
         ]);
 
 

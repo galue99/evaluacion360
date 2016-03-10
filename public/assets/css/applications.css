@@ -56,3 +56,12 @@ input[type="checkbox"] + label.error{
 #NewTest .box table tbody td:nth-child(6){
     text-align: center;
 }
+
+#NewTest .radio .radioOptions{
+  margin: 5px 0 0 -5px;
+}
+#NewTest .attachment-block{
+  padding-bottom: 30px; 
+}
+
+
