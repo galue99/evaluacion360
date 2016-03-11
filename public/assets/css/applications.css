@@ -63,5 +63,12 @@ input[type="checkbox"] + label.error{
 #NewTest .attachment-block{
   padding-bottom: 30px; 
 }
+#NewTest .checkbox label, .radio label{
+    padding-left: 10px;
+}
+#NewTest h5{
+    font-size: 1.3em;
+    padding-top: 15px;
+}
 
 

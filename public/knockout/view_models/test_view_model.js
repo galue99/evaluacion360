@@ -6,7 +6,14 @@ function testViewModel(){
 	self.items = ko.observableArray();
 	self.currentItem = ko.observable({frases: [{name: 'xx'}]});
 	self.currentIndexFrase = ko.observable(0);
+	
 	self.finish =  ko.observable(false);
+	
+	self.answersSelected = ko.observable();
+	self.allFrases = ko.observableArray();
+	self.formData = ko.observable({
+		answers: ko.observable()
+	});
 	
 
 
@@ -23,6 +30,8 @@ function testViewModel(){
 			
 		}else{
 			self.currentIndexFrase(self.currentIndexFrase() + 1);
+
+			console.log(self.currentItem().frases[self.currentIndexFrase() - 1].answers);
 		}
 	}
 
