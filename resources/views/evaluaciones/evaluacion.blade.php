@@ -34,7 +34,7 @@
 	                 	</div>
 	                 	<div class="attachment-text">
 	                 		<li>
-	                 			Si existiese alguna irregularidad o comportamiento inadecuado de un supervisor, como consecuencia de haber llenado este formulario,
+	                 			Si existiese alguna irregularidad o comportamiento inadecuado de un supervisor, como consecuencia de haber llenado este formulario, comunicarse a:
 	                 		</li>
 	                 	</div>
 	                 	<div class="attachment-text">
@@ -63,29 +63,27 @@
 				<h3 class="box-title">Gracias por estar aqui!</h3>
 			</div>
 			<div class="box-body">
-        <div class="attachment-block clearfix">
-          <div class="attachment-pushed">
-            <h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem() + 1"></span></strong></h4><br><div class="col-xs-12 col-sm-5">
-              <!-- ko if: $root.currentItem().frases.length > 0 -->
-                  <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
-              <!-- /ko -->
-              </div>
-              <div class="col-xs-12 col-sm-7" data-bind="foreach: $root.currentItem().frases[$root.currentIndexFrase()].answers">
-                <div class="col-xs-2 text-center">
-                  <div class="form-group">
-                    <div class="radio">
-                      <label class="label-control"><strong><span data-bind="text: name"></span></strong>
-                        <input type="radio" class="radioOptions" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-          </div>
-        </div>
+				<div class="attachment-block clearfix">
+					<div class="attachment-pushed">
+						<h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem()"></span></strong></h4><br><div class="col-xs-12 col-sm-5">
+						<!-- ko if: $root.currentItem().frases.length > 0 -->
+						<h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
+						<!-- /ko -->
+					</div>
+					<div class="col-xs-12 col-sm-7" data-bind="foreach: $root.currentItem().frases[$root.currentIndexFrase()].answers">
+						<div class="col-xs-2 text-center">
+							<div class="row form-group">
+								<div class="radio">
+									<label class="label-control"><strong><span data-bind="text: name"></span></strong>
+										<input type="radio" data-bind="textInput: $root.formData().answers, value: $root.currentItem().frases[$root.currentIndexFrase()].id">
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
 			<div class="box-footer">
 				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
 				<button class="btn btn-primary pull-right" data-bind="click: next, visible: !finish()">Siguiente</button>
@@ -94,28 +92,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- <div class="row" id="NewTest">
-<div class="col-xs-10 pull-center animated">
-		<div class="box box-primary">
-			<div class="box-header with-border">
-				<h3 class="box-title" data-bind="text: $root.finish">Nueva Encuesta</h3>
-			</div>
-			<div class="box-body">
-        <div > -->
-          <!-- ko if: $root.currentItem().frases.length > 0 -->
-          <!-- <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5> -->
-          <!-- /ko -->
-        <!-- </div>
-			</div>
-			<div class="box-footer">
-				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
-				<button class="btn btn-primary pull-right" data-bind="click: next, visible: !finish()">Siguiente</button>
-        <button class="btn btn-primary pull-right" data-bind="click: next, visible: finish">Finalizar Encuesta</button>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 
 
