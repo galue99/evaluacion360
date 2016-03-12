@@ -8,6 +8,8 @@ function testViewModel(){
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
 	self.finish =  ko.observable(false);
+  self.cntFrases = ko.observable();
+  self.lastFrase = ko.observable();
 	self.formData = ko.observable({
 		answers: ko.observableArray()
 	});
@@ -40,13 +42,30 @@ function testViewModel(){
 	    	//cambiamos de items para imprimir las frases del nuevo item
 	    	self.currentItem(self.items()[self.items.indexOf(self.currentItem()) + 1]);
 	    	//revisamos si hay mas frases de lo contrario finish pasa a true
-	    	self.finish( self.items.indexOf(self.currentItem()) == self.items().length - 1 );
-	    	// console.log(self.finish());
+        self.finish( self.items.indexOf(self.currentItem()) == self.items().length - 1 );
+ 	    	console.log(self.finish());
+
 	    }else{
-	    	//Hacemos push de la respuesta al formData
+
+         //comparamos que sea la ultima frase del ultimo item para terminar la encuesta
+        if( (self.finish() == true) && (self.cntFrases() == self.lastFrase() ) ){
+
+          console.log('encuesta terminada');
+
+        }
+        //Hacemos push de la respuesta al formData
 	    	setAnswer();
 	    	//Cambiamos de pregunta
 	    	self.currentIndexFrase(self.currentIndexFrase() + 1);
+        
+        
+        //para validacion
+        self.lastFrase(self.currentIndexFrase() + 1);
+        self.cntFrases(self.currentItem().frases.length);
+
+        console.log(self.lastFrase());
+        console.log(self.cntFrases());
+
 	    }
 	    //para probar que se esten agregando todas las respuestas
 	    console.log(self.formData().answers());
