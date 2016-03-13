@@ -87,9 +87,8 @@
         </div>
 			</div>
 			<div class="box-footer">
-				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
-				<button class="btn btn-primary pull-right" data-bind="click: next, visible: !finish()">Siguiente</button>
-                <button class="btn btn-primary pull-right" data-bind="click: next, visible: finish">Finalizar Encuesta</button>
+                <button class="btn btn-primary pull-right" data-bind="click: next, visible: !finishTest()">Siguiente</button>
+                <button class="btn btn-primary pull-right" data-bind="click: next, visible: finishTest">Finalizar Encuesta</button>
 			</div>
 		</div>
 	</div>
