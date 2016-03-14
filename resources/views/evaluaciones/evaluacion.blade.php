@@ -64,7 +64,7 @@
 			</div>
 			<div class="box-body">
         <div class="attachment-block clearfix">
-          <div class="attachment-pushed">
+          <div class="attachment-pushed" data-bind="visible: !$root.finish()">
             <h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem()"></span></strong></h4><br><div class="col-xs-12 col-sm-5">
               <!-- ko if: $root.currentItem().frases.length > 0 -->
                   <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
@@ -87,34 +87,32 @@
         </div>
 			</div>
 			<div class="box-footer">
-                <button class="btn btn-primary pull-right" data-bind="click: next, visible: !finishTest()">Siguiente</button>
-                <button class="btn btn-primary pull-right" data-bind="click: next, visible: finishTest">Finalizar Encuesta</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- <div class="row" id="NewTest">
-<div class="col-xs-10 pull-center animated">
-		<div class="box box-primary">
-			<div class="box-header with-border">
-				<h3 class="box-title" data-bind="text: $root.finish">Nueva Encuesta</h3>
-			</div>
-			<div class="box-body">
-        <div > -->
-          <!-- ko if: $root.currentItem().frases.length > 0 -->
-          <!-- <h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5> -->
-          <!-- /ko -->
-        <!-- </div>
-			</div>
-			<div class="box-footer">
 				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
-				<button class="btn btn-primary pull-right" data-bind="click: next, visible: !finish()">Siguiente</button>
-        <button class="btn btn-primary pull-right" data-bind="click: next, visible: finish">Finalizar Encuesta</button>
+				<button class="btn btn-primary pull-right" data-bind="click: setAnswer, text: $root.finish() ? 'Finalizar Encuesta' : 'Siguiente'"></button>
 			</div>
 		</div>
 	</div>
-</div> -->
+  <div class="modal" id="modal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Default Modal</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+</div>
 
 
 

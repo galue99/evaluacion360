@@ -7,10 +7,9 @@ function testViewModel(){
 	self.currentItem = ko.observable({frases: [{name: '  '}]});
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
-	self.finishItems =  ko.observable(false);
-	self.finishTest =  ko.observable(false);
-  	self.cntFrases = ko.observable();
-  	self.lastFrase = ko.observable();
+	self.finish =  ko.observable(false);
+  self.cntFrases = ko.observable();
+  self.lastFrase = ko.observable();
 	self.formData = ko.observable({
 		answers: ko.observableArray()
 	});
@@ -19,12 +18,32 @@ function testViewModel(){
 		self.showForm(!self.showForm())
 	};
 
+    self.setAnswer = function(){
+      if(self.finish()){
+        swal({
+          title: "Ya casi terminamos",
+          text: "solo necesitamos una ultima cosa para culminar",
+          type: "success",
+//           showCancelButton: true,
+          confirmButtonColor: "#A5DC86",
+          confirmButtonText: "Continuar",
+          closeOnConfirm: true },
+             function(){
+              $('#modal1').modal('show');
+          //mostrar modal
+        });
+      }else{
+        self.next();
+      }
+    }
+
+
 	//funcion para cambiar la pregunta
-	self.next = function() {
-		if (self.currentAnswer() == null) {
-			alert('seleccione una respuesta');
-			return;
-		}
+	  self.next = function() {
+      if (self.currentAnswer() == null) {
+        alert('seleccione una respuesta');
+        return;
+      }
 		// cambiamos el push a una variable
 		var setAnswer =  function(){
 			self.formData().answers.push({
@@ -34,52 +53,39 @@ function testViewModel(){
     		//seteo la frase seleccionada a null
     		self.currentAnswer(null);
     	}
-    	if (self.currentIndexFrase() == self.currentItem().frases.length  - 1 && !self.finishItems() ){
+    	if (self.currentIndexFrase() == self.currentItem().frases.length  - 1 && !self.finish() ){
 	    	//console.log(self.items()[self.items.indexOf(self.currentItem()) + 1] );
 	    	//anadimos la respuesta de la frase anterior al observable formData
 	    	setAnswer();
-	    	//Seteamos el item al primero
-	    	self.currentIndexFrase(0);
 
-    		//cambiamos de items para imprimir las frases del nuevo item
-    		self.currentItem(self.items()[self.items.indexOf(self.currentItem()) + 1]);
-	    	
+        //cambiamos de items para imprimir las frases del nuevo item
+        if (self.items.indexOf(self.currentItem()) == self.items().length - 1){
+            if ( self.currentItem().frases.length - 1 == self.currentIndexFrase() ){
+              self.finish(true);
+            }
+        }
 
-	    	//revisamos si hay mas frases de lo contrario finishItems pasa a true
-        	self.finishItems( self.items.indexOf(self.currentItem()) == self.items().length - 1 );
- 	    	console.log(self.finishItems());
+        if (!self.finish()) {
+          //Seteamos el item al primero
+	    	  self.currentIndexFrase(0);
+           //cambiar item
+          self.currentItem(self.items()[self.items.indexOf(self.currentItem()) + 1]);
+        }
+
+ 	    	console.log(self.finish());
 
 	    }else{
 
-	        //Hacemos push de la respuesta al formData
+        //Hacemos push de la respuesta al formData
 	    	setAnswer();
+	    	//Cambiamos de pregunta
+	    	self.currentIndexFrase(self.currentIndexFrase() + 1);
 
-    		//Cambiamos de pregunta
-    		if (self.finishTest() == true){
-    			//Necesito que termine la puta encuesta guardando y finalizando
-	        	setAnswer() && alert('encuesta finalizada');
-	        	
-	        	return;
-	        }else{
-	        	self.currentIndexFrase(self.currentIndexFrase() + 1);	
-	        }
-			
-			
-	        //para validacion
-	        self.lastFrase(self.currentIndexFrase());
-	        self.cntFrases(self.currentItem().frases.length);
-
-	        console.log(self.lastFrase());
-	        console.log(self.cntFrases());
-
-	        if((self.finishItems() == true ) && (self.cntFrases() == (self.lastFrase() + 1)) ){ 
-	        	self.finishTest(true);
-	        	console.log('ultima pregunta');
-	        }
 	    }
 	    //para probar que se esten agregando todas las respuestas
 	    console.log(self.formData().answers());
 	}
+
 
 
 	//funcion para abrir la encuesta
