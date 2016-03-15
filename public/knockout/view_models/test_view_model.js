@@ -8,9 +8,13 @@ function testViewModel(){
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
 	self.finish =  ko.observable(false);
-  self.cntFrases = ko.observable();
-  self.lastFrase = ko.observable();
+  	self.cntFrases = ko.observable();
+  	self.lastFrase = ko.observable();
 	self.formData = ko.observable({
+		oneStrength: ko.observable(),
+		oneWeakness: ko.observable(),
+		congratulate: ko.observable(),
+		toThank: ko.observable(),
 		answers: ko.observableArray()
 	});
 
@@ -24,7 +28,6 @@ function testViewModel(){
           title: "Ya casi terminamos",
           text: "solo necesitamos una ultima cosa para culminar",
           type: "success",
-//           showCancelButton: true,
           confirmButtonColor: "#A5DC86",
           confirmButtonText: "Continuar",
           closeOnConfirm: true },
@@ -41,7 +44,14 @@ function testViewModel(){
 	//funcion para cambiar la pregunta
 	  self.next = function() {
       if (self.currentAnswer() == null) {
-        alert('seleccione una respuesta');
+        swal({
+        	title: "Un momento",   
+        	text: "Sebes seleccionar al menos una respuesta",   
+        	type: "warning",   
+        	confirmButtonColor: "#DD6B55",   
+        	confirmButtonText: "Ok",   
+        	closeOnConfirm: true
+        });
         return;
       }
 		// cambiamos el push a una variable
@@ -86,7 +96,19 @@ function testViewModel(){
 	    console.log(self.formData().answers());
 	}
 
-
+	self.setAnswerPartTwo = function(){
+		swal({
+          title: "Hemos terminado",
+          text: "Gracias por estar aqui y dedicarnos un poco de tu valioso tiempo.",
+          type: "success",
+          confirmButtonColor: "#A5DC86",
+          confirmButtonText: "Finalizar",
+          closeOnConfirm: true },
+             function(){
+             	window.location.href = "/logout";
+             	return;
+        });
+	};
 
 	//funcion para abrir la encuesta
 	self.findTest = function(){
