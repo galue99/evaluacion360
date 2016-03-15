@@ -97,6 +97,7 @@ function testViewModel(){
 	}
 
 	self.setAnswerPartTwo = function(){
+		$('#modal1').modal('hide');
 		swal({
           title: "Hemos terminado",
           text: "Gracias por estar aqui y dedicarnos un poco de tu valioso tiempo.",
