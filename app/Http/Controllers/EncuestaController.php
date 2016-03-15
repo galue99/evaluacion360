@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 
 class EncuestaController extends Controller
@@ -55,8 +57,10 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+        //$encuestas = DB::table('encuestas')->where('user_id', '=', 3)->where('is_active', '=', 1)->get();
+        //return $encuestas->id;
         $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id);
-
         return  Response::json($encuesta);
 //         $persona     = Encuesta::find($id)->user;
 //         $items       = Encuesta::find($id)->items;

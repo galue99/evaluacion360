@@ -1,5 +1,5 @@
 @extends('layouts.test')
-@section('title','Nueva Encuestas')
+@section('title','Nueva Evaluacion')
 
 @section('content')
 <div class="row" id="NewTest">
