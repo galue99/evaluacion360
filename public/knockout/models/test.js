@@ -6,7 +6,7 @@ function Test(){
 
 	self.find = function(id){
 		return $.ajax({
-			url: '/encuestado/encuesta/'+ 1,
+			url: '/encuestado/encuesta/'+ id,
 			dataType: 'json',
 			method: 'GET',
 			contentType: 'application/json',

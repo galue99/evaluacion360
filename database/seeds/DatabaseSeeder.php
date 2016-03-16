@@ -209,17 +209,17 @@ class DatabaseSeeder extends Seeder
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 1,
+            'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 1,
+            'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 1,
+            'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
@@ -349,17 +349,17 @@ class DatabaseSeeder extends Seeder
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 2,
+            'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 3,
+            'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
             'items' => 8,
-            'encuesta_id' => 4,
+            'encuesta_id' => 8,
         ]);
 
         /* End items db seed */

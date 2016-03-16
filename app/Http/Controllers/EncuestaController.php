@@ -44,6 +44,7 @@ class EncuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -58,26 +59,11 @@ class EncuestaController extends Controller
     public function show($id)
     {
         $id = Auth::user()->id;
-        //$encuestas = DB::table('encuestas')->where('user_id', '=', 3)->where('is_active', '=', 1)->get();
-        //return $encuestas->id;
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id);
+        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
+        $id_encuesta = $encuestas[0]->id;
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
+
         return  Response::json($encuesta);
-//         $persona     = Encuesta::find($id)->user;
-//         $items       = Encuesta::find($id)->items;
-//         $frases      = Encuesta::find($id)->frases;
-//         $encuestado  = Encuesta::find($id)->encuestado;
-
-
-
-//         return Response::json([
-//             'Success' => [
-//                 'admin'  => $encuesta,
-// //                 'persona'   => $persona,
-// //                 'items'     => $items,
-// //                 'frases'    => $frases,
-// //                 'evaluaciones' => $encuestado
-//             ]
-//         ], 200);
     }
 
     /**
