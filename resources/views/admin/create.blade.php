@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-11 pull-center" id="evaluadores">
+        <div class="col-xs-11 pull-center" id="adminTest">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">
@@ -10,33 +10,38 @@
                     </h3>
                 </div>
                 <div class="box-body">
-                    <div class="row">
-
-                    </div>
-                    <div class="col-xs-12">
-                        <form action="" class="form row" id="formEvaluadores">
-                            <div class="col-xs-6 col-md-4 separate">
-                                <div class="form-group">
-                                    <label class="label-control">Agregar Items</label><br>
-                                    <button>Agregar Items</button>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-4 separate">
-                                <div class="form-group">
-                                    <label class="label-control">Agregar Comportamiento</label><br>
-                                    <button>Agregar Comportamiento</button>
-                                </div>
-                            </div>
-                            <div class="form-group col-xs-9 col-md-12 text-right">
-                                <div class="form-group">
-                                    <button class="btn btn-primary" data-bind="click: save">Guardar</button>
-                                    <button class="btn btn-danger" role="button" data-bind="click: toggleForm">Cancelar</button>
-                                </div>
+                     <div id="menutab">
+                        <form id="createMForm">
+                            <input type="button" id="createmenu" value="Add menu" data-bind="click: addCourse"/>
+                            <div class="menu">
+                                <table data-bind="foreach: cources" class="ui-widget ui-widget-content" >
+                                    <tr>
+                                        <td>
+                                            <label for="CourseName">CourseName</label>
+                                        </td>
+                                        <td>
+                                            <input type="text"  data-bind="value: textValue, valueUpdate:'keyup'" class="CreateCourseName" name="CourseName" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </form>
                     </div>
-                    <!-- Form Evaluadores -->
-
+                    <div id="courseoptiontab">
+                        <form id="createCOForm">
+                            <div class="options">
+                                <table data-bind="foreach: cources" class="ui-widget ui-widget-content">
+                                    <tr>
+                                        <td>
+                                            <label class="colabel">Course Name 
+                                                <span class="forcourse" data-bind="text: textValue"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                              </table>
+                           </div>
+                        </form>
+                    <div>
                 </div>
                 <div class="box-footer">
 
