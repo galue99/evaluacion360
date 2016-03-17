@@ -12,6 +12,11 @@
 			ko.applyBindings(new testViewModel(), document.getElementById("NewTest"));
 		}
 
-		
+    var crudTest = document.getElementById("crudTest")
+		if (crudTest != null){
+			ko.applyBindings(new AdminTestViewModel(), document.getElementById("crudTest"));
+		}
+
+
 	});
 })();

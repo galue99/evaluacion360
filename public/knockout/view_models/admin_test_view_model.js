@@ -1,22 +1,44 @@
-function AdminTest(){
- var self = this;
- self.textValue = ko.observable(''); 
+function AdminTestViewModel(){
+  var self = this;
+  var itemId = 0;
+  var fraseId = 1;
+  var answerId = 1;
 
-function CourseViewModel(){
-   
-}
 
-function CeremonyViewModel() {
-    var self = this;
-    
-    self.cources = ko.observableArray([new CourseViewModel()]);
-    
-    self.addCourse = function(){
-        self.cources.push(new CourseViewModel());
-    };
-}
+  self.formData = ko.observable({
+    name: ko.observable(),
+    items: ko.observableArray()
+  });
+  self.items = ko.observableArray([
 
-ko.applyBindings(new CeremonyViewModel());
+  ]);
+
+  self.addItems = function(){
+    itemId++;
+    self.formData().items.push(
+      {items: itemId, frases:ko.observableArray()}
+    );
+    console.log(self.formData().items());
+  };
+
+  self.addFrase = function(data){
+    fraseId++;
+    data.frases.push({
+    id: fraseId, name: ko.observable(), answers: ko.observableArray()
+    });
+  };
+
+  self.addAnswers = function(data){
+    answerId++;
+    data.answers.push({
+      name: ko.observable(),
+    })
+
+  }
+
+
+
+
 
 
 };

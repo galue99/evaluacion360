@@ -147,6 +147,7 @@
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/test_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/admin_test_view_model.js") }}" type="text/javascript"></script>
 
 
     </body>
