@@ -8,8 +8,8 @@ function testViewModel(){
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
 	self.finish =  ko.observable(false);
-  	self.cntFrases = ko.observable();
-  	self.lastFrase = ko.observable();
+  self.cntFrases = ko.observable();
+  self.lastFrase = ko.observable();
 	self.formData = ko.observable({
 		oneStrength: ko.observable(),
 		oneWeakness: ko.observable(),
@@ -18,9 +18,22 @@ function testViewModel(){
 		answers: ko.observableArray()
 	});
 
-	self.toggleEncuesta = function(){
-		self.showForm(!self.showForm())
-	};
+    self.toggleEncuesta = function(){
+    	self.showForm(!self.showForm())
+    };
+
+    self.saveTest = function(data){
+      encuesta.create(self.formData())
+      .done(function(response){
+        toastr.success('La encuesta ha sido enviada con exito');
+        setTimeout(function(){
+          window.location.href = "/logout";
+        }, 3000);
+      })
+      .fail(function(response){
+        toastr.error('Ocurrio un erro al enviar los datos');
+      });
+    };
 
     self.setAnswer = function(){
       if(self.finish()){
@@ -82,7 +95,7 @@ function testViewModel(){
           self.currentItem(self.items()[self.items.indexOf(self.currentItem()) + 1]);
         }
 
- 	    	console.log(self.finish());
+ 	    	// console.log(self.finish());
 
 	    }else{
 
@@ -93,7 +106,7 @@ function testViewModel(){
 
 	    }
 	    //para probar que se esten agregando todas las respuestas
-	    console.log(self.formData().answers());
+	    // console.log(self.formData().answers());
 	}
 
 	self.setAnswerPartTwo = function(){
@@ -106,8 +119,7 @@ function testViewModel(){
           confirmButtonText: "Finalizar",
           closeOnConfirm: true },
              function(){
-             	window.location.href = "/logout";
-             	return;
+              self.saveTest();
         });
 	};
 
