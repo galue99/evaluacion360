@@ -19,7 +19,7 @@
                 <button class="btn btn-sm btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
               </div>
             </div>
-            
+
             <div class="row"><div class="box-divider col-xs-12"></div></div>
 
             <div class="col-xs-12">
@@ -44,8 +44,17 @@
                       <ul class="ul-third" data-bind="foreach: answers">
                         <li>
                           <div class="form-group">
-                            <label for="" class="label-control">Respuesta <span data-bind="textInput: $index"> </span></label><br>
-                            <input type="text" class="form-control" data-bind="textInput: name"><i class="fa fa-minus pointer" data-bind="click: $root.delAnswers"></i>
+<!--                             <label for="" class="label-control">Respuesta <span data-bind="textInput: $index"> </span></label><br>
+                            <input type="text" class="form-control" data-bind="textInput: name">
+                            <i class="fa fa-minus pointer" data-bind="click: function(data,event) {$root.delAnswers($parent,data)}"></i>
+ -->
+                            <div class="form-group has-error has-feedback">
+                            <label class="control-label" for="inputError2">Respuesta <span data-bind="textInput: $index"></span></label><br>
+                            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status" data-bind="textInput: name">
+                            <span aria-hidden="true">
+                              <i class="fa fa-minus pointer" data-bind="click: $root.delAnswers"></i>
+                            </span>
+                          </div>
                           </div>
                         </li>
                       </ul>
