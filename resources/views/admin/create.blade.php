@@ -45,7 +45,7 @@
                         <li>
                           <div class="form-group">
                             <label for="" class="label-control">Respuesta <span data-bind="textInput: $index"> </span></label><br>
-                            <input type="text" class="form-control" data-bind="textInput: name">
+                            <input type="text" class="form-control" data-bind="textInput: name"><i class="fa fa-minus pointer" data-bind="click: $root.delAnswers"></i>
                           </div>
                         </li>
                       </ul>

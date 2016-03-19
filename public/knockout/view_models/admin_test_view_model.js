@@ -36,6 +36,12 @@ function AdminTestViewModel(){
 
   }
 
+  self.delAnswers = function(data){
+    console.log(self.formData().answers);
+
+    // self.answers.splice(self.answers.indexOf(data),1)
+  };
+
 
 
 

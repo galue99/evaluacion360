@@ -118,7 +118,7 @@ input[type="checkbox"] + label.error{
 }
 #crudTest ul.ul-first ul.ul-second ul.ul-third li{
     display: inline-block;
-    margin-left: 100px;
+    margin-left: 20px;
     margin-top: 15px;
 }
 
