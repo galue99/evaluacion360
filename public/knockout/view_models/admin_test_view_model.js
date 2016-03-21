@@ -12,8 +12,17 @@ function AdminTestViewModel(){
     self.showFormTest(!self.showFormTest());
   };
 
-  self.cancelCreateTest = function(){
-    self.formData();
+
+
+  self.save = function(){
+    console.log(self.formData());
+  };
+
+  self.clearFormTest = function(){
+    self.formData({
+    name: ko.observable(),
+    items: ko.observableArray()
+  });
     self.toggleForm();
   };
 
@@ -22,11 +31,16 @@ function AdminTestViewModel(){
   }
 
   self.addItems = function(){
-      sumberItem++;
-      self.formData().items.push(
-        {items: sumberItem, frases:ko.observableArray()}
-      );
-      console.log(self.formData().items());
+      if (self.formData().name()){
+        sumberItem++;
+        self.formData().items.push(
+          {items: sumberItem, frases:ko.observableArray()}
+        );
+        // console.log(ko.toJSON(self.formData()));
+      }else{
+        toastr.warning('Ingrese el nombre de la encuesta');
+        jQuery('#nameTest').focus();
+      };
   };
 
   self.addFrase = function(data){
@@ -48,10 +62,9 @@ function AdminTestViewModel(){
   };
 
 
-  // self.delItem = function(items){
-  //   console.log(items);
-  //   items.splice(items.items);
-  // };
+  self.delItem = function(data){
+    self.formData().items.splice(self.formData().items.indexOf(data),1);
+  };
 
   self.delFrase = function(items,frases){
     items.frases.splice(items.frases.indexOf(frases),1);

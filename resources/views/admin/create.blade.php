@@ -44,11 +44,12 @@
         </div>
 
         <div class="row" data-bind="visible: showFormTest">
+
           <div class="col-xs-12">
             <div class="col-xs-10 col-md-6 form-inline">
               <div class="form-group">
                 <label class="label-control">Nombre de Encuesta</label><br>
-                <input type="text" class="form-control" datab-bind="textInput: formData().name">
+                <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
                 <button class="btn btn-sm btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
               </div>
             </div>
@@ -57,8 +58,8 @@
               <ul class="ul-first" data-bind="foreach: formData().items">
                 <li>
                   <div class="form-group">
-                    <h2>Categoria <span data-bind="text: items"></span>
-                    <!-- <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delItem(data)}"></i> -->
+                    <h2>Categoria <span data-bind="text: $index() + 1"></span>
+                    <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
                       <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                         <i class="fa fa-plus"></i>Frases
                       </button>
@@ -90,7 +91,8 @@
         </div>
       </div>
       <div class="box-footer">
-        <button class="btn btn-danger pull-right" data-bind="click: cancelCreateTest, visible: showFormTest"><i class="fa fa-plus"></i> Cancelar</button>
+        <button class="btn btn-danger pull-left" data-bind="click: clearFormTest, visible: showFormTest"><i class="fa fa-plus"></i> Cancelar</button>
+        <button class="btn btn-primary pull-right" data-bind="click: save, visible: showFormTest">Enviar</button>
       </div>
     </div>
 
