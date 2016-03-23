@@ -18,14 +18,20 @@ class EncuestaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        // if ($id == null) {
-        //     return Encuesta::orderBy('id', 'asc')->get();
-        // } else {
-        //     return $this->show($id);
-        // }
-        return View('admin.evaluaciones');
+    public function index(Request $request) {
 
+        // $test = Encuesta::with('');
+        $test = Encuesta::all();
+        $test_id = $test[0]->id;
+        $encuesta = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($test_id);
+
+
+            if ($this->isJSON($request)){
+                return $encuesta;
+
+            }else{
+                return View('admin.create');
+            }
     }
 
     /**
