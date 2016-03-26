@@ -1,89 +1,98 @@
 function AdminTestViewModel(){
-  var self = this;
-  var sumberItem = 0;
-  var test = new Test();
+   var self = this;
+   var sumberItem = 0;
+   var test = new Test();
 
-  self.showFormTest = ko.observable(false);
-  self.tests = ko.observableArray();
-  self.formData = ko.observable({
-    name: ko.observable(),
-    items: ko.observableArray()
-  });
-
-
-  self.toggleForm = function(){
-    self.showFormTest(!self.showFormTest());
-  };
-
-  self.getTest = function(){
-    test.all()
-    .done(function(response){
-      console.log(response);
-    });
-  };
-
-  self.save = function(){
-    console.log(ko.toJSON(self.formData()));
-  };
-
-  self.clearFormTest = function(){
-    self.formData({
+   self.showFormTest = ko.observable(false);
+   self.showFormAdminTest = ko.observable(false);
+   self.formCompany = ko.observable(false);
+   self.tests = ko.observableArray();
+   self.formData = ko.observable({
       name: ko.observable(),
       items: ko.observableArray()
-    });
-    self.toggleForm();
-  };
+   });
 
-  self.showModal = function(data){
-    jQuery('#myModal').modal('show');
-  }
+   self.toggleForm = function(){
+      self.showFormTest(!self.showFormTest());
+   };
 
-  self.addItems = function(){
-    if (self.formData().name()){
-      sumberItem++;
-      self.formData().items.push(
-        {items: sumberItem, frases:ko.observableArray()}
-        );
-        // console.log(ko.toJSON(self.formData()));
-      }else{
-        toastr.warning('Ingrese el nombre de la encuesta');
-        jQuery('#nameTest').focus();
-      };
-    };
+   self.toggleAdmin = function(){
+      self.showFormAdminTest(!self.showFormAdminTest());
+   };
 
-    self.addFrase = function(data){
-      data.frases.push({
-        name: ko.observable(), answers: ko.observableArray()
+   self.toggleformCompany = function(){
+      self.formCompany(!self.formCompany());
+   };
+
+   self.getTest = function(){
+      test.all()
+      .done(function(response){
+         console.log(response);
       });
-    };
+   };
 
-    self.addAnswers = function(data){
-      
-      if (!data.name()){
-        toastr.warning('Introduzca el nombre de la pregunta');
+   self.save = function(){
+      console.log(ko.toJSON(self.formData()));
+   };
+
+   self.clearFormTest = function(){
+      self.formData({
+         name: ko.observable(),
+         items: ko.observableArray()
+      });
+      self.toggleForm();
+   };
+
+   self.showModal = function(data){
+      jQuery('#myModal').modal('show');
+   }
+
+   self.addItems = function(){
+      if (self.formData().name()){
+         sumberItem++;
+         self.formData().items.push({
+            items: sumberItem, frases:ko.observableArray()
+         }
+         );
       }else{
-        data.answers.push({
-          name: ko.observable(),
-        });
+         toastr.warning('Ingrese el nombre de la encuesta');
+         jQuery('#nameTest').focus();
+      };
+   };
+
+   self.addFrase = function(data){
+      data.frases.push({
+         name: ko.observable(), answers: ko.observableArray()
+      });
+   };
+
+   self.addAnswers = function(data){
+
+      if (!data.name()){
+         toastr.warning('Introduzca el nombre de la pregunta');
+      }else{
+         data.answers.push({
+            name: ko.observable(),
+         });
       }
 
-    };
+   };
 
 
-    self.delItem = function(data){
+   self.delItem = function(data){
       self.formData().items.splice(self.formData().items.indexOf(data),1);
-    };
+   };
 
-    self.delFrase = function(items,frases){
+   self.delFrase = function(items,frases){
       items.frases.splice(items.frases.indexOf(frases),1);
-    };
+   };
 
-    self.delAnswer = function(frase,answer){
+   self.delAnswer = function(frase,answer){
       frase.answers.splice(frase.answers.indexOf(answer),1);
-    };
+   };
 
 
 
-    self.getTest();
+   self.getTest();
 
-  }
+}
