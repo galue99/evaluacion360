@@ -53,6 +53,18 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
+						        <label class="label-control">Empresa</label>
+						        <input type="text" name="company" id="company" class="form-control" data-bind="textInput: formData().company">
+						    </div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+							<div class="form-group">
+								<label class="label-control">Sucursal</label>
+								<input type="text" name="branch_office" id="branch_office" class="form-control" data-bind="textInput: formData().branch_office">
+							</div>
+						</div>
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
 				            	<label class="label-control">Rol</label>
 				                <select class="form-control" name="idroluser" id="idroluser" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
 						    </div>
@@ -79,12 +91,14 @@
 					<table id="" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
-						      <th class="col-xs-2 text-center">Nombre Completo</th>
-						      <th class="col-xs-2 text-center">Email</th>
-						      <th class="col-xs-2 text-center">Nro. de Identificacion</th>
-						      <th class="col-xs-2 text-center">Cargo</th>
-						      <th class="col-xs-2 text-center">Estatus</th>
-						      <th class="col-xs-2 text-center">Acciones</th>
+								<th class="col-xs-2 text-center">Nombre Completo</th>
+								<th class="col-xs-2 text-center">Email</th>
+								<th class="col-xs-2 text-center">Nro. de Identificacion</th>
+								<th class="col-xs-2 text-center">Cargo</th>
+								<th class="col-xs-2 text-center">Empresa</th>
+								<th class="col-xs-2 text-center">Sucursal</th>
+								<th class="col-xs-2 text-center">Estatus</th>
+								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: evaluadores">
@@ -93,6 +107,8 @@
 							    <td data-bind="text: email" class="text-center"></td>
 							    <td data-bind="text: dni" class="text-center"></td>
 							    <td data-bind="text: position" class="text-center"></td>
+							    <td data-bind="text: company" class="text-center"></td>
+							    <td data-bind="text: branch_office" class="text-center"></td>
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>

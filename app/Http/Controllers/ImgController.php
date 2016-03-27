@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Logo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -37,12 +39,25 @@ class ImgController extends Controller
      */
     public function store(Request $request)
     {
+        $logo = new Logo();
 
         $imageName = $request->file('image')->getClientOriginalName();
 
         $request->file('image')->move(
             base_path() . '/public/images/logo/', $imageName
         );
+
+        $logo->url = '/public/images/logo/'.$imageName;
+        $logo->encuesta_id = 1;
+
+        $logo->save();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Save Exits',
+                'status_code' => 200
+            ]
+        ], 200);
 
 
     }

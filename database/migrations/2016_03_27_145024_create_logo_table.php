@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEncuestadosTable extends Migration
+class CreateLogoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class CreateEncuestadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('encuestados', function (Blueprint $table) {
+        Schema::create('logo', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
-            $table->boolean('is_active');
+            $table->string('url');
             $table->integer('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');
+            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateEncuestadosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('encuestados');
+        Schema::drop('logo');
     }
 }

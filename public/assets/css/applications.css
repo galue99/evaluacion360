@@ -168,6 +168,9 @@ input[type="checkbox"] + label.error{
     font-size: .8em;
     vertical-align: top;
 }
+#crudTest table img.logo{
+    max-width: 100px;
+}
 
 
 

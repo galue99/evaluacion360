@@ -19,6 +19,8 @@ function EvaluadoresViewModel(){
 		email: ko.observable(),
 		deparment: ko.observable(),
 		position: ko.observable(),
+		company: ko.observable(),
+		branch_office: ko.observable(),
 		idrol: ko.observable(),
 		is_active: ko.observable(),
 		password: ko.observable()
@@ -50,6 +52,8 @@ function EvaluadoresViewModel(){
 			email: ko.observable(),
 			deparment: ko.observable(),
 			position: ko.observable(),
+			company: ko.observable(),
+			branch_office: ko.observable(),
 			idroluser: ko.observable(),
 			is_active: ko.observable(),
 			password: ko.observable()

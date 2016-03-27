@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('repassword', 60)->nullable();
             $table->string('dni')->nullable();
             $table->string('position');
+            $table->string('company');
+            $table->string('branch_office');
             $table->boolean('is_active');
             $table->rememberToken();
             $table->timestamps();
