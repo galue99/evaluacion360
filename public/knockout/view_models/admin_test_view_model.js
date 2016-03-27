@@ -32,7 +32,13 @@ function AdminTestViewModel(){
    };
 
    self.save = function(){
-      console.log(ko.toJSON(self.formData()));
+      test.create(self.formData())
+      .done(function(response){
+         console.log(response);
+      })
+      .fail(function(response){
+         toastr.error('Ha ocurrido un error al guardar la encuesta');
+      });
    };
 
    self.clearFormTest = function(){
