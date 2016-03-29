@@ -88,6 +88,9 @@ input[type="checkbox"] + label.error{
 #crudTest button.btn.btn-default.btn-sm i{
     margin-right: 5px;
 }
+#crudTest ul.ul-first{
+    padding-left: 15px!important;
+}
 #crudTest ul.ul-first,
 #crudTest ul.ul-second,
 #crudTest ul.ul-third{

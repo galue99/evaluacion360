@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-   <div class="col-xs-11 pull-center" id="crudTest">
+   <div class="col-xs-12" id="crudTest">
       <div class="box box-primary">
          <div class="box-header with-border">
             <h3 class="box-title">
@@ -13,31 +13,33 @@
             <div class="col-xs-12" data-bind="visible: !showFormTest()">
                <div class="row">
                   <button class="btn btn-info separate btn-flat" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
-                  <table class="table table-striped">
-                     <thead>
-                        <tr>
-                           <th>Nombre</th>
-                           <th>Evaluadores Asignados</th>
-                           <th>Empresa</th>
-                           <th>Admin de la Evaluacion</th>
-                           <th>Acciones</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Encuesta de prueba</td>
-                           <td>0</td>
-                           <td>Empresa</td>
-                           <td>
-                              <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Datos adicionales</button>
-                           </td>
-                           <td>
-                              <i class="fa fa-pencil fa-blue"></i>
-                              <i class="fa fa-close fa-red"></i>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
+                  <div class="table-responsive">
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th>Nombre</th>
+                              <th>Evaluadores Asignados</th>
+                              <th>Empresa</th>
+                              <th>Admin de la Evaluacion</th>
+                              <th>Acciones</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>Encuesta de prueba</td>
+                              <td>0</td>
+                              <td>Empresa</td>
+                              <td>
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Datos adicionales</button>
+                              </td>
+                              <td>
+                                 <i class="fa fa-pencil fa-blue"></i>
+                                 <i class="fa fa-close fa-red"></i>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
                </div>
             </div>
 
@@ -77,7 +79,7 @@
                                     </button>
                                  </div>
                                  <ul class="ul-third col-xs-12" data-bind="foreach: answers">
-                                    <div class="form-group col-xs-5 col-md-2">
+                                    <div class="form-group col-xs-6 col-md-2">
                                        <label for="" class="label-control">Respuesta
                                           <span data-bind="textInput: $index"> </span>
                                           <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delAnswer($parent,data)}"></i>
