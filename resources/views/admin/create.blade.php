@@ -48,7 +48,7 @@
                      <div class="form-group">
                         <label class="label-control">Nombre de Encuesta</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
-                        <button class="btn btn-sm btn-default btn-flat" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
                      </div>
                   </div>
 
@@ -58,26 +58,31 @@
                            <div class="form-group">
                               <h2>Categoria <span data-bind="text: $index() + 1"></span>
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
-                                 <button class="btn btn-xs btn-default btn-flat" data-bind="click: $root.addFrase">
+                                 <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                                     <i class="fa fa-plus"></i>Frases
                                  </button>
                               </h2>
                            </div>
-                           <ul class="ul-second" data-bind="foreach: frases">
-                              <li class="form-inline">
+                           <ul class="ul-second col-xs-12" data-bind="foreach: frases">
+                              <li>
                                  <div class="form-group">
-                                    <label for="" class="label-control">Frase <strong data-bind="text: $index() + 1"></strong></label><br>
+                                    <label for="" class="label-control">Frase
+                                       <strong data-bind="text: $index() + 1"></strong>
+                                       <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delFrase($parent,data)}"></i>
+                                    </label>
+                                    <br>
                                     <input type="text" id="frase" class="form-control" data-bind="textInput: name">
-                                    <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delFrase($parent,data)}"></i>
-                                    <button class="btn btn-sm btn-default btn-flat" data-bind="click: $root.addAnswers">
+                                    <button class="btn btn-xs btn-default" data-bind="click: $root.addAnswers">
                                        <i class="fa fa-plus"></i> Respuestas
                                     </button>
                                  </div>
-                                 <ul class="ul-third form-inline" data-bind="foreach: answers">
-                                    <div class="form-group">
-                                       <label for="" class="label-control">Respuesta <span data-bind="textInput: $index"> </span></label><br>
+                                 <ul class="ul-third col-xs-12" data-bind="foreach: answers">
+                                    <div class="form-group col-xs-5 col-md-2">
+                                       <label for="" class="label-control">Respuesta
+                                          <span data-bind="textInput: $index"> </span>
+                                          <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delAnswer($parent,data)}"></i>
+                                       </label><br>
                                        <input type="text" id="answer" class="form-control" data-bind="textInput: name">
-                                       <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delAnswer($parent,data)}"></i>
                                     </div>
                                  </ul>
                               </li>

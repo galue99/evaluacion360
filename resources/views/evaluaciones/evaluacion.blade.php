@@ -72,11 +72,12 @@
 							<!-- /ko -->
 						</div>
 						<div class="col-xs-12 col-sm-7" data-bind="foreach: $root.currentItem().frases[$root.currentIndexFrase()].answers">
-							<div class="col-xs-2 text-center">
+							<div class="col-xs-6 col-sm-2 text-center">
 								<div class="row form-group">
 									<div class="radio">
-										<label class="label-control"><strong><span data-bind="text: name"></span></strong>
-											<input type="radio" class="radioOptions" name="optionsRadios" data-bind="checked: $root.currentAnswer, checkedValue: $data">
+										<label class="label-control">
+										<strong><span data-bind="text: name"></span></strong><br>
+											<input type="radio" class="radioOptions pull-center" name="optionsRadios" data-bind="checked: $root.currentAnswer, checkedValue: $data">
 										</label>
 									</div>
 								</div>
@@ -109,25 +110,25 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-xs-12">
-								<div class="col-xs-6">
+								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
 										<label for="" class="label-control">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().oneStrength"></textarea>
 									</div>
 								</div>
-								<div class="col-xs-6">
+								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
 										<label for="" class="label-control">Menciona una (01) debilidad, o cosa que deba aprender esta persona:</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().oneWeakness"></textarea>
 									</div>
 								</div>
-								<div class="col-xs-6">
+								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
 										<label for="" class="label-control">¿Por que  felicitaráas a esta persona?</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().congratulate"></textarea>
 									</div>
 								</div>
-								<div class="col-xs-6">
+								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
 										<label for="" class="label-control">¿Por quéa agradecerías a esta persona?</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().toThank"></textarea>

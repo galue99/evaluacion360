@@ -66,6 +66,13 @@ input[type="checkbox"] + label.error{
 #NewTest .checkbox label, .radio label{
     padding-left: 10px;
 }
+#NewTest .radio label strong span{
+    font-size: .9em;
+}
+/*#NewTest .radio label strong span{
+    padding-left: 10px;
+    font-size: .9em;
+}*/
 #NewTest h5{
     font-size: 1.2em;
     padding-top: 15px;
@@ -118,7 +125,6 @@ input[type="checkbox"] + label.error{
 #crudTest ul.ul-first > li,
 #crudTest ul.ul-second > li,
 #crudTest ul.ul-third > li{
-    background-color: rgba(236, 240, 245, 0.41);
     margin-top: 5px;
     padding: 2px;
 }
@@ -126,21 +132,25 @@ input[type="checkbox"] + label.error{
     margin-bottom: 20px;
     margin-top: 20px;
 }
-#crudTest ul.ul-first ul.ul-second > li > div.form-group{
-    width: 60%;
+/*#crudTest ul.ul-first ul.ul-second > li > div.form-group{
+    position: relative !important;
+}*/
+#crudTest ul.ul-first ul.ul-second > li > div.form-group label{
+    position: relative !important;
 }
-#crudTest ul.ul-first ul.ul-second > li > div.form-group:hover > i{ 
+#crudTest ul.ul-first ul.ul-second > li > div.form-group:hover label > i{ 
     color: red;
     display: inline-block;
     font-size: .8em;
-    margin-left: -15px;
-    vertical-align: top;
-    padding-right: 3.5px;
+    position: absolute;
+    right: -15px;
+    top: 0;
 }
-#crudTest ul.ul-first ul.ul-second > li > div.form-group > i{
+#crudTest ul.ul-first ul.ul-second > li > div.form-group label > i{
     display: none;
 }
 #crudTest ul.ul-first ul.ul-second > li > div.form-group > input.form-control {
+    display: inline-block;
     margin-right: 15px;
     width: 70% !important;
 }
@@ -151,42 +161,22 @@ input[type="checkbox"] + label.error{
     margin-top: 20px;
     padding: 0px;
 }
-#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group{
-    position: relative;
+#crudTest ul.ul-first ul.ul-second ul.ul-third .form-group label{
+    position: relative !important;
     padding-right: 15px;
     margin-right: 15px;
 }
-#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group:hover + .form-group{
-    margin-left: -11.6px;
-}
-#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group i {
+#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group label i {
     display: none;
 }
-#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group:hover > i {
+#crudTest ul.ul-first ul.ul-second ul.ul-third > .form-group:hover label > i {
     color: red;
     display: inline-block;
     font-size: .8em;
-    vertical-align: top;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 #crudTest table img.logo{
     max-width: 100px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
