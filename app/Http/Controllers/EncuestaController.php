@@ -53,7 +53,18 @@ class EncuestaController extends Controller
 
     public function store(Request $request)
     {
-       return $request;
+       $object = $request->all();
+       $misDatosJSON = json_decode(json_encode($object));
+       $misDatosJSON1 = (array)$misDatosJSON;
+
+        $count = count($misDatosJSON1);
+
+        for($i=0; $i<$count; $i++){
+        }
+
+        print_r($misDatosJSON1);
+
+
     }
 
     /**
