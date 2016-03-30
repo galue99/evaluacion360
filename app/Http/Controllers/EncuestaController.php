@@ -53,11 +53,17 @@ class EncuestaController extends Controller
 
     public function store(Request $request)
     {
-       $object = $request->all();
-       $all = Response::json($object);
-       $misDatosJSON = array(json_decode(json_encode($object)));
+      $nameTest = $request->input('name');
+      $items = $request->input('items');
 
-       return $all;
+      foreach ($items as &$item){
+
+      }
+
+      return $request->only(['name','items']);
+
+
+
 
 
     }
