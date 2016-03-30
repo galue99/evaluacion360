@@ -9,6 +9,7 @@ function Test(){
 			url: '/encuestado/encuesta',
 			dataType: 'JSON',
 			method: 'POST',
+			data: data,
 			contentType: 'application/json',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
