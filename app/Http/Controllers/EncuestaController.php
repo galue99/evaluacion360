@@ -50,21 +50,21 @@ class EncuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+        // $nameTest = $request->input('name');
+      // $items = $request->input('items');
     public function store(Request $request)
     {
-      $nameTest = $request->input('name');
-      $items = $request->input('items');
+        $test = new Encuesta();
+        $test->name = $request->input('name');
+        $test->
+        $test->save();
 
-      foreach ($items as &$item){
+        foreach ($items as $item){
+            $item = new Item();
+            $test->$item()->save($item);
+        }
 
-      }
-
-      return $request->only(['name','items']);
-
-
-
-
+        return $request->only(['name','items']);
 
     }
 

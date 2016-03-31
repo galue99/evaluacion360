@@ -17,7 +17,8 @@ class CreateRespuestaParaFrasesTable extends Migration
             $table->string('name');
             $table->integer('frase_id')->unsigned();
             $table->foreign('frase_id')->references('id')->on('frases')->onDelete('cascade');
-            $table->timestamps();
+            // $table->timestamps('created_at');
+            // $table->timestamps('updated_at');
         });
     }
 

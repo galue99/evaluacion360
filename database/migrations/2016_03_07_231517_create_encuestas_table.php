@@ -19,6 +19,7 @@ class CreateEncuestasTable extends Migration
             $table->boolean('is_active');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamp('updated_at');
             $table->timestamp('created_at');
         });
     }

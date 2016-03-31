@@ -1,6 +1,5 @@
 function AdminTestViewModel(){
    var self = this;
-   var sumberItem = 0;
    var test = new AdminTest();
 
    self.showFormTest = ko.observable(false);
@@ -56,9 +55,8 @@ function AdminTestViewModel(){
 
    self.addItems = function(){
       if (self.formData().name()){
-         sumberItem++;
          self.formData().items.push({
-            items: sumberItem, frases:ko.observableArray()
+            frases:ko.observableArray()
          }
          );
       }else{

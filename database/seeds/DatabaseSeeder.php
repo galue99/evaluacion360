@@ -170,157 +170,126 @@ class DatabaseSeeder extends Seeder
         /* Start items db seed */
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 9,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 9,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 7,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 7,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 10,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 10,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 9,
         ]);
 
 //         DB::table('items')->insert([
-//             'items' => 8,
 //             'encuesta_id' => 1,
 //         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 9,
         ]);
 
 //         DB::table('items')->insert([
-//             'items' => 8,
 //             'encuesta_id' => 1,
 //         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
@@ -962,10 +931,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'siempre',
             'frase_id' => 15,
         ]);
-
-
-
-
         
 
         Model::reguard();
