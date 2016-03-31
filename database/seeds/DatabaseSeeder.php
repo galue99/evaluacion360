@@ -99,104 +99,66 @@ class DatabaseSeeder extends Seeder
 
         /* End User */
 
-        /* Start Personas */
-        /*
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Prueba',
-            'dni' => '16877354',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe',
-            'dni' => '16877350',
-            'deparment' => 'Ventas',
-            'position' => 'Vendedor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe Doe',
-            'dni' => '16877353',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe 1',
-            'dni' => '16877352',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe 2',
-            'dni' => '16877351',
-            'deparment' => 'Ventas',
-            'position' => 'Vendedor',
-            'email' => str_random(10).'@gmail.com',
-        ]); */
-        /* End Insert Personas */
 
         /* Start Encuestas db seed */
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 01',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 02',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 03',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 04',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 05',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 06',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 07',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 08',
             'date' => '0000-00-00 00:00:00',
             'is_active' => true,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 09',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,

@@ -14,6 +14,7 @@ class CreateEncuestasTable extends Migration
     {
         Schema::create('encuestas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->timestamp('date');
             $table->boolean('is_active');
             $table->integer('user_id')->unsigned();
