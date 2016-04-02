@@ -19,6 +19,7 @@ class CreateFrasesTable extends Migration
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');;
             $table->integer('evaluacion_id')->unsigned();
             $table->foreign('evaluacion_id')->references('id')->on('evaluaciones')->onDelete('cascade');;
+            $table->timestamp('updated_at');
             $table->timestamp('created_at');
         });
     }

@@ -1,7 +1,6 @@
 function AdminTestViewModel(){
    var self = this;
-   var sumberItem = 0;
-   var test = new Test();
+   var test = new AdminTest();
 
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
@@ -32,9 +31,9 @@ function AdminTestViewModel(){
    };
 
    self.save = function(){
+     console.log(ko.toJSON(self.formData()));
       test.create(ko.toJSON(self.formData()))
       .done(function(response){
-        console.log(response);
         toastr.info('La encuesta ha sido guardada exitosamente');
       })
       .fail(function(response){
@@ -56,9 +55,8 @@ function AdminTestViewModel(){
 
    self.addItems = function(){
       if (self.formData().name()){
-         sumberItem++;
          self.formData().items.push({
-            items: sumberItem, frases:ko.observableArray()
+            frases:ko.observableArray()
          }
          );
       }else{

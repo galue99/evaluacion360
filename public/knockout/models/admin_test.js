@@ -1,4 +1,4 @@
-function Test(){
+function AdminTest(){
 	var self = this;
 
 	self.all = function(){
@@ -16,7 +16,6 @@ function Test(){
 			method: 'POST',
 			data: data,
 			dataType: 'json',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			contentType: "application/json"
 		});
 	};

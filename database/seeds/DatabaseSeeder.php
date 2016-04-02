@@ -99,104 +99,66 @@ class DatabaseSeeder extends Seeder
 
         /* End User */
 
-        /* Start Personas */
-        /*
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Prueba',
-            'dni' => '16877354',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe',
-            'dni' => '16877350',
-            'deparment' => 'Ventas',
-            'position' => 'Vendedor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe Doe',
-            'dni' => '16877353',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe 1',
-            'dni' => '16877352',
-            'deparment' => 'Ventas',
-            'position' => 'Supervisor',
-            'email' => str_random(10).'@gmail.com',
-        ]);
-
-        DB::table('personas')->insert([
-            'firstname' => 'Jhon',
-            'lastname' => 'Doe 2',
-            'dni' => '16877351',
-            'deparment' => 'Ventas',
-            'position' => 'Vendedor',
-            'email' => str_random(10).'@gmail.com',
-        ]); */
-        /* End Insert Personas */
 
         /* Start Encuestas db seed */
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 01',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 02',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 03',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 04',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 05',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 06',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 07',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 08',
             'date' => '0000-00-00 00:00:00',
             'is_active' => true,
             'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
+            'name' => 'Encuesta 09',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
             'user_id' => 3,
@@ -208,157 +170,126 @@ class DatabaseSeeder extends Seeder
         /* Start items db seed */
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 9,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 9,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 7,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 7,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 10,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 10,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 9,
         ]);
 
 //         DB::table('items')->insert([
-//             'items' => 8,
 //             'encuesta_id' => 1,
 //         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 2,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 3,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 4,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 5,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 6,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 7,
         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         DB::table('items')->insert([
-            'items' => 8,
             'encuesta_id' => 9,
         ]);
 
 //         DB::table('items')->insert([
-//             'items' => 8,
 //             'encuesta_id' => 1,
 //         ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
         // DB::table('items')->insert([
-        //     'items' => 8,
         //     'encuesta_id' => 8,
         // ]);
 
@@ -1000,10 +931,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'siempre',
             'frase_id' => 15,
         ]);
-
-
-
-
         
 
         Model::reguard();

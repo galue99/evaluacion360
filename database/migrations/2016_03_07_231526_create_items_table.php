@@ -14,9 +14,9 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('items');
             $table->integer('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');;
+            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');
+            $table->timestamp('updated_at');
             $table->timestamp('created_at');
         });
     }
