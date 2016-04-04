@@ -18,8 +18,7 @@
                         <thead>
                            <tr>
                               <th>Nombre</th>
-                              <th>Evaluadores Asignados</th>
-                              <th>Empresa</th>
+                              <th>Estado</th>
                               <th>Admin de la Evaluacion</th>
                               <th>Acciones</th>
                            </tr>
@@ -27,10 +26,9 @@
                         <tbody>
                            <tr>
                               <td>Encuesta de prueba</td>
-                              <td>0</td>
-                              <td>Empresa</td>
+                              <td></td>
                               <td>
-                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Datos adicionales</button>
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Admin. Adicional</button>
                               </td>
                               <td>
                                  <i class="fa fa-pencil fa-blue"></i>
