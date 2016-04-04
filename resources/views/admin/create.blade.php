@@ -107,11 +107,11 @@
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">×</span></button>
-                     <h4 class="modal-title">Administracion de Evaluadores</h4>
+                     <h4 class="modal-title">Administracion de encuesta</h4>
                   </div>
                   <div class="modal-body">
-                     <button class="btn btn-info btn-flat btn-xs separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Agregar Evaluadores</button>
-                     <button class="btn btn-info btn-xs btn-flat separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Asignar Logo de la Empresas</button>
+                     <button class="btn btn-info btn-flat btn-xs separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Agregar Evaluador</button>
+                     <button class="btn btn-info btn-xs btn-flat separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Asignar Participante</button>
 
                      <div class="row"><div class="box-divider col-xs-12"></div></div>
 
@@ -145,32 +145,24 @@
                      </div>
 
 
-                     <div class="row" data-bind="visible: showFormAdminTest">
+                    <div class="row" data-bind="visible: showFormAdminTest">
                         <div class="col-xs-12">
-                           <button class="btn btn-primary btn-sm btn-flat" data-bind="click: toggleformCompany, visible: !formCompany()">Agregar Logo de la Empresa</button>
-                           <div class="col-xs-12" data-bind="visible: formCompany">
-                              <form action="" class="form">
-                                 <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <input type="file" id="exampleInputFile">
-                                 </div>
-                              </form>
-                              <button class="btn btn-primary btn-sm btn-flat pull-right" data-bind="click: toggleformCompany">Enviar</button>
+                           <div class="form-group form-inline">
+                              <label for="" class="label-control">Asignar participante</label><br>
+                              <select class="form-control" name="" id="">
+                                 <option >Seleccione un participante</option>
+                              </select>
                            </div>
                            <div class="table-responsive">
                               <table class="table table-striped">
                                  <thead>
                                     <tr>
                                        <th>Nombre</th>
-                                       <th>Logo</th>
                                        <th>Acciones</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    <td>Evaluador Centro 99</td>
-                                    <td>
-                                       <img src="{{ asset("/img/logo_01.png") }}" alt="" class="logo">
-                                    </td>
+                                    <td>Thomas Edison</td>
                                     <td>
                                        <i class="fa fa-close fa-red"></i>
                                     </td>
