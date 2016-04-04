@@ -84,6 +84,14 @@
                             <li><a href="/admin/users">Usuarios</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-cog"></i>
+                            <span>Procesos</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/admin/img">Gestionar Empresas</a></li>
+                        </ul>
+                    </li>
                 @endif
             </ul>
             @show
@@ -149,6 +157,7 @@
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/admin_test_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/company_test_view_model.js") }}" type="text/javascript"></script>
 
 
     </body>

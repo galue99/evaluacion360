@@ -17,6 +17,11 @@
 			ko.applyBindings(new AdminTestViewModel(), document.getElementById("crudTest"));
 		}
 
+		var company = document.getElementById("company")
+		if (company != null){
+			ko.applyBindings(new CompanyViewModel(), document.getElementById("company"));
+		}
+
 
 	});
 })();
