@@ -20,6 +20,7 @@ class ImgController extends Controller
     {
 
         $img = Logo::all();
+
         if ($this->isJSON($request)){
             return  $img;
         } else {
@@ -59,12 +60,7 @@ class ImgController extends Controller
 
         $logo->save();
 
-        return Response::json([
-            'Success' => [
-                'message'     => 'Record Save Exits',
-                'status_code' => 200
-            ]
-        ], 200);
+        return redirect('admin/img');
 
 
     }
