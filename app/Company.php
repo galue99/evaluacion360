@@ -8,14 +8,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-class Logo extends Model
+class Company extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'logo';
+    protected $table = 'companys';
 
     /**
      * The attributes that are mass assignable.

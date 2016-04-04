@@ -42,7 +42,7 @@
 					<table id="" class="table table-bordered table-striped">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">Nombre de la empresa</th>
+								<th class="col-xs-2 text-center">Nombre de la Empresa</th>
 								<th class="col-xs-2 text-center">Logo</th>
 						    </tr>
 						</thead>

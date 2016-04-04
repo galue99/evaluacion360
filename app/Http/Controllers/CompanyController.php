@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Logo;
+use App\Company;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ImgController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class ImgController extends Controller
     public function index(Request $request)
     {
 
-        $img = Logo::all();
+        $img = Company::all();
 
         if ($this->isJSON($request)){
             return  $img;
@@ -47,7 +46,7 @@ class ImgController extends Controller
      */
     public function store(Request $request)
     {
-        $logo = new Logo();
+        $logo = new Company();
 
         $imageName = $request->file('image')->getClientOriginalName();
 
