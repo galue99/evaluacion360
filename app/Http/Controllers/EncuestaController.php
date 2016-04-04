@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Encuesta;
+use App\Frase;
+use App\Item;
+use DateTime;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -56,15 +60,48 @@ class EncuestaController extends Controller
     {
         $test = new Encuesta();
         $test->name = $request->input('name');
-        $test->
+        $test->is_active = false;
+        $test->date = null;
+        $test->user_id = 1;
         $test->save();
+        $id_encuesta = $test->id;
 
-        foreach ($items as $item){
-            $item = new Item();
-            $test->$item()->save($item);
+        //echo $id_encuesta;
+
+
+        //$item = new Item();
+        $test1 = $request->only(['items']);
+
+        foreach ($test1 as $clave => $valor){
+            for($i=0; $i<count($valor); $i++){
+                $item = new Item();
+                $item->encuesta_id = $id_encuesta;
+                $item->save();
+                $id_item = $item->id;
+               foreach($valor[$i] as $clave1){
+                    foreach($clave1 as $value2){
+                        //echo ($value2['name']);
+                        $frase = new Frase();
+                        $frase->item_id = $id_item;
+                        $frase->name = $value2['name'];
+/*Eliminar Linea mas adelante*/     $frase->evaluacion_id = 1;
+                        $frase->save();
+                        $id_frase = $frase->id;
+
+                        foreach($value2['answers'] as $value3){
+                            $answer = new Answer();
+                            $answer->name = $value3['name'];
+                            $answer->frase_id = $id_frase;
+                            $answer->save();
+                        }
+                    }
+                }
+            }
         }
 
-        return $request->only(['name','items']);
+        //var_dump($test1);
+
+        //return $request->only(['items']);
 
     }
 
