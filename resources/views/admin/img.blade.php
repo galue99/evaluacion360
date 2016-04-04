@@ -27,7 +27,7 @@
 					</div>
 
 					<div class="form-group separate col-xs-6  col-md-4">
-					    {!! Form::label('Product Image') !!}
+					    {!! Form::label('Logo de la Empresa') !!}
 					    {!! Form::file('image', null) !!}
 					</div>
 

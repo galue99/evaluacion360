@@ -16,9 +16,16 @@ class ImgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return View('admin.img');
+
+        $img = Logo::all();
+        if ($this->isJSON($request)){
+            return  $img;
+        } else {
+            return View('admin.img');
+        }
+
     }
 
     /**
@@ -48,7 +55,7 @@ class ImgController extends Controller
         );
 
         $logo->url = '/public/images/logo/'.$imageName;
-        $logo->encuesta_id = 1;
+        $logo->name = $request->input('name');
 
         $logo->save();
 

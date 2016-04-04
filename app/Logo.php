@@ -22,7 +22,7 @@ class Logo extends Model
      *
      * @var array
      */
-    protected $fillable = ['url', 'encuesta_id'];
+    protected $fillable = ['url', 'name'];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -15,8 +15,7 @@ class CreateLogoTable extends Migration
         Schema::create('logo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
-            $table->integer('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');;
+            $table->string('name');
             $table->timestamps();
         });
     }
