@@ -54,7 +54,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Empresa</label>
-						        <input type="text" name="company" id="company" class="form-control" data-bind="textInput: formData().company">
+						        <select class="form-control" data-bind="optionsCaption: 'Seleccione una empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company "></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -71,7 +71,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						    <label for="">Status</label>
+						    <label for="">Estado</label>
 						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
                 				<label for="status"></label>
 						    </div>

@@ -1,11 +1,12 @@
 function EvaluadoresViewModel(){
 	var self = this;
 	var evaluador = new Evaluadores();
-	var roles = new Miscelaneos();
+	var miscelaneo = new Miscelaneos();
 
 	//arrays para datos
 	self.evaluadores = ko.observableArray();
 	self.roles = ko.observableArray();
+	self.companies = ko.observableArray();
 	self.selectedEvaluadores = ko.observable();
 	self.updateEvaluadores = ko.observable(false);
 
@@ -35,9 +36,18 @@ function EvaluadoresViewModel(){
 		});
 	};
 
+	//funcion para obtener empresas
+
+	self.getCompanies = function(){
+		miscelaneo.allCompanies()
+		.done(function(response){
+			self.companies(response);
+		});
+	};
+
 	//funcion para obtener roles
 	self.getRoles = function(){
-		roles.allRoles()
+		miscelaneo.allRoles()
 		.done(function(response){
 			self.roles(response);
 		});
@@ -142,6 +152,9 @@ function EvaluadoresViewModel(){
 
 	//Obteniendo roles de usuarios
 	self.getRoles();
+
+	//obteniendo empresas
+	self.getCompanies();
 
 
 }
