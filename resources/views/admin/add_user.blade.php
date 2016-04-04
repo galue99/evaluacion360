@@ -71,7 +71,7 @@
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						    <label for="">Status</label>
+						    <label for="">Estado</label>
 						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
                 				<label for="status"></label>
 						    </div>
