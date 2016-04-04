@@ -22,6 +22,13 @@ function Miscelaneos(){
 		});
 	}
 
-
+	self.allCompanies = function(){
+		return $.ajax({
+			url: '/admin/img',
+			dataType: 'json',
+			method: 'GET',
+			contentType: "application/json",
+		});
+	};
 
 }

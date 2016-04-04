@@ -46,10 +46,14 @@
 								<th class="col-xs-2 text-center">Logo</th>
 						    </tr>
 						</thead>
-						<tbody>
+						<tbody data-bind="foreach: companies">
 							<tr>
-								<td></td>
-							    <td></td>
+								<td data-bind="text: name"></td>
+							    <td>
+							    	<figure>
+							    		<img class="logo" data-bind="attr: {'src': url}">
+							    	</figure>
+							    </td>
 							</tr>
 						</tbody>
 					</table>					
@@ -57,7 +61,7 @@
 
 			</div>
 			<div class="box-footer">
-				
+				<button class="btn btn-danger pull-left" data-bind="visible: showForm, click: toggleForm">Cancelar</button>
 			</div>
 		</div>
 	</div>

@@ -183,3 +183,8 @@ input[type="checkbox"] + label.error{
 #crudTest table img.logo{
     max-width: 100px;
 }
+#company table figure img.logo{
+    display: block;
+    margin:0 auto;
+    max-width: 100px;
+}
