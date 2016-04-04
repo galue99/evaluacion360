@@ -54,7 +54,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Empresa</label>
-						        <input type="text" name="company" id="company" class="form-control" data-bind="textInput: formData().company">
+						        <select class="form-control" data-bind="optionsCaption: 'Seleccione una empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company "></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
