@@ -99,6 +99,12 @@ class EncuestaController extends Controller
             }
         }
 
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
+
         //var_dump($test1);
 
         //return $request->only(['items']);

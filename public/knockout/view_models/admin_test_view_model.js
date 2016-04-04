@@ -34,7 +34,8 @@ function AdminTestViewModel(){
      console.log(ko.toJSON(self.formData()));
       test.create(ko.toJSON(self.formData()))
       .done(function(response){
-        toastr.info('La encuesta ha sido guardada exitosamente');
+         self.clearFormTest();
+         toastr.success('La encuesta ha sido guardada exitosamente');
       })
       .fail(function(response){
          toastr.error('Ha ocurrido un error al guardar la encuesta');
