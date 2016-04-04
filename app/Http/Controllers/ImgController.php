@@ -52,7 +52,7 @@ class ImgController extends Controller
         $imageName = $request->file('image')->getClientOriginalName();
 
         $request->file('image')->move(
-            base_path() . '/images/logo/', $imageName
+            base_path() . '/public/images/logo/', $imageName
         );
 
         $logo->url = '/images/logo/'.$imageName;
