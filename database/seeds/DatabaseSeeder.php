@@ -105,63 +105,54 @@ class DatabaseSeeder extends Seeder
             'name' => 'Encuesta 01',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 02',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 03',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 04',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 05',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 06',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 2,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 07',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 08',
             'date' => '0000-00-00 00:00:00',
             'is_active' => true,
-            'user_id' => 3,
         ]);
 
         DB::table('encuestas')->insert([
             'name' => 'Encuesta 09',
             'date' => '0000-00-00 00:00:00',
             'is_active' => false,
-            'user_id' => 3,
         ]);
 
 

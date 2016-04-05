@@ -59,7 +59,6 @@ class EncuestaController extends Controller
         $test->name = $request->input('name');
         $test->is_active = false;
         $test->date = null;
-        $test->user_id = 1;
         $test->save();
         $id_encuesta = $test->id;
 
