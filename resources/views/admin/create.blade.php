@@ -25,7 +25,7 @@
                         </thead>
                         <tbody>
                            <tr>
-                              <td>Encuesta de prueba</td>
+                              <td data-bind="text: name" class="text-center"></td>
                               <td></td>
                               <td>
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Admin. Adicional</button>

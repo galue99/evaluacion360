@@ -26,12 +26,9 @@ class EncuestaController extends Controller
 
         // $test = Encuesta::with('');
         $test = Encuesta::all();
-        $test_id = $test[0]->id;
-        $encuesta = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($test_id);
-
 
             if ($this->isJSON($request)){
-                return $encuesta;
+                return $test;
 
             }else{
                 return View('admin.create');
@@ -119,12 +116,21 @@ class EncuestaController extends Controller
      */
     public function show($id)
     {
-        $id = Auth::user()->id;
-        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
-        $id_encuesta = $encuestas[0]->id;
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
-        return  Response::json($encuesta);
+        $encuesta = Encuesta::where('id', '=', $id)->get();;
+
+        $frases = DB::table('frases')->where('item_id', '=', 1)->get();
+        /*$id = Auth::user()->id;
+        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
+        $id_encuesta = $encuestas[0]->id;*/
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find(1);
+
+        return  Response::json([
+        'Success' => [
+            'status_code' => 200,
+            'Encuesta'    => $encuesta,
+        ]
+    ], 200);
     }
 
     /**
