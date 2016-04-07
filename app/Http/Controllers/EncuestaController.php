@@ -159,4 +159,10 @@ class EncuestaController extends Controller
     {
         //
     }
+
+
+    public function assign_user(Request $request)
+    {
+        return 'null';
+    }
 }
