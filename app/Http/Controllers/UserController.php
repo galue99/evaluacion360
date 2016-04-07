@@ -197,13 +197,12 @@ class UserController extends Controller
         return Response::json($users);
     }
 
-    public function allUserEncuesta()
+    public function user_encuesta()
     {
-
         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*')->get();
+            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
 
         return Response::json([
             'Success' => [
