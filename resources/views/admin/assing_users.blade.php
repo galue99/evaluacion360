@@ -10,7 +10,7 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<button class="btn btn-primary" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
+				<button class="btn btn-primary" data-bind="click: newAssing"><i class="fa fa-plus"></i> Agregar Nuevo</button>
 
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
@@ -53,9 +53,9 @@
 								<th class="col-xs-2 text-center">assasa</th>
 						    </tr>
 						</thead>
-						<tbody>
+						<tbody data-bind="foreach: userTests">
 							<tr>
-								<td></td>
+								<td data-bind="text: name"></td>
 								<td></td>
 							</tr>
 						</tbody>

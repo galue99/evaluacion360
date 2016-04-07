@@ -154,6 +154,7 @@
       <script src="{{ asset ("/knockout/models/miscelaneos.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/test.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/admin_test.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/user_encuesta.js") }}" type="text/javascript"></script>
 
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
