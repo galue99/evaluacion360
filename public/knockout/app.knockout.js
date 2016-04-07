@@ -12,7 +12,7 @@
 			ko.applyBindings(new testViewModel(), document.getElementById("NewTest"));
 		}
 
-    var crudTest = document.getElementById("crudTest")
+    	var crudTest = document.getElementById("crudTest")
 		if (crudTest != null){
 			ko.applyBindings(new AdminTestViewModel(), document.getElementById("crudTest"));
 		}
@@ -20,6 +20,11 @@
 		var company = document.getElementById("company")
 		if (company != null){
 			ko.applyBindings(new CompanyViewModel(), document.getElementById("company"));
+		}
+
+		var AssignUsersTest = document.getElementById("AssignUsersTest")
+		if (AssignUsersTest != null){
+			ko.applyBindings(new AssignUsersTestViewModel(), document.getElementById("AssignUsersTest"));
 		}
 
 
