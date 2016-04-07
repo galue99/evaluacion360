@@ -117,11 +117,11 @@ class EncuestaController extends Controller
 
         /*$encuesta = Encuesta::where('id', '=', $id)->get();;
 
-        $frases = DB::table('frases')->where('item_id', '=', 1)->get();
+        $frases = DB::table('frases')->where('item_id', '=', 1)->get();/**/
         $id = Auth::user()->id;
-        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
-        $id_encuesta = $encuestas[0]->id;*/
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find(8);
+        $encuestas = DB::table('users_encuestas')->where('user_id', '=', $id)->where('status', '=', 1)->get();
+        $id_encuesta = $encuestas[0]->encuesta_id;
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
         return  Response::json($encuesta);
     }
