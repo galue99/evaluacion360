@@ -73,7 +73,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/admin/encuesta">Evaluación</a></li>
-                            <li><a href="/admin/encuesta/create">Nueva Evaluación</a></li>
+                            <li><a href="">Asignar Usuarios</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
