@@ -50,7 +50,7 @@
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
-								<th class="col-xs-2 text-center">Encusta</th>
+								<th class="col-xs-2 text-center">Encuesta</th>
 								<th class="col-xs-2 text-center">Estado de encuesta</th>
 								<th class="col-xs-2 text-center">acciones</th>
 						    </tr>
@@ -59,7 +59,7 @@
 							<tr>
 								<td data-bind="text: firstname + ' ' + lastname"></td>
 								<td data-bind="text: name"></td>
-								<td data-bind="text: status"></td>
+								<td data-bind="text: status == 1 ? 'No realizada' : 'realizada' "></td>
 								<td>
 									<i class="fa fa-pencil fa-blue pointer"></i>
 									<i class="fa fa-close fa-red pointer"></i>
