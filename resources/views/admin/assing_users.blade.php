@@ -10,7 +10,7 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<button class="btn btn-primary" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
+				<button class="btn btn-primary" data-bind="click: newAssing"><i class="fa fa-plus"></i> Agregar Nuevo</button>
 
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
@@ -49,14 +49,21 @@
 					<table id="" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">asasas</th>
-								<th class="col-xs-2 text-center">assasa</th>
+								<th class="col-xs-2 text-center">Nombre</th>
+								<th class="col-xs-2 text-center">Encusta</th>
+								<th class="col-xs-2 text-center">Estado de encuesta</th>
+								<th class="col-xs-2 text-center">acciones</th>
 						    </tr>
 						</thead>
-						<tbody>
+						<tbody data-bind="foreach: userTests">
 							<tr>
-								<td></td>
-								<td></td>
+								<td data-bind="text: firstname + ' ' + lastname"></td>
+								<td data-bind="text: name"></td>
+								<td data-bind="text: status"></td>
+								<td>
+									<i class="fa fa-pencil fa-blue pointer"></i>
+									<i class="fa fa-close fa-red pointer"></i>
+								</td>
 							</tr>
 						</tbody>
 					</table>					

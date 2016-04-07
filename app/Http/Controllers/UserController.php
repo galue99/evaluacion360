@@ -204,12 +204,13 @@ class UserController extends Controller
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
 
-        return Response::json([
-            'Success' => [
-                'status_code' => 200,
-                'users'       => $users
-            ]
-        ], 200);
+             return Response::json($users);
+        // return Response::json([
+        //     'Success' => [
+        //         'status_code' => 200,
+        //         'users'       => $users
+        //     ]
+        // ], 200);
     }
 
     public function users_encuestas(Request $request)
