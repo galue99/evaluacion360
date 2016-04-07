@@ -15,7 +15,7 @@ class CreateUsersAnswersTable extends Migration
         Schema::create('users_answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('users_encuestas_id')->unsigned();
-            $table->foreign('users_encuestas_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('users_encuestas_id')->references('id')->on('users_encuestas')->onDelete('cascade');
             $table->integer('answers_id')->unsigned();
             $table->foreign('answers_id')->references('id')->on('answers')->onDelete('cascade');
             $table->boolean('status');
