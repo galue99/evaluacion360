@@ -903,8 +903,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users_encuestas')->insert([
             'user_id' => 3,
+            'evaluado_id' => 4,
             'encuesta_id' => 2,
-            'status' => 1,
+            'status' => 1
+
         ]);
 
 
