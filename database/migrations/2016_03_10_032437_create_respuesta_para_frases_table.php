@@ -13,7 +13,7 @@ class CreateRespuestaParaFrasesTable extends Migration
     public function up()
     {
         Schema::create('answers', function(Blueprint $table){
-            $table->increments('idanswer');
+            $table->increments('id');
             $table->string('name');
             $table->integer('frase_id')->unsigned();
             $table->foreign('frase_id')->references('id')->on('frases')->onDelete('cascade');

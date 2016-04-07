@@ -16,7 +16,8 @@ class CreateUsersAnswersTable extends Migration
             $table->increments('id');
             $table->integer('users_encuestas_id')->unsigned();
             $table->foreign('users_encuestas_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('answer_id')->unsigned();
+            $table->integer('answers_id')->unsigned();
+            $table->foreign('answers_id')->references('id')->on('answers')->onDelete('cascade');
             $table->boolean('status');
             $table->timestamps();
         });
