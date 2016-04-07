@@ -23,7 +23,7 @@
                               <th>Acciones</th>
                            </tr>
                         </thead>
-                        <tbody data-bind="foreach: crudTest">
+                        <tbody>
                            <tr>
                               <td data-bind="text: name" class="text-center"></td>
                               <td></td>
