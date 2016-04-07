@@ -9,15 +9,15 @@ function AssignUsersTestViewModel(){
    self.users = ko.observableArray();
    self.userTests = ko.observableArray();
    self.formData = ko.observable({
-      test: ko.observable(),
-      user: ko.observable(),
+      id_encuesta: ko.observable(),
+      id_user: ko.observable(),
       status: ko.observable()
    });
 
    self.clearForm = function(){
       self.formData({
-         test: ko.observable(),
-         user: ko.observable(),
+         id_encuesta: ko.observable(),
+         id_user: ko.observable(),
          status: ko.observable()
       });
    }
@@ -67,7 +67,7 @@ function AssignUsersTestViewModel(){
    }
 
 
-   self.formData().test.subscribe(function(){
+   self.formData().id_encuesta.subscribe(function(){
       self.getUsers();
    });
 
