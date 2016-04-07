@@ -50,10 +50,10 @@
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
-								<th class="col-xs-2 text-center">Encuesta</th>
+								<th class="col-xs-2 text-center">Evaluación</th>
 								<th class="col-xs-2 text-center">Email</th>
-								<th class="col-xs-2 text-center">Estado de encuesta</th>
-								<th class="col-xs-2 text-center">acciones</th>
+								<th class="col-xs-2 text-center">Estado de la Evaluación</th>
+								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: userTests">
