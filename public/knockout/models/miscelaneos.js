@@ -33,7 +33,7 @@ function Miscelaneos(){
 
 	self.AssignUserTes = function(data){
 		return $.ajax({
-			url: '/admin/',
+			url: '/admin/users_encuesta',
 			dataType: 'JSON',
 			method: 'POST',
 			data: data,

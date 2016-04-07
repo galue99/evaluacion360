@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['firstname', 'lastname', 'idrol', 'email', 'password', 'company'];
+    protected $fillable = ['firstname', 'lastname', 'idrol', 'email', 'password', 'company', 'status'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -52,6 +52,8 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsToMany('App\Encuesta','users_encuestas')->withPivot('user_id','status');
     }
+
+
 
 
 
