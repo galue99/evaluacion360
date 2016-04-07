@@ -115,15 +115,15 @@ class EncuestaController extends Controller
     public function show($id)
     {
 
-        /*$encuesta = Encuesta::where('id', '=', $id)->get();;
+        //encuesta = Encuesta::where('id', '=', $id)->get();;
 
-        $frases = DB::table('frases')->where('item_id', '=', 1)->get();
+        //$frases = DB::table('frases')->where('item_id', '=', 1)->get();
         $id = Auth::user()->id;
-        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
-        $id_encuesta = $encuestas[0]->id;*/
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id);
+        $encuestas = DB::table('users_encuestas')->where('user_id', '=', $id)->where('status', '=', 1)->get();
+        $id_encuesta = $encuestas[0]->encuesta_id;
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
-        return  Response::json([
+       return  Response::json([
         'Success' => [
             'status_code' => 200,
             'Encuesta'    => $encuesta,
