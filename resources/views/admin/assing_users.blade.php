@@ -18,14 +18,14 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Encuesta</label>
-						        <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione una encuesta', options: tests, optionsText: 'name', optionsValue: 'id', value: formData().test"></select>
+						        <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione una encuesta', options: tests, optionsText: 'name', optionsValue: 'id', value: formData().id_encuesta"></select>
 						    </div>
 						</div>
 						
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 				            	<label class="label-control">Usuario</label>
-				                <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formData().user "></select>
+				                <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formData().id_user "></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -38,7 +38,7 @@
 						<div class="form-group col-xs-9 col-md-12 text-right">
 							<div class="form-group">
 								<button class="btn btn-primary" data-bind="click: save">Asignar</button>
-								<button class="btn btn-danger" role="button">Cancelar</button>
+								<button class="btn btn-danger" role="button" click="click: toggleForm">Cancelar</button>
 							</div>
 						</div>
 					</form>
