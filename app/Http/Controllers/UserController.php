@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Encuesta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -194,5 +195,21 @@ class UserController extends Controller
     {
         $users = DB::table('users')->where('idrol', '!=', 1)->get();
         return Response::json($users);
+    }
+
+    public function allUserEncuesta()
+    {
+
+        $users = DB::table('users')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->select('users.*')->get();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200,
+                'users'       => $users
+            ]
+        ], 200);
     }
 }
