@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::Resource('/img', 'CompanyController');
     Route::get('/assing_users', 'EncuestaController@assing_user');
     Route::get('/allusers', 'UserController@allUser');
+    Route::post('/user_encuesta', 'user_encuesta@EncuestaController');
 
 });
 
