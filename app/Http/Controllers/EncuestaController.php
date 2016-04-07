@@ -163,6 +163,6 @@ class EncuestaController extends Controller
 
     public function assing_user(Request $request)
     {
-        return 'null';
+        return View('admin.assing_users');
     }
 }

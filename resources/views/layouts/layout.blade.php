@@ -73,7 +73,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/admin/encuesta">Evaluación</a></li>
-                            <li><a href="">Asignar Usuarios</a></li>
+                            <li><a href="/admin/assing_users">Asignar Usuarios</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -158,7 +158,7 @@
       <script src="{{ asset ("/knockout/view_models/test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/admin_test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/company_test_view_model.js") }}" type="text/javascript"></script>
-
-
+      <script src="{{ asset ("/knockout/view_models/assign_users_test.js") }}" type="text/javascript"></script>
+      
     </body>
 </html>
