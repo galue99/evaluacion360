@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
    <div class="col-xs-12" id="crudTest">
-      <div class="box box-primary">
+      <div class="box box-primary" data-bind="visible: showAdminTes">
          <div class="box-header with-border">
             <h3 class="box-title">
                Evaluacion
@@ -20,6 +20,7 @@
                               <th>Nombre</th>
                               <th>Estado</th>
                               <th>Acciones</th>
+                                <th class="col-xs-1 text-center">Administrar</th>
                            </tr>
                         </thead>
                         <tbody data-bind="foreach: tests">
@@ -27,9 +28,14 @@
                               <td data-bind="text: name" class="text-center"></td>
                               <td data-bind="text: is_active == 1 ? 'Activa' : 'Inactiva' "></td>
                               <td>
-                                 <i class="fa fa-pencil fa-blue"></i>
-                                 <i class="fa fa-close fa-red"></i>
+                                 <i class="fa fa-pencil fa-blue pointer"></i>
+                                 <i class="fa fa-close fa-red pointer"></i>
                               </td>
+                                 <td>
+                                    <div class="form-group">
+                                       <button class="btn btn-info btn-xs" data-bind="click: $root.toggleFormAdminTes">Administrar</button>
+                                    </div>
+                                 </td>
                            </tr>
                         </tbody>
                      </table>

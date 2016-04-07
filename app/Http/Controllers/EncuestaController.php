@@ -51,12 +51,6 @@ class EncuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-        // $nameTest = $request->input('name');
-      // $items = $request->input('items');
-=======
-
->>>>>>> 64e379b... Resolviendo problemas con los seed
     public function store(Request $request)
     {
         $test = new Encuesta();
@@ -123,13 +117,13 @@ class EncuestaController extends Controller
 
         $frases = DB::table('frases')->where('item_id', '=', 1)->get();/**/
         $id = Auth::user()->id;
-<<<<<<< HEAD
+
         $encuestas = DB::table('users_encuestas')->where('user_id', '=', $id)->where('status', '=', 1)->get();
         $id_encuesta = $encuestas[0]->encuesta_id;
-=======
-        $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
-        $id_encuesta = $encuestas[0]->id;
->>>>>>> 64e379b... Resolviendo problemas con los seed
+
+        // $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
+        // $id_encuesta = $encuestas[0]->id;
+
         $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
         return  Response::json($encuesta);
