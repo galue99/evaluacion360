@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Encuesta;
+use App\UserEncuesta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -216,12 +217,17 @@ class UserController extends Controller
     public function users_encuestas(Request $request)
     {
 
-        return $postData = $request->all();
+        $user_encuesta = new UserEncuesta();
+
+        $user_encuesta->user_id = $request->input('id_user');
+        $user_encuesta->encuesta_id = $request->input('id_encuesta');
+        $user_encuesta->status = $request->input('status');
+
+        $user_encuesta->save();
 
         return Response::json([
             'Success' => [
-                'status_code' => 200,
-                'users'       => 'a'
+                'status_code' => 200
             ]
         ], 200);
     }
