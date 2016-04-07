@@ -14,6 +14,14 @@ function AssignUsersTestViewModel(){
       status: ko.observable()
    });
 
+   self.clearForm = function(){
+      self.formData({
+         test: ko.observable(),
+         user: ko.observable(),
+         status: ko.observable()
+      });
+   }
+
    self.toggleForm = function(){
       self.showForm(!self.showForm());
    };
@@ -25,6 +33,7 @@ function AssignUsersTestViewModel(){
          self.toggleForm();
          self.clearForm();
          self.getUserTests();
+         console.log(ko.toJSON(self.formData()));
       })
       .fail(function(response){
          toastr.error('Hubo un error al asignar la encuesta al usuario');
@@ -53,7 +62,6 @@ function AssignUsersTestViewModel(){
    self.getUserTests = function(){
       assignTest.AllUserTest()
       .done(function(response){
-         console.log(response);
          self.userTests(response);
       });
    }

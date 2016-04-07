@@ -5,10 +5,10 @@ var self = this;
 	self.AssignUserTes = function(data){
 		return $.ajax({
 			url: '/admin/users_encuesta',
-			dataType: 'JSON',
 			method: 'POST',
 			data: data,
-			contentType: 'application/json',
+			dataType: 'json',
+			contentType: "application/json"
 		});
 	};
 
