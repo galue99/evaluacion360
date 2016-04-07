@@ -58,11 +58,11 @@
 						</thead>
 						<tbody data-bind="foreach: userTests">
 							<tr>
-								<td data-bind="text: firstname + ' ' + lastname"></td>
-								<td data-bind="text: name"></td>
-								<td data-bind="text: email"></td>
-								<td data-bind="text: status == 1 ? 'No realizada' : 'realizada' "></td>
-								<td>
+								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
+								<td data-bind="text: name" class="text-center"></td>
+								<td data-bind="text: email" class="text-center"></td>
+								<td data-bind="text: status == 1 ? 'No realizada' : 'realizada' " class="text-center"></td>
+								<td class="text-center">
 									<i class="fa fa-pencil fa-blue pointer"></i>
 									<i class="fa fa-close fa-red pointer"></i>
 								</td>

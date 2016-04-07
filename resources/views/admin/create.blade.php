@@ -17,16 +17,16 @@
                      <table class="table table-striped table-bordered">
                         <thead>
                            <tr>
-                              <th>Nombre</th>
-                              <th>Estado</th>
-                              <th>Acciones</th>
+                              <th class="text-center">Nombre</th>
+                              <th class="text-center">Estado</th>
+                              <th class="text-center">Acciones</th>
                            </tr>
                         </thead>
                         <tbody data-bind="foreach: tests">
                            <tr>
                               <td data-bind="text: name" class="text-center"></td>
-                              <td data-bind="text: is_active == 1 ? 'Activa' : 'Inactiva' "></td>
-                              <td>
+                              <td data-bind="text: is_active == 1 ? 'Activa' : 'Inactiva' " class="text-center"></td>
+                              <td class="text-center">
                                  <i class="fa fa-pencil fa-blue"></i>
                                  <i class="fa fa-close fa-red"></i>
                               </td>

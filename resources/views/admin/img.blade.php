@@ -48,7 +48,7 @@
 						</thead>
 						<tbody data-bind="foreach: companies">
 							<tr>
-								<td data-bind="text: name"></td>
+								<td data-bind="text: name" class="text-center"></td>
 							    <td>
 							    	<figure>
 							    		<img class="logo" data-bind="attr: {'src': url}">
