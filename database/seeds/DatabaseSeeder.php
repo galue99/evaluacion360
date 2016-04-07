@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
         /* Start Relacion Evaluado */
 
+        /*
         DB::table('relacion_evaluado')->insert([
             'name' => 'Auto-Evaluacion',
         ]);
@@ -43,7 +44,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('relacion_evaluado')->insert([
             'name' => 'Supervisado',
-        ]);
+        ]);*/
 
         /* End Relacion Evaluado*/
 
@@ -268,13 +269,13 @@ class DatabaseSeeder extends Seeder
             'encuesta_id' => 9,
         ]);
 
-//         DB::table('items')->insert([
-//             'encuesta_id' => 1,
-//         ]);
+        DB::table('items')->insert([
+             'encuesta_id' => 1,
+        ]);
 
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
+        DB::table('items')->insert([
+             'encuesta_id' => 8,
+        ]);
 
         // DB::table('items')->insert([
         //     'encuesta_id' => 8,
@@ -288,7 +289,7 @@ class DatabaseSeeder extends Seeder
 
 
         /* Start evaluacion */
-
+/*
         DB::table('evaluaciones')->insert([
             'name' => str_random(10),
             'value' => 1,
@@ -313,7 +314,7 @@ class DatabaseSeeder extends Seeder
             'name' => str_random(10),
             'value' => 5,
         ]);
-
+*/
         /* End evaluacion */
 
 
@@ -322,157 +323,132 @@ class DatabaseSeeder extends Seeder
         DB::table('frases')->insert([
             'name' => 'Llega cinco (5) minutos antes de la hora de entrada',
             'item_id' => 1,
-            'evaluacion_id' => 1,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Cumple con sus responsabilidades sin afectar los resultados de sus compañeros o el equipo.',
             'item_id' => 1,
-            'evaluacion_id' => 2,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Toma en cuenta las necesidades y sentimientos de las personas de manera respetuosa y con un buen trato.',
             'item_id' => 1,
-            'evaluacion_id' => 3,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Escucha las opiniones o sugerencias de los demás, mostrando respeto y agradecimiento.',
             'item_id' => 1,
-            'evaluacion_id' => 4,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Motiva a su equipo, manteniendo una actitud positiva ante los cambios y nuevos retos.',
             'item_id' => 1,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Ayuda a sus compañeros, dando ideas para alcanzar la meta y mejorar el trabaj',
             'item_id' => 2,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Integra al empleado nuevo, mostrándole las instalaciones, 6 presentándolo a los demás, enseñándole cómo hacer el trabajo y haciéndolo sentir a gusto.',
             'item_id' => 2,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Es sincero (no dice mentiras) aunque no le convenga.',
             'item_id' => 2,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Reconoce cuando comete errores, ofreciendo disculpas.',
             'item_id' => 2,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Mantiene la confidencialidad, validando qué debe transmitir y qué no, evitando los chismes.',
             'item_id' => 2,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Sigue los lineamientos de la organización, de forma visible para los demás.',
             'item_id' => 3,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Es responsable y se comporta de acuerdo a los valores de la empresa.',
             'item_id' => 3,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Es respetuoso y amable con todas las personas.',
             'item_id' => 3,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Establece objetivos alcanzables y fáciles de medir, obteniendo los resultados esperados.',
             'item_id' => 3,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Fija prioridades, de acuerdo a su importancia.',
             'item_id' => 3,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Supera los obstáculos, de forma rápida y con entusiasmo.',
             'item_id' => 4,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
             'item_id' => 4,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
             'item_id' => 4,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Recibe las sugerencias de mejora, de buena manera.',
             'item_id' => 4,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Motiva al equipo a lograr los objetivos, con entusiasmo.',
             'item_id' => 4,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Presta atención a los detalles, tomando acción inmediata si se requiere.',
             'item_id' => 5,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Genera ideas de mejora y revisa si se pueden llevar a cabo.',
             'item_id' => 5,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Controla los niveles de calidad asegurándose que todos entienden las características del producto y del proceso.',
             'item_id' => 5,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Identifica fallas y las corrige, analizando las causas.',
             'item_id' => 5,
-            'evaluacion_id' => 5,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Propone acciones para aprovechar los recursos, con la persona adecuada.',
             'item_id' => 5,
-            'evaluacion_id' => 5,
         ]);
 
         /* End Frases */
 
         /* Start Evaluadores */
-
+/*
         DB::table('encuestados')->insert([
             'user_id' => 4,
             'is_active' => true,
@@ -922,7 +898,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'siempre',
             'frase_id' => 15,
         ]);
-        
+
+
+
+        DB::table('users_encuestas')->insert([
+            'user_id' => 3,
+            'encuesta_id' => 2,
+            'status' => 1,
+        ]);
+
 
         Model::reguard();
     }

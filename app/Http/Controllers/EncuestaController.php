@@ -80,7 +80,6 @@ class EncuestaController extends Controller
                         $frase = new Frase();
                         $frase->item_id = $id_item;
                         $frase->name = $value2['name'];
-/*Eliminar Linea mas adelante*/     $frase->evaluacion_id = 1;
                         $frase->save();
                         $id_frase = $frase->id;
 
