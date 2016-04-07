@@ -199,13 +199,7 @@ class UserController extends Controller
 
     public function user_encuesta(Request $request)
     {
-
-        if ($request->isMethod('post')) {
-            echo 'a';
-        }
-
-
-        $users = DB::table('users')
+         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
@@ -214,6 +208,19 @@ class UserController extends Controller
             'Success' => [
                 'status_code' => 200,
                 'users'       => $users
+            ]
+        ], 200);
+    }
+
+    public function users_encuestas(Request $request)
+    {
+
+        return $postData = $request->all();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200,
+                'users'       => 'a'
             ]
         ], 200);
     }
