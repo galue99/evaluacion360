@@ -6,7 +6,7 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
-					Asignacion de usuario a encuesta
+					Asignacion de Usuarios a la Evaluacion
 				</h3>
 			</div>
 			<div class="box-body">
@@ -17,7 +17,7 @@
 					<form action="" class="form row" id="formAssignUsersTest">
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">Encuesta</label>
+						        <label class="label-control">Evaluación</label>
 						        <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione una encuesta', options: tests, optionsText: 'name', optionsValue: 'id', value: formData().id_encuesta"></select>
 						    </div>
 						</div>
@@ -50,9 +50,9 @@
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
-								<th class="col-xs-2 text-center">Encusta</th>
-								<th class="col-xs-2 text-center">Estado de encuesta</th>
-								<th class="col-xs-2 text-center">acciones</th>
+								<th class="col-xs-2 text-center">Evaluación</th>
+								<th class="col-xs-2 text-center">Estado de la Evaluación</th>
+								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: userTests">
