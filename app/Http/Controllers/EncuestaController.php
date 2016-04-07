@@ -115,13 +115,13 @@ class EncuestaController extends Controller
     public function show($id)
     {
 
-        $encuesta = Encuesta::where('id', '=', $id)->get();;
+        /*$encuesta = Encuesta::where('id', '=', $id)->get();;
 
         $frases = DB::table('frases')->where('item_id', '=', 1)->get();
-        /*$id = Auth::user()->id;
+        $id = Auth::user()->id;
         $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
         $id_encuesta = $encuestas[0]->id;*/
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find(1);
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id);
 
         return  Response::json([
         'Success' => [
