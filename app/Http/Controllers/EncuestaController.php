@@ -121,14 +121,9 @@ class EncuestaController extends Controller
         $id = Auth::user()->id;
         $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
         $id_encuesta = $encuestas[0]->id;*/
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id);
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find(8);
 
-        return  Response::json([
-        'Success' => [
-            'status_code' => 200,
-            'Encuesta'    => $encuesta,
-        ]
-    ], 200);
+        return  Response::json($encuesta);
     }
 
     /**
