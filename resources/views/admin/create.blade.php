@@ -14,22 +14,18 @@
                <div class="row">
                   <button class="btn btn-info separate btn-flat" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
                   <div class="table-responsive">
-                     <table class="table table-striped">
+                     <table class="table table-striped table-bordered">
                         <thead>
                            <tr>
                               <th>Nombre</th>
                               <th>Estado</th>
-                              <th>Admin de la Evaluacion</th>
                               <th>Acciones</th>
                            </tr>
                         </thead>
-                        <tbody>
+                        <tbody data-bind="foreach: tests">
                            <tr>
                               <td data-bind="text: name" class="text-center"></td>
-                              <td></td>
-                              <td>
-                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: showModal">Admin. Adicional</button>
-                              </td>
+                              <td data-bind="text: is_active == 1 ? 'Activa' : 'Inactiva' "></td>
                               <td>
                                  <i class="fa fa-pencil fa-blue"></i>
                                  <i class="fa fa-close fa-red"></i>

@@ -26,7 +26,8 @@ function AdminTestViewModel(){
    self.getTest = function(){
       test.all()
       .done(function(response){
-         console.log(response);
+         console.log(response)
+         self.tests(response);
       });
    };
 

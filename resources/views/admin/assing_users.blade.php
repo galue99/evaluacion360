@@ -51,6 +51,7 @@
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
 								<th class="col-xs-2 text-center">Encuesta</th>
+								<th class="col-xs-2 text-center">Email</th>
 								<th class="col-xs-2 text-center">Estado de encuesta</th>
 								<th class="col-xs-2 text-center">acciones</th>
 						    </tr>
@@ -59,6 +60,7 @@
 							<tr>
 								<td data-bind="text: firstname + ' ' + lastname"></td>
 								<td data-bind="text: name"></td>
+								<td data-bind="text: email"></td>
 								<td data-bind="text: status == 1 ? 'No realizada' : 'realizada' "></td>
 								<td>
 									<i class="fa fa-pencil fa-blue pointer"></i>
