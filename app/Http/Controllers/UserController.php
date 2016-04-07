@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Encuesta;
+use App\UserEncuesta;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -199,13 +200,7 @@ class UserController extends Controller
 
     public function user_encuesta(Request $request)
     {
-
-        if ($request->isMethod('post')) {
-            echo 'a';
-        }
-
-
-        $users = DB::table('users')
+         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
@@ -217,5 +212,23 @@ class UserController extends Controller
         //         'users'       => $users
         //     ]
         // ], 200);
+    }
+
+    public function users_encuestas(Request $request)
+    {
+
+        $user_encuesta = new UserEncuesta();
+
+        $user_encuesta->user_id = $request->input('id_user');
+        $user_encuesta->encuesta_id = $request->input('id_encuesta');
+        $user_encuesta->status = $request->input('status');
+
+        $user_encuesta->save();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }
