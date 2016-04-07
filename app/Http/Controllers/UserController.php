@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
@@ -184,6 +185,18 @@ class UserController extends Controller
             'Success' => [
                 'message'     => 'Record Delete with Exits',
                 'status_code' => 200
+            ]
+        ], 200);
+    }
+
+
+    public function allUser()
+    {
+        $users = DB::table('users')->where('idrol', '!=', 1)->get();
+        return Response::json([
+            'Success' => [
+                'status_code' => 200,
+                'users'       => $users
             ]
         ], 200);
     }
