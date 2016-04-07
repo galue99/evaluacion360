@@ -204,7 +204,6 @@ class UserController extends Controller
 
     public function allUserEncuesta()
     {
-
         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
