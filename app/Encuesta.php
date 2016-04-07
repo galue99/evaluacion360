@@ -12,7 +12,7 @@ class Encuesta extends Model
 
 
     public function user() {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User','users_encuestas')->withPivot('encuesta_id','status');
     }
 
     public function items()
