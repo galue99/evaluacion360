@@ -194,12 +194,7 @@ class UserController extends Controller
     public function allUser()
     {
         $users = DB::table('users')->where('idrol', '!=', 1)->get();
-        return Response::json([
-            'Success' => [
-                'status_code' => 200,
-                'users'       => $users
-            ]
-        ], 200);
+        return Response::json($users);
     }
 
     public function allUserEncuesta()

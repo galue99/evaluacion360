@@ -37,7 +37,7 @@
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
 							<div class="form-group">
-								<button class="btn btn-primary">Asignar</button>
+								<button class="btn btn-primary" data-bind="click: save">Asignar</button>
 								<button class="btn btn-danger" role="button">Cancelar</button>
 							</div>
 						</div>

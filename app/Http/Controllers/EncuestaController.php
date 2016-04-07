@@ -160,6 +160,15 @@ class EncuestaController extends Controller
         //
     }
 
+    public function user_encuesta(Request $request){
+        
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
+    }
+
 
     public function assing_user(Request $request)
     {

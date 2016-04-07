@@ -31,4 +31,14 @@ function Miscelaneos(){
 		});
 	};
 
+	self.AssignUserTes = function(data){
+		return $.ajax({
+			url: '/admin/',
+			dataType: 'JSON',
+			method: 'POST',
+			data: data,
+			contentType: 'application/json',
+		});
+	};
+
 }

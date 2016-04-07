@@ -2,13 +2,14 @@ function AssignUsersTestViewModel(){
    var self = this;
    var test = new AdminTest();
    var user = new Evaluadores();
+   var assignUser = new Miscelaneos();
 
    self.showForm = ko.observable(false);
    self.tests = ko.observableArray();
    self.users = ko.observableArray();
    self.formData = ko.observable({
-      user: ko.observable(),
       test: ko.observable(),
+      user: ko.observable(),
       status: ko.observable()
    });
 
@@ -16,6 +17,18 @@ function AssignUsersTestViewModel(){
       self.showForm(!self.showForm());
    };
 
+   self.save = function(){
+      assignUser.AssignUserTes()
+      .done(function(response){
+         toastr.success('La asignacion de la encuesta se ha realizado con exito');
+         self.toggleForm();
+         self.clearForm();
+         console.log(response);
+      })
+      .fail(function(response){
+         toastr.error('Hubo un error al asignar la encuesta al usuario');
+      });
+   };
 
    self.getTest = function(){
       test.all()
@@ -25,23 +38,19 @@ function AssignUsersTestViewModel(){
    };
 
    self.getUsers = function(){
-      user.all()
+      user.allUser()
       .done(function(response){
          self.users(response);
-         console.log(response);
       });
-   }
+   };
+
 
    self.formData().test.subscribe(function(){
-      console.log(self.formData().test());
       self.getUsers();
    });
-   self.formData().user.subscribe(function(){
-      console.log(self.formData().user());
-   });
-
-
 
    self.getTest();
+   
+   self.getUsers();
 
 }
