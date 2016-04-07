@@ -30,4 +30,10 @@ class Company extends Model
      * @var array
      */
 
+
+    public function user()
+    {
+        return $this->hasMany('App\User');
+    }
+
 }

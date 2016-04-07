@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class="box-footer">
-				<button class="btn btn-primary pull-right" data-bind="click: toggleEncuesta">Iniciar Encuesta</button>
+				<button class="btn btn-primary pull-right" data-bind="click: toggleEncuesta">Iniciar Evaluación</button>
 			</div>
 		</div>
 	</div>
@@ -65,7 +65,7 @@
 			<div class="box-body">
 				<div class="attachment-block clearfix">
 					<div class="attachment-pushed" data-bind="visible: !$root.finish()">
-						<h4 class="attachment-heading text-center"><strong>Categoria <span data-bind="text: $root.currentItem().id"></span></strong></h4><br>
+						<h4 class="attachment-heading text-center"><strong>Competencias <span data-bind="text: $root.currentItem().id"></span></strong></h4><br>
 						<div class="col-xs-12 col-sm-5">
 							<!-- ko if: $root.currentItem().frases.length > 0 -->
 							<h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
