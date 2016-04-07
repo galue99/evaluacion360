@@ -84,7 +84,7 @@
                                 <th class="col-xs-2 text-center">Nro. de Identificacion</th>
                                 <th class="col-xs-2 text-center">Cargo</th>
                                 <th class="col-xs-2 text-center">Estatus</th>
-                                <th class="col-xs-2 text-center">Acciones</th>
+                                <th class="col-xs-1 text-center">Acciones</th>
                             </tr>
                             </thead>
                             <tbody data-bind="foreach: evaluadores">

@@ -2,6 +2,7 @@ function AdminTestViewModel(){
    var self = this;
    var test = new AdminTest();
 
+   self.showAdminTes = ko.observable(true);
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
    self.formCompany = ko.observable(false);
@@ -10,6 +11,11 @@ function AdminTestViewModel(){
       name: ko.observable(),
       items: ko.observableArray()
    });
+
+   self.toggleFormAdminTes = function(data){
+      self.showFormAdminTest(!self.showFormAdminTest());
+      console.log(data);
+   };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());

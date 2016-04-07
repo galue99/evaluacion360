@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
    <div class="col-xs-12" id="crudTest">
-      <div class="box box-primary">
+      <div class="box box-primary" data-bind="visible: showAdminTes">
          <div class="box-header with-border">
             <h3 class="box-title">
                Evaluacion
