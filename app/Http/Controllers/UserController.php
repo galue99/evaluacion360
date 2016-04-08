@@ -207,8 +207,8 @@ class UserController extends Controller
             $user_encuesta = new UserEncuesta();
 
             $user_encuesta->user_id = Request::input('id_user');
-            $user_encuesta->encuesta_id = Request::input('encuesta_id');
-            $user_encuesta->evaluado_id = Request::input('evaluado_id');
+            $user_encuesta->encuesta_id = Request::input('id_encuesta');
+            $user_encuesta->evaluado_id = Request::input('id_evaluado');
             $user_encuesta->status = Request::input('status');
 
             $user_encuesta->save();
@@ -236,6 +236,26 @@ class UserController extends Controller
 
     public function users_encuestas(Request $request, $id)
     {
+
+        if (Request::isMethod('post'))
+        {
+            $user_encuesta = new UserEncuesta();
+
+            $user_encuesta->user_id = Request::input('id_user');
+            $user_encuesta->encuesta_id = Request::input('encuesta_id');
+            $user_encuesta->evaluado_id = Request::input('evaluado_id');
+            $user_encuesta->status = Request::input('status');
+
+            $user_encuesta->save();
+
+            return Response::json([
+                'Success' => [
+                    'status_code' => 200
+                ]
+            ], 200);
+        }
+
+
         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
