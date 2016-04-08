@@ -99,242 +99,210 @@
          </div>
       </div>
 
-      <div id="myModal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">×</span></button>
-                     <h4 class="modal-title">Administracion de encuesta</h4>
+
+      <!-- administracion de la encuesta -->
+
+      <div data-bind="visible: showAdminTest">
+         <div class="col-xs-12 col-sm-6">
+            <div class="box box-primary">
+               <div class="box-header with-border">
+                  <h3 class="box-title">
+                     Asignar Usuarios a Encuestas
+                  </h3>
+               </div>
+               <div class="box-body">
+                  <table id="" class="table table-bordered table-hover">
+                     <thead>
+                         <tr>
+                           <th class="text-center">Nombre</th>
+                           <th class="text-center">Company</th>
+                           <th class="text-center">Estado</th>
+                           <th class="text-center">Acciones</th>
+                         </tr>
+                     </thead>
+                     <tbody data-bind="foreach: userAssignedTests">
+                        <tr>
+                           <td data-bind="text: firstname + ' ' + lastname"></td>
+                           <td data-bind="text: company"></td>
+                           <td data-bind="text: status == 1 ? 'No' : 'Si' " ></td>
+                           <td class="text-center">
+                              <i class="fa fa-users fa-blue pointer" data-bind="click: $root.ModalAssignUser"></i>
+                              <i class="fa fa-close fa-red pointer"></i>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>             
+               </div>
+            </div>
+         </div>            
+
+         <div class="col-xs-12 col-sm-6">
+            <div class="box box-primary">
+               <div class="box-header with-border">
+                  <h3 class="box-title">
+                     Algo
+                  </h3>
+               </div>
+               <div class="box-body">
+                  <div class="table-responsive">
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th class="text-center">Nombre</th>
+                              <th class="text-center">Email</th>
+                              <th class="text-center">Estado de la evaluacion</th>
+                              <th class="text-center">Asignar Usuario</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                 <i class="fa fa-users fa-blue pointer"></i>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
                   </div>
-                  <div class="modal-body">
-                     <button class="btn btn-info btn-flat btn-xs separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Agregar Evaluador</button>
-                     <button class="btn btn-info btn-xs btn-flat separate" data-bind="click: toggleAdmin"><i class="fa fa-plus"></i> Asignar Participante</button>
-
-                     <div class="row"><div class="box-divider col-xs-12"></div></div>
-
-                     <div class="row" data-bind="visible: !showFormAdminTest()">
-                        <div class="col-xs-12">
-                           <div class="form-group form-inline">
-                              <label for="" class="label-control">Asignar evaluador</label><br>
-                              <select class="form-control" name="" id="">
-                                 <option >Seleccione un evaluador</option>
-                              </select>
-                           </div>
-                           <div class="table-responsive">
-                              <table class="table table-striped">
-                                 <thead>
-                                    <tr>
-                                       <th>Rol</th>
-                                       <th>Nombre</th>
-                                       <th>Acciones</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <td>Evaluador Centro 99</td>
-                                    <td>Thomas Edison</td>
-                                    <td>
-                                       <i class="fa fa-close fa-red"></i>
-                                    </td>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-
-
-                    <div class="row" data-bind="visible: showFormAdminTest">
-                        <div class="col-xs-12">
-                           <div class="form-group form-inline">
-                              <label for="" class="label-control">Asignar participante</label><br>
-                              <select class="form-control" name="" id="">
-                                 <option >Seleccione un participante</option>
-                              </select>
-                           </div>
-                           <div class="table-responsive">
-                              <table class="table table-striped">
-                                 <thead>
-                                    <tr>
-                                       <th>Nombre</th>
-                                       <th>Acciones</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <td>Thomas Edison</td>
-                                    <td>
-                                       <i class="fa fa-close fa-red"></i>
-                                    </td>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-
-
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-danger btn-flat pull-left" data-dismiss="modal">Close</button>
-                  </div>
+               </div>
+               <div class="box-footer">
+                  
                </div>
             </div>
          </div>
 
-         <!-- administracion de la encuesta -->
-
-         <div data-bind="visible: showAdminTest">
-            <div class="col-xs-12 col-sm-6">
-               <div class="box box-primary">
-                  <div class="box-header with-border">
-                     <h3 class="box-title">
-                        Algo
-                     </h3>
-                  </div>
-                  <div class="box-body">
-                     <div class="table-responsive">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th class="text-center">Nombre</th>
-                                 <th class="text-center">Email</th>
-                                 <th class="text-center">Estado de la evaluacion</th>
-                                 <th class="text-center">Asignar Usuario</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td></td>
-                                 <td>
-                                    <i class="fa fa-users fa-blue pointer"></i>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  <div class="box-footer">
-                     botones
+         <div class="col-xs-12 col-sm-6">
+            <div class="box box-primary">
+               <div class="box-header with-border">
+                  <h3 class="box-title">
+                     Algo
+                  </h3>
+               </div>
+               <div class="box-body">
+                  <div class="table-responsive">
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th class="text-center">Nombre</th>
+                              <th class="text-center">Email</th>
+                              <th class="text-center">Estado de la evaluacion</th>
+                              <th class="text-center">Asignar Usuario</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                 <i class="fa fa-users fa-blue pointer"></i>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
                   </div>
                </div>
-            </div>            
-
-            <div class="col-xs-12 col-sm-6">
-               <div class="box box-primary">
-                  <div class="box-header with-border">
-                     <h3 class="box-title">
-                        Algo
-                     </h3>
-                  </div>
-                  <div class="box-body">
-                     <div class="table-responsive">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th class="text-center">Nombre</th>
-                                 <th class="text-center">Email</th>
-                                 <th class="text-center">Estado de la evaluacion</th>
-                                 <th class="text-center">Asignar Usuario</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td></td>
-                                 <td>
-                                    <i class="fa fa-users fa-blue pointer"></i>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  <div class="box-footer">
-                     botones
-                  </div>
+               <div class="box-footer">
+                  
                </div>
             </div>
-
-            <div class="col-xs-12 col-sm-6">
-               <div class="box box-primary">
-                  <div class="box-header with-border">
-                     <h3 class="box-title">
-                        Algo
-                     </h3>
-                  </div>
-                  <div class="box-body">
-                     <div class="table-responsive">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th class="text-center">Nombre</th>
-                                 <th class="text-center">Email</th>
-                                 <th class="text-center">Estado de la evaluacion</th>
-                                 <th class="text-center">Asignar Usuario</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td></td>
-                                 <td>
-                                    <i class="fa fa-users fa-blue pointer"></i>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  <div class="box-footer">
-                     botones
-                  </div>
-               </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6">
-               <div class="box box-primary">
-                  <div class="box-header with-border">
-                     <h3 class="box-title">
-                        Algo
-                     </h3>
-                  </div>
-                  <div class="box-body">
-                     <div class="table-responsive">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th class="text-center">Nombre</th>
-                                 <th class="text-center">Email</th>
-                                 <th class="text-center">Estado de la evaluacion</th>
-                                 <th class="text-center">Asignar Usuario</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td></td>
-                                 <td>
-                                    <i class="fa fa-users fa-blue pointer"></i>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  <div class="box-footer">
-                     botones
-                  </div>
-               </div>
-            </div>
-
-
          </div>
 
+         <div class="col-xs-12 col-sm-6">
+            <div class="box box-primary">
+               <div class="box-header with-border">
+                  <h3 class="box-title">
+                     Algo
+                  </h3>
+               </div>
+               <div class="box-body">
+                  <div class="table-responsive">
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th class="text-center">Nombre</th>
+                              <th class="text-center">Email</th>
+                              <th class="text-center">Estado de la evaluacion</th>
+                              <th class="text-center">Asignar Usuario</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                 <i class="fa fa-users fa-blue pointer"></i>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="box-footer">
+                  
+               </div>
+            </div>
+         </div>
 
 
       </div>
+
+
+
+      <!-- Primer modal -->
+      <div id="modalassignuser" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">Asignacion de usuarios a encuesta</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <form action="" class="form row" id="formAssignUsersTest">
+                           <div class="col-xs-6 col-md-4 separate">
+                               <div class="form-group">
+                                   <label class="label-control">Evaluación</label>
+                                   <select name="" id="" class="form-control" data-bind=""></select>
+                               </div>
+                           </div>
+                           
+                           <div class="col-xs-6 col-md-4 separate">
+                               <div class="form-group">
+                                    <label class="label-control">Usuario</label>
+                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formData().id_user "></select>
+                               </div>
+                           </div>
+                           <div class="col-xs-6 col-md-4 separate">
+                               <div class="form-group">
+                               <label for="">Estado</label>
+                                 <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().status">
+                                    <label for="status"></label>
+                               </div>
+                           </div>
+                           <div class="form-group col-xs-9 col-md-12 text-right">
+                              <div class="form-group">
+                                 <button class="btn btn-primary">Asignar</button>
+                                 <button class="btn btn-danger" role="button">Cancelar</button>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger btn-flat pull-left">Close</button>
+                  <button type="button" class="btn btn-info btn-flat pull-right">Guardar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
    </div>
-   @stop
+</div>
+@stop

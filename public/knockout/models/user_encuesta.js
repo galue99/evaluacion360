@@ -12,9 +12,9 @@ var self = this;
 		});
 	};
 
-	self.AllUserTest = function(){
+	self.AllUserTest = function(id){
 		return $.ajax({
-			url: '/admin/users_encuesta',
+			url: '/admin/users_encuesta/'+ id,
 			dataType: 'JSON',
 			method: 'GET',
 			contentType: 'application/json',

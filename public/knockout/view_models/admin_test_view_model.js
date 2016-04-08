@@ -108,14 +108,66 @@ function AdminTestViewModel(){
       //////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
    self.showAdminTest = ko.observable(false);
-   self.testSelected = ko.observableArray();
+   self.testSelected = ko.observable();
 
+   //Primer box
+   var test = new AdminTest();
+   var user = new Evaluadores();
+   var assignTest = new UserEncuesta();
+
+
+   self.usersAssign = ko.observableArray();
+   self.userAssignedTests = ko.observableArray();
 
    self.toggleFormAdminTest = function(data){
       self.showAdminTest(!self.showAdminTest());
-      self.testSelected(data);
-      console.log(self.testSelected());
+      self.testSelected(data.id);
+      self.getUserAssignedToTest();
+      // console.log(self.testSelected());
    };
+
+   self.getUserAssignedToTest = function(){
+      assignTest.AllUserTest(self.testSelected())
+      console.log(self.testSelected())
+      .done(function(response){
+         self.userAssignedTests(response);
+      });
+   }
+
+
+   // Primer Box asignacion de usuarios a la encuesta 
+
+   self.Get
+
+   self.ModalAssignUser = function(data){
+      $('#modalassignuser').modal('show');
+      self.testSelected
+   };
+
+   self.formDataAssignUser = ko.observable({
+      id_encuesta: ko.observable(),
+      id_user: ko.observable(),
+      id_evaluado: ko.observable(),
+      status: ko.observable()
+   });
+
+
+   self.clearFormAssignUser = function(){
+      self.formDataAssignUser({
+         id_encuesta: ko.observable(),
+         id_user: ko.observable(),
+         id_evaluado: ko.observable(),
+         status: ko.observable()
+      });
+   }
+
+   self.getUserToAssign = function(){
+      user.allUser()
+      .done(function(response){
+         self.usersAssign(response);
+      });
+   };
+
 
 
 
