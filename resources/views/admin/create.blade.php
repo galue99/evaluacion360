@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
    <div class="col-xs-12" id="crudTest">
-      <div class="box box-primary" data-bind="visible: showAdminTes">
+      <div class="box box-primary" data-bind="visible: !showAdminTest()">
          <div class="box-header with-border">
             <h3 class="box-title">
                Evaluacion
@@ -20,6 +20,7 @@
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Estado</th>
                               <th class="text-center">Acciones</th>
+                              <th class="text-center">administrar</th>
                            </tr>
                         </thead>
                         <tbody data-bind="foreach: tests">
@@ -29,6 +30,9 @@
                               <td class="text-center">
                                  <i class="fa fa-pencil fa-blue"></i>
                                  <i class="fa fa-close fa-red"></i>
+                              </td>
+                              <td>
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Administrar</button>
                               </td>
                            </tr>
                         </tbody>
@@ -174,6 +178,161 @@
                </div>
             </div>
          </div>
+
+         <!-- administracion de la encuesta -->
+
+         <div data-bind="visible: showAdminTest">
+            <div class="col-xs-12 col-sm-6">
+               <div class="box box-primary">
+                  <div class="box-header with-border">
+                     <h3 class="box-title">
+                        Algo
+                     </h3>
+                  </div>
+                  <div class="box-body">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">Nombre</th>
+                                 <th class="text-center">Email</th>
+                                 <th class="text-center">Estado de la evaluacion</th>
+                                 <th class="text-center">Asignar Usuario</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td></td>
+                                 <td></td>
+                                 <td></td>
+                                 <td>
+                                    <i class="fa fa-users fa-blue pointer"></i>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="box-footer">
+                     botones
+                  </div>
+               </div>
+            </div>            
+
+            <div class="col-xs-12 col-sm-6">
+               <div class="box box-primary">
+                  <div class="box-header with-border">
+                     <h3 class="box-title">
+                        Algo
+                     </h3>
+                  </div>
+                  <div class="box-body">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">Nombre</th>
+                                 <th class="text-center">Email</th>
+                                 <th class="text-center">Estado de la evaluacion</th>
+                                 <th class="text-center">Asignar Usuario</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td></td>
+                                 <td></td>
+                                 <td></td>
+                                 <td>
+                                    <i class="fa fa-users fa-blue pointer"></i>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="box-footer">
+                     botones
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+               <div class="box box-primary">
+                  <div class="box-header with-border">
+                     <h3 class="box-title">
+                        Algo
+                     </h3>
+                  </div>
+                  <div class="box-body">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">Nombre</th>
+                                 <th class="text-center">Email</th>
+                                 <th class="text-center">Estado de la evaluacion</th>
+                                 <th class="text-center">Asignar Usuario</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td></td>
+                                 <td></td>
+                                 <td></td>
+                                 <td>
+                                    <i class="fa fa-users fa-blue pointer"></i>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="box-footer">
+                     botones
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+               <div class="box box-primary">
+                  <div class="box-header with-border">
+                     <h3 class="box-title">
+                        Algo
+                     </h3>
+                  </div>
+                  <div class="box-body">
+                     <div class="table-responsive">
+                        <table class="table table-striped">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">Nombre</th>
+                                 <th class="text-center">Email</th>
+                                 <th class="text-center">Estado de la evaluacion</th>
+                                 <th class="text-center">Asignar Usuario</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td></td>
+                                 <td></td>
+                                 <td></td>
+                                 <td>
+                                    <i class="fa fa-users fa-blue pointer"></i>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+                  <div class="box-footer">
+                     botones
+                  </div>
+               </div>
+            </div>
+
+
+         </div>
+
 
 
       </div>
