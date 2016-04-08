@@ -103,7 +103,7 @@
       <!-- administracion de la encuesta -->
 
       <div data-bind="visible: showAdminTest">
-         <div class="col-xs-12 col-sm-6">
+         <div class="col-xs-12 col-sm-10 pull-center">
             <div class="box box-primary">
                <div class="box-header with-border">
                   <h3 class="box-title">
@@ -111,143 +111,28 @@
                   </h3>
                </div>
                <div class="box-body">
+                  <button class="btn btn-info separate btn-flat btn-sm" data-bind="click: ModalAssignUser"><i class="fa fa-plus"></i> Asignar Usuarios</button>
                   <table id="" class="table table-bordered table-hover">
                      <thead>
                          <tr>
                            <th class="text-center">Nombre</th>
                            <th class="text-center">Company</th>
+                           <th class="text-center">Email</th>
                            <th class="text-center">Estado</th>
-                           <th class="text-center">Acciones</th>
                          </tr>
                      </thead>
                      <tbody data-bind="foreach: userAssignedTests">
                         <tr>
                            <td data-bind="text: firstname + ' ' + lastname"></td>
                            <td data-bind="text: company"></td>
-                           <td data-bind="text: status == 1 ? 'No' : 'Si' " ></td>
-                           <td class="text-center">
-                              <i class="fa fa-users fa-blue pointer" data-bind="click: $root.ModalAssignUser"></i>
-                              <i class="fa fa-close fa-red pointer"></i>
-                           </td>
+                           <td data-bind="text: email"></td>
+                           <td> <span class="badge bg green" data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)"> </td>
                         </tr>
                      </tbody>
                   </table>             
                </div>
             </div>
          </div>            
-
-         <div class="col-xs-12 col-sm-6">
-            <div class="box box-primary">
-               <div class="box-header with-border">
-                  <h3 class="box-title">
-                     Algo
-                  </h3>
-               </div>
-               <div class="box-body">
-                  <div class="table-responsive">
-                     <table class="table table-striped">
-                        <thead>
-                           <tr>
-                              <th class="text-center">Nombre</th>
-                              <th class="text-center">Email</th>
-                              <th class="text-center">Estado de la evaluacion</th>
-                              <th class="text-center">Asignar Usuario</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>
-                                 <i class="fa fa-users fa-blue pointer"></i>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-               <div class="box-footer">
-                  
-               </div>
-            </div>
-         </div>
-
-         <div class="col-xs-12 col-sm-6">
-            <div class="box box-primary">
-               <div class="box-header with-border">
-                  <h3 class="box-title">
-                     Algo
-                  </h3>
-               </div>
-               <div class="box-body">
-                  <div class="table-responsive">
-                     <table class="table table-striped">
-                        <thead>
-                           <tr>
-                              <th class="text-center">Nombre</th>
-                              <th class="text-center">Email</th>
-                              <th class="text-center">Estado de la evaluacion</th>
-                              <th class="text-center">Asignar Usuario</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>
-                                 <i class="fa fa-users fa-blue pointer"></i>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-               <div class="box-footer">
-                  
-               </div>
-            </div>
-         </div>
-
-         <div class="col-xs-12 col-sm-6">
-            <div class="box box-primary">
-               <div class="box-header with-border">
-                  <h3 class="box-title">
-                     Algo
-                  </h3>
-               </div>
-               <div class="box-body">
-                  <div class="table-responsive">
-                     <table class="table table-striped">
-                        <thead>
-                           <tr>
-                              <th class="text-center">Nombre</th>
-                              <th class="text-center">Email</th>
-                              <th class="text-center">Estado de la evaluacion</th>
-                              <th class="text-center">Asignar Usuario</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>
-                                 <i class="fa fa-users fa-blue pointer"></i>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-               <div class="box-footer">
-                  
-               </div>
-            </div>
-         </div>
-
-
       </div>
 
 
@@ -265,37 +150,31 @@
                         <form action="" class="form row" id="formAssignUsersTest">
                            <div class="col-xs-6 col-md-4 separate">
                                <div class="form-group">
-                                   <label class="label-control">Evaluación</label>
-                                   <select name="" id="" class="form-control" data-bind=""></select>
+                                    <label class="label-control">Usuario</label>
+                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
                                </div>
                            </div>
-                           
+
                            <div class="col-xs-6 col-md-4 separate">
                                <div class="form-group">
-                                    <label class="label-control">Usuario</label>
-                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formData().id_user "></select>
+                                    <label class="label-control">Evaluado</label>
+                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado "></select>
                                </div>
                            </div>
                            <div class="col-xs-6 col-md-4 separate">
                                <div class="form-group">
                                <label for="">Estado</label>
-                                 <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().status">
+                                 <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formDataAssignUser().status">
                                     <label for="status"></label>
                                </div>
-                           </div>
-                           <div class="form-group col-xs-9 col-md-12 text-right">
-                              <div class="form-group">
-                                 <button class="btn btn-primary">Asignar</button>
-                                 <button class="btn btn-danger" role="button">Cancelar</button>
-                              </div>
                            </div>
                         </form>
                      </div>
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger btn-flat pull-left">Close</button>
-                  <button type="button" class="btn btn-info btn-flat pull-right">Guardar</button>
+                  <button class="btn btn-primary" data-bind="click: saveAssignUserTes">Asignar</button>
+                  <button class="btn btn-danger" role="button">Cancelar</button>
                </div>
             </div>
          </div>

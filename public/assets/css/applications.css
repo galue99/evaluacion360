@@ -1,4 +1,3 @@
-
 .box-divider{
     border-bottom: solid 1px #F4F4F4;
     margin: 10px 0;
@@ -183,12 +182,38 @@ input[type="checkbox"] + label.error{
 #crudTest table img.logo{
     max-width: 100px;
 }
-#crudTest table i.pointer + i.pointer{
-    margin-left: 10px;
-}
 #company table figure img.logo{
     display: block;
     margin:0 auto;
     max-height: 30px;
     max-width: 100px;
+}
+
+
+
+
+/*Tooltip Colors*/
+.primary-tooltip + .tooltip > .tooltip-inner {
+    background-color: #3C8DBC;
+}
+.primary-tooltip + .tooltip > .tooltip-arrow {
+    border-bottom-color:#3C8DBC;
+}
+.info-tooltip + .tooltip > .tooltip-inner {
+    background-color: #00C0EF;
+}
+.info-tooltip + .tooltip > .tooltip-arrow {
+    border-bottom-color:#00C0EF;
+}
+.success-tooltip + .tooltip > .tooltip-inner {
+    background-color: #00a65a;
+}
+.success-tooltip + .tooltip > .tooltip-arrow {
+    border-bottom-color:#00a65a;
+}
+.danger-tooltip + .tooltip > .tooltip-inner {
+    background-color: #a94442;
+}
+.danger-tooltip + .tooltip > .tooltip-arrow {
+    border-bottom-color:#a94442;
 }

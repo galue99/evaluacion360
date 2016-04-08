@@ -41,4 +41,13 @@ function Miscelaneos(){
 		});
 	};
 
+	self.diferentUser = function(id){
+		return $.ajax({
+			url: '/admin/diferents_user/'+ id,
+			dataType: 'json',
+			method: 'GET',
+			contentType: "application/json",
+		});
+	}
+
 }
