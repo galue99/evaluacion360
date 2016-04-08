@@ -200,22 +200,7 @@ class UserController extends Controller
 
     public function user_encuesta(Request $request)
     {
-         $users = DB::table('users')
-            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
 
-             return Response::json($users);
-        // return Response::json([
-        //     'Success' => [
-        //         'status_code' => 200,
-        //         'users'       => $users
-        //     ]
-        // ], 200);
-    }
-
-    public function users_encuestas(Request $request)
-    {
 
         $user_encuesta = new UserEncuesta();
 
@@ -230,5 +215,29 @@ class UserController extends Controller
                 'status_code' => 200
             ]
         ], 200);
+
+         $users = DB::table('users')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
+
+             return Response::json($users);
+        // return Response::json([
+        //     'Success' => [
+        //         'status_code' => 200,
+        //         'users'       => $users
+        //     ]
+        // ], 200);
+    }
+
+    public function users_encuestas(Request $request, $id)
+    {
+        $users = DB::table('users')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->where('encuestas.id', '=', $id)->get();
+
+        return Response::json($users);
+
     }
 }

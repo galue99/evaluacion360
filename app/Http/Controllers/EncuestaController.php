@@ -164,7 +164,7 @@ class EncuestaController extends Controller
     }
 
 
-    public function assing_user(Request $request)
+    public function assing_user()
     {
         return View('admin.assing_users');
     }

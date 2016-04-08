@@ -160,31 +160,22 @@ class DatabaseSeeder extends Seeder
         /* end encuestas seed */
 
         /* Start items db seed */
-
+/*
         DB::table('items')->insert([
-<<<<<<< HEAD
-=======
             'items' => 8,
->>>>>>> 64e379b... Resolviendo problemas con los seed
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-<<<<<<< HEAD
-=======
             'items' => 8,
->>>>>>> 64e379b... Resolviendo problemas con los seed
             'encuesta_id' => 8,
         ]);
 
         DB::table('items')->insert([
-<<<<<<< HEAD
-=======
             'items' => 8,
->>>>>>> 64e379b... Resolviendo problemas con los seed
             'encuesta_id' => 8,
         ]);
-
+*/
         DB::table('items')->insert([
             'encuesta_id' => 2,
         ]);
@@ -282,7 +273,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('items')->insert([
-<<<<<<< HEAD
              'encuesta_id' => 1,
         ]);
 
@@ -297,11 +287,8 @@ class DatabaseSeeder extends Seeder
         // DB::table('items')->insert([
         //     'encuesta_id' => 8,
         // ]);
-=======
-            'items' => 8,
-            'encuesta_id' => 8,
-        ]);
 
+/*
         DB::table('items')->insert([
             'items' => 8,
             'encuesta_id' => 8,
@@ -311,7 +298,6 @@ class DatabaseSeeder extends Seeder
             'items' => 8,
             'encuesta_id' => 8,
         ]);
->>>>>>> 64e379b... Resolviendo problemas con los seed
 
         /* End items db seed */
 
