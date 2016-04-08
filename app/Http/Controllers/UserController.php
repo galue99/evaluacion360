@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Encuesta;
 use App\UserEncuesta;
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\User;
@@ -53,17 +53,17 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $user->firstname      = $request->input('firstname');
-        $user->lastname       = $request->input('lastname');
-        $user->idrol          = $request->input('idrol');
-        $user->email          = $request->input('email');
-        $user->password       = Hash::make($request->input('password'));
-        $user->repassword     = $request->input('password');
-        $user->dni            = $request->input('dni');
-        $user->position       = $request->input('position');
-        $user->company        = $request->input('company');
-        $user->branch_office  = $request->input('branch_office');
-        $user->is_active      = $request->input('is_active');
+        $user->firstname      = Request::input('firstname');
+        $user->lastname       = Request::input('lastname');
+        $user->idrol          = Request::input('idrol');
+        $user->email          = Request::input('email');
+        $user->password       = Hash::make(Request::input('password'));
+        $user->repassword     = Request::input('password');
+        $user->dni            = Request::input('dni');
+        $user->position       = Request::input('position');
+        $user->company        = Request::input('company');
+        $user->branch_office  = Request::input('branch_office');
+        $user->is_active      = Request::input('is_active');
 
         $user->save();
 
@@ -146,15 +146,15 @@ class UserController extends Controller
             ], 400);
         }
 
-        $user->firstname  = $request->input('firstname');
-        $user->lastname   = $request->input('lastname');
-        $user->idrol      = $request->input('idrol');
-        $user->email      = $request->input('email');
-        $user->password   = Hash::make($request->input('password'));
-        $user->repassword = $request->input('password');
-        $user->dni        = $request->input('dni');
-        $user->position   = $request->input('position');
-        if($request->input('is_active') == 'true'){
+        $user->firstname  = Request::input('firstname');
+        $user->lastname   = Request::input('lastname');
+        $user->idrol      = Request::input('idrol');
+        $user->email      = Request::input('email');
+        $user->password   = Hash::make(Request::input('password'));
+        $user->repassword = Request::input('password');
+        $user->dni        = Request::input('dni');
+        $user->position   = Request::input('position');
+        if(Request::input('is_active') == 'true'){
             $user->is_active = 1;
         }else{
             $user->is_active = 0;
@@ -198,23 +198,27 @@ class UserController extends Controller
         return Response::json($users);
     }
 
-    public function user_encuesta(Request $request)
+    public function users_encuesta(Request $request)
     {
+        $method = Request::method();
 
+        if (Request::isMethod('post'))
+        {
+            $user_encuesta = new UserEncuesta();
 
-        $user_encuesta = new UserEncuesta();
+            $user_encuesta->user_id = Request::input('id_user');
+            $user_encuesta->encuesta_id = Request::input('encuesta_id');
+            $user_encuesta->evaluado_id = Request::input('evaluado_id');
+            $user_encuesta->status = Request::input('status');
 
-        $user_encuesta->user_id = $request->input('id_user');
-        $user_encuesta->encuesta_id = $request->input('id_encuesta');
-        $user_encuesta->status = $request->input('status');
+            $user_encuesta->save();
 
-        $user_encuesta->save();
-
-        return Response::json([
-            'Success' => [
-                'status_code' => 200
-            ]
-        ], 200);
+            return Response::json([
+                'Success' => [
+                    'status_code' => 200
+                ]
+            ], 200);
+        }
 
          $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')

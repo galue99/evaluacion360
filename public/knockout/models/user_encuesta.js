@@ -4,7 +4,7 @@ var self = this;
 
 	self.AssignUserTes = function(data){
 		return $.ajax({
-			url: '/admin/users_encuesta',
+			url: '/admin/users_encuestas',
 			method: 'POST',
 			data: data,
 			dataType: 'json',
