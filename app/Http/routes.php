@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/allusers', 'UserController@allUser');
     Route::Resource('/users_encuestas', 'UserController@users_encuesta');
     Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
+    Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
 });
 
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {

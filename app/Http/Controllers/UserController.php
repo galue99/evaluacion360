@@ -244,4 +244,13 @@ class UserController extends Controller
         return Response::json($users);
 
     }
+
+
+    public function users_id_diferent(Request $request, $id)
+    {
+        $users = DB::table('users')->where('id', '!=', $id)->get();
+
+        return Response::json($users);
+
+    }
 }
