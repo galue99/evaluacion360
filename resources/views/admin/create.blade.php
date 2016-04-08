@@ -155,10 +155,10 @@
                                </div>
                            </div>
 
-                           <div class="col-xs-6 col-md-4 separate">
+                           <div class="col-xs-6 col-md-4 separate" data-bind="visible: RefereeAssign().length > 0">
                                <div class="form-group">
                                     <label class="label-control">Evaluado</label>
-                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado "></select>
+                                     <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado"></select>
                                </div>
                            </div>
                            <div class="col-xs-6 col-md-4 separate">
@@ -174,7 +174,7 @@
                </div>
                <div class="modal-footer">
                   <button class="btn btn-primary" data-bind="click: saveAssignUserTes">Asignar</button>
-                  <button class="btn btn-danger" role="button">Cancelar</button>
+                  <button class="btn btn-danger" role="button" data-bind="click: cancelAssign">Cancelar</button>
                </div>
             </div>
          </div>

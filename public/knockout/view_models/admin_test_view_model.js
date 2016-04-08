@@ -182,6 +182,11 @@ function AdminTestViewModel(){
       });
    };
 
+   self.cancelAssign = function(){
+      $('#modalassignuser').modal('hide');
+      self.clearFormAssignUser();
+   };
+
    self.formDataAssignUser().id_user.subscribe(function(){
       console.log(self.formDataAssignUser().id_user())
       userdiff.diferentUser(self.formDataAssignUser().id_user())
