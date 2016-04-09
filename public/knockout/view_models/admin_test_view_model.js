@@ -29,16 +29,15 @@ function AdminTestViewModel(){
    self.getTest = function(){
       test.all()
       .done(function(response){
-         console.log(response)
          self.tests(response);
       });
    };
 
    self.save = function(){
-     console.log(ko.toJSON(self.formData()));
       test.create(ko.toJSON(self.formData()))
       .done(function(response){
          self.clearFormTest();
+         self.getTest();
          toastr.success('La encuesta ha sido guardada exitosamente');
       })
       .fail(function(response){
@@ -129,6 +128,7 @@ function AdminTestViewModel(){
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
          self.userAssignedTests(response);
+         console.log(self.userAssignedTests());
       });
    };
 
