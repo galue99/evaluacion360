@@ -115,7 +115,8 @@
                   <table id="" class="table table-bordered table-hover">
                      <thead>
                          <tr>
-                           <th class="text-center">Nombre</th>
+                           <th class="text-center">Nombre del evaluador</th>
+                           <th class="text-center">Nombre del evaluado</th>
                            <th class="text-center">Company</th>
                            <th class="text-center">Email</th>
                            <th class="text-center">Estado</th>
@@ -124,12 +125,16 @@
                      <tbody data-bind="foreach: userAssignedTests">
                         <tr>
                            <td data-bind="text: firstname + ' ' + lastname"></td>
-                           <td data-bind="text: company"></td>
+                           <td></td>
+                           <td data-bind="text: name"></td>
                            <td data-bind="text: email"></td>
                            <td> <span class="badge bg green" data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)"> </td>
                         </tr>
                      </tbody>
                   </table>             
+               </div>
+               <div class="box-footer">
+                  <button class="btn btn-danger btn-sm btn-flat" data-bind="click: toggleFormAdminTest"><i class="fa fa-arrow-left"></i> Cancelar</button>
                </div>
             </div>
          </div>            

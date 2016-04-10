@@ -31,16 +31,6 @@ function Miscelaneos(){
 		});
 	};
 
-	self.AssignUserTes = function(data){
-		return $.ajax({
-			url: '/admin/users_encuestas',
-			dataType: 'JSON',
-			method: 'POST',
-			data: data,
-			contentType: 'application/json',
-		});
-	};
-
 	self.diferentUser = function(id){
 		return $.ajax({
 			url: '/admin/diferents_user/'+ id,
