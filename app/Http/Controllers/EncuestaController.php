@@ -124,7 +124,7 @@ class EncuestaController extends Controller
         // $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
         // $id_encuesta = $encuestas[0]->id;
 
-        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
+        $encuesta = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
         return  Response::json($encuesta);
     }
@@ -168,4 +168,13 @@ class EncuestaController extends Controller
     {
         return View('admin.assing_users');
     }
+
+
+    public function encuesta_users($id)
+    {
+        $encuesta = Encuesta::with('user')->find($id);
+
+        return  Response::json($encuesta);
+    }
+
 }
