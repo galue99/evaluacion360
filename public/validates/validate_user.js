@@ -1,5 +1,5 @@
 (function(){
-	$("#formEvaluadores").validate({
+    $("#formEvaluadores").validate({
     rules: {
         firstname: {
             required: true,

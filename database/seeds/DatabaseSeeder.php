@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         /* Star User */
         DB::table('users')->insert([
             'firstname'          => 'Jhon',
-            'lastname'           => 'Doe Doe',
+            'lastname'           => 'Doe',
             'idrol'              => 1,
             'email'              => 'admin@gmail.com',
             'password'           => Hash::make('admin'),
@@ -63,8 +63,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'firstname'          => 'Jhon',
-            'lastname'           => 'Doe Doe',
+            'firstname'          => 'Juan',
+            'lastname'           => 'Doe',
             'idrol'              => 2,
             'email'              => 'admin1@gmail.com',
             'password'           => Hash::make('admin'),
@@ -75,8 +75,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'firstname'           => 'Jhon',
-            'lastname'            => 'Doe1',
+            'firstname'           => 'Pedro',
+            'lastname'            => 'Doe',
             'idrol'               => 2,
             'email'               => 'admin2@gmail.com',
             'password'            => Hash::make('admin'),
@@ -87,8 +87,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'firstname'          => 'Jhon',
-            'lastname'           => 'Prueba',
+            'firstname'          => 'Luis',
+            'lastname'           => 'Perez',
             'idrol'              => 2,
             'email'              => 'admin3@gmail.com',
             'password'           => Hash::make('admin'),
