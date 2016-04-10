@@ -211,7 +211,7 @@ class UserController extends Controller
 
             $user_encuesta->user_id = Request::input('id_user');
             $user_encuesta->encuesta_id = Request::input('id_encuesta');
-            $user_encuesta->evaluado_id = Request::input('id_evaluado');
+            $user_encuesta->evaluador_id = Request::input('id_evaluado');
             $user_encuesta->status = Request::input('status');
 
             $user_encuesta->save();
@@ -248,8 +248,8 @@ class UserController extends Controller
 
             $user_encuesta->user_id = Request::input('id_user');
             $user_encuesta->encuesta_id = Request::input('encuesta_id');
-            $user_encuesta->evaluado_id = Request::input('evaluado_id');
-            $user_encuesta->status = 0;
+            $user_encuesta->evaluador_id = Request::input('evaluado_id');
+            $user_encuesta->status = Request::input('status');
 
             $user_encuesta->save();
 
@@ -264,21 +264,19 @@ class UserController extends Controller
         $encuesta = DB::table('users_encuestas')
             ->join('users', 'users_encuestas.user_id', '=', 'users.id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->groupBy('user_id')->get();
+            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->get();
 
         $evaluado = DB::table('users_encuestas')
             ->join('users', 'users_encuestas.evaluado_id', '=', 'users.id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->get();
         //return  Response::json($encuesta);
-        //$encuesta = Encuesta::with('user')->find($id);
+        $encuesta = Encuesta::with('user', 'encuestado')->find($id);
 
         return Response::json([
-            'Success' => [
-                'evaluadores' => $encuesta,
-                'evaluado'    => $evaluado,
-                'status_code' => 200
-            ]
+
+                $encuesta
+
         ], 200);
 
     }
