@@ -132,7 +132,7 @@
                   </table>             
                </div>
                <div class="box-footer">
-                  <button class="btn btn-danger btn-sm btn-flat" data-bind="click: toggleFormAdminTest"><i class="fa fa-arrow-left"></i> Cerrar</button>
+                  <button class="btn btn-danger btn-sm btn-flat" data-bind="click: toggleFormAdminTest"><i class="fa fa-arrow-left"></i> Atras</button>
                </div>
             </div>
          </div>            
@@ -169,7 +169,7 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bind="click: saveAssignUserTes">Asignar</button>
+                  <button class="btn btn-primary" data-bind="click: saveAssignUserTest">Asignar</button>
                   <button class="btn btn-danger" role="button" data-bind="click: cancelAssign">Cancelar</button>
                </div>
             </div>
@@ -222,7 +222,7 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button class="btn btn-danger" role="button" data-bind="click: ModalHideEvaluadosAssigned">Cancelar</button>
+                  <button class="btn btn-danger" role="button" data-bind="click: ModalHideEvaluadosAssigned">Cerrar</button>
                </div>
             </div>
          </div>
