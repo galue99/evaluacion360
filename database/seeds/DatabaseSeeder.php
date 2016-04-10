@@ -68,6 +68,7 @@ class DatabaseSeeder extends Seeder
             'password'           => Hash::make('admin'),
             'repassword'         => 'admin',
             'dni'                => '16877353',
+            'company_id'          => 1,
             'position'           => 'Administrador',
             'is_active'          => true,
         ]);
@@ -80,6 +81,7 @@ class DatabaseSeeder extends Seeder
             'password'           => Hash::make('admin'),
             'repassword'         => 'admin',
             'dni'                => '16817353',
+            'company_id'          => 1,
             'position'           => 'Vendedor',
             'is_active'          => true,
         ]);
@@ -90,8 +92,9 @@ class DatabaseSeeder extends Seeder
             'idrol'               => 2,
             'email'               => 'admin2@gmail.com',
             'password'            => Hash::make('admin'),
-            'repassword'         => 'admin',
+            'repassword'          => 'admin',
             'dni'                 => '16877350',
+            'company_id'          => 1,
             'position'            => 'Vendedor',
             'is_active'           => true,
         ]);
@@ -103,6 +106,7 @@ class DatabaseSeeder extends Seeder
             'email'              => 'admin3@gmail.com',
             'password'           => Hash::make('admin'),
             'repassword'         => 'admin',
+            'company_id'         => 1,
             'dni'                => '16877354',
             'position'           => 'Vendedor',
             'is_active'          => true,

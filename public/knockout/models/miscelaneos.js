@@ -24,7 +24,7 @@ function Miscelaneos(){
 
 	self.allCompanies = function(){
 		return $.ajax({
-			url: '/admin/img',
+			url: '/admin/all_companys',
 			dataType: 'json',
 			method: 'GET',
 			contentType: "application/json",

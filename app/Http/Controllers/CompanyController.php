@@ -20,14 +20,7 @@ class CompanyController extends Controller
 
         $img = Company::all();
 
-        if ($request->ajax())
-        {
-            return  $img;
-        } else {
             return View('admin.img');
-        }
-
-
     }
 
     /**
@@ -109,5 +102,13 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function allCompanys(Request $request)
+    {
+
+        $img = Company::all();
+
+        return $img;
     }
 }
