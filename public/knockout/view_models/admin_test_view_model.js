@@ -121,14 +121,13 @@ function AdminTestViewModel(){
       self.showAdminTest(!self.showAdminTest());
       self.testSelected(data);
       self.getUserAssignedToTest();
-      // console.log(self.testSelected());
    };
 
    self.getUserAssignedToTest = function(){
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
+         console.log(response);
          self.userAssignedTests(response);
-         console.log(self.userAssignedTests());
       });
    };
 
@@ -142,6 +141,11 @@ function AdminTestViewModel(){
       $('#modalassignuser').modal('show');
       self.getUserToAssign();
       self.formDataAssignUser().id_encuesta(self.testSelected().id);
+   };
+
+   self.cancelAssign = function(){
+      $('#modalassignuser').modal('hide');
+      self.clearFormAssignUser();
    };
 
    self.formDataAssignUser = ko.observable({
@@ -186,17 +190,10 @@ function AdminTestViewModel(){
       });
    };
 
-   self.cancelAssign = function(){
-      $('#modalassignuser').modal('hide');
-      self.clearFormAssignUser();
-   };
-
    self.formDataAssignUser().id_user.subscribe(function(){
-      console.log(self.formDataAssignUser().id_user())
       userdiff.diferentUser(self.formDataAssignUser().id_user())
       .done(function(response){
          self.RefereeAssign(response);
-         console.log(response);
       })
       .fail(function(response){
          toastr.error('Hubo un error al consultar el resto de usuarios');
@@ -204,6 +201,15 @@ function AdminTestViewModel(){
          self.clearFormAssignUser();
       })
    });
+
+   self.evaluadosAssigned = function(data){
+      jQuery('#modalevaluadoassigned').modal('show');
+      console.log(data.evaluado_id);
+   }
+
+   self.ModalHideEvaluadosAssigned = function(){
+      jQuery('#modalevaluadoassigned').modal('hide');
+   }
 
 
 

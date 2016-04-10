@@ -103,7 +103,7 @@
       <!-- administracion de la encuesta -->
 
       <div data-bind="visible: showAdminTest">
-         <div class="col-xs-12 col-sm-10 pull-center">
+         <div class="col-xs-12 col-sm-11 pull-center">
             <div class="box box-primary">
                <div class="box-header with-border">
                   <h3 class="box-title">
@@ -115,21 +115,26 @@
                   <table id="" class="table table-bordered table-hover">
                      <thead>
                          <tr>
-                           <th class="text-center">Nombre</th>
+                           <th class="text-center">Nombre del evaluador</th>
+                           <th class="text-center">Nombre del evaluado</th>
                            <th class="text-center">Company</th>
                            <th class="text-center">Email</th>
                            <th class="text-center">Estado</th>
                          </tr>
                      </thead>
                      <tbody data-bind="foreach: userAssignedTests">
-                        <tr>
+                        <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluar" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
                            <td data-bind="text: firstname + ' ' + lastname"></td>
-                           <td data-bind="text: company"></td>
+                           <td></td>
+                           <td data-bind="text: name"></td>
                            <td data-bind="text: email"></td>
                            <td> <span class="badge bg green" data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)"> </td>
                         </tr>
                      </tbody>
                   </table>             
+               </div>
+               <div class="box-footer">
+                  <button class="btn btn-danger btn-sm btn-flat" data-bind="click: toggleFormAdminTest"><i class="fa fa-arrow-left"></i> Cerrar</button>
                </div>
             </div>
          </div>            
@@ -175,6 +180,53 @@
                <div class="modal-footer">
                   <button class="btn btn-primary" data-bind="click: saveAssignUserTes">Asignar</button>
                   <button class="btn btn-danger" role="button" data-bind="click: cancelAssign">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div id="modalevaluadoassigned" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">Usuarios a evaluar</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <table class="table table-bordered table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Usuario a evaluar</th>
+                                 <th>Cargo</th>
+                                 <th>Email</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Usuario 1</td>
+                                 <td>Coordinador</td>
+                                 <td>cordinador@gmail.com</td>
+                              </tr>
+                              <tr>
+                                 <td>Usuario 2</td>
+                                 <td>Coordinador de ventas</td>
+                                 <td>cordinadordeventas@gmail.com</td>
+                              </tr>
+                              <tr>
+                                 <td>Usuario 3</td>
+                                 <td>Coordinador transporte</td>
+                                 <td>cordinadordetransportes@gmail.com</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-danger" role="button" data-bind="click: ModalHideEvaluadosAssigned">Cancelar</button>
                </div>
             </div>
          </div>

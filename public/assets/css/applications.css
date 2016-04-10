@@ -28,6 +28,10 @@ form#formPersonEval > .form-group .checkbox {
     font-size: 1.2em;
     cursor: pointer;
 }
+tr.pointer{
+    font-size: 1em;
+    cursor: pointer;   
+}
 .separate{
     margin-bottom: 10px;
 }
