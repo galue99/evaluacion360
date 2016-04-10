@@ -27,6 +27,16 @@ class DatabaseSeeder extends Seeder
 
         /* End RolUser */
 
+        DB::table('companys')->insert([
+            'name' => 'Imagen Prueba',
+            'url' => 'public/images/logo/ballon-410x230.jpg',
+        ]);
+
+        DB::table('companys')->insert([
+            'name' => 'Imagen Prueba',
+            'url' => 'public/images/logo/ballon-410x230.jpg',
+        ]);
+
         /* Start Relacion Evaluado */
 
         /*

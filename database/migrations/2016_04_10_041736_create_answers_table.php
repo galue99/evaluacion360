@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanysTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,15 @@ class CreateCompanysTable extends Migration
      */
     public function up()
     {
-        Schema::create('companys', function (Blueprint $table) {
+        Schema::create('answers', function(Blueprint $table){
             $table->increments('id');
-            $table->string('url');
             $table->string('name');
+            $table->integer('frase_id')->unsigned();
+            $table->foreign('frase_id')->references('id')->on('frases')->onDelete('cascade');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -27,6 +29,6 @@ class CreateCompanysTable extends Migration
      */
     public function down()
     {
-        Schema::drop('companys');
+        Schema::drop('answers');
     }
 }
