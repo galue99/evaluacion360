@@ -20,7 +20,7 @@ function EvaluadoresViewModel(){
 		email: ko.observable(),
 		deparment: ko.observable(),
 		position: ko.observable(),
-		company: ko.observable(),
+		company_id: ko.observable(),
 		branch_office: ko.observable(),
 		idrol: ko.observable(),
 		is_active: ko.observable(),
@@ -32,6 +32,7 @@ function EvaluadoresViewModel(){
 	self.getEvaluadores = function(){
 		evaluador.all()
 		.done(function(response){
+			console.log(response);
 			self.evaluadores(response);
 		});
 	};
@@ -62,7 +63,7 @@ function EvaluadoresViewModel(){
 			email: ko.observable(),
 			deparment: ko.observable(),
 			position: ko.observable(),
-			company: ko.observable(),
+			company_id: ko.observable(),
 			branch_office: ko.observable(),
 			idroluser: ko.observable(),
 			is_active: ko.observable(),
