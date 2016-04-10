@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
-        if ($this->isJSON($request)){
+        if (Request::isJson()) {
             return  $users;
         } else {
             return View('admin.add_user');

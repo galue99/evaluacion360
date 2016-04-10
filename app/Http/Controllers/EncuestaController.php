@@ -7,7 +7,7 @@ use App\Encuesta;
 use App\Frase;
 use App\Item;
 use DateTime;
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,7 +27,7 @@ class EncuestaController extends Controller
         // $test = Encuesta::with('');
         $test = Encuesta::all();
 
-            if ($this->isJSON($request)){
+            if (Request::isJson()) {
                 return $test;
 
             }else{

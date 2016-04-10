@@ -20,11 +20,13 @@ class CompanyController extends Controller
 
         $img = Company::all();
 
-        if ($this->isJSON($request)){
+        if ($request->ajax())
+        {
             return  $img;
         } else {
             return View('admin.img');
         }
+
 
     }
 

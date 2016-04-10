@@ -11,8 +11,5 @@ abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-     public function isJSON($req){
-    	return $req->header("content-type") == "application/json";
-    }
 
 }
