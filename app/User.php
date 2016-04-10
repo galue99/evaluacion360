@@ -53,12 +53,10 @@ class User extends Model implements AuthenticatableContract,
         return $this->belongsToMany('App\User','users_encuestas')->withPivot('user_id','status');
     }
 
-    public function evaluado()
+    public function evaluador()
     {
-        return $this->hasManyThrough('App\User', 'App\Encuestado', 'evaluado_id', 'id');    }
-
-
-
+        return $this->hasMany('App\User', 'App\Encuestado', 'evaluado_id', 'id');
+    }
 
 
 }
