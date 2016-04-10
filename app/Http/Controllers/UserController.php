@@ -222,9 +222,11 @@ class UserController extends Controller
         }
 
          $users = DB::table('users')
-            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
+             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+             ->join('companys', 'companys.id', '=', 'users.company_id')
+             ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
+
 
              return Response::json($users);
         // return Response::json([
@@ -260,7 +262,8 @@ class UserController extends Controller
         $users = DB::table('users')
             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->where('encuestas.id', '=', $id)->get();
+            ->join('companys', 'companys.id', '=', 'users.company_id')
+            ->select('users.*', 'encuestas.*', 'users_encuestas.*', 'companys.*')->where('encuestas.id', '=', $id)->get();
 
         return Response::json($users);
 
