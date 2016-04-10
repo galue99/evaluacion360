@@ -56,7 +56,7 @@ function EvaluadoresViewModel(){
 
 	//para limpiar el formulario
 	self.clearForm = function(){
-		self.formData = ko.observable({
+		self.formData({
 			firstname: ko.observable(),
 			lastname: ko.observable(),
 			dni: ko.observable(),
@@ -141,11 +141,10 @@ function EvaluadoresViewModel(){
 		self.showForm(!self.showForm());
 	};
 
-	$.getJSON("http://localhost:8000/admin/users", function(data) {
-		console.log(data);
-		// Now use this data to update your view models,
-		// and Knockout will update your UI automatically
-	})
+	self.cancel = function(){
+		self.toggleForm();
+		self.clearForm();
+	};
 
 
 	//Obteniendo evaluadores(users)

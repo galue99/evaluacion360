@@ -170,7 +170,6 @@ class UserController extends Controller
             'Success' => [
                 'message'     => 'Record Save Exits',
                 'status_code' => 200,
-                'is_active' => $request->input('is_active'), //aqui
             ]
         ], 200);
     }
