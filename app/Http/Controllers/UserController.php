@@ -25,7 +25,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::all();
+        $users =  DB::table('users')
+            ->join('companys', 'companys.id', '=', 'users.company_id')
+            ->select('users.*', 'companys.*')->get();
         if (Request::isJson()) {
             return  $users;
         } else {
@@ -61,7 +63,7 @@ class UserController extends Controller
         $user->repassword     = Request::input('password');
         $user->dni            = Request::input('dni');
         $user->position       = Request::input('position');
-        $user->company_id        = Request::input('company');
+        $user->company_id        = Request::input('company_id');
         $user->branch_office  = Request::input('branch_office');
         $user->is_active      = Request::input('is_active');
 
@@ -153,7 +155,7 @@ class UserController extends Controller
         $user->password   = Hash::make(Request::input('password'));
         $user->repassword = Request::input('password');
         $user->dni        = Request::input('dni');
-        $user->company_id = Request::input('company');
+        $user->company_id = Request::input('company_id');
         $user->position   = Request::input('position');
         if(Request::input('is_active') == 'true'){
             $user->is_active = 1;

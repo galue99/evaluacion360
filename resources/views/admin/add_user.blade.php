@@ -107,7 +107,7 @@
 							    <td data-bind="text: email" class="text-center"></td>
 							    <td data-bind="text: dni" class="text-center"></td>
 							    <td data-bind="text: position" class="text-center"></td>
-							    <td data-bind="text: company_id" class="text-center"></td>
+							    <td data-bind="text: name" class="text-center"></td>
 							    <td data-bind="text: branch_office" class="text-center"></td>
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
