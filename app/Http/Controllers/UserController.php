@@ -249,7 +249,7 @@ class UserController extends Controller
             $user_encuesta->user_id = Request::input('id_user');
             $user_encuesta->encuesta_id = Request::input('encuesta_id');
             $user_encuesta->evaluado_id = Request::input('evaluado_id');
-            $user_encuesta->status = Request::input('status');
+            $user_encuesta->status = 0;
 
             $user_encuesta->save();
 
@@ -261,13 +261,25 @@ class UserController extends Controller
         }
 
 
-        $users = DB::table('users')
-            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+        $encuesta = DB::table('users_encuestas')
+            ->join('users', 'users_encuestas.user_id', '=', 'users.id')
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select('users.*', 'encuestas.*', 'users_encuestas.*', 'companys.*')->where('encuestas.id', '=', $id)->get();
+            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->groupBy('user_id')->get();
 
-        return Response::json($users);
+        $evaluado = DB::table('users_encuestas')
+            ->join('users', 'users_encuestas.evaluado_id', '=', 'users.id')
+            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->get();
+        //return  Response::json($encuesta);
+        //$encuesta = Encuesta::with('user')->find($id);
+
+        return Response::json([
+            'Success' => [
+                'evaluadores' => $encuesta,
+                'evaluado'    => $evaluado,
+                'status_code' => 200
+            ]
+        ], 200);
 
     }
 

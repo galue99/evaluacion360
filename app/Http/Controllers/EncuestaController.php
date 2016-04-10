@@ -124,7 +124,7 @@ class EncuestaController extends Controller
         // $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
         // $id_encuesta = $encuestas[0]->id;
 
-        $encuesta = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
+        $encuesta    = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find($id_encuesta);
 
         return  Response::json($encuesta);
     }
@@ -170,36 +170,5 @@ class EncuestaController extends Controller
     }
 
 
-    public function encuesta_users($id)
-    {
-        $encuesta = DB::table('users')
-            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select('users.*', 'encuestas.*', 'users_encuestas.*', 'companys.*')->where('encuestas.id', '=', $id)->get();
-
-
-        $encuesta = DB::table('users_encuestas')
-            ->join('users', 'users_encuestas.user_id', '=', 'users.id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->groupBy('user_id')->get();
-
-        $evaluado = DB::table('users_encuestas')
-            ->join('users', 'users_encuestas.evaluado_id', '=', 'users.id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'users_encuestas.evaluado_id')->where('encuestas.id', '=', $id)->get();
-        //return  Response::json($encuesta);
-        //$encuesta = Encuesta::with('user')->find($id);
-
-        return Response::json([
-            'Success' => [
-                'evaluadores' => $encuesta,
-                'evaluado'    => $evaluado,
-                'status_code' => 200
-            ]
-        ], 200);
-
-        //return  Response::json($encuesta);
-    }
 
 }
