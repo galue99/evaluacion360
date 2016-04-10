@@ -933,7 +933,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 3,
             'evaluado_id' => 4,
             'encuesta_id' => 2,
-            'status' => 1
+            'status' => 0
 
         ]);
 

@@ -26,7 +26,7 @@
                         <tbody data-bind="foreach: tests">
                            <tr>
                               <td data-bind="text: name" class="text-center"></td>
-                              <td data-bind="text: is_active == 1 ? 'Activa' : 'Inactiva' " class="text-center"></td>
+                              <td class="text-center"><span class="badge " data-bind="css: {'bg-default': is_active == 0, 'bg-green': is_active == 1}, text: $root.getStatusPrettyTest(is_active)"></span></td>
                               <td class="text-center">
                                  <i class="fa fa-pencil fa-blue"></i>
                                  <i class="fa fa-close fa-red"></i>
@@ -119,16 +119,14 @@
                            <th class="text-center">Nombre del evaluado</th>
                            <th class="text-center">Company</th>
                            <th class="text-center">Email</th>
-                           <th class="text-center">Estado</th>
                          </tr>
                      </thead>
                      <tbody data-bind="foreach: userAssignedTests">
                         <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluar" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
                            <td data-bind="text: firstname + ' ' + lastname"></td>
-                           <td></td>
+                           <td data-bind="text: evaluado_id"></td>
                            <td data-bind="text: name"></td>
                            <td data-bind="text: email"></td>
-                           <td> <span class="badge bg green" data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)"> </td>
                         </tr>
                      </tbody>
                   </table>             
@@ -166,13 +164,6 @@
                                      <select name="evaluado" id="evaluado" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado"></select>
                                </div>
                            </div>
-                           <div class="col-xs-6 col-md-4 separate">
-                               <div class="form-group">
-                               <label for="">Estado</label>
-                                 <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formDataAssignUser().status">
-                                    <label for="status"></label>
-                               </div>
-                           </div>
                         </form>
                      </div>
                   </div>
@@ -188,7 +179,7 @@
 
 
       <div id="modalevaluadoassigned" class="modal fade" role="dialog">
-         <div class="modal-dialog">
+         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <div class="modal-header">
                <h4 class="modal-title">Usuarios a evaluar</h4>
@@ -202,6 +193,7 @@
                                  <th>Usuario a evaluar</th>
                                  <th>Cargo</th>
                                  <th>Email</th>
+                                 <th class="text-center">Estado</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -209,16 +201,20 @@
                                  <td>Usuario 1</td>
                                  <td>Coordinador</td>
                                  <td>cordinador@gmail.com</td>
+                                 <td> <span class="badge bg-green">Realizada</td>
                               </tr>
                               <tr>
                                  <td>Usuario 2</td>
                                  <td>Coordinador de ventas</td>
                                  <td>cordinadordeventas@gmail.com</td>
+                                 <td> <span class="badge bg-defaul">No Realizada</td>
                               </tr>
                               <tr>
                                  <td>Usuario 3</td>
                                  <td>Coordinador transporte</td>
                                  <td>cordinadordetransportes@gmail.com</td>
+                                 <td> <span class="badge bg-green">Realizada</td>
+                                 <!-- data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)" -->
                               </tr>
                            </tbody>
                         </table>

@@ -131,6 +131,11 @@ function AdminTestViewModel(){
       });
    };
 
+   self.getStatusPrettyTest = function(statusId){
+      return {'0': 'inactiva',
+              '1': 'Activa'}[statusId];
+   };
+
    self.getStatusPretty = function(statusId){
       return {'0': 'No realizada',
               '1': 'Realizada'}[statusId];
@@ -152,7 +157,7 @@ function AdminTestViewModel(){
       id_encuesta: ko.observable(),
       id_user: ko.observable(),
       id_evaluado: ko.observable(),
-      status: ko.observable()
+      status: 0
    });
 
 
