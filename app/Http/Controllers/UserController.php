@@ -28,6 +28,7 @@ class UserController extends Controller
         $users =  DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
             ->select('users.*', 'companys.*')->get();
+
         if (Request::isJson()) {
             return  $users;
         } else {
