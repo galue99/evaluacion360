@@ -116,6 +116,7 @@ function AdminTestViewModel(){
    self.usersAssign = ko.observableArray();
    self.userAssignedTests = ko.observableArray();
    self.RefereeAssign = ko.observableArray();
+   self.UserEvaluadosAssigned = ko.observableArray();
 
    self.toggleFormAdminTest = function(data){
       self.showAdminTest(!self.showAdminTest());
@@ -127,7 +128,8 @@ function AdminTestViewModel(){
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
          console.log(response);
-         self.userAssignedTests(response);
+         self.userAssignedTests(response.Success.evaluadores);
+         self.UserEvaluadosAssigned(response.Success.evaluado);
       });
    };
 
@@ -161,9 +163,9 @@ function AdminTestViewModel(){
    });
 
 
-   self.saveAssignUserTes = function(){
+   self.saveAssignUserTest = function(){
       if ($('#formAssignUsersTest').valid()){
-         assignTest.AssignUserTes(ko.toJSON(self.formDataAssignUser()))
+         assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
          .done(function(response){
             toastr.success('La asignacion de la encuesta se ha realizado con exito');
             $('#modalassignuser').modal('hide');
@@ -188,6 +190,8 @@ function AdminTestViewModel(){
       });
    };
 
+
+   //Funcion para listar todos los usuarios dentro de los select para la asignacion de la encuesta y el evaluador
    self.getUserToAssign = function(){
       user.allUser()
       .done(function(response){
@@ -195,6 +199,7 @@ function AdminTestViewModel(){
       });
    };
 
+   //Funcion para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(){
       userdiff.diferentUser(self.formDataAssignUser().id_user())
       .done(function(response){
@@ -208,13 +213,19 @@ function AdminTestViewModel(){
    });
 
    self.evaluadosAssigned = function(data){
+      var evaluado = data.evaluado_id;
       jQuery('#modalevaluadoassigned').modal('show');
       console.log(data.evaluado_id);
-   }
+      self.UserEvaluadosAssigned().forEach(function(evaluados){
+         if (evaluados.id == evaluado) {
+            console.log(evaluados);
+         }
+      });
+   };
 
    self.ModalHideEvaluadosAssigned = function(){
       jQuery('#modalevaluadoassigned').modal('hide');
-   }
+   };
 
 
 

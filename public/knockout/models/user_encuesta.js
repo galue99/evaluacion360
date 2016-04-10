@@ -2,7 +2,7 @@ function UserEncuesta(){
 
 var self = this;
 
-	self.AssignUserTes = function(data){
+	self.AssignUserTest = function(data){
 		return $.ajax({
 			url: '/admin/users_encuestas',
 			dataType: 'JSON',
