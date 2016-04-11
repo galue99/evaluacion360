@@ -8,8 +8,8 @@ function testViewModel(){
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
 	self.finish =  ko.observable(false);
-    self.cntFrases = ko.observable();
-    self.lastFrase = ko.observable();
+  self.cntFrases = ko.observable();
+  self.lastFrase = ko.observable();
 	self.formData = ko.observable({
 		oneStrength: ko.observable(),
 		oneWeakness: ko.observable(),
