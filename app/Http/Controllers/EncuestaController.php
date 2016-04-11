@@ -118,7 +118,7 @@ class EncuestaController extends Controller
         $frases = DB::table('frases')->where('item_id', '=', 1)->get();*/
         $id = Auth::user()->id;
 
-        $encuestas = DB::table('users_encuestas')->where('user_id', '=', $id)->get();
+        $encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->get();
         $id_encuesta = $encuestas[0]->encuesta_id;
 
         // $encuestas = DB::table('encuestas')->where('user_id', '=', $id)->where('is_active', '=', 1)->get();
