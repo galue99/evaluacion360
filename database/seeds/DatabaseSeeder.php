@@ -932,7 +932,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users_encuestas')->insert([
             'user_id' => 3,
             'evaluador_id' => 4,
-            'encuesta_id' => 2,
+            'encuesta_id' => 8,
             'status' => 0
 
         ]);
