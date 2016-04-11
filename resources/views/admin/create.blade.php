@@ -116,7 +116,6 @@
                      <thead>
                          <tr>
                            <th class="text-center">Nombre del evaluador</th>
-                           <th class="text-center">Nombre del evaluado</th>
                            <th class="text-center">Company</th>
                            <th class="text-center">Email</th>
                          </tr>
@@ -124,7 +123,6 @@
                      <tbody data-bind="foreach: userAssignedTests">
                         <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluar" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
                            <td data-bind="text: firstname + ' ' + lastname"></td>
-                           <td data-bind="text: evaluado_id"></td>
                            <td data-bind="text: name"></td>
                            <td data-bind="text: email"></td>
                         </tr>
@@ -151,19 +149,21 @@
                   <div class="row">
                      <div class="col-xs-12">
                         <form action="" class="form row" id="formAssignUsersTest">
-                           <div class="col-xs-6 col-md-4 separate">
-                               <div class="form-group">
-                                    <label class="label-control">Usuario</label>
-                                     <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
+                           <div class="col-xs-12 separate">
+                              <div class="form-group">
+                                 <label class="label-control">Evaluador</label>
+                                    <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
                                </div>
                            </div>
-
-                           <div class="col-xs-6 col-md-4 separate" data-bind="visible: RefereeAssign().length > 0">
-                               <div class="form-group">
-                                    <label class="label-control">Evaluado</label>
-                                     <select name="evaluado" id="evaluado" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado"></select>
-                               </div>
+                           <!-- ko foreach: RefereeAssign-->
+                           <div class="col-xs-2 separate">
+                              <div class="form-group">
+                                 <label for="" class="label-control" data-bind="text: firstname"></label>
+                                 <input data-bind="attr: {id: id, value: id}, checked: $root.formDataAssignUser().evaluados" class="cmn-toggle cmn-toggle-round" type="checkbox" >
+                                 <label data-bind="attr: {for: id}"></label>
+                              </div>
                            </div>
+                           <!-- /ko -->
                         </form>
                      </div>
                   </div>
@@ -232,4 +232,5 @@
 
    </div>
 </div>
+<!-- <select name="evaluado" id="evaluado" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado"></select> -->
 @stop

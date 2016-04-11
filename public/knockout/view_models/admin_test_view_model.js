@@ -117,6 +117,7 @@ function AdminTestViewModel(){
    self.userAssignedTests = ko.observableArray();
    self.RefereeAssign = ko.observableArray();
    self.UserEvaluadosAssigned = ko.observableArray();
+   // self.evaluados = ko.mapping.fromJS([]);
 
    self.toggleFormAdminTest = function(data){
       self.showAdminTest(!self.showAdminTest());
@@ -158,12 +159,14 @@ function AdminTestViewModel(){
    self.formDataAssignUser = ko.observable({
       id_encuesta: ko.observable(),
       id_user: ko.observable(),
-      id_evaluado: ko.observable(),
-      status: 0
+      status: 0,
+      evaluados: ko.observableArray()
+      
    });
 
-
+   //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
    self.saveAssignUserTest = function(){
+      // console.log(ko.toJSON(self.formDataAssignUser()));
       if ($('#formAssignUsersTest').valid()){
          assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
          .done(function(response){
@@ -185,7 +188,7 @@ function AdminTestViewModel(){
       self.formDataAssignUser({
          id_encuesta: ko.observable(),
          id_user: ko.observable(),
-         id_evaluado: ko.observable(),
+         evaluados: ko.observableArray(),
          status: ko.observable()
       });
    };
