@@ -149,20 +149,23 @@
                   <div class="row">
                      <div class="col-xs-12">
                         <form action="" class="form row" id="formAssignUsersTest">
-                           <div class="col-xs-12 separate">
+                           <div class="col-xs-12 col-sm-6 separate">
                               <div class="form-group">
-                                 <label class="label-control">Evaluador</label>
-                                    <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: usersAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
+                                 <label class="label-control">Usuario a Evaluar</label>
+                                    <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
                                </div>
                            </div>
-                           <!-- ko foreach: RefereeAssign-->
-                           <div class="col-xs-2 separate">
-                              <div class="form-group">
-                                 <label for="" class="label-control" data-bind="text: firstname"></label>
-                                 <input data-bind="attr: {id: id, value: id}, checked: $root.formDataAssignUser().evaluados" class="cmn-toggle cmn-toggle-round" type="checkbox" >
-                                 <label data-bind="attr: {for: id}"></label>
-                              </div>
+                           <div class="col-xs-12">
+                              <h4>Seleccione los evaluadores</h4>
                            </div>
+                           <!-- ko foreach: SameUsersCompany -->
+                              <div class="col-xs-2">
+                                 <div class="form-group">
+                                    <label for="" class="label-control" data-bind="text: firstname"></label>
+                                    <input data-bind="attr: {id: id, value: id}, checked: $root.formDataAssignUser().evaluadores" class="cmn-toggle cmn-toggle-round" type="checkbox" >
+                                    <label data-bind="attr: {for: id}"></label>
+                                 </div>
+                              </div>
                            <!-- /ko -->
                         </form>
                      </div>

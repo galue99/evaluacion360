@@ -113,7 +113,8 @@ function AdminTestViewModel(){
    self.testSelected = ko.observable();
 
    //Primer box
-   self.usersAssign = ko.observableArray();
+   self.users = ko.observableArray();
+   self.SameUsersCompany = ko.observableArray();
    self.userAssignedTests = ko.observableArray();
    self.RefereeAssign = ko.observableArray();
    self.UserEvaluadosAssigned = ko.observableArray();
@@ -128,9 +129,9 @@ function AdminTestViewModel(){
    self.getUserAssignedToTest = function(){
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
-         console.log(response);
-         self.userAssignedTests(response.Success.evaluadores);
-         self.UserEvaluadosAssigned(response.Success.evaluado);
+         // console.log(response);
+         // self.userAssignedTests(response.Success.evaluadores);
+         // self.UserEvaluadosAssigned(response.Success.evaluado);
       });
    };
 
@@ -160,35 +161,15 @@ function AdminTestViewModel(){
       id_encuesta: ko.observable(),
       id_user: ko.observable(),
       status: 0,
-      evaluados: ko.observableArray()
+      evaluadores: ko.observableArray()
       
    });
-
-   //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
-   self.saveAssignUserTest = function(){
-      // console.log(ko.toJSON(self.formDataAssignUser()));
-      if ($('#formAssignUsersTest').valid()){
-         assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
-         .done(function(response){
-            toastr.success('La asignacion de la encuesta se ha realizado con exito');
-            $('#modalassignuser').modal('hide');
-            self.clearFormAssignUser();
-            self.getUserAssignedToTest();
-         })
-         .fail(function(response){
-            toastr.error('Hubo un error al asignar la encuesta al usuario');
-         });
-      }else{
-         toastr.warning('Primero complete los datos requeridos');
-      }
-   };
-
 
    self.clearFormAssignUser = function(){
       self.formDataAssignUser({
          id_encuesta: ko.observable(),
          id_user: ko.observable(),
-         evaluados: ko.observableArray(),
+         evaluadores: ko.observableArray(),
          status: ko.observable()
       });
    };
@@ -198,22 +179,46 @@ function AdminTestViewModel(){
    self.getUserToAssign = function(){
       user.allUser()
       .done(function(response){
-         self.usersAssign(response);
+         self.users(response);
+         console.log(response);
       });
    };
 
    //Funcion para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
-   self.formDataAssignUser().id_user.subscribe(function(){
-      userdiff.diferentUser(self.formDataAssignUser().id_user())
-      .done(function(response){
-         self.RefereeAssign(response);
-      })
-      .fail(function(response){
-         toastr.error('Hubo un error al consultar el resto de usuarios');
-         $('#modalassignuser').modal('hide');
-         self.clearFormAssignUser();
-      })
+   self.formDataAssignUser().id_user.subscribe(function(value){
+      var company_id = null;
+      if (value){
+         var newUsers = self.users().filter(function(user){
+            if (user.id == value){
+             company_id = user.company_id
+          }
+          return  user.id != value;
+       });
+      var usuariosCompany = newUsers.filter(function(user){
+            return user.company_id == company_id
+         });
+      }
+      self.SameUsersCompany(usuariosCompany);
    });
+
+   //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
+   self.saveAssignUserTest = function(){
+      console.log(ko.toJSON(self.formDataAssignUser()));
+      // if ($('#formAssignUsersTest').valid()){
+      //    assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
+      //    .done(function(response){
+      //       toastr.success('La asignacion de la encuesta se ha realizado con exito');
+      //       $('#modalassignuser').modal('hide');
+      //       self.clearFormAssignUser();
+      //       self.getUserAssignedToTest();
+      //    })
+      //    .fail(function(response){
+      //       toastr.error('Hubo un error al asignar la encuesta al usuario');
+      //    });
+      // }else{
+      //    toastr.warning('Primero complete los datos requeridos');
+      // }
+   };
 
    self.evaluadosAssigned = function(data){
       var evaluado = data.evaluado_id;
