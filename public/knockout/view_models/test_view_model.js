@@ -27,7 +27,7 @@ function testViewModel(){
       .done(function(response){
         toastr.success('La encuesta ha sido enviada con exito');
         setTimeout(function(){
-          window.location.href = "/logout";
+          //window.location.href = "/logout";
         }, 3000);
       })
       .fail(function(response){

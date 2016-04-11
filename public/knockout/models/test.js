@@ -6,7 +6,7 @@ function Test(){
 
 	self.create = function(data){
 		return $.ajax({
-			url: '/encuestado/encuesta',
+			url: '/encuestado/',
 			dataType: 'JSON',
 			method: 'POST',
 			data: data,

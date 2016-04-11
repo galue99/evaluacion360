@@ -54,7 +54,7 @@ class EncuestaController extends Controller
     public function store(Request $request)
     {
         $test = new Encuesta();
-        $test->name = $request->input('name');
+        $test->name = Request::input('name');
         $test->is_active = false;
         $test->date = null;
         $test->save();
@@ -64,7 +64,7 @@ class EncuestaController extends Controller
 
 
         //$item = new Item();
-        $test1 = $request->only(['items']);
+        $test1 = Request::only(['items']);
 
         foreach ($test1 as $clave => $valor){
             for($i=0; $i<count($valor); $i++){
