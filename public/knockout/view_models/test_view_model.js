@@ -23,7 +23,7 @@ function testViewModel(){
     };
 
     self.saveTest = function(data){
-      encuesta.create(self.formData())
+      encuesta.create(ko.toJSON(self.formData()))
       .done(function(response){
         toastr.success('La encuesta ha sido enviada con exito');
         setTimeout(function(){

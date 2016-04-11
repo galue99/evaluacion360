@@ -51,8 +51,8 @@ class EncuestadoController extends Controller
      */
     public function store(Request $request)
     {
-        //Request::only(['items'])
-        var_dump($request->only(['answers']));
+        return $request->all();
+        //var_dump($request->only(['answers']));
     }
 
     /**
