@@ -8,8 +8,8 @@ function testViewModel(){
 	self.currentIndexFrase = ko.observable(0);
 	self.currentAnswer = ko.observable();
 	self.finish =  ko.observable(false);
-  self.cntFrases = ko.observable();
-  self.lastFrase = ko.observable();
+    self.cntFrases = ko.observable();
+    self.lastFrase = ko.observable();
 	self.formData = ko.observable({
 		oneStrength: ko.observable(),
 		oneWeakness: ko.observable(),
@@ -26,9 +26,9 @@ function testViewModel(){
       encuesta.create(ko.toJSON(self.formData()))
       .done(function(response){
         toastr.success('La encuesta ha sido enviada con exito');
-        setTimeout(function(){
-          //window.location.href = "/logout";
-        }, 3000);
+        // setTimeout(function(){
+        //   window.location.href = "/logout";
+        // }, 3000);
       })
       .fail(function(response){
         toastr.error('Ocurrio un erro al enviar los datos');
@@ -71,7 +71,7 @@ function testViewModel(){
 		var setAnswer =  function(){
 			self.formData().answers.push({
 				frase_id: self.currentAnswer().frase_id,
-				answer_id: self.currentAnswer().idanswer
+				answer_id: self.currentAnswer().id
 			});
     		//seteo la frase seleccionada a null
     		self.currentAnswer(null);
@@ -106,7 +106,7 @@ function testViewModel(){
 
 	    }
 	    //para probar que se esten agregando todas las respuestas
-	    // console.log(self.formData().answers());
+	     console.log(self.formData().answers());
 	}
 
 	self.setAnswerPartTwo = function(){
@@ -131,6 +131,7 @@ function testViewModel(){
 			self.items(response.items);
 			//establezco el primer item
 			self.currentItem(self.items()[0]);
+      console.log(response);
 
 		});
 	};

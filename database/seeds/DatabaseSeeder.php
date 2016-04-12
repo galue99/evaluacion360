@@ -37,27 +37,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'public/images/logo/ballon-410x230.jpg',
         ]);
 
-        /* Start Relacion Evaluado */
-
-        /*
-        DB::table('relacion_evaluado')->insert([
-            'name' => 'Auto-Evaluacion',
-        ]);
-
-        DB::table('relacion_evaluado')->insert([
-            'name' => 'Par',
-        ]);
-
-        DB::table('relacion_evaluado')->insert([
-            'name' => 'Jefe',
-        ]);
-
-        DB::table('relacion_evaluado')->insert([
-            'name' => 'Supervisado',
-        ]);*/
-
-        /* End Relacion Evaluado*/
-
 
         /* Star User */
         DB::table('users')->insert([
@@ -122,228 +101,29 @@ class DatabaseSeeder extends Seeder
             'is_active' => false,
         ]);
 
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 02',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 03',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 04',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 05',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 06',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 07',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 08',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => true,
-        ]);
-
-        DB::table('encuestas')->insert([
-            'name' => 'Encuesta 09',
-            'date' => '0000-00-00 00:00:00',
-            'is_active' => false,
-        ]);
-
-
         /* end encuestas seed */
 
         /* Start items db seed */
-/*
-        DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 8,
-        ]);
 
         DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 8,
+            'encuesta_id' => 1,
         ]);
 
         DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 8,
-        ]);
-*/
-        DB::table('items')->insert([
-            'encuesta_id' => 2,
+            'encuesta_id' => 1,
         ]);
 
         DB::table('items')->insert([
-            'encuesta_id' => 2,
+            'encuesta_id' => 1,
         ]);
 
         DB::table('items')->insert([
-            'encuesta_id' => 3,
+            'encuesta_id' => 1,
         ]);
 
         DB::table('items')->insert([
-            'encuesta_id' => 3,
+            'encuesta_id' => 1,
         ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 4,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 4,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 5,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 5,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 6,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 6,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 7,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 7,
-        ]);
-
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
-
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 9,
-        ]);
-
-//         DB::table('items')->insert([
-//             'encuesta_id' => 1,
-//         ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 2,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 3,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 4,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 5,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 6,
-        ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 7,
-        ]);
-
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
-
-        DB::table('items')->insert([
-            'encuesta_id' => 9,
-        ]);
-
-        DB::table('items')->insert([
-             'encuesta_id' => 1,
-        ]);
-
-        DB::table('items')->insert([
-             'encuesta_id' => 8,
-        ]);
-
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
-
-        // DB::table('items')->insert([
-        //     'encuesta_id' => 8,
-        // ]);
-
-/*
-        DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 8,
-        ]);
-
-        DB::table('items')->insert([
-            'items' => 8,
-            'encuesta_id' => 8,
-        ]);
-
-        /* End items db seed */
-
-
-        /* Start evaluacion */
-/*
-        DB::table('evaluaciones')->insert([
-            'name' => str_random(10),
-            'value' => 1,
-        ]);
-
-        DB::table('evaluaciones')->insert([
-            'name' => str_random(10),
-            'value' => 2,
-        ]);
-
-        DB::table('evaluaciones')->insert([
-            'name' => str_random(10),
-            'value' => 3,
-        ]);
-
-        DB::table('evaluaciones')->insert([
-            'name' => str_random(10),
-            'value' => 4,
-        ]);
-
-        DB::table('evaluaciones')->insert([
-            'name' => str_random(10),
-            'value' => 5,
-        ]);
-*/
-        /* End evaluacion */
 
 
         /* Start  Frases */
@@ -359,42 +139,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('frases')->insert([
-            'name' => 'Toma en cuenta las necesidades y sentimientos de las personas de manera respetuosa y con un buen trato.',
-            'item_id' => 1,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Escucha las opiniones o sugerencias de los demás, mostrando respeto y agradecimiento.',
-            'item_id' => 1,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Motiva a su equipo, manteniendo una actitud positiva ante los cambios y nuevos retos.',
-            'item_id' => 1,
-        ]);
-
-        DB::table('frases')->insert([
             'name' => 'Ayuda a sus compañeros, dando ideas para alcanzar la meta y mejorar el trabaj',
             'item_id' => 2,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Integra al empleado nuevo, mostrándole las instalaciones, 6 presentándolo a los demás, enseñándole cómo hacer el trabajo y haciéndolo sentir a gusto.',
-            'item_id' => 2,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Es sincero (no dice mentiras) aunque no le convenga.',
-            'item_id' => 2,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Reconoce cuando comete errores, ofreciendo disculpas.',
-            'item_id' => 2,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Mantiene la confidencialidad, validando qué debe transmitir y qué no, evitando los chismes.',
             'item_id' => 2,
         ]);
 
@@ -409,42 +159,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('frases')->insert([
-            'name' => 'Es respetuoso y amable con todas las personas.',
-            'item_id' => 3,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Establece objetivos alcanzables y fáciles de medir, obteniendo los resultados esperados.',
-            'item_id' => 3,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Fija prioridades, de acuerdo a su importancia.',
-            'item_id' => 3,
-        ]);
-
-        DB::table('frases')->insert([
             'name' => 'Supera los obstáculos, de forma rápida y con entusiasmo.',
             'item_id' => 4,
         ]);
 
         DB::table('frases')->insert([
             'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
-            'item_id' => 4,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Compara los resultados con las metas, y reporta los resultados semanalmente.',
-            'item_id' => 4,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Recibe las sugerencias de mejora, de buena manera.',
-            'item_id' => 4,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Motiva al equipo a lograr los objetivos, con entusiasmo.',
             'item_id' => 4,
         ]);
 
@@ -458,61 +178,11 @@ class DatabaseSeeder extends Seeder
             'item_id' => 5,
         ]);
 
-        DB::table('frases')->insert([
-            'name' => 'Controla los niveles de calidad asegurándose que todos entienden las características del producto y del proceso.',
-            'item_id' => 5,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Identifica fallas y las corrige, analizando las causas.',
-            'item_id' => 5,
-        ]);
-
-        DB::table('frases')->insert([
-            'name' => 'Propone acciones para aprovechar los recursos, con la persona adecuada.',
-            'item_id' => 5,
-        ]);
-
         /* End Frases */
-
-        /* Start Evaluadores */
-/*
-        DB::table('encuestados')->insert([
-            'user_id' => 4,
-            'is_active' => true,
-            'encuesta_id' => 1,
-        ]);
-
-        DB::table('encuestados')->insert([
-            'user_id' => 3,
-            'is_active' => true,
-            'encuesta_id' => 1,
-        ]);
-
-        DB::table('encuestados')->insert([
-            'user_id' => 3,
-            'is_active' => true,
-            'encuesta_id' => 1,
-        ]);
-
-        DB::table('encuestados')->insert([
-            'user_id' => 2,
-            'is_active' => true,
-            'encuesta_id' => 2,
-        ]);
-
-        DB::table('encuestados')->insert([
-            'user_id' => 2,
-            'is_active' => true,
-            'encuesta_id' => 1,
-        ]);
-
-        /* End Evaluadores */
-
 
         /* Begind Answers */
 
-        /*frase 1 del item 1*/
+            /*frase 1 del item 1*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
@@ -566,113 +236,31 @@ class DatabaseSeeder extends Seeder
             'frase_id' => 2,
         ]);
 
-        /*frase 3 del item 1*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 3,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 3,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 3,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 3,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 3,
-        ]);
-
-        /*frase 4 del item 1*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 4,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 4,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 4,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 4,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 4,
-        ]);
-
-        /*frase 5 del item 1*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 5,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 5,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 5,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 5,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 5,
-        ]);
-
-
         /*frase 1 del item 2*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 6,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 6,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 6,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 6,
+            'frase_id' => 3,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 6,
+            'frase_id' => 3,
         ]);
 
 
@@ -680,139 +268,54 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 7,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 7,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 7,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 7,
+            'frase_id' => 4,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 7,
+            'frase_id' => 4,
         ]);
-
-
-        /*frase 3 del item 2*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 8,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 8,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 8,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 8,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 8,
-        ]);
-
-
-        /*frase 4 del item 2*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 9,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 9,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 9,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 9,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 9,
-        ]);
-
-
-        /*frase 5 del item 2*/
-
-        DB::table('answers')->insert([
-            'name' => 'Nunca',
-            'frase_id' => 10,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Rara vez',
-            'frase_id' => 10,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'a veces',
-            'frase_id' => 10,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'Casi siempre',
-            'frase_id' => 10,
-        ]);
-
-        DB::table('answers')->insert([
-            'name' => 'siempre',
-            'frase_id' => 10,
-        ]);
-
 
         /*frase 1 del item 3*/
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 11,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 11,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 11,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 11,
+            'frase_id' => 5,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 11,
+            'frase_id' => 5,
         ]);
 
 
@@ -820,119 +323,139 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 12,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 12,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 12,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 12,
+            'frase_id' => 6,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 12,
+            'frase_id' => 6,
         ]);
 
-
-        /*frase 3 del item 3*/
-
-        DB::table('answers')->insert([
+        /**/
+         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 13,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 13,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 13,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 13,
+            'frase_id' => 7,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 13,
+            'frase_id' => 7,
         ]);
 
-
-        /*frase 4 del item 3*/
-
-        DB::table('answers')->insert([
+         /**/
+         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 14,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 14,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 14,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 14,
+            'frase_id' => 8,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 14,
+            'frase_id' => 8,
         ]);
 
-
-        /*frase 5 del item 3*/
-
-        DB::table('answers')->insert([
+        /**/
+         DB::table('answers')->insert([
             'name' => 'Nunca',
-            'frase_id' => 15,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
-            'frase_id' => 15,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
-            'frase_id' => 15,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
-            'frase_id' => 15,
+            'frase_id' => 9,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
-            'frase_id' => 15,
+            'frase_id' => 9,
+        ]);
+
+        /**/
+         DB::table('answers')->insert([
+            'name' => 'Nunca',
+            'frase_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Rara vez',
+            'frase_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'a veces',
+            'frase_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'Casi siempre',
+            'frase_id' => 10,
+        ]);
+
+        DB::table('answers')->insert([
+            'name' => 'siempre',
+            'frase_id' => 10,
         ]);
 
 
 
         DB::table('users_encuestas')->insert([
-            'user_id' => 3,
-            'evaluador_id' => 4,
-            'encuesta_id' => 8,
+            'user_id' => 4,
+            'evaluador_id' => 3,
+            'encuesta_id' => 1,
             'status' => 0
 
         ]);

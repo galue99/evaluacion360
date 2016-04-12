@@ -11,7 +11,6 @@ function Test(){
 			method: 'POST',
 			data: data,
 			contentType: 'application/json',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	};
 
@@ -22,7 +21,6 @@ function Test(){
 			dataType: 'json',
 			method: 'GET',
 			contentType: 'application/json',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		});
 	};
 
