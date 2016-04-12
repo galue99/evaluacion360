@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserAnswer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -51,8 +52,24 @@ class EncuestadoController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
-        //var_dump($request->only(['answers']));
+        $answers = $request->only('answers');
+        //var_dump($answers);
+        foreach ($answers as $clave){
+            for($i=0; $i<count($clave); $i++){
+                $test = new UserAnswer();
+                $test->users_encuestas_id = Session::get('users_encuestas_id');
+                $test->answers_id = $clave[$i]['answer_id'];
+                $test->save();
+            }
+        }
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Save Exits',
+                'status_code' => 200
+            ]
+        ], 200);
+
     }
 
     /**
