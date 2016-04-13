@@ -251,7 +251,7 @@ class UserController extends Controller
             $user_encuesta = new UserEncuesta();
 
             $test1 = Request::only(['evaluadores']);
-            return $test1;
+            //return $test1;
 
             $user_encuesta->user_id = Request::input('id_user');
             $user_encuesta->encuesta_id = Request::input('encuesta_id');
