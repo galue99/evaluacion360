@@ -457,7 +457,22 @@ class DatabaseSeeder extends Seeder
             'evaluador_id' => 3,
             'encuesta_id' => 1,
             'status' => 0
+        ]);
 
+        DB::table('niveles')->insert([
+            'name' => 'Jefe',
+        ]);
+
+        DB::table('niveles')->insert([
+            'name' => 'Par',
+        ]);
+
+        DB::table('niveles')->insert([
+            'name' => 'Subordinado',
+        ]);
+
+        DB::table('niveles')->insert([
+            'name' => 'Cliente',
         ]);
 
 

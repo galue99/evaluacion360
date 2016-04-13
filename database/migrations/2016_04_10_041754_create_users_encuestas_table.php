@@ -20,6 +20,7 @@ class CreateUsersEncuestasTable extends Migration
             $table->foreign('evaluador_id')->references('id')->on('users');
             $table->integer('encuesta_id')->unsigned();
             $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');
+            $table->integer('niveles_id')->unsigned();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

@@ -15,8 +15,8 @@ class CreateOtherQuestionTable extends Migration
         Schema::create('others_questions', function(Blueprint $table){
             $table->increments('id');
             $table->text('question');
-            $table->integer('encuestas_id');
-            $table->foreing('encuestas_id')->references('id')->on('encuestas');
+            $table->integer('encuestas_id')->unsigned();
+            $table->foreign('encuestas_id')->references('id')->on('encuestas')->onDelete('cascade');
         });
     }
 
