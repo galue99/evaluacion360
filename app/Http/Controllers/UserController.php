@@ -278,11 +278,13 @@ class UserController extends Controller
             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->get();
         //return  Response::json($encuesta);
-        $encuesta = Encuesta::with('user', 'encuestado')->find($id);
+        $encuesta = Encuesta::with('user')->groupBy('id')->find($id);
+        //return  Response::json($encuesta);
 
         return Response::json([
 
-                $encuesta
+                'User' => $encuesta,
+                'Evaluado' => $evaluado
 
         ], 200);
 

@@ -15,9 +15,9 @@ class CreateUsersAnswersUsersOthersQuestionsTable extends Migration
         Schema::create('users_answers_others_questions', function(Blueprint $table){
             $table->increments('id');
             $table->text('answers');
-            $table->integer('others_questions_id');
+            $table->integer('others_questions_id')->unsigned();;
             $table->foreign('others_questions_id')->references('id')->on('others_questions');
-            $table->integer('users_answers_id');
+            $table->integer('users_answers_id')->unsigned();;
             $table->foreign('users_answers_id')->references('id')->on('users_answers');
         });
     }

@@ -90,6 +90,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/admin/img">Gestionar Empresas</a></li>
+                            <li><a href="/admin/niveles">Gestionar Niveles</a></li>
                         </ul>
                     </li>
                 @endif
