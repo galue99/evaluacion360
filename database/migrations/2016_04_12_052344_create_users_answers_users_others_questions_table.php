@@ -16,9 +16,9 @@ class CreateUsersAnswersUsersOthersQuestionsTable extends Migration
             $table->increments('id');
             $table->text('answers');
             $table->integer('others_questions_id');
-            $table->foreing('others_questions_id')->references('id')->on('others_questions');
+            $table->foreign('others_questions_id')->references('id')->on('others_questions');
             $table->integer('users_answers_id');
-            $table->foreing('users_answers_id')->references('id')->on('users_answers');
+            $table->foreign('users_answers_id')->references('id')->on('users_answers');
         });
     }
 

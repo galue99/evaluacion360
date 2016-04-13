@@ -16,7 +16,7 @@ class CreateOtherQuestionTable extends Migration
             $table->increments('id');
             $table->text('question');
             $table->integer('encuestas_id');
-            $table->foreing('encuestas_id')->references('id')->on('encuestas');
+            $table->foreign('encuestas_id')->references('id')->on('encuestas');
         });
     }
 
