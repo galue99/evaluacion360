@@ -210,22 +210,18 @@ function AdminTestViewModel(){
 
    //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
    self.saveAssignUserTest = function(value){
-      // console.log(ko.toJSON(self.formDataAssignUser()));
-      if ($('#formAssignUsersTest').valid()){
-         assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
-         .done(function(response){
-            self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
-            self.unSelectNivel();
-            toastr.success('La asignacion de la encuesta se ha realizado con exito');
-            // self.clearFormAssignUser();
-            self.getUserAssignedToTest();
-         })
-         .fail(function(response){
-            toastr.error('Hubo un error al asignar la encuesta al usuario');
-         });
-      }else{
-         toastr.warning('Primero complete los datos requeridos');
-      }
+      console.log(ko.toJSON(self.formDataAssignUser()));
+      assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
+      .done(function(response){
+         self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
+         self.unSelectNivel();
+         toastr.success('La asignacion de la encuesta se ha realizado con exito');
+         // self.clearFormAssignUser();
+         self.getUserAssignedToTest();
+      })
+      .fail(function(response){
+         toastr.error('Hubo un error al asignar la encuesta al usuario');
+      });
    };
    self.delItem = function(data){
       self.formData().items.splice(self.formData().items.indexOf(data),1);
