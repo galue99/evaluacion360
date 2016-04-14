@@ -25,7 +25,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 				            	<label class="label-control">Usuario</label>
-				                <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formData().id_user "></select>
+				                <select name="" id="" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formData().id_user"></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">

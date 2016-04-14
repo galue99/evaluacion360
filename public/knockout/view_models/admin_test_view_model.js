@@ -4,6 +4,7 @@ function AdminTestViewModel(){
    var user = new Evaluadores();
    var assignTest = new UserEncuesta();
    var userdiff = new Miscelaneos();
+   var level = new Level();
 
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
@@ -118,6 +119,7 @@ function AdminTestViewModel(){
    self.userAssignedTests = ko.observableArray();
    self.RefereeAssign = ko.observableArray();
    self.UserEvaluadosAssigned = ko.observableArray();
+   self.levels = ko.observableArray();
    // self.evaluados = ko.mapping.fromJS([]);
 
    self.toggleFormAdminTest = function(data){
@@ -160,32 +162,27 @@ function AdminTestViewModel(){
    self.formDataAssignUser = ko.observable({
       id_encuesta: ko.observable(),
       id_user: ko.observable(),
+      nivel: ko.observable(),
       status: 0,
       evaluadores: ko.observableArray()
       
    });
 
    self.clearFormAssignUser = function(){
-      self.formDataAssignUser({
-         id_encuesta: ko.observable(),
-         id_user: ko.observable(),
-         evaluadores: ko.observableArray(),
-         status: ko.observable()
-      });
+      self.formDataAssignUser().id_user(null);
    };
 
-
-   //Funcion para listar todos los usuarios dentro de los select para la asignacion de la encuesta y el evaluador
-   self.getUserToAssign = function(){
-      user.allUser()
-      .done(function(response){
-         self.users(response);
-         console.log(response);
-      });
+   self.unSelectNivel = function(){
+      self.formDataAssignUser().nivel(null);
    };
+
+   self.formDataAssignUser().nivel.subscribe(function(value){
+      self.SameUsersCompany(self.SameUsersCompany());
+   })
 
    //Funcion para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(value){
+      self.getLevels();
       var company_id = null;
       if (value){
          var newUsers = self.users().filter(function(user){
@@ -202,14 +199,15 @@ function AdminTestViewModel(){
    });
 
    //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
-   self.saveAssignUserTest = function(){
-      console.log(ko.toJSON(self.formDataAssignUser()));
+   self.saveAssignUserTest = function(value){
+      // console.log(ko.toJSON(self.formDataAssignUser()));
       if ($('#formAssignUsersTest').valid()){
          assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
          .done(function(response){
+            self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
+            self.unSelectNivel();
             toastr.success('La asignacion de la encuesta se ha realizado con exito');
-            $('#modalassignuser').modal('hide');
-            self.clearFormAssignUser();
+            // self.clearFormAssignUser();
             self.getUserAssignedToTest();
          })
          .fail(function(response){
@@ -219,20 +217,39 @@ function AdminTestViewModel(){
          toastr.warning('Primero complete los datos requeridos');
       }
    };
+   self.delItem = function(data){
+      self.formData().items.splice(self.formData().items.indexOf(data),1);
+   };
 
    self.evaluadosAssigned = function(data){
       var evaluado = data.evaluado_id;
       jQuery('#modalevaluadoassigned').modal('show');
-      console.log(data.evaluado_id);
+      // console.log(data.evaluado_id);
       self.UserEvaluadosAssigned().forEach(function(evaluados){
          if (evaluados.id == evaluado) {
-            console.log(evaluados);
+            // console.log(evaluados);
          }
       });
    };
 
    self.ModalHideEvaluadosAssigned = function(){
       jQuery('#modalevaluadoassigned').modal('hide');
+   };
+
+   //Funcion para listar todos los usuarios dentro de los select para la asignacion de la encuesta y el evaluador
+   self.getUserToAssign = function(){
+      user.allUser()
+      .done(function(response){
+         self.users(response);
+      });
+   };
+
+   self.getLevels = function(){
+      level.all()
+      .done(function(response){
+         self.levels(response);
+         // console.log(response);
+      })
    };
 
 

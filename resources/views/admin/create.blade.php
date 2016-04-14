@@ -155,15 +155,26 @@
                                     <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
                                </div>
                            </div>
-                           <div class="col-xs-12">
+                           <div class="col-xs-12" data-bind="if: formDataAssignUser().id_user">
+                              <h4>Seleccione el nivel</h4>
+                           </div>
+                           <!-- ko foreach: levels-->
+                              <div class="col-xs-2 separate">
+                                 <div class="form-group">
+                                    <label class="label-control" data-bind="text: name">Usuario a nivel</label> </br>
+                                       <input data-bind="attr: {value: id, name: name}, checked: $root.formDataAssignUser().nivel" class="" type="radio" >
+                                  </div>
+                              </div>
+                           <!-- /ko -->
+                           <div class="col-xs-12" data-bind="if: formDataAssignUser().nivel">
                               <h4>Seleccione los evaluadores</h4>
                            </div>
                            <!-- ko foreach: SameUsersCompany -->
-                              <div class="col-xs-2">
+                              <div class="col-xs-2" data-bind="if: $root.formDataAssignUser().nivel">
                                  <div class="form-group">
                                     <label for="" class="label-control" data-bind="text: firstname"></label>
-                                    <input data-bind="attr: {id: id, value: id}, checked: $root.formDataAssignUser().evaluadores" class="cmn-toggle cmn-toggle-round" type="checkbox" >
-                                    <label data-bind="attr: {for: id}"></label>
+                                    <input data-bind="attr: {id: firstname, value: id}, checked: $root.formDataAssignUser().evaluadores" class="cmn-toggle cmn-toggle-round" type="checkbox" >
+                                    <label data-bind="attr: {for: firstname}"></label>
                                  </div>
                               </div>
                            <!-- /ko -->
@@ -172,8 +183,8 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bind="click: saveAssignUserTest">Asignar</button>
                   <button class="btn btn-danger" role="button" data-bind="click: cancelAssign">Cancelar</button>
+                  <button class="btn btn-primary" data-bind="click: saveAssignUserTest">Asignar</button>
                </div>
             </div>
          </div>

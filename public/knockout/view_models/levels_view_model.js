@@ -25,6 +25,7 @@ function LevelsViewModel(){
 			.done(function(response){
 				self.toggleForm();
 				self.clearForm();
+				self.getLevels();
 				toastr.info('El nivel ha sido guardado con exito');
 			})
 			.fail(function(response){
