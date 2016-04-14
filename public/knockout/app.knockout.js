@@ -27,6 +27,11 @@
 			ko.applyBindings(new AssignUsersTestViewModel(), document.getElementById("AssignUsersTest"));
 		}
 
+		var levels = document.getElementById("levels")
+		if (levels != null){
+			ko.applyBindings(new LevelsViewModel(), document.getElementById("levels"));
+		}
+
 
 	});
 })();
