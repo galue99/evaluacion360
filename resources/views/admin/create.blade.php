@@ -6,7 +6,7 @@
       <div class="box box-primary" data-bind="visible: !showAdminTest()">
          <div class="box-header with-border">
             <h3 class="box-title">
-               Evaluacion
+               Evaluaciones
             </h3>
          </div>
          <div class="box-body">
@@ -21,6 +21,7 @@
                               <th class="text-center">Estado</th>
                               <th class="text-center">Acciones</th>
                               <th class="text-center">administrar</th>
+                              <th class="text-center">Preguntas Adicionales</th>
                            </tr>
                         </thead>
                         <tbody data-bind="foreach: tests">
@@ -31,8 +32,11 @@
                                  <i class="fa fa-pencil fa-blue"></i>
                                  <i class="fa fa-close fa-red"></i>
                               </td>
-                              <td>
-                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Administrar</button>
+                              <td class="text-center">
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Asignaciones</button>
+                              </td>
+                              <td class="text-center">
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.openModalOtherQ">Administrar</button>
                               </td>
                            </tr>
                         </tbody>
@@ -138,7 +142,7 @@
 
 
 
-      <!-- Primer modal -->
+      <!-- Modal para asignar usuarios a encuestas -->
       <div id="modalassignuser" class="modal fade" role="dialog">
          <div class="modal-dialog">
             <div class="modal-content">
@@ -191,7 +195,7 @@
       </div>
 
 
-
+      <!-- Modal para ver los usuarios asignados -->
       <div id="modalevaluadoassigned" class="modal fade" role="dialog">
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -242,9 +246,52 @@
          </div>
       </div>
 
+      <!-- Modal para crear las preguntas adicionales -->
+      <div id="modalOtherQuestions" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">OtherQuestions</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <button class="btn btn-info separate btn-flat" data-bind="click: toggleFormOtherQ"><i class="fa fa-plus"></i> Agregar Nuevo</button>
 
+                        <div class="row" data-bind="visible: showFormOtherQ">
+                           <div class="form-group separate col-xs-12 col-sm-6">
+                              <label for="" class="label-control">Pregunta</label>
+                              <input type="text" class="form-control" data-bind="textInput: formDataOtherQ().question">
+                           </div>
+                           <div class="form-group text-right col-xs-12">
+                              <button class="btn btn-primary btn-flat" data-bind="click: saveOtherQ">Guardar</button>
+                           </div>
+                        </div>
+
+                        <table class="table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>#</th>
+                                 <th>Pregunta</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td></td>
+                                 <td></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-danger btn-flat" role="button" data-dismiss="modal">Cancelar</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
    </div>
 </div>
-<!-- <select name="evaluado" id="evaluado" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: RefereeAssign, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_evaluado"></select> -->
 @stop

@@ -39,7 +39,17 @@ function AdminTestViewModel(){
       .done(function(response){
          self.clearFormTest();
          self.getTest();
-         toastr.success('La encuesta ha sido guardada exitosamente');
+         swal({
+          title: "La encuesta ha sido guardada",
+          text: "Quiere agregar alguna pregunta adicional?",
+          type: "success",
+          confirmButtonColor: "#A5DC86",
+          confirmButtonText: "Continuar",
+          showCancelButton: true,
+          closeOnConfirm: true },
+             function(){
+              $('#modalOtherQuestions').modal('show');
+        });
       })
       .fail(function(response){
          toastr.error('Ha ocurrido un error al guardar la encuesta');
@@ -253,7 +263,35 @@ function AdminTestViewModel(){
    };
 
 
+   //Administracion de las preguntas Adicionales de la encuesta\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+   self.showFormOtherQ = ko.observable(false);
 
+   self.toggleFormOtherQ = function(){
+      self.showFormOtherQ(!self.showFormOtherQ());
+   }
+
+   self.openModalOtherQ = function(data){
+      $('#modalOtherQuestions').modal('show');
+      self.formDataOtherQ().id_encuesta(data.id);
+   }
+
+   self.formDataOtherQ = ko.observable({
+      id_encuesta: ko.observable(),
+      question: ko.observable()
+   });
+
+   self.clearFormOtherQ = function(){
+      self.formDataOtherQ({
+         id_encuesta: ko.observable(1),
+         question: ko.observable()
+      })
+   }
+
+   self.saveOtherQ = function(){
+      console.log(ko.toJSON(self.formDataOtherQ()));
+      self.clearFormOtherQ();
+      self.toggleFormOtherQ();
+   };
 
 
 
