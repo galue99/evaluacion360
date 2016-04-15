@@ -184,6 +184,7 @@ function AdminTestViewModel(){
 
    self.unSelectNivel = function(){
       self.formDataAssignUser().nivel(null);
+      self.formDataAssignUser().evaluadores([]);
    };
 
    self.formDataAssignUser().nivel.subscribe(function(value){
