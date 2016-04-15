@@ -14,6 +14,14 @@ class UserEncuesta extends Model
      * @var array
      */
     protected $fillable = ['id'];
+    
+    public function evaluado(){
+        return $this->belongsTo('App\User','evaluador_id');
+    }
+    
+    public function evaluadores(){
+        return $this->hasMany('App\User','id','user_id');
+    }
 
 
 }

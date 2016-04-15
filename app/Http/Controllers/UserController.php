@@ -255,10 +255,10 @@ class UserController extends Controller
 
 
             return Request::all();
-            /*    $user_encuesta->user_id = Request::input('id_user');
+                $user_encuesta->user_id = Request::input('id_user');
                 $user_encuesta->encuesta_id = Request::input('encuesta_id');
                 $user_encuesta->evaluador_id = Request::input('evaluado_id');
-                $user_encuesta->status = Request::input('status');*/
+                $user_encuesta->status = Request::input('status');
 
             // $user_encuesta->save();
 
@@ -268,25 +268,22 @@ class UserController extends Controller
                 ]
             ], 200);
         }
-
-
-        $encuesta = DB::table('users_encuestas')
-            ->join('users', 'users_encuestas.user_id', '=', 'users.id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->get();
-
-        $evaluado = DB::table('users_encuestas')
-            ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')
-            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-            ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->get();
-        //return  Response::json($encuesta);
-        $encuesta = Encuesta::with('user')->groupBy('id')->find($id);
-        //return  Response::json($encuesta);
-
+        
+        
+        $encuesta = Encuesta::with(['evaluadores'])->find($id);
+        
+        foreach ($encuesta['evaluadores'] as &$user) {
+            $users_ids = UserEncuesta::where([
+                'encuesta_id' => $encuesta->id,
+                'evaluador_id' => $user->id
+            ])->lists('user_id');
+            
+            $user['evaluados'] = User::whereIn('id',$users_ids)->get();
+            
+        }
         return Response::json([
 
-            'User' => $encuesta,
-            'Evaluado' => $evaluado
+            'User2' => $encuesta
 
         ], 200);
 

@@ -34,5 +34,10 @@ class Encuesta extends Model
     {
         return $this->belongsToMany('App\User', 'users_encuestas', 'id', 'evaluador_id');
     }
+    
+    public function evaluadores(){
+        return $this->belongsToMany('App\User', 'users_encuestas','encuesta_id','evaluador_id');
+
+    }
 
 }
