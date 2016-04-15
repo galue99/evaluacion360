@@ -450,16 +450,7 @@ class DatabaseSeeder extends Seeder
             'frase_id' => 10,
         ]);
 
-
-
-        DB::table('users_encuestas')->insert([
-            'user_id' => 4,
-            'evaluador_id' => 3,
-            'encuesta_id' => 1,
-            'status' => 0
-        ]);
-
-        DB::table('niveles')->insert([
+         DB::table('niveles')->insert([
             'name' => 'Jefe',
         ]);
 
@@ -474,6 +465,35 @@ class DatabaseSeeder extends Seeder
         DB::table('niveles')->insert([
             'name' => 'Cliente',
         ]);
+
+        // users_encuestas
+
+         DB::table('users_encuestas')->insert([
+            'user_id' => 2,
+            'evaluador_id' => null,
+            'encuesta_id' => 1,
+            'niveles_id' => 0,
+            'status' => 0
+        ]);
+
+        DB::table('users_encuestas')->insert([
+            'user_id' => 2,
+            'evaluador_id' => 3,
+            'encuesta_id' => 1,
+            'niveles_id' => 1,
+            'status' => 0
+        ]);
+
+        DB::table('users_encuestas')->insert([
+            'user_id' => 2,
+            'evaluador_id' => 4,
+            'encuesta_id' => 1,
+            'niveles_id' => 2,
+            'status' => 0
+        ]);
+
+
+       
 
 
         Model::reguard();
