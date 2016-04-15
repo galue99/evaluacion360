@@ -211,14 +211,14 @@ class UserController extends Controller
 
             $test1 = Request::only(['evaluadores']);
 
-            for($i=0; $i<count($test1['evaluadores']); $i++){
-                $user_encuesta = new UserEncuesta();
-                $user_encuesta->user_id = Request::input('id_user');
-                $user_encuesta->encuesta_id = Request::input('id_encuesta');
-                $user_encuesta->evaluador_id = $test1['evaluadores'][$i];
-                $user_encuesta->status = Request::input('status');
-                $user_encuesta->save();
-            }
+            $user_encuesta = new UserEncuesta();
+            $user_encuesta->user_id = Request::input('id_user');
+            $user_encuesta->encuesta_id = Request::input('id_encuesta');
+            $user_encuesta->evaluador_id = $test1['evaluadores'][0];
+            $user_encuesta->status = Request::input('status');
+            $user_encuesta->niveles_id = Request::input('nivel');
+            $user_encuesta->save();
+
 
             return Response::json([
                 'Success' => [
@@ -227,14 +227,14 @@ class UserController extends Controller
             ], 200);
         }
 
-         $users = DB::table('users')
-             ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
-             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-             ->join('companys', 'companys.id', '=', 'users.company_id')
-             ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
+        $users = DB::table('users')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->join('companys', 'companys.id', '=', 'users.company_id')
+            ->select('users.*', 'encuestas.*', 'users_encuestas.*')->get();
 
 
-             return Response::json($users);
+        return Response::json($users);
         // return Response::json([
         //     'Success' => [
         //         'status_code' => 200,
@@ -253,12 +253,14 @@ class UserController extends Controller
             $test1 = Request::only(['evaluadores']);
             //return $test1;
 
-            $user_encuesta->user_id = Request::input('id_user');
-            $user_encuesta->encuesta_id = Request::input('encuesta_id');
-            $user_encuesta->evaluador_id = Request::input('evaluado_id');
-            $user_encuesta->status = Request::input('status');
 
-           // $user_encuesta->save();
+            return Request::all();
+            /*    $user_encuesta->user_id = Request::input('id_user');
+                $user_encuesta->encuesta_id = Request::input('encuesta_id');
+                $user_encuesta->evaluador_id = Request::input('evaluado_id');
+                $user_encuesta->status = Request::input('status');*/
+
+            // $user_encuesta->save();
 
             return Response::json([
                 'Success' => [
@@ -283,8 +285,8 @@ class UserController extends Controller
 
         return Response::json([
 
-                'User' => $encuesta,
-                'Evaluado' => $evaluado
+            'User' => $encuesta,
+            'Evaluado' => $evaluado
 
         ], 200);
 
