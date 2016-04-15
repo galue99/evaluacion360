@@ -130,7 +130,8 @@ function AdminTestViewModel(){
    self.RefereeAssign = ko.observableArray();
    self.UserEvaluadosAssigned = ko.observableArray();
    self.levels = ko.observableArray();
-   // self.evaluados = ko.mapping.fromJS([]);
+   self.evaluados = ko.observableArray();
+   
 
    self.toggleFormAdminTest = function(data){
       self.showAdminTest(!self.showAdminTest());
@@ -139,11 +140,18 @@ function AdminTestViewModel(){
    };
 
    self.getUserAssignedToTest = function(){
+      var evaluados = [];
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
-         console.log(response);
-         // self.userAssignedTests(response.Success.evaluadores);
-         // self.UserEvaluadosAssigned(response.Success.evaluado);
+         self.users(response);
+         
+         self.users().evaluadores.forEach(function(evaluador){
+            evaluador.evaluados.forEach(function(evaluado){
+               evaluados.push(evaluado);
+            });
+         });
+         self.evaluados(evaluados);
+         
       });
    };
 
@@ -247,7 +255,7 @@ function AdminTestViewModel(){
    self.getUserToAssign = function(){
       user.allUser()
       .done(function(response){
-         self.users(response);
+         
       });
    };
 

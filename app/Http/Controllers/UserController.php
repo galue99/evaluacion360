@@ -291,6 +291,7 @@ class UserController extends Controller
 
         // ], 200);
         
+        /*jorge*/
         
         $encuesta = Encuesta::with(['evaluadores'])->find($id);
         
@@ -303,11 +304,13 @@ class UserController extends Controller
             $user['evaluados'] = User::whereIn('id',$users_ids)->get();
             
         }
-        return Response::json([
+        
+        return Response::json($encuesta);
+        // return Response::json([
 
-            'User2' => $encuesta
+        //     'User2' => $encuesta
 
-        ], 200);
+        // ], 200);
 
     }
 

@@ -124,8 +124,8 @@
                            <th class="text-center">Email</th>
                          </tr>
                      </thead>
-                     <tbody data-bind="foreach: userAssignedTests">
-                        <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluar" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
+                     <tbody data-bind="foreach: evaluados">
+                        <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluadores" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
                            <td data-bind="text: firstname + ' ' + lastname"></td>
                            <td data-bind="text: name"></td>
                            <td data-bind="text: email"></td>
