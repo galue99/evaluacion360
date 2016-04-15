@@ -218,11 +218,13 @@ class UserController extends Controller
             $user_encuesta->status = Request::input('status');
             $user_encuesta->niveles_id = Request::input('nivel');
             $user_encuesta->save();
+            $id_encuesta = $user_encuesta->id;
 
 
             return Response::json([
                 'Success' => [
-                    'status_code' => 200
+                    'status_code' => 200,
+                    'id_encuesta' => $id_encuesta
                 ]
             ], 200);
         }
