@@ -64,7 +64,7 @@ class OtherQuestionController extends Controller
      */
     public function show($id)
     {
-        $questions = OtherQuestion::findOrFail($id);
+        $questions = OtherQuestion::where('encuestas_id', '=', $id)->get();
 
         return $questions;
     }
