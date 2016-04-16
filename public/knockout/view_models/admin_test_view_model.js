@@ -329,7 +329,7 @@ function AdminTestViewModel(){
 
 
    self.saveOtherQ = function(){
-      // console.log(self.formDataOtherQ());
+      console.log(self.formDataOtherQ());
       otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
