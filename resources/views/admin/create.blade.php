@@ -116,28 +116,66 @@
                </div>
                <div class="box-body">
                   <button class="btn btn-info separate btn-flat btn-sm" data-bind="click: ModalAssignUser"><i class="fa fa-plus"></i> Asignar Usuarios</button>
-                  <table id="" class="table table-bordered table-hover">
-                     <thead>
-                         <tr>
-                           <th class="text-center">Nombre del evaluador</th>
-                           <th class="text-center">Company</th>
-                           <th class="text-center">Email</th>
-                         </tr>
-                     </thead>
-                     <tbody data-bind="foreach: evaluados">
-                        <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario a evaluadores" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
-                           <td data-bind="text: firstname + ' ' + lastname"></td>
-                           <td data-bind="text: name"></td>
-                           <td data-bind="text: email"></td>
-                        </tr>
-                     </tbody>
-                  </table>             
+                  <div class="table-responsive">
+                     <table id="" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                              <th class="text-center">Nombre del evaluador</th>
+                              <th class="text-center">Cargo</th>
+                              <th class="text-center">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: evaluadores">
+                           <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario evaluados" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
+                              <td data-bind="text: firstname + ' ' + lastname"></td>
+                              <td data-bind="text: position"></td>
+                              <td data-bind="text: email"></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>             
                </div>
                <div class="box-footer">
                   <button class="btn btn-danger btn-sm btn-flat" data-bind="click: toggleFormAdminTest"><i class="fa fa-arrow-left"></i> Atras</button>
                </div>
             </div>
          </div>            
+      </div>
+
+      <!-- Modal para ver los usuarios asignados -->
+      <div id="modalevaluadoassigned" class="modal fade" role="dialog">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">Usuarios a evaluar</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="table-striped col-xs-12">
+                        <table class="table table-bordered table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Usuario a evaluar</th>
+                                 <th>Cargo</th>
+                                 <th>Email</th>
+                              </tr>
+                           </thead>
+                           <tbody data-bind="foreach: evaluados">
+                              <tr>
+                                 <td data-bind="text: firstname + ' ' + lastname"></td>
+                                 <td data-bind="text: position"></td>
+                                 <td data-bind="text: email"></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-danger" role="button" data-bind="click: ModalHideEvaluadosAssigned">Cerrar</button>
+               </div>
+            </div>
+         </div>
       </div>
 
 
@@ -194,58 +232,6 @@
          </div>
       </div>
 
-
-      <!-- Modal para ver los usuarios asignados -->
-      <div id="modalevaluadoassigned" class="modal fade" role="dialog">
-         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-               <div class="modal-header">
-               <h4 class="modal-title">Usuarios a evaluar</h4>
-               </div>
-               <div class="modal-body">
-                  <div class="row">
-                     <div class="col-xs-12">
-                        <table class="table table-bordered table-striped">
-                           <thead>
-                              <tr>
-                                 <th>Usuario a evaluar</th>
-                                 <th>Cargo</th>
-                                 <th>Email</th>
-                                 <th class="text-center">Estado</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td>Usuario 1</td>
-                                 <td>Coordinador</td>
-                                 <td>cordinador@gmail.com</td>
-                                 <td> <span class="badge bg-green">Realizada</td>
-                              </tr>
-                              <tr>
-                                 <td>Usuario 2</td>
-                                 <td>Coordinador de ventas</td>
-                                 <td>cordinadordeventas@gmail.com</td>
-                                 <td> <span class="badge bg-defaul">No Realizada</td>
-                              </tr>
-                              <tr>
-                                 <td>Usuario 3</td>
-                                 <td>Coordinador transporte</td>
-                                 <td>cordinadordetransportes@gmail.com</td>
-                                 <td> <span class="badge bg-green">Realizada</td>
-                                 <!-- data-bind="css: {'bg-red': status == 0, 'bg-green': status == 1, 'bg-light-blue': status == 2}, text: $root.getStatusPretty(status)" -->
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <button class="btn btn-danger" role="button" data-bind="click: ModalHideEvaluadosAssigned">Cerrar</button>
-               </div>
-            </div>
-         </div>
-      </div>
-
       <!-- Modal para crear las preguntas adicionales -->
       <div id="modalOtherQuestions" class="modal fade" role="dialog">
          <div class="modal-dialog">
@@ -265,28 +251,31 @@
                            </div>
                            <div class="form-group text-right col-xs-12">
                               <button class="btn btn-primary btn-flat" data-bind="click: saveOtherQ">Guardar</button>
+                              <button class="btn btn-danger btn-flat" data-bind="click: cancelSaveOtherQ">Cancelar</button>
                            </div>
                         </div>
 
-                        <table class="table table-striped table-bordered">
-                           <thead>
-                              <tr>
-                                 <th>#</th>
-                                 <th>Pregunta</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td></td>
-                                 <td></td>
-                              </tr>
-                           </tbody>
-                        </table>
+                        <div class="table-responsive">
+                           <table class="table table-striped table-bordered">
+                              <thead>
+                                 <tr>
+                                    <th>#</th>
+                                    <th>Pregunta</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
                      </div>
                   </div>
                </div>
                <div class="modal-footer">
-                  <button class="btn btn-danger btn-flat" role="button" data-dismiss="modal">Cancelar</button>
+                  <button class="btn btn-danger btn-flat" role="button" data-bind="click: CloseModalOtherQ">Cancelar</button>
                </div>
             </div>
          </div>

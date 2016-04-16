@@ -3,8 +3,8 @@ function AdminTestViewModel(){
    var test = new AdminTest();
    var user = new Evaluadores();
    var assignTest = new UserEncuesta();
-   var userdiff = new Miscelaneos();
    var level = new Level();
+   var otherq = new OtherQuestion();
 
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
@@ -116,21 +116,20 @@ function AdminTestViewModel(){
    self.getTest();
 
 
-       /////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-      //////////////////////////////////////////ADMINISTRACION DE LA ENCUESTA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-      //////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ /////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//////////////////////////////////////////ADMINISTRACION DE LA ENCUESTA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
    self.showAdminTest = ko.observable(false);
    self.testSelected = ko.observable();
 
-   //Primer box
    self.users = ko.observableArray();
    self.SameUsersCompany = ko.observableArray();
-   self.userAssignedTests = ko.observableArray();
-   self.RefereeAssign = ko.observableArray();
-   self.UserEvaluadosAssigned = ko.observableArray();
    self.levels = ko.observableArray();
    self.evaluados = ko.observableArray();
+   self.evaluadores = ko.observableArray();
+   self.usersTesters = ko.observable()
+
    
 
    self.toggleFormAdminTest = function(data){
@@ -140,19 +139,46 @@ function AdminTestViewModel(){
    };
 
    self.getUserAssignedToTest = function(){
-      var evaluados = [];
+      var first = true;
+      // var evaluados = [];
+
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
-         self.users(response);
-         
-         self.users().evaluadores.forEach(function(evaluador){
-            evaluador.evaluados.forEach(function(evaluado){
-               evaluados.push(evaluado);
-            });
-         });
-         self.evaluados(evaluados);
+         console.log(response);
+         self.usersTesters(response);
+         self.getEvaluadoresAssigned();
+         // self.users().evaluadores.forEach(function(evaluador){
+         //    evaluador.evaluados.forEach(function(evaluado){
+         //       evaluados.push(evaluado);
+         //    });
+         // });
+         // self.evaluados(evaluados);
          
       });
+   };
+
+   //metodo para listar todos lo evaluadores de la encuesta seleccionada
+   self.getEvaluadoresAssigned = function(){
+      var evaluadores = [];
+
+      self.usersTesters().evaluadores.forEach(function(evaluador){
+            evaluadores = evaluadores.concat(evaluador);
+         });
+         self.evaluadores(evaluadores);
+         console.log(self.evaluadores());
+   }
+
+   //Metodo para ver los usuarios evaluados de cada evaluador
+   self.evaluadosAssigned = function(data){
+      var evaluados = [];
+      evaluador = data;
+      jQuery('#modalevaluadoassigned').modal('show');
+
+      evaluador.evaluados.forEach(function(evaluado){
+         evaluados = evaluados.concat(evaluado);
+      })
+      self.evaluados(evaluados);
+      
    };
 
    self.getStatusPrettyTest = function(statusId){
@@ -165,17 +191,8 @@ function AdminTestViewModel(){
               '1': 'Realizada'}[statusId];
    };
 
-   // Asignacion de usuarios a la encuesta 
-   self.ModalAssignUser = function(data){
-      $('#modalassignuser').modal('show');
-      self.getUserToAssign();
-      self.formDataAssignUser().id_encuesta(self.testSelected().id);
-   };
 
-   self.cancelAssign = function(){
-      $('#modalassignuser').modal('hide');
-      self.clearFormAssignUser();
-   };
+//Administracion de las Asginaciones de los evaluadores a las encuestas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
    self.formDataAssignUser = ko.observable({
       id_encuesta: ko.observable(),
@@ -186,20 +203,37 @@ function AdminTestViewModel(){
       
    });
 
+   // Asignacion de usuarios a la encuesta 
+   self.ModalAssignUser = function(data){
+      $('#modalassignuser').modal('show');
+      self.getUserToAssign();
+      self.formDataAssignUser().id_encuesta(self.testSelected().id);
+   };
+
+   //Metodo para cerrar el modal y cancelar la asignacion
+   self.cancelAssign = function(){
+      $('#modalassignuser').modal('hide');
+      self.clearFormAssignUser();
+      self.unSelectNivel();
+   };
+
+   //Metodo para limpiar el formulario
    self.clearFormAssignUser = function(){
       self.formDataAssignUser().id_user(null);
    };
 
+   //Metodo para desecleccionar el nivel y uego asignar mas evaluadores
    self.unSelectNivel = function(){
       self.formDataAssignUser().nivel(null);
       self.formDataAssignUser().evaluadores([]);
    };
 
+   //Metodo para reasigar los mismos usuarios al array de ofrma actualizada sacando los ya seleccionados
    self.formDataAssignUser().nivel.subscribe(function(value){
       self.SameUsersCompany(self.SameUsersCompany());
    })
 
-   //Funcion para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
+   //Metodo para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(value){
       self.getLevels();
       var company_id = null;
@@ -217,7 +251,8 @@ function AdminTestViewModel(){
       self.SameUsersCompany(usuariosCompany);
    });
 
-   //Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
+
+   //Metodo para Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
    self.saveAssignUserTest = function(value){
       console.log(ko.toJSON(self.formDataAssignUser()));
       assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
@@ -232,33 +267,13 @@ function AdminTestViewModel(){
          toastr.error('Hubo un error al asignar la encuesta al usuario');
       });
    };
-   self.delItem = function(data){
-      self.formData().items.splice(self.formData().items.indexOf(data),1);
-   };
 
-   self.evaluadosAssigned = function(data){
-      var evaluado = data.evaluado_id;
-      jQuery('#modalevaluadoassigned').modal('show');
-      // console.log(data.evaluado_id);
-      self.UserEvaluadosAssigned().forEach(function(evaluados){
-         if (evaluados.id == evaluado) {
-            // console.log(evaluados);
-         }
-      });
-   };
-
+   //Metodo para cerrar el modal de los usuarios evaluados asignados a un evaluador
    self.ModalHideEvaluadosAssigned = function(){
       jQuery('#modalevaluadoassigned').modal('hide');
    };
 
-   //Funcion para listar todos los usuarios dentro de los select para la asignacion de la encuesta y el evaluador
-   self.getUserToAssign = function(){
-      user.allUser()
-      .done(function(response){
-         
-      });
-   };
-
+   //Metodo para obtener los niveles para la asignacion
    self.getLevels = function(){
       level.all()
       .done(function(response){
@@ -267,9 +282,19 @@ function AdminTestViewModel(){
       })
    };
 
+   self.getUserToAssign = function(){
+      user.allUser()
+      .done(function(response){
+         self.users(response);
+      });
+   };
+
 
    //Administracion de las preguntas Adicionales de la encuesta\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
    self.showFormOtherQ = ko.observable(false);
+   self.othersQuestions = ko.observableArray();
 
    self.toggleFormOtherQ = function(){
       self.showFormOtherQ(!self.showFormOtherQ());
@@ -278,6 +303,11 @@ function AdminTestViewModel(){
    self.openModalOtherQ = function(data){
       $('#modalOtherQuestions').modal('show');
       self.formDataOtherQ().id_encuesta(data.id);
+      self.getOtherQ(data);
+   }
+   self.CloseModalOtherQ = function(){
+      $('#modalOtherQuestions').modal('hide');
+      self.clearFormOtherQ();
    }
 
    self.formDataOtherQ = ko.observable({
@@ -287,16 +317,47 @@ function AdminTestViewModel(){
 
    self.clearFormOtherQ = function(){
       self.formDataOtherQ({
-         id_encuesta: ko.observable(1),
+         id_encuesta: ko.observable(),
          question: ko.observable()
       })
-   }
+   };
 
-   self.saveOtherQ = function(){
-      console.log(ko.toJSON(self.formDataOtherQ()));
+   self.cancelSaveOtherQ = function(){
       self.clearFormOtherQ();
       self.toggleFormOtherQ();
    };
+
+
+   self.saveOtherQ = function(){
+      // console.log(ko.toJSON(self.formDataOtherQ()));
+      otherq.create(ko.toJSON(self.formDataOtherQ()))
+         .done(function(response){
+            toastr.info('Pregunta Adicional guardada exitosamente');
+            self.clearFormOtherQ();
+            self.toggleFormOtherQ();
+         })
+         .fail(function(response){
+            toastr.error('Hubo un error al guardar la pregunta adicional');
+            self.clearFormOtherQ();
+         })
+
+      // self.clearFormOtherQ();
+      // self.toggleFormOtherQ();
+   };
+
+   self.getOtherQ = function(data){
+      var test_id = data.id;
+      self.formDataOtherQ().id_encuesta(test_id);
+      otherq.all(self.formDataOtherQ().id_encuesta)
+         .done(function(response){
+            self.othersQuestions(response);
+         })
+         .fail(function(response){
+            toastr.error('Hubo un error al obtener las preguntas adicionales de esta encuesta');
+         });
+   };
+
+   
 
 
 
