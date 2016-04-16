@@ -122,4 +122,12 @@ class OtherQuestionController extends Controller
             ]
         ], 200);
     }
+
+
+
+    public function other_questions($id){
+
+        $other_question = OtherQuestion::findOrFail($id);
+        return $other_question;
+    }
 }
