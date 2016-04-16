@@ -6,6 +6,7 @@ use App\Answer;
 use App\Encuesta;
 use App\Frase;
 use App\Item;
+use App\OtherQuestion;
 use DateTime;
 use Request;
 
@@ -171,9 +172,27 @@ class EncuestaController extends Controller
         return View('admin.assing_users');
     }
 
-    public function other_question()
+    public function other_question(Request $request)
     {
-        return '';
+        $other_question = new OtherQuestion();
+        $other_question->question     = Request::input('question');
+        $other_question->encuestas_id  = Request::input('id_encuesta');
+        $other_question->save();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
+
+    }
+
+    public function other_question_by_id(Request $request, $id)
+    {
+        $questions = OtherQuestion::where('encuestas_id', '=', $id)->get();
+
+        return $questions;
+
     }
 
 

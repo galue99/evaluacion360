@@ -17,6 +17,7 @@ class CreateOtherQuestionTable extends Migration
             $table->text('question');
             $table->integer('encuestas_id')->unsigned();
             $table->foreign('encuestas_id')->references('id')->on('encuestas')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
