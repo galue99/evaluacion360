@@ -264,13 +264,13 @@
                                     <th class="col-xs-2">Acciones</th>
                                  </tr>
                               </thead>
-                              <tbody>
+                              <tbody data-bind="foreach: othersQuestions">
                                  <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td data-bind="text: $index() + 1"></td>
+                                    <td data-bind="text: question"></td>
                                     <td>
-                                       <i class="fa fa-pencil fa-blue pointer"></i>
-                                       <i class="fa fa-close fa-red pointer"></i>
+                                       <i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editOtherQ"></i>
+                                       <i class="fa fa-close fa-red pointer" data-bind="click: $root.delteOtherQ"></i>
                                     </td>
                                  </tr>
                               </tbody>
