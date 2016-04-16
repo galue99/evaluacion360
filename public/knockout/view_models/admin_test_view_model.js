@@ -329,8 +329,8 @@ function AdminTestViewModel(){
 
 
    self.saveOtherQ = function(){
-      // console.log(ko.toJSON(self.formDataOtherQ()));
-      otherq.create(ko.toJSON(self.formDataOtherQ()))
+      // console.log(self.formDataOtherQ());
+      otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
             self.clearFormOtherQ();
