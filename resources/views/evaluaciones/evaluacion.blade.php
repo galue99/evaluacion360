@@ -124,13 +124,13 @@
 								</div>
 								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
-										<label for="" class="label-control">¿Por que  felicitaráas a esta persona?</label>
+										<label for="" class="label-control">¿Por qué  felicitarías a esta persona?</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().congratulate"></textarea>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
-										<label for="" class="label-control">¿Por quéa agradecerías a esta persona?</label>
+										<label for="" class="label-control">¿Por qué agradecerías a esta persona?</label>
 				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().toThank"></textarea>
 									</div>
 								</div>

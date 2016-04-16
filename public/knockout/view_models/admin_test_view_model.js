@@ -254,7 +254,7 @@ function AdminTestViewModel(){
 
    //Metodo para Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
    self.saveAssignUserTest = function(value){
-      console.log(ko.toJSON(self.formDataAssignUser()));
+      // console.log(ko.toJSON(self.formDataAssignUser()));
       assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
       .done(function(response){
          self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
@@ -295,6 +295,7 @@ function AdminTestViewModel(){
 
    self.showFormOtherQ = ko.observable(false);
    self.othersQuestions = ko.observableArray();
+   self.updateOtherQ = ko.observable(false);
 
    self.toggleFormOtherQ = function(){
       self.showFormOtherQ(!self.showFormOtherQ());
@@ -303,7 +304,7 @@ function AdminTestViewModel(){
    self.openModalOtherQ = function(data){
       $('#modalOtherQuestions').modal('show');
       self.formDataOtherQ().id_encuesta(data.id);
-      self.getOtherQ(data);
+      self.getOtherQ();
    }
    self.CloseModalOtherQ = function(){
       $('#modalOtherQuestions').modal('hide');
@@ -328,27 +329,40 @@ function AdminTestViewModel(){
    };
 
 
+   //Metodo para guardar las otherquestions
    self.saveOtherQ = function(){
-      // console.log(ko.toJSON(self.formDataOtherQ()));
-      otherq.create(ko.toJSON(self.formDataOtherQ()))
+      if (!self.updateOtherQ){
+         otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
-            self.clearFormOtherQ();
+            self.formDataOtherQ().question(null);
             self.toggleFormOtherQ();
+            self.getOtherQ();
          })
          .fail(function(response){
             toastr.error('Hubo un error al guardar la pregunta adicional');
-            self.clearFormOtherQ();
+            self.clearFormOtherQ().id_encuesta(null);
          })
+      }else{
+         otherq.create(self.formDataOtherQ().id_encuesta(), self.formDataOtherQ())
+         .done(function(response){
+            toastr.info('Actualizacion de Pregunta Adicional exitosa');
+            self.formDataOtherQ().question(null);
+            self.toggleFormOtherQ();
+            self.getOtherQ();
+         })
+         .fail(function(response){
+            toastr.error('Hubo un error al guardar la pregunta adicional');
+            self.clearFormOtherQ().id_encuesta(null);
+         })
+      }
 
       // self.clearFormOtherQ();
       // self.toggleFormOtherQ();
    };
 
-   self.getOtherQ = function(data){
-      var test_id = data.id;
-      self.formDataOtherQ().id_encuesta(test_id);
-      // console.log(self.formDataOtherQ().id_encuesta());
+   //Metodo para llamar las othersquestions de cada encuesta
+   self.getOtherQ = function(){
       otherq.all(self.formDataOtherQ().id_encuesta())
          .done(function(response){
             self.othersQuestions(response);
@@ -357,6 +371,24 @@ function AdminTestViewModel(){
             toastr.error('Hubo un error al obtener las preguntas adicionales de esta encuesta');
          });
    };
+
+   //Metodo para editar el OtherQuestions
+   self.editOtherQ = function(data){
+      otherq.find(data.id)
+      .done(function(response){
+         self.toggleFormOtherQ();
+         self.formDataOtherQ(response);
+         self.updateOtherQ(true);
+      })
+   };
+
+   self.delteOtherQ = function(data){
+      otherq.destroy(data.id)
+      .done(function(response){
+         toastr.info('Other Question removida con exito');
+         self.othersQuestions.remove(data);
+      });
+   }
 
    
 
