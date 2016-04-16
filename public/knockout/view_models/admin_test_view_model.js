@@ -356,9 +356,6 @@ function AdminTestViewModel(){
             self.clearFormOtherQ().id_encuesta(null);
          })
       }
-
-      // self.clearFormOtherQ();
-      // self.toggleFormOtherQ();
    };
 
    //Metodo para llamar las othersquestions de cada encuesta
@@ -382,6 +379,7 @@ function AdminTestViewModel(){
       })
    };
 
+   //Metodo para eliminar las preguntas adicionales
    self.delteOtherQ = function(data){
       otherq.destroy(data.id)
       .done(function(response){
