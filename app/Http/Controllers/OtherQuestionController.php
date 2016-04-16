@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Nivel;
+use App\OtherQuestion;
+use DateTime;
 use Request;
 
-use Illuminate\Support\Facades\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
-class NivelesController extends Controller
+class OtherQuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +21,9 @@ class NivelesController extends Controller
      */
     public function index()
     {
+        $questions = OtherQuestion::all();
 
-        $niveles = Nivel::all();
-        if (Request::isJson()) {
-            return  $niveles;
-        } else {
-            return View('admin.niveles');
-        }
-
+        return $questions;
     }
 
     /**
@@ -46,17 +44,16 @@ class NivelesController extends Controller
      */
     public function store(Request $request)
     {
-        $nivel = new Nivel();
-        $nivel->name = Request::input('name');
-        $nivel->save();
+        $other_question = new OtherQuestion();
+        $other_question->question     = Request::input('question');
+        $other_question->encuestas_id  = Request::input('id_encuesta');
+        $other_question->save();
 
         return Response::json([
             'Success' => [
-                'message'     => 'Record Save Exits',
                 'status_code' => 200
             ]
         ], 200);
-
     }
 
     /**
@@ -67,9 +64,9 @@ class NivelesController extends Controller
      */
     public function show($id)
     {
-        $nivel = Nivel::find($id);
+        $questions = OtherQuestion::where('encuestas_id', '=', $id)->get();
 
-        return $nivel;
+        return $questions;
     }
 
     /**
@@ -80,7 +77,16 @@ class NivelesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $other_question = new OtherQuestion();
+        $other_question->question     = Request::input('question');
+        $other_question->encuestas_id  = Request::input('id_encuesta');
+        $other_question->save();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -103,6 +109,15 @@ class NivelesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $other_question = OtherQuestion::find($id);
+
+        $other_question->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }
