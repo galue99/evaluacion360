@@ -30,6 +30,15 @@ function OtherQuestion(){
 		});
 	};
 
+	self.findOtherQ = function(id){
+		return $.ajax({
+			url: '/admin/encuestas/other_questions/'+ id,
+			method: 'GET',
+			dataType: 'json',
+			contentType: "application/json",
+		});
+	};
+
 	self.update = function(id,data){
 		return $.ajax({
 			url: '/admin/encuestas/other_question/'+id,

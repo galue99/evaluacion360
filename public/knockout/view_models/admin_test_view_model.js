@@ -331,7 +331,7 @@ function AdminTestViewModel(){
 
    //Metodo para guardar las otherquestions
    self.saveOtherQ = function(){
-      if (!self.updateOtherQ){
+      if (!self.updateOtherQ()){
          otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
@@ -341,10 +341,11 @@ function AdminTestViewModel(){
          })
          .fail(function(response){
             toastr.error('Hubo un error al guardar la pregunta adicional');
-            self.clearFormOtherQ().id_encuesta(null);
+            self.formDataOtherQ().id_encuesta(null);
          })
       }else{
-         otherq.create(self.formDataOtherQ().id_encuesta(), self.formDataOtherQ())
+         // console.log(self.formDataOtherQ().id, self.formDataOtherQ());
+         otherq.update(self.formDataOtherQ().id, self.formDataOtherQ())
          .done(function(response){
             toastr.info('Actualizacion de Pregunta Adicional exitosa');
             self.formDataOtherQ().question(null);
@@ -353,7 +354,7 @@ function AdminTestViewModel(){
          })
          .fail(function(response){
             toastr.error('Hubo un error al guardar la pregunta adicional');
-            self.clearFormOtherQ().id_encuesta(null);
+            // self.formDataOtherQ().id_encuesta(null);
          })
       }
    };
@@ -361,18 +362,20 @@ function AdminTestViewModel(){
    //Metodo para llamar las othersquestions de cada encuesta
    self.getOtherQ = function(){
       otherq.all(self.formDataOtherQ().id_encuesta())
-         .done(function(response){
-            self.othersQuestions(response);
-         })
-         .fail(function(response){
-            toastr.error('Hubo un error al obtener las preguntas adicionales de esta encuesta');
-         });
+      .done(function(response){
+         self.othersQuestions(response);
+      })
+      .fail(function(response){
+         toastr.error('Hubo un error al obtener las preguntas adicionales de esta encuesta');
+      });
    };
 
    //Metodo para editar el OtherQuestions
    self.editOtherQ = function(data){
-      otherq.find(data.id)
+      self.formDataOtherQ().id_encuesta(data.id);
+      otherq.findOtherQ(data.id)
       .done(function(response){
+         self.formDataOtherQ().id_encuesta(response.id);
          self.toggleFormOtherQ();
          self.formDataOtherQ(response);
          self.updateOtherQ(true);
