@@ -3,7 +3,7 @@ function OtherQuestion(){
 
 	self.all = function(id){
 		return $.ajax({
-			url: '/admin/encuesta/other_question/' + id,
+			url: '/admin/encuestas/other_question/' + id,
 			dataType: 'json',
 			method: 'GET',
 			contentType: "application/json"
@@ -12,7 +12,7 @@ function OtherQuestion(){
 
 	self.create = function(data){
 		return $.ajax({
-			url: '/admin/encuesta/other_question',
+			url: '/admin/encuestas/other_question',
 			method: 'POST',
 			data: data,
 			dataType: 'json',
@@ -23,7 +23,7 @@ function OtherQuestion(){
 
 	self.find = function(id){
 		return $.ajax({
-			url: '/admin/encuesta/other_question/'+ id,
+			url: '/admin/encuestas/other_question/'+ id,
 			method: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -32,7 +32,7 @@ function OtherQuestion(){
 
 	self.update = function(id,data){
 		return $.ajax({
-			url: '/admin/encuesta/other_question/'+id,
+			url: '/admin/encuestas/other_question/'+id,
 			method: 'PUT',
 			data: data,
 			dataType: 'json',
@@ -43,7 +43,7 @@ function OtherQuestion(){
 
 	self.destroy = function(id){
 		return $.ajax({
-			url: '/admin/encuesta/other_question/'+id,
+			url: '/admin/encuestas/other_question/'+id,
 			method: 'DELETE',
 			dataType: 'json',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
