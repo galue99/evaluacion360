@@ -329,8 +329,8 @@ function AdminTestViewModel(){
 
 
    self.saveOtherQ = function(){
-      console.log(self.formDataOtherQ());
-      otherq.create(self.formDataOtherQ())
+      // console.log(ko.toJSON(self.formDataOtherQ()));
+      otherq.create(ko.toJSON(self.formDataOtherQ()))
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
             self.clearFormOtherQ();
@@ -348,7 +348,8 @@ function AdminTestViewModel(){
    self.getOtherQ = function(data){
       var test_id = data.id;
       self.formDataOtherQ().id_encuesta(test_id);
-      otherq.all(self.formDataOtherQ().id_encuesta)
+      // console.log(self.formDataOtherQ().id_encuesta());
+      otherq.all(self.formDataOtherQ().id_encuesta())
          .done(function(response){
             self.othersQuestions(response);
          })

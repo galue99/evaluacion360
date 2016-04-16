@@ -1,9 +1,9 @@
 function OtherQuestion(){
 	var self = this;
 
-	self.all = function(){
+	self.all = function(id){
 		return $.ajax({
-			url: '/admin/encuesta/other_question',
+			url: '/admin/encuesta/other_question/' + id,
 			dataType: 'json',
 			method: 'GET',
 			contentType: "application/json"
