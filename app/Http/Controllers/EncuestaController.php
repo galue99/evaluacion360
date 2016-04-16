@@ -171,6 +171,11 @@ class EncuestaController extends Controller
         return View('admin.assing_users');
     }
 
+    public function other_question()
+    {
+        return '';
+    }
+
 
 
 }
