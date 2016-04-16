@@ -234,10 +234,10 @@
 
       <!-- Modal para crear las preguntas adicionales -->
       <div id="modalOtherQuestions" class="modal fade" role="dialog">
-         <div class="modal-dialog">
+         <div class="modal-dialog modal-md">
             <div class="modal-content">
                <div class="modal-header">
-               <h4 class="modal-title">OtherQuestions</h4>
+               <h4 class="modal-title">Preguntas Adicionales</h4>
                </div>
                <div class="modal-body">
                   <div class="row">
@@ -259,14 +259,19 @@
                            <table class="table table-striped table-bordered">
                               <thead>
                                  <tr>
-                                    <th>#</th>
-                                    <th>Pregunta</th>
+                                    <th class="col-xs-1">#</th>
+                                    <th class="col-xs-9">Pregunta</th>
+                                    <th class="col-xs-2">Acciones</th>
                                  </tr>
                               </thead>
                               <tbody>
                                  <tr>
                                     <td></td>
                                     <td></td>
+                                    <td>
+                                       <i class="fa fa-pencil fa-blue pointer"></i>
+                                       <i class="fa fa-close fa-red pointer"></i>
+                                    </td>
                                  </tr>
                               </tbody>
                            </table>
