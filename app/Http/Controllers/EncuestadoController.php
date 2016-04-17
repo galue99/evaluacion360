@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Session;
 use App\UserAnswer;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
+
 
 class EncuestadoController extends Controller
 {

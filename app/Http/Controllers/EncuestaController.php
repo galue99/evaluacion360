@@ -9,6 +9,7 @@ use App\Item;
 use App\OtherQuestion;
 use DateTime;
 use Request;
+use Session;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;

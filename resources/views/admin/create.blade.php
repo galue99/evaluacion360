@@ -19,9 +19,9 @@
                            <tr>
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Estado</th>
-                              <th class="text-center">Acciones</th>
-                              <th class="text-center">administrar</th>
+                              <th class="text-center">Administrar</th>
                               <th class="text-center">Preguntas Adicionales</th>
+                              <th class="text-center">Acciones</th>
                            </tr>
                         </thead>
                         <tbody data-bind="foreach: tests">
@@ -29,14 +29,14 @@
                               <td data-bind="text: name" class="text-center"></td>
                               <td class="text-center"><span class="badge " data-bind="css: {'bg-default': is_active == 0, 'bg-green': is_active == 1}, text: $root.getStatusPrettyTest(is_active)"></span></td>
                               <td class="text-center">
-                                 <i class="fa fa-pencil fa-blue"></i>
-                                 <i class="fa fa-close fa-red"></i>
-                              </td>
-                              <td class="text-center">
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Asignaciones</button>
                               </td>
                               <td class="text-center">
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.openModalOtherQ">Administrar</button>
+                              </td>
+                              <td class="text-center">
+                                 <i class="fa fa-pencil fa-blue"></i>
+                                 <i class="fa fa-close fa-red"></i>
                               </td>
                            </tr>
                         </tbody>
