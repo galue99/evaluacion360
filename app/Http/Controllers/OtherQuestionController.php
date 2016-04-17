@@ -81,7 +81,7 @@ class OtherQuestionController extends Controller
 
         $other_question = new OtherQuestion();
         $other_question->question     = Request::input('question');
-        $other_question->encuestas_id  = Request::input('id_encuesta');
+        $other_question->encuestas_id  = Request::input('encuestas_id');
         $other_question->save();
 
         return Response::json([
@@ -100,7 +100,16 @@ class OtherQuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $other_question = OtherQuestion::findOrFail($id);
+        $other_question->question     = Request::input('question');
+        $other_question->encuestas_id  = Request::input('encuestas_id');
+        $other_question->save();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
