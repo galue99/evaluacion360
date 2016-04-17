@@ -291,7 +291,6 @@ class UserController extends Controller
 
         // ], 200);
         
-        /*jorge*/
         
         $encuesta = Encuesta::with(['evaluadores'])->find($id);
         
