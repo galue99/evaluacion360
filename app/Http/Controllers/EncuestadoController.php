@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserEncuesta;
 use Session;
 use App\UserAnswer;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class EncuestadoController extends Controller
     {
         if(Auth::user()->is_active == 1){
             $id = Auth::user()->id;
-            $encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->where('status', '=', 0)->get();
+            $encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->where('status', '=', 0)->first();
             if($encuestas == null){
                 return View('welcome');
             }else{
@@ -54,16 +55,26 @@ class EncuestadoController extends Controller
      */
     public function store(Request $request)
     {
+
         $answers = $request->only('answers');
         //var_dump($answers);
+        $id = Auth::user()->id;
         foreach ($answers as $clave){
             for($i=0; $i<count($clave); $i++){
                 $test = new UserAnswer();
                 $test->users_encuestas_id = Session::get('users_encuestas_id');
                 $test->answers_id = $clave[$i]['answer_id'];
-                $test->save();
+                //$test->save();
             }
         }
+
+        $users_encuestas = DB::table('users_encuestas')->where('evaluador_id', $id)->orWhere('encuesta_id', Session::get('encuestas_id'))->first();
+
+        $id_users_encuestas = $users_encuestas->id;
+
+        $user_encuestas = UserEncuesta::findOrFail($id);
+        $user_encuestas->status = 1;
+        $user_encuestas->save();
 
         return Response::json([
             'Success' => [
