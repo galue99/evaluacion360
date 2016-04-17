@@ -42,6 +42,7 @@ Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], 
 
     Route::Resource('/', 'EncuestadoController');
     Route::Resource('/encuesta', 'EncuestaController');
+    Route::get('/encuestas/other_questions/{id}', 'OtherQuestionController@other_questions');
 
 });
 
