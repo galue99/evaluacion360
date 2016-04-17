@@ -140,20 +140,11 @@ function AdminTestViewModel(){
 
    self.getUserAssignedToTest = function(){
       var first = true;
-      // var evaluados = [];
 
       assignTest.AllUserTest(self.testSelected().id)
       .done(function(response){
-         console.log(response);
          self.usersTesters(response);
          self.getEvaluadoresAssigned();
-         // self.users().evaluadores.forEach(function(evaluador){
-         //    evaluador.evaluados.forEach(function(evaluado){
-         //       evaluados.push(evaluado);
-         //    });
-         // });
-         // self.evaluados(evaluados);
-         
       });
    };
 
@@ -165,7 +156,6 @@ function AdminTestViewModel(){
             evaluadores = evaluadores.concat(evaluador);
          });
          self.evaluadores(evaluadores);
-         console.log(self.evaluadores());
    }
 
    //Metodo para ver los usuarios evaluados de cada evaluador
@@ -253,8 +243,8 @@ function AdminTestViewModel(){
 
 
    //Metodo para Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
-   self.saveAssignUserTest = function(value){
-      // console.log(ko.toJSON(self.formDataAssignUser()));
+   self.saveAssignUserTest = function(data){
+      // console.log(ko.toJSON(self.formDataAssignUser()))
       assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
       .done(function(response){
          self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
@@ -296,6 +286,7 @@ function AdminTestViewModel(){
    self.showFormOtherQ = ko.observable(false);
    self.othersQuestions = ko.observableArray();
    self.updateOtherQ = ko.observable(false);
+   self.selectedTestId = ko.observable();
 
    self.toggleFormOtherQ = function(){
       self.showFormOtherQ(!self.showFormOtherQ());
@@ -303,6 +294,7 @@ function AdminTestViewModel(){
 
    self.openModalOtherQ = function(data){
       $('#modalOtherQuestions').modal('show');
+      self.selectedTestId(data.id);
       self.formDataOtherQ().id_encuesta(data.id);
       self.getOtherQ();
    }
@@ -323,6 +315,13 @@ function AdminTestViewModel(){
       })
    };
 
+   self.clearQuestion = function(){
+      self.formDataOtherQ({
+         id_encuesta: ko.observable(self.selectedTestId()),
+         question: ko.observable()
+      });
+   }
+
    self.cancelSaveOtherQ = function(){
       self.clearFormOtherQ();
       self.toggleFormOtherQ();
@@ -335,7 +334,6 @@ function AdminTestViewModel(){
          otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
-            self.formDataOtherQ().question(null);
             self.toggleFormOtherQ();
             self.getOtherQ();
          })
@@ -344,24 +342,22 @@ function AdminTestViewModel(){
             self.formDataOtherQ().id_encuesta(null);
          })
       }else{
-         // console.log(self.formDataOtherQ().id, self.formDataOtherQ());
          otherq.update(self.formDataOtherQ().id, self.formDataOtherQ())
          .done(function(response){
             toastr.info('Actualizacion de Pregunta Adicional exitosa');
-            self.formDataOtherQ().question(null);
+            self.clearQuestion();
             self.toggleFormOtherQ();
             self.getOtherQ();
          })
          .fail(function(response){
             toastr.error('Hubo un error al guardar la pregunta adicional');
-            // self.formDataOtherQ().id_encuesta(null);
          })
       }
    };
 
    //Metodo para llamar las othersquestions de cada encuesta
    self.getOtherQ = function(){
-      otherq.all(self.formDataOtherQ().id_encuesta())
+      otherq.all(self.selectedTestId())
       .done(function(response){
          self.othersQuestions(response);
       })
