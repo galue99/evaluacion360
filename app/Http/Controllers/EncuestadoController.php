@@ -57,22 +57,24 @@ class EncuestadoController extends Controller
     {
 
         $answers = $request->only('answers');
-        //var_dump($answers);
         $id = Auth::user()->id;
         foreach ($answers as $clave){
             for($i=0; $i<count($clave); $i++){
                 $test = new UserAnswer();
                 $test->users_encuestas_id = Session::get('users_encuestas_id');
                 $test->answers_id = $clave[$i]['answer_id'];
-                //$test->save();
+                $test->save();
             }
         }
 
-        $users_encuestas = DB::table('users_encuestas')->where('evaluador_id', $id)->orWhere('encuesta_id', Session::get('encuestas_id'))->first();
+        $users_encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->where('encuesta_id', '=', Session::get('encuestas_id'))->where('status', '=', 0)->first();
 
         $id_users_encuestas = $users_encuestas->id;
-
-        $user_encuestas = UserEncuesta::findOrFail($id);
+        var_dump($users_encuestas);
+        echo $id_users_encuestas;
+        echo $id;
+        echo Session::get('encuestas_id');
+        $user_encuestas = UserEncuesta::findOrFail($id_users_encuestas);
         $user_encuestas->status = 1;
         $user_encuestas->save();
 
