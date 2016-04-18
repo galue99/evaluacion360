@@ -47,8 +47,7 @@ function testViewModel(){
           closeOnConfirm: true },
              function(){
               self.openModalOtherQ();
-              //mostrar modal
-        });
+            });
       }else{
         self.next();
       }

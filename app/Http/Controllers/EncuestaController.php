@@ -175,4 +175,15 @@ class EncuestaController extends Controller
         return View('admin.assing_users');
     }
 
+    public function encuestas_ready()
+    {
+        $encuesta = DB::table('encuestas')
+                    ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+                    ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
+
+        return  Response::json($encuesta);
+    }
+
+
+
 }
