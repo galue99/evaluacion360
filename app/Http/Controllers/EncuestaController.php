@@ -186,5 +186,23 @@ class EncuestaController extends Controller
     }
 
 
+    public function encuestas_details($id)
+    {
+
+        if (Request::isJson()) {
+            $encuesta = Encuesta::with('user', 'items', 'items.frases', 'items.frases.answers')->find(1);
+
+            return  Response::json($encuesta);
+
+        }else{
+            return View('admin.encuesta_items');
+        }
+
+    }
+
+
+
+
+
 
 }
