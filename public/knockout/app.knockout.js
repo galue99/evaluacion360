@@ -31,7 +31,11 @@
 		if (levels != null){
 			ko.applyBindings(new LevelsViewModel(), document.getElementById("levels"));
 		}
+		var listsSurveys = document.getElementById("listsSurveys")
+		if (listsSurveys != null){
+			ko.applyBindings(new ListsSurveysViewModel(), document.getElementById("listsSurveys"));
+		}
 
-
+listsSurveys
 	});
 })();

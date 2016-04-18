@@ -178,16 +178,15 @@ class EncuestaController extends Controller
     public function encuestas_ready()
     {
 
-        //if (Request::isJson()) {
+        if (Request::isJson()) {
             $encuesta = DB::table('encuestas')
                 ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-                ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')
-                ->select('users.*', 'users_encuestas.*', 'encuestas.*')
+                ->join('users', 'evaluador_id', '=', 'users.id')
                 ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
             return  Response::json($encuesta);
-       /* }else{
+        }else{
             return View('admin.encuesta_ready');
-        }*/
+        }
 
     }
 
