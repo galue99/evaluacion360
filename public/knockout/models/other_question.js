@@ -9,6 +9,14 @@ function OtherQuestion(){
 			contentType: "application/json"
 		});
 	};
+	self.allEncuestado = function(id){
+		return $.ajax({
+			url: '/encuestado/encuestas/other_question/' + id,
+			dataType: 'json',
+			method: 'GET',
+			contentType: "application/json"
+		});
+	};
 
 	self.create = function(data){
 		return $.ajax({

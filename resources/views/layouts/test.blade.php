@@ -57,6 +57,7 @@
       <!-- Knockout Assets -->
       <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/bower_components/knockout/dist/knockout.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/bower_components/knockout/dist/komapping.js") }}" type="text/javascript"></script>
 
       <!-- Appli Bindings -->
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
@@ -65,6 +66,7 @@
       <script src="{{ asset ("/knockout/models/evaluadores.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/miscelaneos.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/test.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/other_question.js") }}" type="text/javascript"></script>
 
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>

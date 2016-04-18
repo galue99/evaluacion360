@@ -39,8 +39,9 @@
 						</div>
 						<div class="attachment-text">
 							<ul>
-								<li><strong>Teléfono:</strong> 811.579.5525</li>
-								<li><strong>Correo:</strong> <a href="">mary.v@mejorar-se.com</a></li>
+								<li><strong>Teléfono:</strong><a href="tel:811.579.5525">  811.579.5525</a></li>
+								<li><strong>Correo:</strong> <a href="mailto:mary.v@mejorar-se.com?subject=Irregularidad Por Encuesta">mary.v@mejorar-se.com</a></li>
+
 							</ul>
 						</div>
 						<div class="attachment-text">
@@ -109,29 +110,11 @@
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-12" data-bind="foreach: otherQuestions">
 								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
-										<label for="" class="label-control">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
-				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().oneStrength"></textarea>
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm6">
-									<div class="form-group">
-										<label for="" class="label-control">Menciona una (01) debilidad, o cosa que deba aprender esta persona:</label>
-				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().oneWeakness"></textarea>
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm6">
-									<div class="form-group">
-										<label for="" class="label-control">¿Por qué  felicitarías a esta persona?</label>
-				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().congratulate"></textarea>
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm6">
-									<div class="form-group">
-										<label for="" class="label-control">¿Por qué agradecerías a esta persona?</label>
-				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: formData().toThank"></textarea>
+										<label for="" class="label-control" data-bind="text: question">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
+				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: id"></textarea>
 									</div>
 								</div>
 							</div>
