@@ -124,7 +124,6 @@ class EncuestaController extends Controller
         $encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->get();
         $id_encuesta = $encuestas[0]->encuesta_id;
         Session::set('users_encuestas_id', $encuestas[0]->id);
-        Session::set('encuestas_id', $id_encuesta);
 
         //$id_users_encuestas = $encuestas[0]->id;
 
