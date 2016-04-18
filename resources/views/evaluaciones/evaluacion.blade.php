@@ -110,11 +110,11 @@
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-xs-12" data-bind="foreach: otherQuestions">
+							<div class="col-xs-12" data-bind="foreach: formData().otherQuestion">
 								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
-										<label for="" class="label-control" data-bind="text: question">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
-				                  		<textarea class="form-control" rows="3" placeholder="Enter ..." data-bind="textInput: id"></textarea>
+										<label for="" class="label-control" data-bind="text: OtherQ_question">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
+				                  		<textarea class="form-control" rows="3" placeholder="Ingrese su respuesta" data-bind="textInput: OtherQ_answer"></textarea>
 									</div>
 								</div>
 							</div>

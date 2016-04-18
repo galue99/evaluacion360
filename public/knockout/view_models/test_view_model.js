@@ -10,12 +10,11 @@ function testViewModel(){
 	self.currentAnswer = ko.observable();
   self.testId = ko.observable();
 	self.finish =  ko.observable(false);
-  self.otherQuestions = ko.observableArray();
   self.cntFrases = ko.observable();
   self.lastFrase = ko.observable();
 
   self.formData = ko.observable({
-		otherQuestion: ko.mapping(),
+		otherQuestion: ko.observableArray(),
 		answers: ko.observableArray()
   });
 
@@ -162,7 +161,15 @@ function testViewModel(){
   self.getOtherQ = function(){
     otherq.allEncuestado(self.testId())
     .done(function(response){
-      self.formData().otherQuestions(ko.mapping.fromJS(response));
+      self.formData().otherQuestion(
+        response.map(function(otherq){
+          return {
+            OtherQ_id: otherq.id,
+            OtherQ_question: otherq.question,
+            OtherQ_answer: ko.observable()
+          }
+        })
+        )
     });
   };
 
