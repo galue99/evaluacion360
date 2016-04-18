@@ -27,9 +27,9 @@ function testViewModel(){
       encuesta.create(ko.toJSON(self.formData()))
       .done(function(response){
         toastr.success('La encuesta ha sido enviada con exito');
-        // setTimeout(function(){
-        //   window.location.href = "/logout";
-        // }, 3000);
+        setTimeout(function(){
+          window.location.href = "/logout";
+        }, 1000);
       })
       .fail(function(response){
         toastr.error('Ocurrio un erro al enviar los datos');
@@ -143,11 +143,8 @@ function testViewModel(){
 			self.items(response.items);
 			//establezco el primer item
 			//self.currentItem(self.items()[0]);
-
 		});
 	};
-
-	
   //Metodpo para abrir modal de preguntas adicionales y llamar las OtherQ
   self.openModalOtherQ = function(){
     $('#modal1').modal('show');

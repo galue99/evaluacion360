@@ -19,7 +19,7 @@
                            <tr>
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Estado</th>
-                              <th class="text-center">Administrar</th>
+                              <th class="text-center">Asignacions</th>
                               <th class="text-center">Preguntas Adicionales</th>
                               <th class="text-center">Acciones</th>
                            </tr>
@@ -29,7 +29,7 @@
                               <td data-bind="text: name" class="text-center"></td>
                               <td class="text-center"><span class="badge " data-bind="css: {'bg-default': is_active == 0, 'bg-green': is_active == 1}, text: $root.getStatusPrettyTest(is_active)"></span></td>
                               <td class="text-center">
-                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Asignaciones</button>
+                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Administrar</button>
                               </td>
                               <td class="text-center">
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.openModalOtherQ">Administrar</button>
