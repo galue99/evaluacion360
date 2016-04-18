@@ -155,7 +155,22 @@ class EncuestaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $encuesta = Encuesta::findOrFail($id);
+
+        if($encuesta->is_active == 1){
+            $encuesta->is_active  = 0;
+            $encuesta->save();
+        }else{
+            $encuesta->is_active  = 1;
+            $encuesta->save();
+        }
+
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -178,16 +193,16 @@ class EncuestaController extends Controller
     public function encuestas_ready()
     {
 
-        if (Request::isJson()) {
+//        if (Request::isJson()) {
             $encuesta = DB::table('encuestas')
                 ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
                 ->join('users', 'evaluador_id', '=', 'users.id')
                 // ->join('companys', 'company_id', '=', 'companys.id')
                 ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
             return  Response::json($encuesta);
-        }else{
+    /*    }else{
             return View('admin.encuesta_ready');
-        }
+        }*/
 
     }
 
