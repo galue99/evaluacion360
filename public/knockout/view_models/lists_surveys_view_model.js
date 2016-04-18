@@ -8,7 +8,6 @@ function ListsSurveysViewModel(){
 	self.getTestReady = function(){
 		test.allTestReady()
 		.done(function(response){
-			console.log(response);
 			self.tests(response);
 		});
 	};
@@ -20,6 +19,10 @@ function ListsSurveysViewModel(){
 			console.log(response);
 		})
 	};
+
+	self.toggleListTest = function(){
+		self.showListTest(!self.showListTest());
+	}
 
 
 

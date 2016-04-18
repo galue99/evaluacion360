@@ -45,8 +45,18 @@
 				</div>
 			</div>
 
-			<div data-bind="visible: !showListTest()">
-				<h1>Mostrar Respuestas</h1>
+			<div class="box box-primary" data-bind="visible: !showListTest()">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						Detalles de la encuesta
+					</h3>
+				</div>
+				<div class="box-body">
+				<h1>Respuestas</h1>
+				</div>
+				<div class="box-footer">
+					<button class="btn btn-danger pull-right" data-bind="click: toggleListTest">Cancelar</button>
+				</div>
 			</div>
 		</div>
 	</div>
