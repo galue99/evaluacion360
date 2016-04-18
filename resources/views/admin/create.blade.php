@@ -27,9 +27,9 @@
                         <tbody data-bind="foreach: tests">
                            <tr>
                               <td data-bind="text: name" class="text-center"></td>
-                              <td class="text-center"><span class="badge " data-bind="css: {'bg-default': is_active == 0, 'bg-green': is_active == 1}, text: $root.getStatusPrettyTest(is_active)"></span></td>
+                              <td class="text-center"><button class="btn btn-xs btn-flat" data-bind="css: {'btn-danger': is_active == 0, 'btn-success': is_active == 1}, text: $root.getStatusPrettyTest(is_active), click: $root.changeStatus"></button></td>
                               <td class="text-center">
-                                 <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest">Administrar</button>
+                                 <button  class="btn btn-info btn-xs btn-flat" data-bind="click: $root.toggleFormAdminTest, disable: is_active == 0">Administrar</button>
                               </td>
                               <td class="text-center">
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.openModalOtherQ">Administrar</button>

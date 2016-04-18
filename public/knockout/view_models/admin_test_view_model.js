@@ -176,7 +176,7 @@ function AdminTestViewModel(){
    };
 
    self.getStatusPrettyTest = function(statusId){
-      return {'0': 'inactiva',
+      return {'0': 'Inactiva',
               '1': 'Activa'}[statusId];
    };
 
@@ -184,6 +184,18 @@ function AdminTestViewModel(){
       return {'0': 'No realizada',
               '1': 'Realizada'}[statusId];
    };
+
+   self.changeStatus = function(data){
+      console.log(data.id)
+      test.update(data.id)
+      .done(function(response){
+         toastr.info('Estado de la encuesta cambiado exitosamente');
+         self.getTest();
+      })
+      .fail(function(response){
+         toastr.error('Hubo un problema al cambiar la encuesta');
+      })
+   }
 
 
 //Administracion de las Asginaciones de los evaluadores a las encuestas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

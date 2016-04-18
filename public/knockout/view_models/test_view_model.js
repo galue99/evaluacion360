@@ -132,6 +132,7 @@ function testViewModel(){
 			//establezco el primer item
 			self.currentItem(self.items()[0]);
       // console.log(response);
+      // response.user
 
 		});
 	};

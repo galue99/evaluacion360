@@ -32,7 +32,7 @@ var self = this;
 
 	self.testDetails = function(id){
 		return $.ajax({
-			url: '/encuestas/details/' + id,
+			url: '/admin/encuestas/details/' + id,
 			dataType: 'JSON',
 			method: 'GET',
 			contentType: 'application/json',
