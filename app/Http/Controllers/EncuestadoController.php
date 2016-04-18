@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\OtherQuestion;
+use App\OtherQuestionAnswer;
 use App\User;
 use App\UserEncuesta;
 use Session;
@@ -30,6 +32,8 @@ class EncuestadoController extends Controller
             if($encuestas == null){
                 return View('welcome');
             }else{
+                $id_encuesta = $encuestas->encuesta_id;
+                Session::set('encuestas_id', $id_encuesta);
                 return View('evaluaciones.evaluacion');
             }
         }else{
@@ -70,14 +74,21 @@ class EncuestadoController extends Controller
         $users_encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->where('encuesta_id', '=', Session::get('encuestas_id'))->where('status', '=', 0)->first();
 
         $id_users_encuestas = $users_encuestas->id;
-        var_dump($users_encuestas);
-        echo $id_users_encuestas;
-        echo $id;
-        echo Session::get('encuestas_id');
+
         $user_encuestas = UserEncuesta::findOrFail($id_users_encuestas);
         $user_encuestas->status = 1;
         $user_encuestas->save();
 
+        $otherAnswers = $request->only('otherQuestion');
+        foreach ($otherAnswers as $clave2){
+            for($j=0; $j<count($clave2); $j++){
+                $otherAnswer = new OtherQuestionAnswer();
+                $otherAnswer->answers = $clave2[$j]['OtherQ_answer'];
+                $otherAnswer->others_questions_id = $clave2[$j]['OtherQ_id'];
+                $otherAnswer->users_answers_id = Session::get('users_encuestas_id');
+                $otherAnswer->save();
+            }
+        }
         return Response::json([
             'Success' => [
                 'message'     => 'Record Save Exits',

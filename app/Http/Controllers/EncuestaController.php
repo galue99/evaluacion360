@@ -124,7 +124,6 @@ class EncuestaController extends Controller
         $encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->get();
         $id_encuesta = $encuestas[0]->encuesta_id;
         Session::set('users_encuestas_id', $encuestas[0]->id);
-        Session::set('encuestas_id', $id_encuesta);
 
         //$id_users_encuestas = $encuestas[0]->id;
 
@@ -178,11 +177,18 @@ class EncuestaController extends Controller
 
     public function encuestas_ready()
     {
-        $encuesta = DB::table('encuestas')
-                    ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-                    ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
 
-        return  Response::json($encuesta);
+        if (Request::isJson()) {
+            $encuesta = DB::table('encuestas')
+                ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+                ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
+
+            return  Response::json($encuesta);
+
+        }else{
+            return View('admin.encuesta_ready');
+        }
+
     }
 
 

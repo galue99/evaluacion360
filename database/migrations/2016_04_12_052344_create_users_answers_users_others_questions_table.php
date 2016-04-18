@@ -19,6 +19,7 @@ class CreateUsersAnswersUsersOthersQuestionsTable extends Migration
             $table->foreign('others_questions_id')->references('id')->on('others_questions');
             $table->integer('users_answers_id')->unsigned();;
             $table->foreign('users_answers_id')->references('id')->on('users_answers');
+            $table->timestamps();
         });
     }
 
