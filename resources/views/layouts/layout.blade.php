@@ -72,8 +72,8 @@
                             <span>Evaluación</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/encuesta">Evaluación</a></li>
-                            <li><a href="/admin/assing_users">Asignar Usuarios</a></li>
+                            <li><a href="/admin/encuesta">Administracion</a></li>
+                            <li><a href="/admin/assing_users">Realizas</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

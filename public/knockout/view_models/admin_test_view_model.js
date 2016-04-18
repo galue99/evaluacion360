@@ -37,6 +37,12 @@ function AdminTestViewModel(){
    self.save = function(){
       test.create(ko.toJSON(self.formData()))
       .done(function(response){
+         self.updateOtherQ(true);
+         self.selectedTestId(response.Success.id);
+         self.formDataOtherQ().id_encuesta(self.selectedTestId());
+         console.log(self.selectedTestId());
+         console.log(self.formDataOtherQ().id_encuesta());
+         console.log(ko.toJSON(self.formDataOtherQ()));
          self.clearFormTest();
          self.getTest();
          swal({
@@ -190,7 +196,6 @@ function AdminTestViewModel(){
       nivel: ko.observable(),
       status: 0,
       evaluadores: ko.observableArray()
-      
    });
 
    // Asignacion de usuarios a la encuesta 
@@ -295,7 +300,7 @@ function AdminTestViewModel(){
    self.openModalOtherQ = function(data){
       $('#modalOtherQuestions').modal('show');
       self.selectedTestId(data.id);
-      self.formDataOtherQ().id_encuesta(data.id);
+      self.formDataOtherQ().id_encuesta(self.selectedTestId());
       self.getOtherQ();
    }
    self.CloseModalOtherQ = function(){
@@ -342,9 +347,11 @@ function AdminTestViewModel(){
             self.formDataOtherQ().id_encuesta(null);
          })
       }else{
-         otherq.update(self.formDataOtherQ().id, self.formDataOtherQ())
+         console.log(self.formDataOtherQ().id_encuesta(), self.formDataOtherQ());
+         otherq.update(self.selectedTestId(), self.formDataOtherQ())
          .done(function(response){
             toastr.info('Actualizacion de Pregunta Adicional exitosa');
+            self.updateOtherQ(false);
             self.clearQuestion();
             self.toggleFormOtherQ();
             self.getOtherQ();
