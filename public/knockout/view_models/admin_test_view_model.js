@@ -9,6 +9,7 @@ function AdminTestViewModel(){
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
    self.formCompany = ko.observable(false);
+   self.assignOtherQ = ko.observable(false);
    self.tests = ko.observableArray();
    self.formData = ko.observable({
       name: ko.observable(),
@@ -37,12 +38,9 @@ function AdminTestViewModel(){
    self.save = function(){
       test.create(ko.toJSON(self.formData()))
       .done(function(response){
-         self.updateOtherQ(true);
+         self.assignOtherQ(true);
          self.selectedTestId(response.Success.id);
          self.formDataOtherQ().id_encuesta(self.selectedTestId());
-         console.log(self.selectedTestId());
-         console.log(self.formDataOtherQ().id_encuesta());
-         console.log(ko.toJSON(self.formDataOtherQ()));
          self.clearFormTest();
          self.getTest();
          swal({
@@ -323,7 +321,7 @@ function AdminTestViewModel(){
    self.clearQuestion = function(){
       self.formDataOtherQ({
          id_encuesta: ko.observable(self.selectedTestId()),
-         question: ko.observable()
+         question: ko.observable('')
       });
    }
 
@@ -339,6 +337,7 @@ function AdminTestViewModel(){
          otherq.create(self.formDataOtherQ())
          .done(function(response){
             toastr.info('Pregunta Adicional guardada exitosamente');
+            self.clearQuestion();
             self.toggleFormOtherQ();
             self.getOtherQ();
          })
@@ -347,10 +346,9 @@ function AdminTestViewModel(){
             self.formDataOtherQ().id_encuesta(null);
          })
       }else{
-         console.log(self.formDataOtherQ().id_encuesta(), self.formDataOtherQ());
          otherq.update(self.selectedTestId(), self.formDataOtherQ())
          .done(function(response){
-            toastr.info('Actualizacion de Pregunta Adicional exitosa');
+            toastr.info('Actualizacion de Pregunta adicional exitosa');
             self.updateOtherQ(false);
             self.clearQuestion();
             self.toggleFormOtherQ();
@@ -361,6 +359,21 @@ function AdminTestViewModel(){
          })
       }
    };
+
+   //Metodo para guardar las preguntas adicionales inmediatamente despues de crear la encuesta
+   self.saveAssignOtherQ = function(){
+      otherq.create(self.formDataOtherQ())
+      .done(function(response){
+         toastr.info('Pregunta adicional guardada exitosamente');
+            self.clearQuestion();
+            self.toggleFormOtherQ();
+            self.getOtherQ();
+            self.assignOtherQ(false);
+      })
+      .fail(function(response){
+         toastr.error('Hubo un error al guardar la pregunta adicional');
+      })
+   }
 
    //Metodo para llamar las othersquestions de cada encuesta
    self.getOtherQ = function(){

@@ -250,7 +250,8 @@
                               <input type="text" class="form-control" data-bind="textInput: formDataOtherQ().question">
                            </div>
                            <div class="form-group text-right col-xs-12">
-                              <button class="btn btn-primary btn-flat" data-bind="click: saveOtherQ">Guardar</button>
+                              <button class="btn btn-primary btn-flat" data-bind="click: saveOtherQ, visible: assignOtherQ">Guardar</button>
+                              <button class="btn btn-primary btn-flat" data-bind="click: saveAssignOtherQ, visible: !assignOtherQ()">Guardarr</button>
                               <button class="btn btn-danger btn-flat" data-bind="click: cancelSaveOtherQ">Cancelar</button>
                            </div>
                         </div>
