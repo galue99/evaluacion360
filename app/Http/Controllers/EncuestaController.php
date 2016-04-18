@@ -96,7 +96,8 @@ class EncuestaController extends Controller
 
         return Response::json([
             'Success' => [
-                'status_code' => 200
+                'status_code' => 200,
+                'id' => $id_encuesta
             ]
         ], 200);
 
