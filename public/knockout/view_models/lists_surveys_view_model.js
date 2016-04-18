@@ -12,12 +12,13 @@ function ListsSurveysViewModel(){
 		});
 	};
 
-	self.details = function(data){
+	self.viewDetails = function(data){
 		test.testDetails(data.id)
 		.done(function(response){
 			console.log(response);
 		})
 	};
+
 
 
 	//obteniendo las encuestas con status 1

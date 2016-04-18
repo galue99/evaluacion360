@@ -14,19 +14,25 @@
     						<table id="" class="table table-bordered table-hover">
     							<thead>
     							    <tr>
-    									<th class="col-xs-2 text-center">Nombre Completo</th>
-    									<th class="col-xs-2 text-center">Email</th>
-    									<th class="col-xs-2 text-center">Nro. de Identificacion</th>
-    									<th class="col-xs-2 text-center">Cargo</th>
+    									<th>Encuesta</th>
+    									<th>Evaluador</th>
+    									<th>Nro. de Identificacion</th>
+    									<th>Empresa</th>
+    									<th>Email</th>
+    									<th>Cargo</th>
+    									<th>Ver Respuesta</th>
     							    </tr>
     							</thead>
     							<tbody data-bind="foreach: tests">
     								<tr>
 	    								<td data-bind="text: name"></td>
-	    								<td ></td>
-	    								<td></td>
+	    								<td data-bind="text: firstname + ' ' + lastname"></td>
+	    								<td data-bind="text: dni"></td>
+	    								<td data-bind="text: company_id"></td>
+	    								<td data-bind="text: email"></td>
+	    								<td data-bind="text: position"></td>
     								    <td class="text-center">
-    								    	<i class="fa fa-eye fa-blue pointer"></i>
+    								    	<i class="fa fa-eye fa-blue pointer" data-bind="click: $root.viewDetails"></i>
     								    </td>
     								</tr>
     							</tbody>
