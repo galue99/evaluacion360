@@ -73,7 +73,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/admin/encuesta">Administracion</a></li>
-                            <li><a href="/admin/assing_users">Realizas</a></li>
+                            <li><a href="/admin/encuestas_ready">Realizas</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -166,6 +166,7 @@
       <script src="{{ asset ("/knockout/view_models/company_test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/assign_users_test.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/levels_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/lists_surveys_view_model.js") }}" type="text/javascript"></script>
       
     </body>
 </html>

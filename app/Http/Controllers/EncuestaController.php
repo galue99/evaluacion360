@@ -181,7 +181,7 @@ class EncuestaController extends Controller
         if (Request::isJson()) {
             $encuesta = DB::table('encuestas')
                 ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-                ->join('users', 'users_evaluador.id', '=', 'users.id')
+                ->join('users', 'evaluador_id', '=', 'users.id')
                 ->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
             return  Response::json($encuesta);
         }else{
