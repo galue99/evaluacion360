@@ -23,18 +23,17 @@ function testViewModel(){
     };
 
     self.saveTest = function(data){
-      console.log(ko.toJSON(self.formData()));
-      // encuesta.create(ko.toJSON(self.formData()))
-
-      // .done(function(response){
-      //   toastr.success('La encuesta ha sido enviada con exito');
-      //   // setTimeout(function(){
-      //   //   window.location.href = "/logout";
-      //   // }, 3000);
-      // })
-      // .fail(function(response){
-      //   toastr.error('Ocurrio un erro al enviar los datos');
-      // });
+      // console.log(ko.toJSON(self.formData()));
+      encuesta.create(ko.toJSON(self.formData()))
+      .done(function(response){
+        toastr.success('La encuesta ha sido enviada con exito');
+        // setTimeout(function(){
+        //   window.location.href = "/logout";
+        // }, 3000);
+      })
+      .fail(function(response){
+        toastr.error('Ocurrio un erro al enviar los datos');
+      });
     };
 
     self.setAnswer = function(){
@@ -48,7 +47,7 @@ function testViewModel(){
           closeOnConfirm: true },
              function(){
               self.openModalOtherQ();
-          //mostrar modal
+              //mostrar modal
         });
       }else{
         self.next();
@@ -107,21 +106,21 @@ function testViewModel(){
 
     }
     //para probar que se esten agregando todas las respuestas
-    console.log(self.formData().answers()); 
+    // console.log(self.formData().answers()); 
 	}
 
 	self.setAnswerPartTwo = function(){
 		$('#modal1').modal('hide');
-		swal({
-          title: "Hemos terminado",
-          text: "Gracias por estar aqui y dedicarnos un poco de tu valioso tiempo.",
-          type: "success",
-          confirmButtonColor: "#A5DC86",
-          confirmButtonText: "Finalizar",
-          closeOnConfirm: true },
-             function(){
-              self.saveTest();
-        });
+    swal({
+      title: "Hemos terminado",
+      text: "Gracias por estar aqui y dedicarnos un poco de tu valioso tiempo.",
+      type: "success",
+      confirmButtonColor: "#A5DC86",
+      confirmButtonText: "Finalizar",
+      closeOnConfirm: true },
+         function(){
+          self.saveTest();
+    });
 	};
 
 	//funcion para abrir la encuesta
@@ -133,7 +132,7 @@ function testViewModel(){
 			self.items(response.items);
 			//establezco el primer item
 			self.currentItem(self.items()[0]);
-      console.log(response);
+      // console.log(response);
 
 		});
 	};
@@ -169,7 +168,7 @@ function testViewModel(){
             OtherQ_answer: ko.observable()
           }
         })
-        )
+      )
     });
   };
 
