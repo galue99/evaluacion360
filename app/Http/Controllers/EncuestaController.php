@@ -221,6 +221,40 @@ class EncuestaController extends Controller
 
     }
 
+    public function encuestas_respuesta($id)
+    {
+
+        $encuesta = DB::table('encuestas')
+            ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->join('users', 'evaluador_id', '=', 'users.id')
+            ->join('niveles', 'users_encuestas.niveles_id', '=', 'niveles.id')
+            ->select('users.*', 'niveles.name as nivel')
+            ->where('users_encuestas.evaluador_id', '=', $id)->get();
+
+        $answers = DB::table('encuestas')
+            ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+            ->join('users', 'evaluador_id', '=', 'users.id')
+            ->join('niveles', 'users_encuestas.niveles_id', '=', 'niveles.id')
+            ->join('users_answers', 'users_encuestas.id', '=', 'users_answers.users_encuestas_id')
+            ->join('answers', 'users_answers.answers_id', '=', 'answers.id')
+            ->join('frases', 'answers.frase_id', '=', 'frases.id')
+            ->select('users_answers.*', 'answers.name as respuesta', 'frases.name as pregunta')
+            ->where('users_encuestas.evaluador_id', '=', $id)->get();
+            //->join('answers', 'users_answers.answers_id', '=', 'users_answers.id')->get();
+            //->select('users_answers.*')->get();
+            // ->join('companys', 'company_id', '=', 'companys.id')
+            //->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
+            //return  Response::json($encuesta);
+            return Response::json([
+                'Success' => [
+                    'status_code' => 200,
+                    'encuesta' => $encuesta,
+                    'answers'  => $answers,
+                ]
+            ], 200);
+
+    }
+
 
 
 
