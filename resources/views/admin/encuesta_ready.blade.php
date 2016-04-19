@@ -86,9 +86,6 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="row">
-						<div class="col-xs-12 box-divider"></div>
-					</div>
 
 				</div>
 				<div class="box-footer">
