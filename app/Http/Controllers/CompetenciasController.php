@@ -93,7 +93,16 @@ class CompetenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $compentencia = Competencia::findOrFail($id);
+        $compentencia->name = Request::input('name');
+        $compentencia->definicion = Request::input('description');
+        $compentencia->save();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -104,6 +113,15 @@ class CompetenciasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $compentencia = Competencia::find($id);
+
+        $compentencia->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }

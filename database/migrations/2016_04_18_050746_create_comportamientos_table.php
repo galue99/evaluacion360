@@ -16,8 +16,8 @@ class CreateComportamientosTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('definicion');
-            $table->integer('comportamiento_id')->unsigned();
-            $table->foreign('comportamiento_id')->references('id')->on('comportamientos')->onDelete('cascade');
+            $table->integer('competencia_id')->unsigned();
+            $table->foreign('competencia_id')->references('id')->on('competencias')->onDelete('cascade');
             $table->timestamps();
         });
     }

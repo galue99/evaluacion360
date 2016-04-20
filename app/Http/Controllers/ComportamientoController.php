@@ -6,6 +6,8 @@ use App\Comportamiento;
 use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
+
 
 class ComportamientoController extends Controller
 {
@@ -42,7 +44,18 @@ class ComportamientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comportamiento = new Comportamiento();
+        $comportamiento->name = Request::input('name');
+        $comportamiento->definicion = Request::input('description');
+        $comportamiento->competencia_id = Request::input('competencia_id');
+        $comportamiento->save();
+
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -78,7 +91,18 @@ class ComportamientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comportamiento = Comportamiento::findOrFail($id);
+        $comportamiento->name = Request::input('name');
+        $comportamiento->definicion = Request::input('description');
+        $comportamiento->competencia_id = Request::input('competencia_id');
+        $comportamiento->save();
+
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -89,6 +113,15 @@ class ComportamientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comportamiento = Comportamiento::find($id);
+
+        $comportamiento->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }
