@@ -153,7 +153,7 @@
       <script src="{{ asset ("/knockout/app.knockout.js") }}" type="text/javascript"></script>
 
       <!-- Modelos Nockout -->
-      <script src="{{ asset ("/knockout/models/evaluadores.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/users.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/miscelaneos.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/test.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/admin_test.js") }}" type="text/javascript"></script>
@@ -161,9 +161,10 @@
       <script src="{{ asset ("/knockout/models/levels.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/other_question.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/competencias.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/comportamientos.js") }}" type="text/javascript"></script>
 
       <!-- View Models Knockout -->
-      <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/users_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/admin_test_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/company_test_view_model.js") }}" type="text/javascript"></script>
@@ -171,6 +172,7 @@
       <script src="{{ asset ("/knockout/view_models/levels_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/lists_surveys_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/competencias_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/comportamientos_view_model.js") }}" type="text/javascript"></script>
       
     </body>
 </html>

@@ -21,8 +21,8 @@ class CompetenciasController extends Controller
     public function index()
     {
         if (Request::isJson()) {
-            $compentencias = Competencia::all();
-            return $compentencias;
+            $competencias = Competencia::all();
+            return $competencias;
         }else{
             return View('admin.competencias');
         }

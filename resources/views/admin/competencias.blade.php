@@ -49,8 +49,8 @@
 						</thead>
 						<tbody data-bind="foreach: competencias">
 							<tr>
-								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
-							    <td data-bind="text: email" class="text-center"></td>
+								<td data-bind="text: name"></td>
+							    <td data-bind="text: definicion" class="text-center"></td>
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editCompetencias"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeCompetencias"></i>

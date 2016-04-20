@@ -1,9 +1,9 @@
-function Competencias(){
+function Comportamientos(){
 	var self = this;
 
 	self.all = function(){
 		return $.ajax({
-			url: '/admin/competencias',
+			url: '/admin/comportamientos',
 			dataType: 'json',
 			method: 'GET',
 			contentType: "application/json"
@@ -12,7 +12,7 @@ function Competencias(){
 
 	self.create = function(data){
 		return $.ajax({
-			url: '/admin/competencias',
+			url: '/admin/comportamientos',
 			method: 'POST',
 			data: data,
 			dataType: 'json',
@@ -23,7 +23,7 @@ function Competencias(){
 
 	self.find = function(id){
 		return $.ajax({
-			url: '/admin/competencias/'+ id,
+			url: '/admin/comportamientos/'+ id,
 			method: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -32,7 +32,7 @@ function Competencias(){
 
 	self.update = function(id,data){
 		return $.ajax({
-			url: '/admin/competencias/'+id,
+			url: '/admin/comportamientos/'+id,
 			method: 'PUT',
 			data: data,
 			dataType: 'json',
@@ -43,7 +43,7 @@ function Competencias(){
 
 	self.destroy = function(id){
 		return $.ajax({
-			url: '/admin/competencias/'+id,
+			url: '/admin/comportamientos/'+id,
 			method: 'DELETE',
 			dataType: 'json',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},

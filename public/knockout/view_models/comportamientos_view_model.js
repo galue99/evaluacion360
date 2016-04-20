@@ -1,8 +1,10 @@
-function CompetenciasViewModel(){
+function ComportamientosViewModel(){
 	var self = this;
+	var comportamiento = new Comportamientos();
 	var competencia = new Competencias();
 
 	//arrays para datos
+	self.comportamientos = ko.observableArray();
 	self.competencias = ko.observableArray();
 	self.showForm = ko.observable(false);
 
@@ -13,6 +15,13 @@ function CompetenciasViewModel(){
 	});
 
 
+	self.getComportamientos = function(){
+		comportamiento.all()
+		.done(function(response){
+			self.comportamientos(response);
+		});
+	};
+
 	self.getCompetencias = function(){
 		competencia.all()
 		.done(function(response){
@@ -20,7 +29,6 @@ function CompetenciasViewModel(){
 		});
 	};
 
-	//para limpiar el formulario
 	self.clearForm = function(){
 		self.formData({
 			name: ko.observable(),
@@ -38,21 +46,21 @@ function CompetenciasViewModel(){
 	};
 
 	self.save = function(){
-		competencia.create(self.formData())
+		comportamiento.create(self.formData())
 		.done(function(response){
 			self.clearForm();
 			self.toggleForm();
-			self.getCompetencias();
-			toastr.success('La competencia fue guardada exitosamene');
+			self.getComportamientos();
+			toastr.success('El comportamiento fue guardada exitosamene');
 		})
 		.fail(function(response){
-			toastr.error('Hubo un error al guardar la competencia');	
+			toastr.error('Hubo un error al guardar el comportamiento');	
 		})
 	}
 
 	//buscamos el usuario para luego editarlo
-	self.editCompetencias = function(data){
-		competencia.find(data.id)
+	self.editComportamientos = function(data){
+		comportamientos.find(data.id)
 		.done(function(response){
 			self.updateCompetencia(true);
 			self.toggleForm();
@@ -61,22 +69,24 @@ function CompetenciasViewModel(){
 	};
 
 	//Borrando Usuarios
-	self.removeCompetencias = function(data){
+	self.removeComportamientos = function(data){
 		swal({title: "¿Estas seguro?",
-			text: "que desea eliminar esta competencia",
+			text: "que desea eliminar este comportamiento",
 			type: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#DD6B55",
 			confirmButtonText: "Eliminar",
 			closeOnConfirm: true },
 			function(){
-				competencia.destroy(data.id)
+				comportamiento.destroy(data.id)
 				.done(function(response){
 					toastr.info('Usuario removido con exito');
-					self.competencias.remove(data);
+					self.comportamientos.remove(data);
 				});
 			});
 	};
+
+	self.getComportamientos();
 
 	self.getCompetencias();
 

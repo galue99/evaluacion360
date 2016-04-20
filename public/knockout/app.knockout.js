@@ -41,5 +41,10 @@
 			ko.applyBindings(new CompetenciasViewModel(), document.getElementById("competencias"));
 		}
 
+		var comportamientos = document.getElementById("comportamientos")
+		if (comportamientos != null){
+			ko.applyBindings(new ComportamientosViewModel(), document.getElementById("comportamientos"));
+		}
+
 	});
 })();

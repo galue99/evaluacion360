@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-11 pull-center" id="competencias">
+	<div class="col-xs-11 pull-center" id="comportamientos">
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
@@ -14,7 +14,13 @@
 
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
-					<form action="" class="form row" id="formEvaluadores">
+					<form action="" class="form row" id="formCompetencia">
+						<div class="col-xs-6 col-md-4 separate">
+						    <div class="form-group">
+						        <label class="label-control">Seleccione una competencia</label>
+						        <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', optionsValue: 'id', value: $root.formData().competencia_id "></select>
+						    </div>
+						</div>
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
@@ -42,18 +48,20 @@
 					<table id="" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">Name</th>
+								<th class="col-xs-2 text-center">Nombre</th>
 								<th class="col-xs-2 text-center">Descripcion</th>
+								<th class="col-xs-2 text-center">Competencia</th>
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: evaluadores">
+						<tbody data-bind="foreach: comportamientos">
 							<tr>
-								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
-							    <td data-bind="text: email" class="text-center"></td>
+								<td data-bind="text: name" class="text-center"></td>
+							    <td data-bind="text: definicion" class="text-center"></td>
+							    <td data-bind="text: competencia" class="text-center"></td>
 							    <td class="text-center">
-							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>
-							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
+							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
+							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeComportamientos"></i>
 							    </td>
 							</tr>
 						</tbody>
