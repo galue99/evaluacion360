@@ -32,7 +32,6 @@ function EvaluadoresViewModel(){
 	self.getEvaluadores = function(){
 		evaluador.all()
 		.done(function(response){
-			console.log(response);
 			self.evaluadores(response);
 		});
 	};

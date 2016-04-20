@@ -91,6 +91,8 @@
                         <ul class="treeview-menu">
                             <li><a href="/admin/img">Gestionar Empresas</a></li>
                             <li><a href="/admin/niveles">Gestionar Niveles</a></li>
+                            <li><a href="/admin/competencias">Gestionar Competencia</a></li>
+                            <li><a href="/admin/comportamientos">Gestionar Comportamientos</a></li>
                         </ul>
                     </li>
                 @endif
@@ -158,6 +160,7 @@
       <script src="{{ asset ("/knockout/models/user_encuesta.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/levels.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/models/other_question.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/models/competencias.js") }}" type="text/javascript"></script>
 
       <!-- View Models Knockout -->
       <script src="{{ asset ("/knockout/view_models/evaluadores_view_model.js") }}" type="text/javascript"></script>
@@ -167,6 +170,7 @@
       <script src="{{ asset ("/knockout/view_models/assign_users_test.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/levels_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/lists_surveys_view_model.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/knockout/view_models/competencias_view_model.js") }}" type="text/javascript"></script>
       
     </body>
 </html>

@@ -36,6 +36,10 @@
 			ko.applyBindings(new ListsSurveysViewModel(), document.getElementById("listsSurveys"));
 		}
 
-listsSurveys
+		var competencias = document.getElementById("competencias")
+		if (competencias != null){
+			ko.applyBindings(new CompetenciasViewModel(), document.getElementById("competencias"));
+		}
+
 	});
 })();
