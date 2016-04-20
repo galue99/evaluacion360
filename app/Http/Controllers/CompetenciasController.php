@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
+use App\Competencia;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -17,7 +19,7 @@ class CompetenciasController extends Controller
     public function index()
     {
         if (Request::isJson()) {
-            $compentencias = Compentencia::all();
+            $compentencias = Competencia::all();
             return $compentencias;
         }else{
             return View('admin.compentencias');

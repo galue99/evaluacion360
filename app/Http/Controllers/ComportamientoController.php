@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Comportamiento;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +17,7 @@ class ComportamientoController extends Controller
     public function index()
     {
         if (Request::isJson()) {
-            $comportamientos = Comportamientos::all();
+            $comportamientos = Comportamiento::all();
             return $comportamientos;
         }else{
             return View('admin.comportamientos');
@@ -53,7 +53,7 @@ class ComportamientoController extends Controller
      */
     public function show($id)
     {
-        $comportamientos = Comportamientos::find($id);
+        $comportamientos = Comportamiento::find($id);
 
         return $comportamientos;
     }
