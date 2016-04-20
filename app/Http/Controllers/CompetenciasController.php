@@ -8,6 +8,8 @@ use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
+
 
 class CompetenciasController extends Controller
 {
@@ -22,7 +24,7 @@ class CompetenciasController extends Controller
             $compentencias = Competencia::all();
             return $compentencias;
         }else{
-            return View('admin.compentencias');
+            return View('admin.competencias');
         }
 
     }
@@ -45,7 +47,17 @@ class CompetenciasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $compentencia = new Competencia();
+        $compentencia->name = Request::input('name');
+        $compentencia->definicion = Request::input('description');
+        $compentencia->save();
+
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
