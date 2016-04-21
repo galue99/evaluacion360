@@ -124,4 +124,12 @@ class CompetenciasController extends Controller
             ]
         ], 200);
     }
+    
+    public function competencias_comportamientos()
+    {
+        $competencia = Competencia::with('comportamiento')->get();
+        
+        return Response::json($competencia);
+    }
+    
 }

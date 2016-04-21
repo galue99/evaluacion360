@@ -53,6 +53,7 @@
                         <label class="label-control">Nombre de Encuesta</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
                         <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos"><i class="fa fa-plus"></i> Comportamientos</button>
                      </div>
                   </div>
 
@@ -100,6 +101,43 @@
          <div class="box-footer">
             <button class="btn btn-danger pull-left btn-flat" data-bind="click: clearFormTest, visible: showFormTest"><i class="fa fa-plus"></i> Cancelar</button>
             <button class="btn btn-info pull-right btn-flat" data-bind="click: save, visible: showFormTest">Enviar</button>
+         </div>
+      </div>
+      
+      <div id="modalcomportamientos" class="modal fade" role="dialog">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">Competencias y Comportamientos</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row col-xs-4">
+                           <div class="form-group separate">
+                              <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', value: competenciaSelected "></select>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="col-xs-12" data-bind="if: competenciaSelected">
+                        <!--ko foreach: competenciaSelected().comportamiento -->
+                        <div class="">
+                           <div class="form-group">
+                              <label data-bind="text: name"></label>
+                              <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}">
+                   				<label data-bind="attr: {for: id}"></label>
+                           </div>
+                        </div>
+                        <!--/ko-->
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-primary" role="button">Asignar</button>
+               </div>
+            </div>
          </div>
       </div>
 

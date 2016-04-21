@@ -5,7 +5,13 @@ function AdminTestViewModel(){
    var assignTest = new UserEncuesta();
    var level = new Level();
    var otherq = new OtherQuestion();
+   var competencia = new Competencias();
 
+
+   self.competencias = ko.observableArray();
+   self.competenciaSelected = ko.observable();
+   
+   
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
    self.formCompany = ko.observable(false);
@@ -15,6 +21,27 @@ function AdminTestViewModel(){
       name: ko.observable(),
       items: ko.observableArray()
    });
+   
+   self.openModalComportamientos = function(){
+      $('#modalcomportamientos').modal('show');
+      self.getCompetencias();
+   };
+   
+   self.getCompetencias = function(){
+      competencia.AllCompetenciaComport()
+      .done(function(response){
+         self.competencias(response);
+      })
+   };
+   
+   self.assignQuestions = function(){
+      sel.competenciaSelected().comportamientos.forEach(function(comportamiento){
+         self.formData().items.push({
+            name: comportamiento.name,
+            frases: comportamiento.comportamiento
+         })
+      });
+   };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());
@@ -75,6 +102,7 @@ function AdminTestViewModel(){
    self.addItems = function(){
       if (self.formData().name()){
          self.formData().items.push({
+            name: ko.observable(),
             frases:ko.observableArray()
          }
          );
@@ -160,6 +188,10 @@ function AdminTestViewModel(){
             evaluadores = evaluadores.concat(evaluador);
          });
          self.evaluadores(evaluadores);
+   }
+   
+   self.getComportamientos = function(){
+      
    }
 
    //Metodo para ver los usuarios evaluados de cada evaluador
