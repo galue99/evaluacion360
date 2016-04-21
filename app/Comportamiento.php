@@ -8,7 +8,7 @@ class Comportamiento extends Model
 {
     protected $table = 'comportamientos';
 
-    public function competenia()
+    public function competencia()
     {
         return $this->belongsTo('App\Competencia');
     }
