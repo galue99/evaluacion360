@@ -43,7 +43,6 @@
 				</div>
 				<!-- Form Competencias -->
 				
-
 				<div class="table-responsive">
 					<table id="" class="table table-bordered table-hover">
 						<thead>
@@ -54,11 +53,13 @@
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: comportamientos">
+						<tbody data-bind="foreach: {data: comportamientos, as: 'comportamiento'}">
 							<tr>
-								<td data-bind="text: name" class="text-center"></td>
-							    <td data-bind="text: definicion" class="text-center"></td>
-							    <td data-bind="text: competencia" class="text-center"></td>
+								<td data-bind="text: name"></td>
+							    <td data-bind="text: definicion"></td>
+							    <!-- ko foreach: {data: competencia, as: 'competencia'} -->
+							    <td class="text-center" data-bind="text: name"></td>
+							    <!-- /ko -->
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeComportamientos"></i>

@@ -45,6 +45,10 @@
 		if (comportamientos != null){
 			ko.applyBindings(new ComportamientosViewModel(), document.getElementById("comportamientos"));
 		}
+		var adminTest = document.getElementById("adminTest")
+		if (comportamientos != null){
+			ko.applyBindings(new AdminTestViewModel(), document.getElementById("adminTest"));
+		}
 
 	});
 })();

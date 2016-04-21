@@ -6,6 +6,7 @@ function ComportamientosViewModel(){
 	//arrays para datos
 	self.comportamientos = ko.observableArray();
 	self.competencias = ko.observableArray();
+	self.competenciasCompor = ko.observableArray();
 	self.showForm = ko.observable(false);
 
 
