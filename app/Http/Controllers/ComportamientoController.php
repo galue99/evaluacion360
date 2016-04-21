@@ -79,7 +79,9 @@ class ComportamientoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comportamientos = Comportamiento::find($id);
+
+        return $comportamientos;
     }
 
     /**
