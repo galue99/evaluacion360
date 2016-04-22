@@ -10,7 +10,7 @@ function AdminTestViewModel(){
 
    self.competencias = ko.observableArray();
    self.competenciaSelected = ko.observable();
-   
+   self.currentCompetencia = ko.observable();
    
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
@@ -22,7 +22,8 @@ function AdminTestViewModel(){
       items: ko.observableArray()
    });
    
-   self.openModalComportamientos = function(){
+   self.openModalComportamientos = function(data){
+      self.currentCompetencia(data);
       $('#modalcomportamientos').modal('show');
       self.getCompetencias();
    };
@@ -35,12 +36,13 @@ function AdminTestViewModel(){
    };
    
    self.assignQuestions = function(){
-      sel.competenciaSelected().comportamientos.forEach(function(comportamiento){
-         self.formData().items.push({
-            name: comportamiento.name,
-            frases: comportamiento.comportamiento
+      console.log(self.currentCompetencia());
+      self.competenciaSelected().comportamiento.forEach(function(comportamiento){
+         self.currentCompetencia().frases.push({
+            name: ko.observable(comportamiento.name), answers: ko.observableArray()
          })
       });
+      $('#modalcomportamientos').modal('hide');
    };
 
    self.toggleForm = function(){

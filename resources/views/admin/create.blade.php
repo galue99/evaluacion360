@@ -52,8 +52,7 @@
                      <div class="form-group">
                         <label class="label-control">Nombre de Encuesta</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
-                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Categoria</button>
-                        <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos"><i class="fa fa-plus"></i> Comportamientos</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Competencia</button>
                      </div>
                   </div>
 
@@ -61,10 +60,13 @@
                      <ul class="ul-first" data-bind="foreach: formData().items">
                         <li>
                            <div class="form-group">
-                              <h2>Categoria <span data-bind="text: $index() + 1"></span>
+                              <h2>Competencia <span data-bind="text: $index() + 1"></span>
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                                     <i class="fa fa-plus"></i>Frases
+                                 </button>
+                                 <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
+                                    <i class="fa fa-plus"></i>Competencias
                                  </button>
                               </h2>
                            </div>
@@ -135,7 +137,7 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button class="btn btn-primary" role="button">Asignar</button>
+                  <button class="btn btn-primary" role="button" data-bind="click: assignQuestions">Asignar</button>
                </div>
             </div>
          </div>

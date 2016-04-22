@@ -174,8 +174,6 @@
       <script src="{{ asset ("/knockout/view_models/lists_surveys_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/competencias_view_model.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/knockout/view_models/comportamientos_view_model.js") }}" type="text/javascript"></script>
-      <script src="{{ asset ("/knockout/view_models/admin_new_test_view_model.js") }}" type="text/javascript"></script>
-      
       
     </body>
 </html>
