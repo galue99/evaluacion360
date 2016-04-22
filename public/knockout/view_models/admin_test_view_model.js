@@ -104,7 +104,6 @@ function AdminTestViewModel(){
    self.addItems = function(){
       if (self.formData().name()){
          self.formData().items.push({
-            name: ko.observable(),
             frases:ko.observableArray()
          }
          );
