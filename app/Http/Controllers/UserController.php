@@ -64,7 +64,7 @@ class UserController extends Controller
         $user->repassword     = Request::input('password');
         $user->dni            = Request::input('dni');
         $user->position       = Request::input('position');
-        $user->company_id        = Request::input('company_id');
+        $user->company_id     = Request::input('company_id');
         $user->branch_office  = Request::input('branch_office');
         $user->is_active      = Request::input('is_active');
 
@@ -305,11 +305,6 @@ class UserController extends Controller
         }
         
         return Response::json($encuesta);
-        // return Response::json([
-
-        //     'User2' => $encuesta
-
-        // ], 200);
 
     }
 
