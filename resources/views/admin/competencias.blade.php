@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-11 pull-center" id="competencias">
+	<div class="col-sm-11 col-xs-12 pull-center" id="competencias">
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
@@ -15,13 +15,13 @@
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
 					<form action="" class="form row" id="formCompetencia">
-						<div class="col-xs-6 col-md-4 separate">
+						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
 						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().name">
 						    </div>
 						</div>
-						<div class="col-xs-6 col-md-4 separate">
+						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Descripcion</label>
 						        <textarea name="" id="" class="form-control" data-bind="textInput: formData().description"></textarea>

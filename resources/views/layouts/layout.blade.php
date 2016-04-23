@@ -14,6 +14,7 @@
         <link href="{{ asset("/assets/css/applications.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/assets/css/animate.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/AdminLTE/plugins/morris/morris.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/sweetalert/dist/sweetalert.css")}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("/bower_components/toastr/toastr.css")}}" rel="stylesheet" type="text/css" />
