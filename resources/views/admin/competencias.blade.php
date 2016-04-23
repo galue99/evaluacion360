@@ -15,13 +15,13 @@
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
 					<form action="" class="form row" id="formCompetencia">
-						<div class="col-xs-12 col-md-4 separate">
+						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
 						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().name">
 						    </div>
 						</div>
-						<div class="col-xs-12 col-md-4 separate">
+						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
 						        <label class="label-control">Descripcion</label>
 						        <textarea name="" id="" class="form-control" data-bind="textInput: formData().description"></textarea>
@@ -49,7 +49,7 @@
 						</thead>
 						<tbody data-bind="foreach: competencias">
 							<tr>
-								<td data-bind="text: name"></td>
+								<td class="text-center" data-bind="text: name"></td>
 							    <td data-bind="text: definicion" class="text-center"></td>
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editCompetencias"></i>
