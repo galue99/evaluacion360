@@ -37,17 +37,25 @@ function CompetenciasViewModel(){
 		self.clearForm();
 	};
 
+	self.isValid = function(){
+		return self.formData().name() && self.formData().description()
+	}
+
 	self.save = function(){
-		competencia.create(self.formData())
-		.done(function(response){
-			self.clearForm();
-			self.toggleForm();
-			self.getCompetencias();
-			toastr.success('La competencia fue guardada exitosamene');
-		})
-		.fail(function(response){
-			toastr.error('Hubo un error al guardar la competencia');	
-		})
+		if (self.isValid()) {
+			competencia.create(self.formData())
+			.done(function(response){
+				self.clearForm();
+				self.toggleForm();
+				self.getCompetencias();
+				toastr.success('La competencia fue guardada exitosamene');
+			})
+			.fail(function(response){
+				toastr.error('Hubo un error al guardar la competencia');	
+			})
+		}else{
+			toastr.warning('Debe completar todos los campos');
+		}
 	}
 
 	//buscamos el usuario para luego editarlo
