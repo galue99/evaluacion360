@@ -82,7 +82,7 @@
                             <span>Usuarios</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/users">Usuarios</a></li>
+                            <li><a href="/admin/users">Administrar</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
