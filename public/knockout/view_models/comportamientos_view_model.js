@@ -11,6 +11,7 @@ function ComportamientosViewModel(){
 
 
 	self.formData = ko.observable({
+		competencia_id: ko.observable(),
 		name: ko.observable(),
 		description: ko.observable()
 	});
@@ -46,17 +47,25 @@ function ComportamientosViewModel(){
 		self.clearForm();
 	};
 
+	self.isValid = function(){
+		return self.formData().name() && self.formData().description() && self.formData().competencia_id();
+	}
+
 	self.save = function(){
-		comportamiento.create(self.formData())
-		.done(function(response){
-			self.clearForm();
-			self.toggleForm();
-			self.getComportamientos();
-			toastr.success('El comportamiento fue guardada exitosamene');
-		})
-		.fail(function(response){
-			toastr.error('Hubo un error al guardar el comportamiento');	
-		})
+		if (self.isValid()){
+			comportamiento.create(self.formData())
+			.done(function(response){
+				self.clearForm();
+				self.toggleForm();
+				self.getComportamientos();
+				toastr.success('El comportamiento fue guardada exitosamene');
+			})
+			.fail(function(response){
+				toastr.error('Hubo un error al guardar el comportamiento');	
+			})
+		}else{
+			toastr.warning('Debe completar todos los campos');
+		}
 	}
 
 	//buscamos el usuario para luego editarlo
