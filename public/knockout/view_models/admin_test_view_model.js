@@ -36,7 +36,7 @@ function AdminTestViewModel(){
    };
    
    self.assignQuestions = function(){
-      console.log(self.currentCompetencia());
+      // console.log(self.currentCompetencia());
       self.competenciaSelected().comportamiento.forEach(function(comportamiento){
          self.currentCompetencia().frases.push({
             name: ko.observable(comportamiento.name), answers: ko.observableArray()
@@ -219,7 +219,7 @@ function AdminTestViewModel(){
    };
 
    self.changeStatus = function(data){
-      console.log(data.id)
+      // console.log(data.id)
       test.update(data.id)
       .done(function(response){
          toastr.info('Estado de la encuesta cambiado exitosamente');

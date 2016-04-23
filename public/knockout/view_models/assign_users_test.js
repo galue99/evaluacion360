@@ -33,7 +33,7 @@ function AssignUsersTestViewModel(){
          self.toggleForm();
          self.clearForm();
          self.getUserTests();
-         console.log(ko.toJSON(self.formData()));
+         // console.log(ko.toJSON(self.formData()));
       })
       .fail(function(response){
          toastr.error('Hubo un error al asignar la encuesta al usuario');

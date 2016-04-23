@@ -73,7 +73,6 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="/admin/encuesta">Administracion</a></li>
-                            <li><a href="/admin/test">Tests</a></li>
                             <li><a href="/admin/encuestas_ready">Realizadas</a></li>
                         </ul>
                     </li>

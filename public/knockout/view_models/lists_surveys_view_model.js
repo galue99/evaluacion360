@@ -18,7 +18,7 @@ function ListsSurveysViewModel(){
 		self.showListTest(false);
 		test.testDetails(data.id)
 		.done(function(response){
-			console.log(response.Success)
+			// console.log(response.Success)
 			self.user(response.Success.user);
 			self.answers(response.Success.answers);
 		})

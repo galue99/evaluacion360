@@ -13,7 +13,7 @@ function CompanyViewModel(){
 		company.allCompanies()
 		.done(function(response){
 			self.companies(response);
-			console.log(response);
+			// console.log(response);
 		})
 		.fail(function(response){
 			toastr.error('Ocurrio un error al obtener las empresas');

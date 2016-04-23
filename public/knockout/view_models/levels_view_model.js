@@ -43,7 +43,7 @@ function LevelsViewModel(){
 	}
 
 	self.editLevel = function(data){
-		console.log(data.id);
+		// console.log(data.id);
 		level.find(data.id)
 		.done(function(response){
 			self.updateLevels(true);
