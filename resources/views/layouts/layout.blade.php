@@ -87,13 +87,13 @@
                     </li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-cog"></i>
-                            <span>Procesos</span>
+                            <span>Gestion de Procesos</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/img">Gestionar Empresas</a></li>
-                            <li><a href="/admin/niveles">Gestionar Niveles</a></li>
-                            <li><a href="/admin/competencias">Gestionar Competencia</a></li>
-                            <li><a href="/admin/comportamientos">Gestionar Comportamientos</a></li>
+                            <li><a href="/admin/img">Empresas</a></li>
+                            <li><a href="/admin/niveles">Niveles</a></li>
+                            <li><a href="/admin/competencias">Competencia</a></li>
+                            <li><a href="/admin/comportamientos">Comportamientos</a></li>
                         </ul>
                     </li>
                 @endif
