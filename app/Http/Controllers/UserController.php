@@ -25,11 +25,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users =  DB::table('users')
-            ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select('users.*', 'companys.*')->get();
-
         if (Request::isJson()) {
+            $users = User::with('company')->get();
             return  $users;
         } else {
             return View('admin.add_user');
@@ -316,4 +313,24 @@ class UserController extends Controller
         return Response::json($users);
 
     }
+    
+    public function users_encuestas_delete(Request $request)
+    {
+        
+        $user = Request::all();
+        $evaluador_id = $user['evaluador_id'];
+        $encuesta_id  = $user['encuesta_id'];
+        
+        $evaluador = UserEncuesta::where('evaluador_id', '=', $evaluador_id)->where('encuesta_id', '=', $encuesta_id)->first();
+        $evaluador->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
+        
+    }
+    
 }

@@ -181,7 +181,15 @@ class EncuestaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $evaluacion = Encuesta::find($id);
+        $evaluacion->delete();
+        
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
+        
     }
 
 

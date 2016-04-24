@@ -23,14 +23,8 @@
 						</div>
 						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
-						        <label class="label-control">Nombre</label>
+						        <label class="label-control">Comportamiento</label>
 						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().name">
-						    </div>
-						</div>
-						<div class="col-xs-12 col-md-12 separate">
-						    <div class="form-group">
-						        <label class="label-control">Descripcion</label>
-						        <textarea name="" id="" class="form-control" data-bind="textInput: formData().description"></textarea>
 						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
@@ -47,8 +41,7 @@
 					<table id="" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">Nombre</th>
-								<th class="col-xs-2 text-center">Descripcion</th>
+								<th class="col-xs-2 text-center">Comportamiento</th>
 								<th class="col-xs-2 text-center">Competencia</th>
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
@@ -56,7 +49,6 @@
 						<tbody data-bind="foreach: {data: comportamientos, as: 'comportamiento'}">
 							<tr>
 								<td class="text-center" data-bind="text: name" ></td>
-							    <td data-bind="text: definicion" class="text-center"></td>
 							    <!-- ko foreach: {data: competencia, as: 'competencia'} -->
 							    <td class="text-center" data-bind="text: name"></td>
 							    <!-- /ko -->

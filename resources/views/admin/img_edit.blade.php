@@ -44,7 +44,6 @@
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre de la Empresa</th>
 								<th class="col-xs-2 text-center">Logo</th>
-								<th class="col-xs-2 text-center">Acción</th>
 						    </tr>
 						</thead>
 						<tbody data-bind="foreach: companies">
@@ -54,10 +53,6 @@
 							    	<figure>
 							    		<img class="logo" data-bind="attr: {'src': url}">
 							    	</figure>
-							    </td>
-							    <td class="text-center">
-							    	<button class="btn btn-small btn-info">Edit</button>
-							    	<a href="{{ URL::to('admin/img/' . $value->id. '/edit') }}" class="btn btn-small btn-warning">Delete</a>
 							    </td>
 							</tr>
 						</tbody>

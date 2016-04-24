@@ -2,6 +2,7 @@ function EvaluadoresViewModel(){
 	var self = this;
 	var evaluador = new Evaluadores();
 	var miscelaneo = new Miscelaneos();
+	var admin = 1;
 
 	//arrays para datos
 	self.evaluadores = ko.observableArray();
@@ -32,6 +33,7 @@ function EvaluadoresViewModel(){
 	self.getEvaluadores = function(){
 		evaluador.all()
 		.done(function(response){
+			console.log(response)
 			self.evaluadores(response);
 		});
 	};
@@ -52,6 +54,17 @@ function EvaluadoresViewModel(){
 			self.roles(response);
 		});
 	};
+	
+	// self.filterRoles = ko.computed(function(){
+ //       if(!admin) {
+ //           return self.roles();
+            
+ //       }else {
+ //           return ko.utils.arrayFilter(self.roles(), function(rol) {
+ //               return rol.id != admin;
+ //           });
+ //       }
+ //   });
 
 	//para limpiar el formulario
 	self.clearForm = function(){

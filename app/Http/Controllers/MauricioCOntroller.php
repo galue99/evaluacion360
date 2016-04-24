@@ -2,25 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CompanyController extends Controller
+class MauricioCOntroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        $img = Company::all();
-
-            return View('admin.img');
+        //
     }
 
     /**
@@ -41,22 +37,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $logo = new Company();
-
-        $imageName = $request->file('image')->getClientOriginalName();
-
-        $request->file('image')->move(
-            base_path() . '/public/images/logo/', $imageName
-        );
-
-        $logo->url = '/images/logo/'.$imageName;
-        $logo->name = $request->input('name');
-
-        $logo->save();
-
-        return redirect('admin/img');
-
-
+        //
     }
 
     /**
@@ -78,10 +59,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $company = Company::find($id);
-
-        // show the edit form and pass the nerd
-        return View::make('admin.img_edit')->with('company', $company);
+        //
     }
 
     /**
@@ -105,13 +83,5 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function allCompanys(Request $request)
-    {
-
-        $img = Company::all();
-
-        return $img;
     }
 }

@@ -1,6 +1,5 @@
 function UserEncuesta(){
-
-var self = this;
+	var self = this;
 
 	self.AssignUserTest = function(data){
 		return $.ajax({
@@ -36,6 +35,17 @@ var self = this;
 			dataType: 'JSON',
 			method: 'GET',
 			contentType: 'application/json',
+		});
+	}
+	
+	self.delUserAssigned = function(data){
+		return $.ajax({
+			url: '/admin/user_encuestas_delete/',
+			method: 'POST',
+			data: data,
+			dataType: 'json',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			contentType: "application/json",
 		});
 	}
 

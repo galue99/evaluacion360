@@ -13,13 +13,13 @@ function ComportamientosViewModel(){
 	self.formData = ko.observable({
 		competencia_id: ko.observable(),
 		name: ko.observable(),
-		description: ko.observable()
 	});
 
 
 	self.getComportamientos = function(){
 		comportamiento.all()
 		.done(function(response){
+			console.log(response);
 			self.comportamientos(response);
 		});
 	};
@@ -48,7 +48,7 @@ function ComportamientosViewModel(){
 	};
 
 	self.isValid = function(){
-		return self.formData().name() && self.formData().description() && self.formData().competencia_id();
+		return self.formData().name() && self.formData().competencia_id();
 	}
 
 	self.save = function(){

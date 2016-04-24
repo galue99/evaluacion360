@@ -17,7 +17,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles = Rol::all();
+        $roles = Rol::where('idroluser', '!=', 1)->get();
         return $roles;
     }
 

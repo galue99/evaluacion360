@@ -101,13 +101,16 @@
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: evaluadores">
+						<tbody data-bind="foreach: {data: evaluadores, as: 'evaluador'}">
+							<!-- ko if: idrol != 1 -->
 							<tr>
 								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
 							    <td data-bind="text: email" class="text-center"></td>
 							    <td data-bind="text: dni" class="text-center"></td>
 							    <td data-bind="text: position" class="text-center"></td>
-							    <td data-bind="text: name" class="text-center"></td>
+							    <!--ko foreach: {data: company, as: 'company'}-->
+							    <td class="text-center" data-bind="text: name"></td>
+							    <!-- /ko-->
 							    <td data-bind="text: branch_office" class="text-center"></td>
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
@@ -115,11 +118,10 @@
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
 							    </td>
 							</tr>
+							<!--/ko-->
 						</tbody>
 					</table>					
 				</div>
-
-			</div>
 			<div class="box-footer">
 				
 			</div>

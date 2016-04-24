@@ -15,7 +15,6 @@ class CreateComportamientosTable extends Migration
         Schema::create('comportamientos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('definicion');
             $table->integer('competencia_id')->unsigned();
             $table->foreign('competencia_id')->references('id')->on('competencias')->onDelete('cascade');
             $table->timestamps();

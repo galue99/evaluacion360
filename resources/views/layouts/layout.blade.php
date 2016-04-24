@@ -73,7 +73,7 @@
                             <span>Evaluación</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/encuesta">Administracion</a></li>
+                            <li><a href="/admin/encuesta">Administración</a></li>
                             <li><a href="/admin/encuestas_ready">Realizadas</a></li>
                         </ul>
                     </li>
@@ -92,7 +92,7 @@
                         <ul class="treeview-menu">
                             <li><a href="/admin/img">Empresas</a></li>
                             <li><a href="/admin/niveles">Niveles</a></li>
-                            <li><a href="/admin/competencias">Competencia</a></li>
+                            <li><a href="/admin/competencias">Competencias</a></li>
                             <li><a href="/admin/comportamientos">Comportamientos</a></li>
                         </ul>
                     </li>

@@ -46,7 +46,6 @@ class ComportamientoController extends Controller
     {
         $comportamiento = new Comportamiento();
         $comportamiento->name = Request::input('name');
-        $comportamiento->definicion = Request::input('description');
         $comportamiento->competencia_id = Request::input('competencia_id');
         $comportamiento->save();
 
@@ -95,7 +94,6 @@ class ComportamientoController extends Controller
     {
         $comportamiento = Comportamiento::findOrFail($id);
         $comportamiento->name = Request::input('name');
-        $comportamiento->definicion = Request::input('description');
         $comportamiento->competencia_id = Request::input('competencia_id');
         $comportamiento->save();
 

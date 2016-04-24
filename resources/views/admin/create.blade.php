@@ -19,7 +19,7 @@
                            <tr>
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Estado</th>
-                              <th class="text-center">Asignacions</th>
+                              <th class="text-center">Asignaciones</th>
                               <th class="text-center">Preguntas Adicionales</th>
                               <th class="text-center">Acciones</th>
                            </tr>
@@ -35,8 +35,7 @@
                                  <button class="btn btn-info btn-xs btn-flat" data-bind="click: $root.openModalOtherQ">Administrar</button>
                               </td>
                               <td class="text-center">
-                                 <i class="fa fa-pencil fa-blue"></i>
-                                 <i class="fa fa-close fa-red"></i>
+                                 <i class="fa fa-close fa-red pointer" data-bind="click: $root.removeTest, visible: is_active == 0"></i>
                               </td>
                            </tr>
                         </tbody>
@@ -50,7 +49,7 @@
                <div class="col-xs-12">
                   <div class="col-xs-10 col-md-6 form-inline">
                      <div class="form-group">
-                        <label class="label-control">Nombre de Encuesta</label><br>
+                        <label class="label-control">Nombre de la Evaluación</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
                         <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Competencia</button>
                      </div>
@@ -63,7 +62,7 @@
                               <h2>Competencia <span data-bind="text: $index() + 1"></span>
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
-                                    <i class="fa fa-plus"></i>Frases
+                                    <i class="fa fa-plus"></i>Comportamiento
                                  </button>
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
                                     <i class="fa fa-plus"></i>Competencias
@@ -73,7 +72,7 @@
                            <ul class="ul-second col-xs-12" data-bind="foreach: frases">
                               <li>
                                  <div class="form-group">
-                                    <label for="" class="label-control">Frase
+                                    <label for="" class="label-control">Comportamiento
                                        <strong data-bind="text: $index() + 1"></strong>
                                        <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delFrase($parent,data)}"></i>
                                     </label>
@@ -151,7 +150,7 @@
             <div class="box box-primary">
                <div class="box-header with-border">
                   <h3 class="box-title">
-                     Asignar Usuarios a Encuestas
+                     Asignar Usuarios a Evaluación
                   </h3>
                </div>
                <div class="box-body">
@@ -163,13 +162,17 @@
                               <th class="text-center">Nombre del evaluador</th>
                               <th class="text-center">Cargo</th>
                               <th class="text-center">Email</th>
+                              <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: evaluadores">
-                           <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario evaluados" class="pointer info-tooltip" data-bind="click: $root.evaluadosAssigned">
-                              <td data-bind="text: firstname + ' ' + lastname"></td>
-                              <td data-bind="text: position"></td>
-                              <td data-bind="text: email"></td>
+                           <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario evaluados" class="pointer info-tooltip">
+                              <td data-bind="text: firstname + ' ' + lastname, click: $root.evaluadosAssigned"></td>
+                              <td data-bind="text: position, click: $root.evaluadosAssigned"></td>
+                              <td data-bind="text: email, click: $root.evaluadosAssigned"></td>
+                              <td>
+							    	      <i class="fa fa-close fa-red pointer" data-bind="click: $root.removeUserAsigned"></i>
+                              </td>
                            </tr>
                         </tbody>
                      </table>
@@ -225,7 +228,7 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-               <h4 class="modal-title">Asignacion de usuarios a encuesta</h4>
+               <h4 class="modal-title">Asignación de usuarios a encuesta</h4>
                </div>
                <div class="modal-body">
                   <div class="row">

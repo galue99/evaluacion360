@@ -465,6 +465,11 @@ class DatabaseSeeder extends Seeder
         DB::table('niveles')->insert([
             'name' => 'Cliente',
         ]);
+        
+        DB::table('niveles')->insert([
+            'name' => 'Auto-Evaluación',
+        ]);
+
 
         //OtherQuestions
 

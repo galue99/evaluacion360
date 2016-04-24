@@ -88,6 +88,28 @@ function AdminTestViewModel(){
          toastr.error('Ha ocurrido un error al guardar la encuesta');
       });
    };
+   
+   self.removeTest = function(data){
+      swal({title: "¿Estas seguro?",
+			text: "que desea eliminar este usuario",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Eliminar",
+			closeOnConfirm: true },
+			function(){
+				test.destroy(data.id)
+				.done(function(response){
+				   self.tests.remove(data);
+				   toastr.info('La evaluación ha sido eliminada con exito');
+				})
+				.fail(function(response){
+				   toastr.error('hubo un problema al intentar borrar la encuesta');
+				   
+				})
+			});
+   }
+   
 
    self.clearFormTest = function(){
       self.formData({
@@ -326,6 +348,28 @@ function AdminTestViewModel(){
          self.users(response);
       });
    };
+   
+   self.removeUserAsigned = function(data){
+      var params = {
+         evaluador_id: data.id,
+         encuesta_id: data.pivot.encuesta_id
+      };
+      	swal({title: "¿Estas seguro?",
+			text: "de eliminar la asignación",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Eliminar",
+			closeOnConfirm: true },
+			function(){
+			assignTest.delUserAssigned(params)
+				.done(function(response){
+					toastr.info('Asignación eliminada con éxito');
+					self.evaluadores.remove(data);
+				});
+			});
+   }
+   
 
 
    //Administracion de las preguntas Adicionales de la encuesta\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
