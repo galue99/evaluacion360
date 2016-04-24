@@ -13,7 +13,7 @@
         },
         dni:{
             required: true,
-            maxlength: 50,
+            maxlength: 9,
             minlength: 2,
             number: true
         },
@@ -40,6 +40,9 @@
         idroluser:{
             required: true,
         },
+        company:{
+            required: true,
+        },
     },
     messages: {
         firstname: {
@@ -54,7 +57,7 @@
         },
          dni:{
             required: "Cedula no puede estar en blanco",
-            maxlength: "No debe pasar de 50 Caracteres",
+            maxlength: "No debe pasar de 9 Caracteres",
             minlength: "Minimo de caractes 2",
             number: "Solo numeros esta requerido"
         },
@@ -80,6 +83,9 @@
         },
         idroluser:{
             required: "Seleccion el rol del usuario",
+        },
+        company:{
+            required: "Seleccion la empresa para el usuario",
         },
     }
 });
