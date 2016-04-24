@@ -81,7 +81,7 @@ class CompanyController extends Controller
         $company = Company::find($id);
 
         // show the edit form and pass the nerd
-        return View::make('admin.img_edit')->with('company', $company);
+        return View('admin.img_edit')->with('company', $company);
     }
 
     /**
@@ -93,7 +93,20 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $logo = Company::find($id);
+
+        $imageName = $request->file('image')->getClientOriginalName();
+
+        $request->file('image')->move(
+            base_path() . '/public/images/logo/', $imageName
+        );
+
+        $logo->url = '/images/logo/'.$imageName;
+        $logo->name = $request->input('name');
+
+        $logo->save();
+
+        return redirect('admin/img');
     }
 
     /**
@@ -104,7 +117,11 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $logo = Company::find($id);
+        
+        $logo->delete();
+        
+         return redirect('admin/img');
     }
 
     public function allCompanys(Request $request)

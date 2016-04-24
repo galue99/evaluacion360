@@ -103,10 +103,11 @@ function AdminTestViewModel(){
 				   self.tests.remove(data);
 				   toastr.info('La evaluación ha sido eliminada con exito');
 				})
-				.fail(function(response){
-				   toastr.error('hubo un problema al intentar borrar la encuesta');
+				.fail(function(response){				
+				   toastr.error('hubo un problema al intentar borrar la encuesta');				   
+				
 				   
-				})
+				});
 			});
    }
    

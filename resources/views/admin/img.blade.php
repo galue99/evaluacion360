@@ -56,8 +56,8 @@
 							    	</figure>
 							    </td>
 							    <td class="text-center">
-							    	<button class="btn btn-small btn-info">Edit</button>
-							    	<a href="{{ URL::to('admin/img/' . $value->id. '/edit') }}" class="btn btn-small btn-warning">Delete</a>
+							    	<a href="{{ URL::to('admin/img/2/edit') }}"class="btn btn-small btn-info">Edit</a>
+							    	<a href="{{ URL::to('admin/img/2/destroy') }}" class="btn btn-small btn-warning">Delete</a>
 							    </td>
 							</tr>
 						</tbody>

@@ -11,19 +11,19 @@
 			</div>
 			<div class="box-body">
 				<button class="btn btn-primary" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
-
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
-				<div class="col-xs-12" data-bind="visible: showForm">
+				<div class="col-xs-12">
 					{!! Form::open(
 					    array(
-					        'route' => 'admin.img.store',
+					        'route' => 'admin.img.update',
 					        'class' => 'form', 
+					        'method' => 'PUT',
 					        'novalidate' => 'novalidate', 
 					        'files' => true)) !!}
 					
 					<div class="form-group separate col-xs-6 col-md-4">
 					    {!! Form::label('Nombre de la empresa') !!}
-					    {!! Form::text('name',null ,['class' => 'form-control']) !!}
+					    <input type="text" name="name" class="form-control" value="{{$company->name}}" />
 					</div>
 
 					<div class="form-group separate col-xs-6  col-md-4">
@@ -38,26 +38,7 @@
 				</div>
 				
 
-				<div class="table-responsive" data-bind="visible: !showForm()">
-					<table id="" class="table table-bordered table-striped">
-						<thead>
-						    <tr>
-								<th class="col-xs-2 text-center">Nombre de la Empresa</th>
-								<th class="col-xs-2 text-center">Logo</th>
-						    </tr>
-						</thead>
-						<tbody data-bind="foreach: companies">
-							<tr>
-								<td data-bind="text: name" class="text-center"></td>
-							    <td>
-							    	<figure>
-							    		<img class="logo" data-bind="attr: {'src': url}">
-							    	</figure>
-							    </td>
-							</tr>
-						</tbody>
-					</table>					
-				</div>
+
 
 			</div>
 			<div class="box-footer">
