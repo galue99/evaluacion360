@@ -13,6 +13,7 @@
 Route::Resource('/', 'AuthController');
 
 Route::Resource('/login', 'AuthController');
+Route::Resource('/users', 'UserController');
 
 Route::group(['middleware' => 'auth'], function () {
 

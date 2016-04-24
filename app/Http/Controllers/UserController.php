@@ -25,11 +25,12 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users =  DB::table('users')
+        /*$users =  DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select('users.*', 'companys.*')->get();
+            ->select('users.*', 'users.id', 'companys.*')->get();*/
 
         if (Request::isJson()) {
+            $users = User::with('company')->get();
             return  $users;
         } else {
             return View('admin.add_user');

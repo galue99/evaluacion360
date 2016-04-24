@@ -44,7 +44,7 @@
             <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="{{ URL::to('/logout') }}">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
+                  <a href="{{ URL::to('/logout') }}">Cerrar Sessión <i class="fa fa-sign-out"></i></a>
                 </li>
               </ul>
             </div>
@@ -73,7 +73,7 @@
                             <span>Evaluación</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/admin/encuesta">Administracion</a></li>
+                            <li><a href="/admin/encuesta">Administración</a></li>
                             <li><a href="/admin/encuestas_ready">Realizadas</a></li>
                         </ul>
                     </li>

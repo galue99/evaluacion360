@@ -23,7 +23,7 @@
 						</div>
 						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
-						        <label class="label-control">Descripcion</label>
+						        <label class="label-control">Descripción</label>
 						        <textarea name="" id="" class="form-control" data-bind="textInput: formData().description"></textarea>
 						    </div>
 						</div>
@@ -43,7 +43,7 @@
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
-								<th class="col-xs-2 text-center">Descripcion</th>
+								<th class="col-xs-2 text-center">Descripción</th>
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>

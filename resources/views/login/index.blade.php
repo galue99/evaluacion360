@@ -8,7 +8,7 @@
     <a href="#"><b>Evaluacion</b>360</a>
   </div>
   <div class="login-box-body">
-    <p class="login-box-msg">Introduzca sus datos para iniciar sesion</p>
+    <p class="login-box-msg">Introduzca sus datos para iniciar sesión</p>
 
     {!! Form::open(array('route' => 'login.store','class'=>'form')) !!}
       <div class="form-group has-feedback">
