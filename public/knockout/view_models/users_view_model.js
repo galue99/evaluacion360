@@ -122,6 +122,7 @@ function EvaluadoresViewModel(){
 
 	//buscamos el usuario para luego editarlo
 	self.editEvaluadores = function(data){
+		console.log(data);
 		evaluador.find(data.id)
 		.done(function(response){
 			self.updateEvaluadores(true);

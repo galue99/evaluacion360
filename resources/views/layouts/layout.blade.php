@@ -44,7 +44,7 @@
             <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="{{ URL::to('/logout') }}">Cerrar Sesion <i class="fa fa-sign-out"></i></a>
+                  <a href="{{ URL::to('/logout') }}">Cerrar Sessión <i class="fa fa-sign-out"></i></a>
                 </li>
               </ul>
             </div>

@@ -19,7 +19,7 @@
                            <tr>
                               <th class="text-center">Nombre</th>
                               <th class="text-center">Estado</th>
-                              <th class="text-center">Asignaciones</th>
+                              <th class="text-center">Asignacion</th>
                               <th class="text-center">Preguntas Adicionales</th>
                               <th class="text-center">Acciones</th>
                            </tr>
@@ -228,7 +228,7 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-               <h4 class="modal-title">Asignación de usuarios a encuesta</h4>
+               <h4 class="modal-title">Asignación de Usuarios a la Evaluación</h4>
                </div>
                <div class="modal-body">
                   <div class="row">
