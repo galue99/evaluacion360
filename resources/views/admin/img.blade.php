@@ -56,7 +56,9 @@
 							    	</figure>
 							    </td>
 							    <td class="text-center">
-							    	<a href="{{ URL::to('admin/img/2/') }}" class="btn btn-small btn-warning">Delete</a>
+							    	<a data-bind="attr: {href: '/admin/img/'+ id + '/edit'}"><i class="fa fa-blue fa-pencil pointer"></i></a>
+							    	<a href="{{ URL::to('admin/img/2/edit') }}"class="btn btn-small btn-info">Edit</a>
+							    	<a href="{{ URL::to('admin/img/2/destroy') }}" class="btn btn-small btn-warning">Delete</a>
 							    </td>
 							</tr>
 						</tbody>
