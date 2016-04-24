@@ -112,11 +112,13 @@
 							    <td class="text-center" data-bind="text: name"></td>
 							    <!-- /ko-->
 							    <td data-bind="text: branch_office" class="text-center"></td>
+
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
 							    </td>
+
 							</tr>
 							<!--/ko-->
 						</tbody>
