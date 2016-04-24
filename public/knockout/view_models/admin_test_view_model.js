@@ -35,15 +35,15 @@ function AdminTestViewModel(){
       })
    };
    
-   self.assignQuestions = function(){
-      // console.log(self.currentCompetencia());
-      self.competenciaSelected().comportamiento.forEach(function(comportamiento){
-         self.currentCompetencia().frases.push({
-            name: ko.observable(comportamiento.name), answers: ko.observableArray()
-         })
-      });
-      $('#modalcomportamientos').modal('hide');
-   };
+   // self.assignQuestions = function(){
+   //    // console.log(self.currentCompetencia());
+   //    self.competenciaSelected().comportamiento.forEach(function(comportamiento){
+   //       self.currentCompetencia().frases.push({
+   //          name: ko.observable(comportamiento.name), answers: ko.observableArray()
+   //       })
+   //    });
+   //    $('#modalcomportamientos').modal('hide');
+   // };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());

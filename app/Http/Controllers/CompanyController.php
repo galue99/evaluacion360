@@ -79,9 +79,11 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $company = Company::find($id);
+        $company->delete();
 
+        return redirect('admin/img');
         // show the edit form and pass the nerd
-        return View('admin.img_edit')->with('company', $company);
+
     }
 
     /**
