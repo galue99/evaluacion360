@@ -52,6 +52,9 @@
                         <label class="label-control">Nombre de la Evaluación</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
                         <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Competencia</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
+                           <i class="fa fa-plus"></i>Competencias
+                        </button>
                      </div>
                   </div>
 
@@ -59,15 +62,17 @@
                      <ul class="ul-first" data-bind="foreach: formData().items">
                         <li>
                            <div class="form-group">
-                              <h2>Competencia <span data-bind="text: $index() + 1"></span>
+                              <!--<h2> <span data-bind="text: $index() + 1"></span> -->
+                              <label for="" class="label-control">Competencia</label>
+                              <input type="text" class="form-control col-xs-4" style="width: 33%" data-bind="textInput: name">
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                                     <i class="fa fa-plus"></i>Comportamiento
                                  </button>
-                                 <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
+                                 <!-- <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
                                     <i class="fa fa-plus"></i>Competencias
-                                 </button>
-                              </h2>
+                                 </button> </h2>-->
+                              
                            </div>
                            <ul class="ul-second col-xs-12" data-bind="foreach: frases">
                               <li>
@@ -126,7 +131,7 @@
                         <div class="">
                            <div class="form-group">
                               <label data-bind="text: name"></label>
-                              <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}">
+                              <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}, value: name ">
                    				<label data-bind="attr: {for: id}"></label>
                            </div>
                         </div>

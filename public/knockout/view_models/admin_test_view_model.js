@@ -22,12 +22,45 @@ function AdminTestViewModel(){
       items: ko.observableArray()
    });
    
-   self.openModalComportamientos = function(data){
-      self.currentCompetencia(data);
+   // self.openModalComportamientos = function(data){
+   //    self.currentCompetencia(data);
+   //    $('#modalcomportamientos').modal('show');
+   //    self.getCompetencias();
+   // };
+   
+
+   self.openModalComportamientos = function(){
       $('#modalcomportamientos').modal('show');
       self.getCompetencias();
    };
-   
+
+   self.assignQuestions = function(){
+      // console.log(self.competenciaSelected());
+      self.competenciaSelected().comportamiento.forEach(function(compor){
+         // console.log(compor.name)
+         console.log(ko.toJSON(self.formData().items.push({
+            name: ko.observable(self.competenciaSelected().name),
+            frases: ({
+               name: compor.name,
+               answers: ko.observableArray()
+            })
+         })))
+         // self.formData().items({
+         //    name: ko.observable(self.competenciaSelected().name),
+         //    frases:ko.observableArray().push({
+         //       name: ko.observable(comportamiento.name),
+         //       answers: ko.observableArray()
+         //    })
+         // })
+         // self.formData().items.frases.push({
+         //    name: ko.observable(comportamiento.name), answers: ko.observableArray()
+         // })
+      })
+
+
+      console.log(ko.toJSON(self.formData()));
+   };
+
    self.getCompetencias = function(){
       competencia.AllCompetenciaComport()
       .done(function(response){
@@ -35,15 +68,15 @@ function AdminTestViewModel(){
       })
    };
    
-   self.assignQuestions = function(){
-      // console.log(self.currentCompetencia());
-      self.competenciaSelected().comportamiento.forEach(function(comportamiento){
-         self.currentCompetencia().frases.push({
-            name: ko.observable(comportamiento.name), answers: ko.observableArray()
-         })
-      });
-      $('#modalcomportamientos').modal('hide');
-   };
+   // self.assignQuestions = function(){
+   //    // console.log(self.currentCompetencia());
+   //    self.competenciaSelected().comportamiento.forEach(function(comportamiento){
+   //       self.currentCompetencia().frases.push({
+   //          name: ko.observable(comportamiento.name), answers: ko.observableArray()
+   //       })
+   //    });
+   //    $('#modalcomportamientos').modal('hide');
+   // };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());
@@ -127,6 +160,7 @@ function AdminTestViewModel(){
    self.addItems = function(){
       if (self.formData().name()){
          self.formData().items.push({
+            name: ko.observable(),
             frases:ko.observableArray()
          }
          );
@@ -137,6 +171,7 @@ function AdminTestViewModel(){
    };
 
    self.addFrase = function(data){
+      console.log(data);
       data.frases.push({
          name: ko.observable(), answers: ko.observableArray()
       });
