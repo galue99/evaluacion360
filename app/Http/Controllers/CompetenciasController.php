@@ -47,6 +47,32 @@ class CompetenciasController extends Controller
      */
     public function store(Request $request)
     {
+
+        $postData = Input::all();
+
+        $messages = [
+            'name.required'          => 'Enter a name',
+            'description.required'   => 'Enter a description',
+        ];
+
+        $rules = [
+            'name'        => 'required|string|min:3|max:30',
+            'description' => 'required|string|min:3|max:30',
+        ];
+
+        $validator = Validator::make($postData, $rules, $messages);
+
+        if ($validator->fails())
+        {
+            // send back to the page with the input data and errors
+            return Response::json([
+                'Error' => [
+                    'message'     => $validator->messages(),
+                    'status_code' => 400
+                ]
+            ], 400);
+        }
+
         $compentencia = new Competencia();
         $compentencia->name = Request::input('name');
         $compentencia->definicion = Request::input('description');
