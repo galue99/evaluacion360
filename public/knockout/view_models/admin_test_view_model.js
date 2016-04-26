@@ -52,6 +52,7 @@ function AdminTestViewModel(){
             answers: ko.observableArray()
          })
       })
+      
 
 
       console.log(ko.toJSON(self.formData()));
