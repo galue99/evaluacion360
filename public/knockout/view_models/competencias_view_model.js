@@ -5,6 +5,7 @@ function CompetenciasViewModel(){
 	//arrays para datos
 	self.competencias = ko.observableArray();
 	self.showForm = ko.observable(false);
+	self.updateCompetencia = ko.observable(false)
 
 
 	self.formData = ko.observable({
@@ -26,6 +27,7 @@ function CompetenciasViewModel(){
 			name: ko.observable(),
 			description: ko.observable()
 		});
+		jQuery('#formCompetencia').validate().resetForm();
 	};
 
 	self.toggleForm = function(){
@@ -37,26 +39,34 @@ function CompetenciasViewModel(){
 		self.clearForm();
 	};
 
-	self.isValid = function(){
-		return self.formData().name() && self.formData().description()
-	}
-
 	self.save = function(){
-		if (self.isValid()) {
-			competencia.create(self.formData())
-			.done(function(response){
-				self.clearForm();
-				self.toggleForm();
-				self.getCompetencias();
-				toastr.success('La competencia fue guardada exitosamene');
-			})
-			.fail(function(response){
-				toastr.error('Hubo un error al guardar la competencia');	
-			})
+		if (jQuery('#formCompetencia').valid()) {
+			if(self.updateCompetencia() != true){
+				competencia.create(self.formData())
+				.done(function(response){
+					self.clearForm();
+					self.toggleForm();
+					self.getCompetencias();
+					toastr.success('La competencia fue guardada exitosamene');
+				})
+				.fail(function(response){
+					toastr.error('Hubo un error al guardar la competencia');	
+				})
+			}else{
+				competencia.update(self.formData().id, self.formData())
+				.done(function(response){
+					self.clearForm();
+					self.toggleForm();
+					self.updateCompetencia(false);
+					toastr.info('Competencia Actualizado con exito');
+				}).fail(function(response){
+					toastr.error('hubo un error al intentar actualizar la competencia');
+				})
+			}
 		}else{
 			toastr.warning('Debe completar todos los campos');
 		}
-	}
+	};
 
 	//buscamos el usuario para luego editarlo
 	self.editCompetencias = function(data){
@@ -80,7 +90,7 @@ function CompetenciasViewModel(){
 			function(){
 				competencia.destroy(data.id)
 				.done(function(response){
-					toastr.info('Usuario removido con exito');
+					toastr.info('Competencia removida con exito');
 					self.competencias.remove(data);
 				});
 			});
