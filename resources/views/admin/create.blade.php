@@ -131,7 +131,7 @@
                         <div class="">
                            <div class="form-group">
                               <label data-bind="text: name"></label>
-                              <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}, value: name ">
+                              <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}, checked: name, checkedValue: $data.name ">
                    				<label data-bind="attr: {for: id}"></label>
                            </div>
                         </div>

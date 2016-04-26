@@ -39,12 +39,15 @@ function AdminTestViewModel(){
       
       self.formData().items.push({
          name: ko.observable(),
-         frases: ko.observableArray()
+         frases: [{
+            name: ko.observable(),
+            answers: ko.observableArray()
+         }]
       });
       
       self.competenciaSelected().comportamiento.forEach(function(compor){
-         self.formData().items()[self.formData().length-1].name(compor.name)
-         self.formData().items()[self.formData().length-1].frases.push({
+         self.formData().items()[self.formData().items().length-1].name(self.competenciaSelected().name);
+         self.formData().items()[self.formData().items().length-1].frases.push({
             name: compor.name,
             answers: ko.observableArray()
          })
