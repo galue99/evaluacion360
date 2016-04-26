@@ -36,7 +36,8 @@ tr.pointer{
     margin-bottom: 10px;
 }
 input + label.error,
-select + label.error{
+select + label.error,
+textarea + label.error{
     color: #E05353;
     font-size: .9em;
     font-weight: 600;
