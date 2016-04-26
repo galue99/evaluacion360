@@ -34,35 +34,48 @@ function AdminTestViewModel(){
       self.getCompetencias();
    };
 
+   
    self.assignQuestions = function(){
       // console.log(self.competenciaSelected());
       
       self.formData().items.push({
          name: ko.observable(),
-         frases: [{
-            name: ko.observable(),
-            answers: ko.observableArray()
-         }]
+         frases: ko.observableArray()
       });
       
       self.competenciaSelected().comportamiento.forEach(function(compor){
          self.formData().items()[self.formData().items().length-1].name(self.competenciaSelected().name);
-         self.formData().items()[self.formData().items().length-1].frases.push({
+         if ( compor.active() ){
+            
+            self.formData().items()[self.formData().items().length-1].frases.push({
             name: compor.name,
             answers: ko.observableArray()
-         })
+               
+            })
+            
+         }
+         
       })
       
-
-
       console.log(ko.toJSON(self.formData()));
+      
    };
 
    self.getCompetencias = function(){
       competencia.AllCompetenciaComport()
       .done(function(response){
-         self.competencias(response);
+         
+         self.competencias(response.map(function(competencia){
+            competencia.comportamiento.map(function(comportamiento){
+               
+               comportamiento.active = ko.observable(false);
+               return comportamiento;
+               
+            });
+            return competencia;
+         }));
       })
+      console.log(self.competencias())
    };
    
    // self.assignQuestions = function(){
