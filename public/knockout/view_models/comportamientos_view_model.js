@@ -7,6 +7,7 @@ function ComportamientosViewModel(){
 	self.comportamientos = ko.observableArray();
 	self.competencias = ko.observableArray();
 	self.competenciasCompor = ko.observableArray();
+	self.updateComportamiento = ko.observable(false);
 	self.showForm = ko.observable(false);
 
 
@@ -14,6 +15,11 @@ function ComportamientosViewModel(){
 		competencia_id: ko.observable(),
 		name: ko.observable(),
 	});
+	
+	self.newComportamiento = function(){
+		self.getCompetencias();
+		self.toggleForm();
+	};
 
 
 	self.getComportamientos = function(){
@@ -33,9 +39,10 @@ function ComportamientosViewModel(){
 
 	self.clearForm = function(){
 		self.formData({
+			competencia_id: ko.observable(),
 			name: ko.observable(),
-			description: ko.observable()
 		});
+		jQuery('#formComportamiento').validate().resetForm();
 	};
 
 	self.toggleForm = function(){
@@ -47,13 +54,10 @@ function ComportamientosViewModel(){
 		self.clearForm();
 	};
 
-	self.isValid = function(){
-		return self.formData().name() && self.formData().competencia_id();
-	}
-
 	self.save = function(){
-		if (self.isValid()){
-			comportamiento.create(self.formData())
+		if ($('#formComportamiento').valid()){
+			if(self.updateComportamiento() != true){
+				comportamiento.create(self.formData())
 			.done(function(response){
 				self.clearForm();
 				self.toggleForm();
@@ -63,6 +67,19 @@ function ComportamientosViewModel(){
 			.fail(function(response){
 				toastr.error('Hubo un error al guardar el comportamiento');	
 			})
+			}else{
+				comportamiento.update(self.formData().id, self.formData())
+				.done(function(response){
+					self.clearForm();
+					self.toggleForm();
+					self.updateComportamiento(false);
+					self.getComportamientos();
+					toastr.info('Comportamiento actualizado con exito');	
+				})
+				.fail(function(response){
+					toastr.error('Hubo un error al aztualizar el comportamiento');	
+				})
+			}
 		}else{
 			toastr.warning('Debe completar todos los campos');
 		}
@@ -70,11 +87,11 @@ function ComportamientosViewModel(){
 
 	//buscamos el usuario para luego editarlo
 	self.editComportamientos = function(data){
-		comportamientos.find(data.id)
+		comportamiento.find(data.id)
 		.done(function(response){
-			self.updateCompetencia(true);
-			self.toggleForm();
 			self.formData(response);
+			self.updateComportamiento(true);
+			self.toggleForm();
 		});
 	};
 
@@ -90,15 +107,14 @@ function ComportamientosViewModel(){
 			function(){
 				comportamiento.destroy(data.id)
 				.done(function(response){
-					toastr.info('Usuario removido con exito');
+					toastr.info('Comportamiento removido con exito');
 					self.comportamientos.remove(data);
 				});
 			});
 	};
 
 	self.getComportamientos();
-
+	
 	self.getCompetencias();
-
 
 }
