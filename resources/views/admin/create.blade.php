@@ -52,6 +52,9 @@
                         <label class="label-control">Nombre de la Evaluación</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
                         <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Competencia</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
+                           <i class="fa fa-plus"></i>Competencias
+                        </button>
                      </div>
                   </div>
 
@@ -64,9 +67,9 @@
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                                     <i class="fa fa-plus"></i>Comportamiento
                                  </button>
-                                 <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
+                                 <!-- <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
                                     <i class="fa fa-plus"></i>Competencias
-                                 </button>
+                                 </button> -->
                               </h2>
                            </div>
                            <ul class="ul-second col-xs-12" data-bind="foreach: frases">

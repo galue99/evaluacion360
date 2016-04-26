@@ -54,7 +54,7 @@
 						<div class="col-xs-6 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Empresa</label>
-						        <select class="form-control" data-bind="optionsCaption: 'Seleccione una Empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company_id "></select>
+						        <select class="form-control" name="company" data-bind="optionsCaption: 'Seleccione una empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company_id "></select>
 						    </div>
 						</div>
 						<div class="col-xs-6 col-md-4 separate">
@@ -112,13 +112,11 @@
 							    <td class="text-center" data-bind="text: name"></td>
 							    <!-- /ko-->
 							    <td data-bind="text: branch_office" class="text-center"></td>
-
 							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
 							    </td>
-
 							</tr>
 							<!--/ko-->
 						</tbody>

@@ -10,21 +10,21 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<button class="btn btn-primary" data-bind="click: toggleForm"><i class="fa fa-plus"></i> Agregar Nuevo</button>
+				<button class="btn btn-primary" data-bind="click: newComportamiento"><i class="fa fa-plus"></i> Agregar Nuevo</button>
 
 				<div class="row"><div class="box-divider col-xs-12"></div></div>
 				<div class="col-xs-12" data-bind="visible: showForm">
-					<form action="" class="form row" id="formCompetencia">
+					<form action="" class="form row" id="formComportamiento">
 						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
 						        <label class="label-control">Seleccione una competencia</label>
-						        <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', optionsValue: 'id', value: $root.formData().competencia_id "></select>
+						        <select class="form-control" name="competencia" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', optionsValue: 'id', value: $root.formData().competencia_id "></select>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
 						        <label class="label-control">Comportamiento</label>
-						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().name">
+						        <input type="text" name="name" id="firstname" class="form-control" data-bind="textInput: formData().name">
 						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
