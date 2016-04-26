@@ -68,7 +68,7 @@ class CompetenciasController extends Controller
      */
     public function show($id)
     {
-        $compentencias = Compentencia::find($id);
+        $compentencias = Competencia::find($id);
 
         return $compentencias;
     }
