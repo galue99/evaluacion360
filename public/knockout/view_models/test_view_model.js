@@ -12,6 +12,8 @@ function testViewModel(){
 	self.finish =  ko.observable(false);
   self.cntFrases = ko.observable();
   self.lastFrase = ko.observable();
+  self.userEvaluado = ko.observable();
+  self.nameTest = ko.observable();
 
   self.formData = ko.observable({
 		otherQuestion: ko.observableArray(),
@@ -29,7 +31,7 @@ function testViewModel(){
         toastr.success('La encuesta ha sido enviada con exito');
         setTimeout(function(){
           window.location.href = "/logout";
-        }, 1000);
+        }, 500);
       })
       .fail(function(response){
         toastr.error('Ocurrio un erro al enviar los datos');
@@ -124,15 +126,27 @@ function testViewModel(){
 
 	//funcion para abrir la encuesta
 	self.findTest = function(){
+
 		encuesta.find()
 		.done(function(response){
+      self.nameTest(response.name);
       self.testId(response.id);
 			//Coloco los items dentro de un observable
 			self.items(response.items);
 			//establezco el primer item
 			self.currentItem(self.items()[0]);
-      // console.log(response);
-      // response.user
+      
+      var userName = null;
+      var userLastName = null;
+      var fullName = null;
+
+      response.user.forEach(function(user){
+        userName = user.firstname;
+        userLastName = user.lastname;
+
+      })
+      fullName = userName + ' ' + userLastName;
+      self.userEvaluado(fullName);
 
 		});
 	};

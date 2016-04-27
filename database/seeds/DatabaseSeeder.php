@@ -106,6 +106,7 @@ class DatabaseSeeder extends Seeder
         /* Start items db seed */
 
         DB::table('items')->insert([
+            'name' => 'Puntualidad',
             'encuesta_id' => 1,
         ]);
 

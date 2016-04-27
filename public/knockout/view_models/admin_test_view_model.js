@@ -24,6 +24,7 @@ function AdminTestViewModel(){
    
    self.openModalComportamientos = function(){
       if (self.formData().name()){
+         self.getCompetencias();
          $('#modalcomportamientos').modal('show');
       }else{
          toastr.warning('Indique un nombre para la encuesta');
@@ -41,7 +42,7 @@ function AdminTestViewModel(){
          self.formData().items()[self.formData().items().length-1].name(self.competenciaSelected().name);
          if ( compor.active() ){
             self.formData().items()[self.formData().items().length-1].frases.push({
-            name: compor.name,
+            name: ko.observable(compor.name),
             answers: ko.observableArray() 
             })
          }
@@ -191,9 +192,6 @@ function AdminTestViewModel(){
 
    //Obteniendo test para la tabla
    self.getTest();
-
-   //Obteniendo competencias para el select
-   self.getCompetencias();
 
 
  /////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

@@ -61,12 +61,12 @@
 	<div class="col-xs-12 col-md-10 pull-center animated" data-bind="visible: showForm, css: {fadeIn: showForm}">
 		<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 class="box-title">Usuario a evaluar <strong data-bind="text: 'asdsa'"></strong></h3>
+				<h3 class="box-title">Evaluación <strong style="margin-right: 20px;" data-bind="text: nameTest"></strong>  Usuario a evaluar <strong data-bind="text: userEvaluado"></strong></h3>
 			</div>
 			<div class="box-body">
 				<div class="attachment-block clearfix">
 					<div class="attachment-pushed" data-bind="visible: !$root.finish()">
-						<h4 class="attachment-heading text-center"><strong>Competencias <span data-bind="text: $root.currentItem().id"></span></strong></h4><br>
+						<h4 class="attachment-heading text-center"><strong data-bind="text: $root.currentItem().name"></strong></h4><br>
 						<div class="col-xs-12 col-sm-5">
 							<!-- ko if: $root.currentItem().frases.length > 0 -->
 							<h5 data-bind="text: $root.currentItem().frases[$root.currentIndexFrase()].name"></h5>
