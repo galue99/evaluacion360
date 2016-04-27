@@ -51,9 +51,9 @@
                      <div class="form-group">
                         <label class="label-control">Nombre de la Evaluación</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
-                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i> Competencia</button>
+                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i></button>
                         <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
-                           <i class="fa fa-plus"></i>Competencias
+                           <i class="fa fa-plus"></i> Competencias
                         </button>
                      </div>
                   </div>
@@ -62,16 +62,16 @@
                      <ul class="ul-first" data-bind="foreach: formData().items">
                         <li>
                            <div class="form-group">
-                              <!--<h2> <span data-bind="text: $index() + 1"></span> -->
-                              <label for="" class="label-control">Competencia</label>
-                              <input type="text" class="form-control col-xs-4" style="width: 33%" data-bind="textInput: name">
+                              <label for="" class="label-control">Competencia
+                                 <strong data-bind="text: $index() + 1"></strong>
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
+                              </label>
+                              <br>
+                              <input type="text" class="form-control col-xs-4" style="width: 33%" data-bind="textInput: name">
+                                 
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
-                                    <i class="fa fa-plus"></i>Comportamiento
+                                    <i class="fa fa-plus"></i> Comportamiento
                                  </button>
-                                 <!-- <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
-                                    <i class="fa fa-plus"></i>Competencias
-                                 </button> </h2>-->
                               
                            </div>
                            <ul class="ul-second col-xs-12" data-bind="foreach: frases">
@@ -119,25 +119,23 @@
                <div class="modal-body">
                   <div class="row">
                      <div class="col-xs-12">
-                        <div class="row col-xs-4">
+                        <div class="row col-xs-4 separate">
                            <div class="form-group separate">
                               <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', value: competenciaSelected "></select>
                            </div>
                         </div>
                      </div>
-                     
-                     <div class="col-xs-12" data-bind="if: competenciaSelected">
+                     <!-- ko if: competenciaSelected -->
                         <!--ko foreach: competenciaSelected().comportamiento -->
-                        <div class="">
-                           <div class="form-group">
-                              <label data-bind="text: name"></label>
+                        <div class="col-xs-6">
+                           <div class="form-group text-center">
+                              <label class="pointer" style="font-size: 1em;" data-bind="text: name, attr: {for: id}"></label>
                               <input class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="attr: {id: id}, checked: active">
-                   				<label data-bind="attr: {for: id}"></label>
+                   				<label data-bind="attr: {for: id}" class="pull-center"></label>
                            </div>
                         </div>
                         <!--/ko-->
-                     </div>
-                     
+                     <!-- /ko -->
                   </div>
                </div>
                <div class="modal-footer">

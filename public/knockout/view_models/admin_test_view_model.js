@@ -22,22 +22,16 @@ function AdminTestViewModel(){
       items: ko.observableArray()
    });
    
-   // self.openModalComportamientos = function(data){
-   //    self.currentCompetencia(data);
-   //    $('#modalcomportamientos').modal('show');
-   //    self.getCompetencias();
-   // };
-   
-
    self.openModalComportamientos = function(){
-      $('#modalcomportamientos').modal('show');
-      self.getCompetencias();
+      if (self.formData().name()){
+         $('#modalcomportamientos').modal('show');
+      }else{
+         toastr.warning('Indique un nombre para la encuesta');
+      }
    };
 
    
    self.assignQuestions = function(){
-      // console.log(self.competenciaSelected());
-      
       self.formData().items.push({
          name: ko.observable(),
          frases: ko.observableArray()
@@ -46,19 +40,13 @@ function AdminTestViewModel(){
       self.competenciaSelected().comportamiento.forEach(function(compor){
          self.formData().items()[self.formData().items().length-1].name(self.competenciaSelected().name);
          if ( compor.active() ){
-            
             self.formData().items()[self.formData().items().length-1].frases.push({
             name: compor.name,
-            answers: ko.observableArray()
-               
+            answers: ko.observableArray() 
             })
-            
          }
-         
       })
-      
-      console.log(ko.toJSON(self.formData()));
-      
+      // console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
@@ -75,18 +63,7 @@ function AdminTestViewModel(){
             return competencia;
          }));
       })
-      console.log(self.competencias())
    };
-   
-   // self.assignQuestions = function(){
-   //    // console.log(self.currentCompetencia());
-   //    self.competenciaSelected().comportamiento.forEach(function(comportamiento){
-   //       self.currentCompetencia().frases.push({
-   //          name: ko.observable(comportamiento.name), answers: ko.observableArray()
-   //       })
-   //    });
-   //    $('#modalcomportamientos').modal('hide');
-   // };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());
@@ -154,7 +131,6 @@ function AdminTestViewModel(){
 			});
    }
    
-
    self.clearFormTest = function(){
       self.formData({
          name: ko.observable(),
@@ -175,7 +151,7 @@ function AdminTestViewModel(){
          }
          );
       }else{
-         toastr.warning('Ingrese el nombre de la encuesta');
+         toastr.warning('Ingrese un nombre de la encuesta');
          jQuery('#nameTest').focus();
       };
    };
@@ -213,8 +189,11 @@ function AdminTestViewModel(){
    };
 
 
-
+   //Obteniendo test para la tabla
    self.getTest();
+
+   //Obteniendo competencias para el select
+   self.getCompetencias();
 
 
  /////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
