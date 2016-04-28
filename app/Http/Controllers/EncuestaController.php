@@ -62,9 +62,6 @@ class EncuestaController extends Controller
         $test->save();
         $id_encuesta = $test->id;
 
-        //echo $id_encuesta;
-
-
         //$item = new Item();
         $test1 = Request::only(['items']);
 
@@ -72,25 +69,27 @@ class EncuestaController extends Controller
             for($i=0; $i<count($valor); $i++){
                 $item = new Item();
                 $item->encuesta_id = $id_encuesta;
+                $item->name = $test1['items'][$i]['name'];
                 $item->save();
                 $id_item = $item->id;
-               foreach($valor[$i] as $clave1){
-                    foreach($clave1 as $value2){
-                        //echo ($value2['name']);
-                        $frase = new Frase();
-                        $frase->item_id = $id_item;
-                        $frase->name = $value2['name'];
-                        $frase->save();
-                        $id_frase = $frase->id;
 
-                        foreach($value2['answers'] as $value3){
-                            $answer = new Answer();
-                            $answer->name = $value3['name'];
-                            $answer->frase_id = $id_frase;
-                            $answer->save();
-                        }
+                for($j=0; $j<count($test1['items'][$i]['frases']); $j++){
+
+                    $frase = new Frase();
+                    $frase->item_id = $id_item;
+                    $frase->name = $test1['items'][$i]['frases'][$j]['name'];
+                    $frase->save();
+                    $id_frase = $frase->id;
+
+                    for($x=0; $x<count($test1['items'][$i]['frases'][$j]['answers']); $x++){
+                        $answer = new Answer();
+                        $answer->name = $test1['items'][$i]['frases'][$j]['answers'][$x]['name'];
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
                     }
                 }
+
             }
         }
 
