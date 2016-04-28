@@ -86,16 +86,29 @@
 						</div>
 					</div>
 					<div class="attachment-pushed" data-bind="visible: $root.finish()">
-						<h4 class="attachment-heading text-center">
+						<div data-bind="visible: moreQuestions">
+							<h4 class="attachment-heading text-center">
 							Primera parte de la encuesta de <strong>terminada!</strong>
+							</h4><br>
+							<h5>Hagla click en <strong><ins>Siguiente parte</ins></strong> para continuar con la encuesta</h5>
+						</div>
+					<div data-bind="visible: !moreQuestions()">
+						<h4 class="attachment-heading text-center">
+							Encuesta <strong>terminada!</strong>
+							<h5>Hagla click en <strong><ins>Finalizar Encuesta</ins></strong> para enviar las respuestas</h5>
 						</h4><br>
-						<h5>Hagla click en <strong><ins>Siguiente parte</ins></strong> para continuar con la encuesta</h5>
+					</div>
 					</div>
 				</div>
 			</div>
 			<div class="box-footer">
 				<button class="btn btn-primary pull-left" data-bind="click: toggleEncuesta">Cancelar</button>
-				<button class="btn btn-primary pull-right" data-bind="click: setAnswer, text: $root.finish() ? 'Siguiente Parte' : 'Siguiente'"></button>
+				<div data-bind="visible: moreQuestions">
+					<button class="btn btn-primary pull-right" data-bind="click: setAnswer, text: $root.finish() ? 'Siguiente Parte' : 'Siguiente'"></button>
+				</div>
+				<div data-bind="visible: !moreQuestions()">
+					<button class="btn btn-primary pull-right" data-bind="click: setAnswer, text: $root.finish() ? 'Finalizar Encuesta' : 'Siguiente'"></button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -113,7 +126,7 @@
 							<div class="col-xs-12" data-bind="foreach: formData().otherQuestion">
 								<div class="col-xs-12 col-sm6">
 									<div class="form-group">
-										<label for="" class="label-control" data-bind="text: OtherQ_question">Menciona una (01) fortaleza, o cosa que haga muy bien esta persona:</label>
+										<label for="" class="label-control" data-bind="text: OtherQ_question"></label>
 				                  		<textarea class="form-control" rows="3" placeholder="Ingrese su respuesta" data-bind="textInput: OtherQ_answer"></textarea>
 									</div>
 								</div>
