@@ -14,6 +14,7 @@ function testViewModel(){
   self.lastFrase = ko.observable();
   self.userEvaluado = ko.observable();
   self.nameTest = ko.observable();
+  self.moreQuestions = ko.observable();
 
   self.formData = ko.observable({
 		otherQuestion: ko.observableArray(),
@@ -40,7 +41,8 @@ function testViewModel(){
 
     self.setAnswer = function(){
       if(self.finish()){
-        swal({
+        if (self.moreQuestions() == true){
+          swal({
           title: "Ya casi terminamos",
           text: "solo necesitamos una ultima cosa para culminar",
           type: "success",
@@ -50,6 +52,18 @@ function testViewModel(){
              function(){
               self.openModalOtherQ();
             });
+        }else{
+          swal({
+            title: "Hemos terminado",
+            text: "Gracias por estar aqui y dedicarnos un poco de tu valioso tiempo.",
+            type: "success",
+            confirmButtonColor: "#A5DC86",
+            confirmButtonText: "Finalizar",
+            closeOnConfirm: true },
+               function(){
+                self.saveTest();
+          });
+        }
       }else{
         self.next();
       }
@@ -60,7 +74,7 @@ function testViewModel(){
     if (self.currentAnswer() == null) {
       swal({
       	title: "Un momento",   
-      	text: "Sebes seleccionar al menos una respuesta",   
+      	text: "Debes seleccionar al menos una respuesta",   
       	type: "warning",   
       	confirmButtonColor: "#DD6B55",   
       	confirmButtonText: "Ok",   
@@ -148,7 +162,10 @@ function testViewModel(){
       fullName = userName + ' ' + userLastName;
       self.userEvaluado(fullName);
 
-		});
+      //obetener preguntas adicionales
+      self.getOtherQ();
+
+		})
 	};
 
     self.all = function(){
@@ -160,15 +177,15 @@ function testViewModel(){
 			//self.currentItem(self.items()[0]);
 		});
 	};
+
   //Metodpo para abrir modal de preguntas adicionales y llamar las OtherQ
   self.openModalOtherQ = function(){
     $('#modal1').modal('show');
-    self.getOtherQ();
   };
-
 
   //Metodo para obtener preguntas adicionales
   self.getOtherQ = function(){
+
     otherq.allEncuestado(self.testId())
     .done(function(response){
       self.formData().otherQuestion(
@@ -180,12 +197,19 @@ function testViewModel(){
           }
         })
       )
+      if (self.formData().otherQuestion().length == 0){
+        self.moreQuestions(false);
+      }else{
+        self.moreQuestions(true);
+      }
     });
+
   };
 
 
-//Obtener test
+  //Obtener test
   self.findTest();
+
 
 
 }
