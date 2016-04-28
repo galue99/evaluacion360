@@ -22,28 +22,49 @@ function AdminTestViewModel(){
       items: ko.observableArray()
    });
    
-   self.openModalComportamientos = function(data){
-      self.currentCompetencia(data);
-      $('#modalcomportamientos').modal('show');
-      self.getCompetencias();
+   self.openModalComportamientos = function(){
+      if (self.formData().name()){
+         self.getCompetencias();
+         $('#modalcomportamientos').modal('show');
+      }else{
+         toastr.warning('Indique un nombre para la encuesta');
+      }
    };
-   
+
+
+   self.assignQuestions = function(){
+      self.formData().items.push({
+         name: ko.observable(),
+         frases: ko.observableArray()
+      });
+
+      self.competenciaSelected().comportamiento.forEach(function(compor){
+         self.formData().items()[self.formData().items().length-1].name(self.competenciaSelected().name);
+         if ( compor.active() ){
+            self.formData().items()[self.formData().items().length-1].frases.push({
+            name: ko.observable(compor.name),
+            answers: ko.observableArray()
+            })
+         }
+      })
+      // console.log(ko.toJSON(self.formData()));
+   };
+
    self.getCompetencias = function(){
       competencia.AllCompetenciaComport()
       .done(function(response){
-         self.competencias(response);
+
+         self.competencias(response.map(function(competencia){
+            competencia.comportamiento.map(function(comportamiento){
+
+               comportamiento.active = ko.observable(false);
+               return comportamiento;
+
+            });
+            return competencia;
+         }));
       })
    };
-   
-   // self.assignQuestions = function(){
-   //    // console.log(self.currentCompetencia());
-   //    self.competenciaSelected().comportamiento.forEach(function(comportamiento){
-   //       self.currentCompetencia().frases.push({
-   //          name: ko.observable(comportamiento.name), answers: ko.observableArray()
-   //       })
-   //    });
-   //    $('#modalcomportamientos').modal('hide');
-   // };
 
    self.toggleForm = function(){
       self.showFormTest(!self.showFormTest());
@@ -110,7 +131,6 @@ function AdminTestViewModel(){
 				});
 			});
    }
-   
 
    self.clearFormTest = function(){
       self.formData({
@@ -127,16 +147,18 @@ function AdminTestViewModel(){
    self.addItems = function(){
       if (self.formData().name()){
          self.formData().items.push({
+            name: ko.observable(),
             frases:ko.observableArray()
          }
          );
       }else{
-         toastr.warning('Ingrese el nombre de la encuesta');
+         toastr.warning('Ingrese un nombre de la encuesta');
          jQuery('#nameTest').focus();
       };
    };
 
    self.addFrase = function(data){
+      console.log(data);
       data.frases.push({
          name: ko.observable(), answers: ko.observableArray()
       });
@@ -168,7 +190,7 @@ function AdminTestViewModel(){
    };
 
 
-
+   //Obteniendo test para la tabla
    self.getTest();
 
 

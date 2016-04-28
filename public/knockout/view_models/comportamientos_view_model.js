@@ -25,7 +25,6 @@ function ComportamientosViewModel(){
 	self.getComportamientos = function(){
 		comportamiento.all()
 		.done(function(response){
-			console.log(response);
 			self.comportamientos(response);
 		});
 	};

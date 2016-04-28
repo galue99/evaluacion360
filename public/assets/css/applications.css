@@ -86,14 +86,11 @@ input[type="checkbox"] + label.error{
     overflow-x: hidden;
     overflow: auto;
 }
-#crudTest button.btn.btn-default.btn-sm{
+#crudTest button.btn.btn-default.btn-xs{
     margin-left: 10px;
 }
-#crudTest button.btn.btn-default.btn-sm i{
+#crudTest button + button.btn.btn-default.btn-xs i{
     margin-right: 5px;
-}
-#crudTest ul.ul-first{
-    padding-left: 15px!important;
 }
 #crudTest ul.ul-first,
 #crudTest ul.ul-second,
@@ -101,34 +98,34 @@ input[type="checkbox"] + label.error{
     margin-top: 30px;
     list-style: none;
 }
-
+#crudTest ul.ul-first > li > div.form-group label{
+    position: relative !important;
+}
+#crudTest ul.ul-first li > div.form-group label > i {
+    display: none;
+}
+#crudTest ul.ul-first li > div.form-group:hover label > i {
+    color: red;
+    display: inline-block;
+    font-size: .8em;
+    position: absolute;
+    right: -15px;
+    top: 0;
+}
+#crudTest ul.ul-first{
+    padding-left: 15px!important;
+}
 #crudTest ul.ul-first li h2 {
     font-size: 1.6em;
     font-weight: 400;
 }
-#crudTest ul.ul-first li h2 > i {
-    display: none;
-}
-#crudTest ul.ul-first li h2:hover > i,
-#crudTest ul.ul-first li h2:hover > i{
-    color: red;
-    font-size: .5em;
-    vertical-align: top;
-    display: inline-block;
-}
-#crudTest ul.ul-first li h2:hover > i + button{
-    margin-left: 6.8px!important;
-}
-#crudTest ul.ul-first li h2 button.btn.btn-default.btn-xs{
+#crudTest ul.ul-first li button.btn.btn-default.btn-xs{
     margin-left: 20px;
     margin-top: -5px;
 }
-#crudTest ul.ul-first li h2 button.btn.btn-default.btn-xs i{
+#crudTest ul.ul-first li button.btn.btn-default.btn-xs i{
     margin-right: 5px;
 }
-/*#crudTest ul.ul-first > li{
-    border: solid 1px #ddd;
-}*/
 #crudTest ul.ul-first > li,
 #crudTest ul.ul-second > li,
 #crudTest ul.ul-third > li{
@@ -139,9 +136,6 @@ input[type="checkbox"] + label.error{
     margin-bottom: 20px;
     margin-top: 20px;
 }
-/*#crudTest ul.ul-first ul.ul-second > li > div.form-group{
-    position: relative !important;
-}*/
 #crudTest ul.ul-first ul.ul-second > li > div.form-group label{
     position: relative !important;
 }
