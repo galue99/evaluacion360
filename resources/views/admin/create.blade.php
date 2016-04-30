@@ -67,7 +67,9 @@
                                  <i class="fa fa-close pointer" data-bind="click: $root.delItem"></i>
                               </label>
                               <br>
-                              <input type="text" class="form-control col-xs-4" style="width: 33%" data-bind="textInput: name">
+                              <div class="col-xs-12 col-md-4">
+                                 <input type="text" class="form-control separate" data-bind="textInput: name">
+                              </div>
 
                                  <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
                                     <i class="fa fa-plus"></i> Comportamiento
@@ -82,7 +84,7 @@
                                        <i class="fa fa-close pointer" data-bind="click: function(data,event) {$root.delFrase($parent,data)}"></i>
                                     </label>
                                     <br>
-                                    <input type="text" id="frase" class="form-control" data-bind="textInput: name">
+                                    <input type="text" id="frase" class="form-control separate" data-bind="textInput: name">
                                     <button class="btn btn-xs btn-default" data-bind="click: $root.addAnswers">
                                        <i class="fa fa-plus"></i> Respuestas
                                     </button>
