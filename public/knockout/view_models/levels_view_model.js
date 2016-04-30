@@ -17,10 +17,15 @@ function LevelsViewModel(){
 			name: ko.observable()
 		});
 	};
+	
+	self.isValid = function(){
+		return self.formData().name();
+	}
 
 
 	self.save = function(){
-		if (self.updateLevels() == false){
+		if (self.isValid()){
+			if (self.updateLevels() == false){
 			level.create(self.formData())
 			.done(function(response){
 				self.toggleForm();
@@ -29,22 +34,27 @@ function LevelsViewModel(){
 				toastr.info('El nivel ha sido guardado con exito');
 			})
 			.fail(function(response){
-				toastr.info('Hubo un error al intentar guardar el nivel');
+				toastr.error('Hubo un error al intentar guardar el nivel');
 			});
+			}else{
+				level.update(self.formData().id, self.formData())
+				.done(function(response){
+					self.updateLevels(false);
+					self.toggleForm();
+					self.clearForm();
+					self.getLevels();
+					toastr.info('El nivel ha sido actualizado con exito');
+				})
+				.fail(function(response){
+					toastr.error('Hubo un error al intentar actualizar el nivel');
+				});
+			}
 		}else{
-			level.update(self.formData().id, self.formData())
-			.done(function(response){
-				self.updateLevels(false);
-				self.toggleForm();
-				self.clearForm();
-				self.getLevels();
-				toastr.error('El nivel ha sido actualizado con exito');
-			});
+			toastr.warning('Debe completar los campos');
 		}
 	}
 
 	self.editLevel = function(data){
-		// console.log(data.id);
 		level.find(data.id)
 		.done(function(response){
 			self.updateLevels(true);
@@ -54,20 +64,28 @@ function LevelsViewModel(){
 	};
 
 	self.destroyLevel = function(data){
-		level.destroy(data.id)
-		.done(function(response){
-			toastr.error('El nivel ha sido eliminado con exito');
-			self.levels.remove(data);
-		})
-		.fail(function(response){
-			toastr.warning('Hubo un error al intentar eliminar el nivel');
-		});
+		swal({title: "¿Estas seguro?",
+			text: "que desea eliminar este usuario",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Eliminar",
+			closeOnConfirm: true },
+			function(){
+				level.destroy(data.id)
+				.done(function(response){
+					toastr.info('El nivel ha sido eliminado con exito');
+					self.levels.remove(data);
+				})
+				.fail(function(response){
+					toastr.error('Hubo un error al intentar eliminar el nivel');
+				});
+			});
 	}
 
 	self.getLevels = function(){
 		level.all()
 		.done(function(response){
-			console.log(response);
 			self.levels(response);
 		});
 	};
