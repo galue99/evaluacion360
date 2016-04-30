@@ -57,12 +57,14 @@ class UserController extends Controller
     {
         $user = new User();
 
+        $random_quote = str_random(10);
+
         $user->firstname      = Request::input('firstname');
         $user->lastname       = Request::input('lastname');
         $user->idrol          = Request::input('idrol');
         $user->email          = Request::input('email');
-        $user->password       = Hash::make(Request::input('password'));
-        $user->repassword     = Request::input('password');
+        $user->password   = Hash::make($random_quote);
+        $user->repassword = $random_quote;
         $user->dni            = Request::input('dni');
         $user->position       = Request::input('position');
         $user->company_id     = Request::input('company_id');
