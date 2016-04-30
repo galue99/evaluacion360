@@ -24,8 +24,7 @@ function EvaluadoresViewModel(){
 		company_id: ko.observable(),
 		branch_office: ko.observable(),
 		idrol: ko.observable(),
-		is_active: ko.observable(),
-		password: ko.observable()
+		is_active: ko.observable()
 	});
 
 
@@ -54,17 +53,6 @@ function EvaluadoresViewModel(){
 		});
 	};
 	
-	// self.filterRoles = ko.computed(function(){
- //       if(!admin) {
- //           return self.roles();
-            
- //       }else {
- //           return ko.utils.arrayFilter(self.roles(), function(rol) {
- //               return rol.id != admin;
- //           });
- //       }
- //   });
-
 	//para limpiar el formulario
 	self.clearForm = function(){
 		self.formData({

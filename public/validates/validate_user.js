@@ -22,10 +22,6 @@
             maxlength: 50,
             minlength: 2,
         },
-        password: {
-            required: true,
-            minlength: 6,
-        },
         deparment:{
             required: true,
             maxlength: 50,
@@ -64,10 +60,6 @@
             maxlength: "No debe pasar de 50 Caracteres",
             minlength: "Minimo de caractes 2",
             email: "ingrese un email valido",
-        },
-        password:{
-            required: "Campo contraseña es requerido",
-            minlength: "Minimo 6 caractes"
         },
         deparment:{
             required: "El departamento es obligatorio",

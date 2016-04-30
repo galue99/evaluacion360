@@ -41,12 +41,6 @@
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
-						        <label class="label-control">Password</label>
-						        <input type="password" name="password" id="password" class="form-control" data-bind="textInput: formData().password">
-						    </div>
-						</div>
-						<div class="col-xs-12 col-md-4 separate">
-						    <div class="form-group">
 						        <label class="label-control">Cargo</label>
 						        <input type="text" name="position" id="position" class="form-control" data-bind="textInput: formData().position">
 						    </div>
