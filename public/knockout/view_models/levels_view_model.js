@@ -37,6 +37,7 @@ function LevelsViewModel(){
 				self.updateLevels(false);
 				self.toggleForm();
 				self.clearForm();
+				self.getLevels();
 				toastr.error('El nivel ha sido actualizado con exito');
 			});
 		}

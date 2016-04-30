@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 
 use App\Competencia;
+use Validator;
 use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
+use Symfony\Component\Console\Input\Input;
 
 
 class CompetenciasController extends Controller
@@ -48,7 +50,7 @@ class CompetenciasController extends Controller
     public function store(Request $request)
     {
 
-        $postData = Input::all();
+        $postData = $request::all();
 
         $messages = [
             'name.required'          => 'Enter a name',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Nivel;
 use Request;
+use Input;
 
 use Illuminate\Support\Facades\Response;
 use App\Http\Requests;
@@ -92,7 +93,16 @@ class NivelesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nivel = Nivel::findOrFail($id);
+        $nivel->name = Request::input('name');
+        $nivel->save();
+
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     /**
@@ -103,6 +113,15 @@ class NivelesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nivel = Nivel::find($id);
+
+        $nivel->delete();
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 }

@@ -30,6 +30,7 @@
         <header class="main-header">
           <!-- Logo -->
           <a class="logo" href="/">
+
             <span class="logo-mini"><b>E</b>360</span>
             <span class="logo-lg"><b>Evaluacion360</b></span>
           </a>

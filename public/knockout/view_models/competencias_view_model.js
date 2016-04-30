@@ -57,6 +57,7 @@ function CompetenciasViewModel(){
 				.done(function(response){
 					self.clearForm();
 					self.toggleForm();
+					self.getCompetencias();
 					self.updateCompetencia(false);
 					toastr.info('Competencia Actualizado con exito');
 				}).fail(function(response){
@@ -74,6 +75,7 @@ function CompetenciasViewModel(){
 		.done(function(response){
 			self.updateCompetencia(true);
 			self.toggleForm();
+			self.getCompetencias();
 			self.formData(response);
 		});
 	};
