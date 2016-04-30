@@ -13,7 +13,6 @@
         },
         dni:{
             required: true,
-            maxlength: 9,
             minlength: 2,
             number: true
         },
@@ -57,7 +56,6 @@
         },
          dni:{
             required: "Cedula no puede estar en blanco",
-            maxlength: "No debe pasar de 9 Caracteres",
             minlength: "Minimo de caractes 2",
             number: "Solo numeros esta requerido"
         },
