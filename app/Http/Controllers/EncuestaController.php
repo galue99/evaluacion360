@@ -234,8 +234,9 @@ class EncuestaController extends Controller
         $encuesta = DB::table('encuestas')
             ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->join('users', 'evaluador_id', '=', 'users.id')
+            ->join('companys', 'companys.id', '=', 'users.company_id')
             ->join('niveles', 'users_encuestas.niveles_id', '=', 'niveles.id')
-            ->select('users.*', 'niveles.name as nivel')
+            ->select('users.*', 'niveles.name as nivel', 'companys.*')
             ->where('users_encuestas.evaluador_id', '=', $id)->get();
 
         $answers = DB::table('encuestas')
