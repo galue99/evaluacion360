@@ -59,7 +59,7 @@ class CompetenciasController extends Controller
 
         $rules = [
             'name'        => 'required|string|min:3|max:30',
-            'description' => 'required|string|min:3|max:30',
+            'description' => 'required|string|min:3|max:200',
         ];
 
         $validator = Validator::make($postData, $rules, $messages);

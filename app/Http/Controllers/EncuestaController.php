@@ -247,6 +247,22 @@ class EncuestaController extends Controller
             ->join('frases', 'answers.frase_id', '=', 'frases.id')
             ->select('users_answers.*', 'answers.name as respuesta', 'frases.name as pregunta')
             ->where('users_encuestas.evaluador_id', '=', $id)->get();
+
+
+        $other_question = DB::table('others_questions')
+            ->join('encuestas', 'encuestas.id', '=', 'others_questions.encuestas_id')
+            ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')
+            ->join('users_encuestas', 'users_encuestas.encuesta_id', '=', 'encuestas.id')
+            ->join('users', 'users.id', '=', 'users_encuestas.evaluador_id')
+/*            ->join('others_questions', 'others_questions.encuestas_id', '=', 'encuestas.id')
+            ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')*/
+            //->join('frases', 'answers.frase_id', '=', 'frases.id')
+            ->select('others_questions.*', 'users_answers_others_questions.*')
+            ->where('users_encuestas.evaluador_id', '=', $id)->get();
+
+
+//        SELECT question,answers FROM encuesta360.others_questions join encuestas on encuestas.id = others_questions.encuestas_id join users_answers_others_questions on users_answers_others_questions.others_questions_id = others_questions.id join users_encuestas on users_encuestas.encuesta_id=encuestas.id join users on users.id=users_encuestas.evaluador_id where users.id=3;
+
             //->join('answers', 'users_answers.answers_id', '=', 'users_answers.id')->get();
             //->select('users_answers.*')->get();
             // ->join('companys', 'company_id', '=', 'companys.id')
@@ -257,6 +273,7 @@ class EncuestaController extends Controller
                     'status_code' => 200,
                     'user' => $encuesta,
                     'answers'  => $answers,
+                    'other_question' => $other_question
                 ]
             ], 200);
 

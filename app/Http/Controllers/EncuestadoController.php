@@ -72,7 +72,6 @@ class EncuestadoController extends Controller
         }
 
         $users_encuestas = DB::table('users_encuestas')->where('evaluador_id', '=', $id)->where('encuesta_id', '=', Session::get('encuestas_id'))->where('status', '=', 0)->first();
-
         $id_users_encuestas = $users_encuestas->id;
 
         $user_encuestas = UserEncuesta::findOrFail($id_users_encuestas);
