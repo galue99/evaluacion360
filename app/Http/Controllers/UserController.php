@@ -131,7 +131,7 @@ class UserController extends Controller
             'idrol'       => 'required|string|min:1|max:2',
             'email'       => 'required|string|min:3|max:80',
             'password'    => 'required|string|min:3|max:30',
-            'dni'         => 'string|min:3|max:9',
+            'dni'         => 'string|min:3|max:30',
             'position'    => 'required|string|min:3|max:100',
             'is_active'   => 'required|string|max:10',
 
