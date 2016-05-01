@@ -6,6 +6,7 @@ function ListsSurveysViewModel(){
 	self.answers = ko.observable();
 	self.showListTest = ko.observable(true);
 	self.tests = ko.observableArray();
+	self.otherAnswers = ko.observable();
 
 	self.getTestReady = function(){
 		test.allTestReady()
@@ -18,9 +19,10 @@ function ListsSurveysViewModel(){
 		self.showListTest(false);
 		test.testDetails(data.id)
 		.done(function(response){
-			// console.log(response.Success)
+			console.log(response.Success)
 			self.user(response.Success.user);
 			self.answers(response.Success.answers);
+			self.otherAnswers(response.Success.other_question)
 		})
 	};
 

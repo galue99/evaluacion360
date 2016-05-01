@@ -17,7 +17,6 @@
 									<th>Encuesta</th>
 									<th>Evaluador</th>
 									<th>Nro. de Identificacion</th>
-									<th>Empresa</th>
 									<th>Email</th>
 									<th>Cargo</th>
 									<th>Ver Respuesta</th>
@@ -28,7 +27,6 @@
 									<td data-bind="text: name"></td>
 									<td data-bind="text: firstname + ' ' + lastname"></td>
 									<td data-bind="text: dni"></td>
-									<td data-bind="text: company_id"></td>
 									<td data-bind="text: email"></td>
 									<td data-bind="text: position"></td>
 									<td class="text-center">
@@ -86,8 +84,35 @@
 							</tbody>
 						</table>
 					</div>
-
+					<div class="row">
+						<div class="col-xs-12 box-divider"></div>
+					</div>
+					<div class="col-xs-12 text-center">
+						<h4>Preguntas Adicionales</h4>
+					</div>	
+					<div class="col-xs-12">
+						<!--ko foreach: otherAnswers-->
+						<div class="panel box box-primary">
+							<div class="box-header with-border">
+								<h4 class="box-title">
+									<a
+									data-toggle="collapse"
+									data-parent="#accordion"
+									aria-expanded="false"
+									class="collapsed"
+									data-bind="text: question, attr: {href: '#' + id}"></a>
+								</h4>
+							</div>
+							<div  class="panel-collapse collapse" aria-expanded="false" style="height: 0px;" data-bind="attr: {id: id}">
+								<div class="box-body" data-bind="text: answers">
+									
+								</div>
+							</div>
+						</div>
+						<!--/ko-->
+					</div>
 				</div>
+				
 				<div class="box-footer">
 					<button class="btn btn-danger pull-right" data-bind="click: toggleListTest">Cancelar</button>
 				</div>
