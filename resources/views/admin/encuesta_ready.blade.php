@@ -114,7 +114,7 @@
 				</div>
 				
 				<div class="box-footer">
-					<button class="btn btn-danger pull-right" data-bind="click: toggleListTest">Cancelar</button>
+					<button class="btn btn-danger pull-left" data-bind="click: toggleListTest"><i class="fa fa-arrow-left"></i> Atras</button>
 				</div>
 			</div>
 		</div>
