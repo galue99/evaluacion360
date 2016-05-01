@@ -61,7 +61,7 @@
 	<div class="col-xs-12 col-md-10 pull-center animated" data-bind="visible: showForm, css: {fadeIn: showForm}">
 		<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 class="box-title">Evaluación <strong style="margin-right: 20px;" data-bind="text: nameTest"></strong>  Usuario a evaluar <strong data-bind="text: userEvaluado"></strong></h3>
+				<h3 class="box-title">Usuario a evaluar <strong data-bind="text: userEvaluado"></strong></h3>
 			</div>
 			<div class="box-body">
 				<div class="attachment-block clearfix">

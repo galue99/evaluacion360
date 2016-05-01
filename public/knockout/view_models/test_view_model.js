@@ -13,7 +13,6 @@ function testViewModel(){
   self.cntFrases = ko.observable();
   self.lastFrase = ko.observable();
   self.userEvaluado = ko.observable();
-  self.nameTest = ko.observable();
   self.moreQuestions = ko.observable();
 
   self.formData = ko.observable({
