@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
+    Route::get('pdf', 'PdfController@invoice');
 });
 
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {
