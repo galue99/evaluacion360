@@ -84,6 +84,17 @@ class PdfController extends Controller
     {
         //
     }
+    
+    public function encuestas_ready()
+    {
+        $data = $this->getData();
+        $date = date('Y-m-d');
+        $encuestas_ready = "2222";
+        $view =  \View::make('pdf.encuestas_ready', compact('data', 'date', 'encuestas_ready'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('encuestas_ready');
+    }
 
 
 
