@@ -48,8 +48,11 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
     Route::get('/pdf', 'PdfController@invoice');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
+    
+    // Snapp pdf
+    Route::get ('/github', 'PdfController@github');
 
-    Route::Resource('prueba', 'PruebaController');
+    Route::Resource('/prueba', 'PruebaController');
 });
 
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {

@@ -10,7 +10,7 @@
     <div class="cabecera">
       <div class="row">
         <div class="col-xs-2">
-          <img src="{{ asset("images/logo/360.png") }}" class="img-responsive" alt="">
+          <img src="/images/logo/360.png" class="img-responsive" alt="">
         </div>
       </div>
     </div>
@@ -37,44 +37,46 @@
     <h1 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> Contenido</h1>
     <table class="table table-no-bordered">
       <tr>
-        <td>¿Cómo leer este informe?</td>
-        <td class="diez text-center">3</td>
+        <td class="col-xs-11">¿Cómo leer este informe?</td>
+        <td class="col-xs-1 text-center">3</td>
       </tr>
       <tr>
-        <td>Descripción de las competencias evaluadas
+        <td class="col-xs-11">Descripción de las competencias evaluadas
           <ul>
             <li>Competencias Organizacionales</li>
             <li>Competencias del Cargo: Supervisores</li>
           </ul>
         </td>
-        <td class="diez text-center">4</td>
+        <td class="col-xs-1 text-center">4</td>
       </tr>
       <tr>
-        <td>Resumen general de la evaluación de las competencias 6</td>
-        <td class="diez text-center">6</td>
+        <td class="col-xs-11">Resumen general de la evaluación de las competencias </td>
+        <td class="col-xs-1 text-center">6</td>
       </tr>
       <tr>
-        <td>Análisis de cada competencia</td>
-        <td class="diez text-center">10</td>
+        <td class="col-xs-11">Análisis de cada competencia</td>
+        <td class="col-xs-1 text-center">10</td>
       </tr>
       <tr>
-        <td>Semáforo: Resumen general</td>
-        <td class="diez text-center">14</td>
+        <td class="col-xs-11">Semáforo: Resumen general</td>
+        <td class="col-xs-1 text-center">14</td>
       </tr>
       <tr>
-        <td>Semáforo por comportamiento específico</td>
-        <td class="diez text-center">15</td>
+        <td class="col-xs-11">Semáforo por comportamiento específico</td>
+        <td class="col-xs-1 text-center">15</td>
       </tr>
       <tr>
-        <td>Comentarios de los observadores</td>
-        <td class="diez text-center">21</td>
+        <td class="col-xs-11">Comentarios de los observadores</td>
+        <td class="col-xs-1 text-center">21</td>
       </tr>
       <tr>
-        <td>Lista de competencias por desarrollar</td>
-        <td class="diez text-center">22</td>
+        <td class="col-xs-11">Lista de competencias por desarrollar</td>
+        <td class="col-xs-1 text-center">22</td>
       </tr>
     </table>
     <div class="saltopagina"></div>
+    
+    
 
 
     
@@ -87,11 +89,11 @@
     padding-bottom: 5px;
   }
   h1.title{
-    font-size: 2em;
+    font-size: 1.4em;
     color: #4D4D4D;
   }
   h1.title i{
-    font-size: 1.5em;
+    font-size: 1em;
     color: #EF8E00;
   }
   p.text{
@@ -99,12 +101,12 @@
     text-align: justify;
   }
   p.subtitle {
-      font-size: 1.3em;
+      font-size: 1em;
       font-weight: 500;
   }
   div.content-text-gris {
       background-color: #ECECEC;
-      padding: 5px 30px 5px 30px;
+      padding: 2px 20px 2px 20px;
   }
   div.content-text-gris ul > li {
       color: #EF8E00;
