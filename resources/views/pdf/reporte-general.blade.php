@@ -8,7 +8,7 @@
     <div class="cabecera">
       <div class="row">
         <div class="col-xs-2">
-          <img src="/images/logo/360.png" class="img-responsive" alt="">
+          <img src="/images/logo/360.png">
         </div>
       </div>
     </div>
