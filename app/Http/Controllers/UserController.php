@@ -61,7 +61,7 @@ class UserController extends Controller
 
         $user->firstname      = Request::input('firstname');
         $user->lastname       = Request::input('lastname');
-        $user->idrol          = Request::input('idrol');
+        $user->idrol          = 2;
         $user->email          = Request::input('email');
         $user->password   = Hash::make($random_quote);
         $user->repassword = $random_quote;
@@ -328,6 +328,8 @@ class UserController extends Controller
         $encuesta_id  = $user['encuesta_id'];
 
         $evaluador = UserEncuesta::where('evaluador_id', '=', $evaluador_id)->where('encuesta_id', '=', $encuesta_id)->first();
+
+        //return $evaluador;
         $evaluador->delete();
 
         return Response::json([

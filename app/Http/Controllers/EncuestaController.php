@@ -81,13 +81,42 @@ class EncuestaController extends Controller
                     $frase->save();
                     $id_frase = $frase->id;
 
-                    for($x=0; $x<count($test1['items'][$i]['frases'][$j]['answers']); $x++){
                         $answer = new Answer();
-                        $answer->name = $test1['items'][$i]['frases'][$j]['answers'][$x]['name'];
+                        $answer->name = 'Nunca';
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
-                    }
+                        $answer = new Answer();
+                        $answer->name = 'Rara Vez';
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
+                        $answer = new Answer();
+                        $answer->name = 'A Veces';
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
+                        $answer = new Answer();
+                        $answer->name = 'Casi Siempre';
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
+                        $answer = new Answer();
+                        $answer->name = 'Siempre';
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
+                /*    for($x=0; $x<count($test1['items'][$i]['frases'][$j]['answers']); $x++){
+                        $answer = new Answer();
+                        /*
+                        $answer->name = $test1['items'][$i]['frases'][$j]['answers'][$x]['name'];
+                        $answer->frase_id = $id_frase;
+                        */
+/*
+                        $answer->frase_id = $id_frase;
+                        $answer->save();
+
+                    }*/
                 }
 
             }
