@@ -44,11 +44,13 @@ function AdminTestViewModel(){
          if ( compor.active() ){
             self.formData().items()[self.formData().items().length-1].frases.push({
             name: ko.observable(compor.name),
-            answers: ko.observableArray()
+            answers: ko.observableArray(answersDefault.map(function(answer){
+               return {name: ko.observable(answer)}
+            }))
             })
          }
       })
-      // console.log(ko.toJSON(self.formData()));
+      console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
@@ -171,10 +173,8 @@ function AdminTestViewModel(){
          toastr.warning('Introduzca el nombre de la pregunta');
       }else{
          
-         answersDefault.forEach(function(answer){
-            data.answers.push({
-               name: ko.observable(answer)
-            })
+         data.answers.push({
+            name: ko.observable()
          })
          
       }
