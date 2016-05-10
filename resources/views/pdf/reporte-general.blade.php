@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <title>Reporte General</title>
   </head>
   <body>
     <div class="cabecera">
@@ -76,8 +74,6 @@
     </table>
     <div class="separate" style="height: 50px;"></div>
     
-    <div class="saltopagina"></div>
-    
     <h1 class="title"><i class="fa fa-book"></i> ¿Cómo leer este informe?</h1>
     <p class="text">
     	Encontrará gráficas de análisis donde estará el puntaje de su evaluación (auto-evaluación) comparado con la evaluación de todos los observadores, así como por cada observador por separado.
@@ -145,9 +141,6 @@
     
     <div class="separate" style="height: 400px;"></div>
     
-    
-    <div class="saltopagina"></div>
-    
     <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
     <h2 class="fringe">
       ORGANIZACIONALES
@@ -164,7 +157,7 @@
     <p class="text">Capacidad para comunicarse eficazmente de forma clara, precisa y con respeto, proporcionando informes precisos y puntuales, y compartiendo información e ideas con los demás. Implica saber escuchar.</p>
     <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Iniciativa (Gente Ganadora)</h1>
     <p class="text">Capacidad para actuar proactivamente con el objetivo de crear, innovar e implementar acciones, en un ambiente multicultural, con resultados superiores a los esperados. Implica ser un agente de cambio comprometido con los objetivos organizacionales.</p>
-    <div class="separate" style="height: 50px;"></div>
+    <div class="separate" style="height: 100px;"></div>
   
     <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
 	  <h2 class="fringe">
@@ -184,6 +177,7 @@
     <p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborativa</p>
     <div class="separate" style="height: 50px;"></div>
   </body>
+  
   <style>
   .separate{
     min-height: 10px;
@@ -198,7 +192,7 @@
   }
   .fringe-status{
   	height: 20px;
-    width: 400px;
+    width: 300px;
     background-color: #F8F3E4;
     border: solid 1px;
     margin: 4px;
@@ -261,19 +255,5 @@
     border-color: transparent;
   }
 
-
-
-  @media all {
-     div.saltopagina{
-        display: none;
-     }
-  }
-     
-  @media print{
-     div.saltopagina{ 
-        display:block; 
-        page-break-before:always;
-     }
-  }
   </style>
 </html>

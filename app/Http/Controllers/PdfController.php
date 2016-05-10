@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class PdfController extends Controller
 {
-    public function github (){
+    public function github(){
         // return \PDF::loadFile('http://www.github.com')->stream('github.pdf'); 
         return \PDF::loadView('pdf.reporte-general')->stream('evaluacion360.pdf');
         
