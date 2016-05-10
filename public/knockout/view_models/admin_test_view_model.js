@@ -165,13 +165,18 @@ function AdminTestViewModel(){
    };
 
    self.addAnswers = function(data){
+      var answers = ['Nunca', 'Rara Vez', 'A veces', 'Casi Siempre', 'Siempre'];
 
       if (!data.name()){
          toastr.warning('Introduzca el nombre de la pregunta');
       }else{
-         data.answers.push({
-            name: ko.observable(),
-         });
+         
+         answers.forEach(function(answer){
+            data.answers.push({
+               name: ko.observable(answer)
+            })
+         })
+         
       }
 
    };
