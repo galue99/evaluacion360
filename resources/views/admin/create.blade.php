@@ -230,7 +230,7 @@
 
       <!-- Modal para asignar usuarios a encuestas -->
       <div id="modalassignuser" class="modal fade" role="dialog">
-         <div class="modal-dialog">
+         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <div class="modal-header">
                <h4 class="modal-title">Asignación de Usuarios a la Evaluación</h4>
@@ -260,7 +260,7 @@
                               <h4>Seleccione los evaluadores</h4>
                            </div>
                            <!-- ko foreach: SameUsersCompany -->
-                              <div class="col-xs-2" data-bind="if: $root.formDataAssignUser().nivel">
+                              <div class="col-xs-4" data-bind="if: $root.formDataAssignUser().nivel">
                                  <div class="form-group">
                                     <label for="" class="label-control" data-bind="text: firstname"></label>
                                     <input data-bind="attr: {id: firstname, value: id}, checked: $root.formDataAssignUser().evaluadores" class="cmn-toggle cmn-toggle-round" type="checkbox" >

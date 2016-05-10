@@ -325,6 +325,7 @@ function AdminTestViewModel(){
             if (user.id == value){
              company_id = user.company_id
           }
+         //  return  user.id;
           return  user.id != value;
        });
       var usuariosCompany = newUsers.filter(function(user){
