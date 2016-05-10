@@ -6,6 +6,7 @@ function AdminTestViewModel(){
    var level = new Level();
    var otherq = new OtherQuestion();
    var competencia = new Competencias();
+   var answersDefault = ['Nunca', 'Rara Vez', 'A veces', 'Casi Siempre', 'Siempre'];
 
 
    self.competencias = ko.observableArray();
@@ -165,13 +166,12 @@ function AdminTestViewModel(){
    };
 
    self.addAnswers = function(data){
-      var answers = ['Nunca', 'Rara Vez', 'A veces', 'Casi Siempre', 'Siempre'];
 
       if (!data.name()){
          toastr.warning('Introduzca el nombre de la pregunta');
       }else{
          
-         answers.forEach(function(answer){
+         answersDefault.forEach(function(answer){
             data.answers.push({
                name: ko.observable(answer)
             })
