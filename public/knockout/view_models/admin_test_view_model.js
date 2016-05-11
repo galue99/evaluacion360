@@ -6,6 +6,7 @@ function AdminTestViewModel(){
    var level = new Level();
    var otherq = new OtherQuestion();
    var competencia = new Competencias();
+   var answersDefault = ['Nunca', 'Rara Vez', 'A veces', 'Casi Siempre', 'Siempre'];
 
 
    self.competencias = ko.observableArray();
@@ -43,11 +44,13 @@ function AdminTestViewModel(){
          if ( compor.active() ){
             self.formData().items()[self.formData().items().length-1].frases.push({
             name: ko.observable(compor.name),
-            answers: ko.observableArray()
+            answers: ko.observableArray(answersDefault.map(function(answer){
+               return {name: ko.observable(answer)}
+            }))
             })
          }
       })
-      // console.log(ko.toJSON(self.formData()));
+      console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
@@ -169,9 +172,11 @@ function AdminTestViewModel(){
       if (!data.name()){
          toastr.warning('Introduzca el nombre de la pregunta');
       }else{
+         
          data.answers.push({
-            name: ko.observable(),
-         });
+            name: ko.observable()
+         })
+         
       }
 
    };
