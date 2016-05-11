@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Encuesta;
 use App\UserEncuesta;
 use Request;
+use Mail;
 
 use App\Http\Requests;
 use App\User;
@@ -339,6 +340,13 @@ class UserController extends Controller
             ]
         ], 200);
 
+    }
+
+    public function sendEmail(){
+        Mail::raw('Laravel with Mailgun is easy!', function($message)
+        {
+            $message->to('edespinetti@gmail.com');
+        });
     }
 
 }
