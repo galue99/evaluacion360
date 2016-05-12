@@ -12,7 +12,7 @@ function AdminTestViewModel(){
    self.competencias = ko.observableArray();
    self.competenciaSelected = ko.observable();
    self.currentCompetencia = ko.observable();
-   
+   self.detailsTest = ko.observableArray();
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
    self.formCompany = ko.observable(false);
@@ -133,6 +133,20 @@ function AdminTestViewModel(){
 				   
 				});
 			});
+   }
+   
+   self.toggleModalTestDetails = function(){
+      $('#modalDetailsTest').modal('toggle');
+   }
+   
+   self.viewTest = function(data){
+      test.ViewDetails(data.id)
+      .done(function(response){
+         self.toggleModalTestDetails();
+         self.detailsTest(response);
+         console.log(self.detailsTest());
+         
+      })
    }
 
    self.clearFormTest = function(){
@@ -372,8 +386,13 @@ function AdminTestViewModel(){
    };
 
    self.getUserToAssign = function(){
-      user.allUsersAssign()
+      user.allUser()
       .done(function(response){
+         response = response.map(function(user){
+            user.fullname = user.firstname + ' ' + user.lastname;
+            return user;
+         })
+         console.log(response);
          self.users(response);
       });
    };

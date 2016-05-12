@@ -36,6 +36,7 @@
                               </td>
                               <td class="text-center">
                                  <i class="fa fa-close fa-red pointer" data-bind="click: $root.removeTest, visible: is_active == 0"></i>
+                                 <i class="fa fa-eye fa-blue pointer" aria-hidden="true" data-bind="click: $root.viewTest"></i>
                               </td>
                            </tr>
                         </tbody>
@@ -146,6 +147,39 @@
             </div>
          </div>
       </div>
+      
+      
+      <!--View details Test-->
+      <div id="modalDetailsTest" class="modal fade" role="dialog">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+               <h4 class="modal-title">Detalles de la encuesta</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-xs-12 separate" data-bind="foreach: detailsTest">
+                        <h4 for="" class="" data-bind="text: name"></h4>
+                        <!--ko foreach: $data.items-->
+                        <label for="" class="label-control" data-bind="text: ($index() + 1) + '.   ' + name"></label>
+                        <ol data-bind="foreach: $data.frases">
+                           <li class="col-xs-12 separate">
+                              <h5 data-bind="text: name"></h5>
+                              <ol data-bind="foreach: $data.answers">
+                                 <li class="col-xs-6 col-sm-2" data-bind="text: name"></li>
+                              </ol>
+                           </li>
+                        </ol>
+                        <!-- /ko -->
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-primary" role="button" data-bind="click: toggleModalTestDetails">Cerrar</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
 
       <!-- administracion de la encuesta -->
@@ -242,7 +276,7 @@
                            <div class="col-xs-12 col-sm-6 separate">
                               <div class="form-group">
                                  <label class="label-control">Usuario a Evaluar</label>
-                                    <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'firstname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
+                                    <select name="user" id="user" class="form-control" data-bind="optionsCaption: 'Seleccione un usuario', options: users, optionsText: 'fullname', optionsValue: 'id', value: formDataAssignUser().id_user "></select>
                                </div>
                            </div>
                            <div class="col-xs-12" data-bind="if: formDataAssignUser().id_user">
@@ -262,7 +296,7 @@
                            <!-- ko foreach: SameUsersCompany -->
                               <div class="col-xs-4" data-bind="if: $root.formDataAssignUser().nivel">
                                  <div class="form-group">
-                                    <label for="" class="label-control" data-bind="text: firstname"></label>
+                                    <label for="" class="label-control" data-bind="text: fullname"></label>
                                     <input data-bind="attr: {id: firstname, value: id}, checked: $root.formDataAssignUser().evaluadores" class="cmn-toggle cmn-toggle-round" type="checkbox" >
                                     <label data-bind="attr: {for: firstname}"></label>
                                  </div>

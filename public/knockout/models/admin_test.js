@@ -28,6 +28,15 @@ function AdminTest(){
 			contentType: "application/json",
 		});
 	};
+	
+	self.ViewDetails = function(id){
+		return $.ajax({
+			url: '/admin/encuestas/details/'+id,
+			method: 'GET',
+			dataType: 'json',
+			contentType: "application/json",
+		});
+	};
 
 	self.update = function(id,data){
 		return $.ajax({
