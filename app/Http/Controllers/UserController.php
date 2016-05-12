@@ -205,12 +205,7 @@ class UserController extends Controller
         $users = DB::table('users')->select(DB::raw('concat (firstname," ",lastname) as full_name,id'))->lists('full_name', 'id');
         //dd($users);
 
-        return Response::json([
-            'Success' => [
-                'status_code' => 200,
-                'users' => $users
-            ]
-        ], 200);
+        return Response::json($users);
 
     }
 
