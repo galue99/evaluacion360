@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Competencia;
 use App\Comportamiento;
 use Request;
 use App\Http\Requests;
@@ -65,9 +66,10 @@ class ComportamientoController extends Controller
      */
     public function show($id)
     {
-        $comportamientos = Comportamiento::find($id);
+        $comportamientos = Competencia::with('comportamiento')->find($id);
 
         return $comportamientos;
+
     }
 
     /**

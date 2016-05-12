@@ -42,7 +42,6 @@
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Comportamiento</th>
-								<th class="col-xs-2 text-center">Competencia</th>
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
@@ -50,7 +49,6 @@
 							<tr>
 								<td class="text-center" data-bind="text: name" ></td>
 							    <!-- ko foreach: {data: competencia, as: 'competencia'} -->
-							    <td class="text-center" data-bind="text: name"></td>
 							    <!-- /ko -->
 							    <td class="text-center">
 							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
