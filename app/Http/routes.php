@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/pdf', 'PdfController@invoice');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
     Route::get('/email/{id}', 'UserController@sendEmail');
+    Route::post('/emails/{id}', 'UserController@sendEmail');
 
     Route::Resource('prueba', 'PruebaController');
 });
