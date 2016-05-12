@@ -42,13 +42,14 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/encuestas/other_questions/{id}', 'OtherQuestionController@other_questions');
     Route::Resource('/encuestas/other_question', 'OtherQuestionController');
     Route::get('/allusers', 'UserController@allUser');
+    Route::get('/all_users_assign', 'UserController@allUserAssign');
     Route::Resource('/users_encuestas', 'UserController@users_encuesta');
     Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
     Route::get('/pdf', 'PdfController@invoice');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
-    Route::get('/email', 'UserController@sendEmail');
+    Route::get('/email/{id}', 'UserController@sendEmail');
 
     Route::Resource('prueba', 'PruebaController');
 });

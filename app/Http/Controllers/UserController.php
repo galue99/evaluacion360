@@ -199,6 +199,22 @@ class UserController extends Controller
     }
 
 
+    public function allUserAssign()
+    {
+        $users = DB::table('users')->where('idrol', '!=', 1)->select('users.firstname')->get();
+        $users = DB::table('users')->select(DB::raw('concat (firstname," ",lastname) as full_name,id'))->lists('full_name', 'id');
+        //dd($users);
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200,
+                'users' => $users
+            ]
+        ], 200);
+
+    }
+
+
     public function allUser()
     {
         $users = DB::table('users')->where('idrol', '!=', 1)->get();
@@ -343,10 +359,16 @@ class UserController extends Controller
     }
 
     public function sendEmail(){
-        Mail::raw('Laravel with Mailgun is easy!', function($message)
-        {
-            $message->to('edespinetti@gmail.com');
+
+        $user = User::find(2);
+        $data = $user;
+
+        Mail::send('email.email', ['user' => $user], function ($m) use ($user) {
+            $m->from('info@mejorar-se.com.ve', 'Evaluacion 360');
+
+            $m->to($user->email, $user->firstname)->subject('Credenciales');
         });
+
     }
 
 }
