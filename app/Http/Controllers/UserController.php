@@ -201,11 +201,6 @@ class UserController extends Controller
 
     public function allUserAssign()
     {
-        $users = DB::table('users')->where('idrol', '!=', 1)->select('users.firstname')->get();
-        $users = DB::table('users')->select(DB::raw('concat (firstname," ",lastname) as full_name'))->join('companys', 'companys.id', '=', 'users.company_id')->lists('full_name', 'id');
-        //$users = User::with('company')->select('users.firstname', 'users.lastname', 'companys.id')->get();
-        //dd($users);
-
         $users = DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
             ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')->get();
