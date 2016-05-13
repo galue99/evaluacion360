@@ -20,7 +20,7 @@ class ComportamientoController extends Controller
     public function index()
     {
         if (Request::isJson()) {
-            $comportamientos = Comportamiento::with('competencia')->get();;
+            $comportamientos = Comportamiento::with('competencia')->get();
             return Response::json($comportamientos);
        }else{
             return View('admin.comportamientos');
