@@ -286,7 +286,7 @@
                               <div class="col-xs-2 separate">
                                  <div class="form-group">
                                     <label class="label-control" data-bind="text: name">Usuario a nivel</label> </br>
-                                       <input data-bind="attr: {value: id, name: name}, checked: $root.formDataAssignUser().nivel" class="" type="radio" >
+                                       <input data-bind="attr: {value: id, name: name}, checked: $root.formDataAssignUser().nivel, checkedValue: $data.id" class="" type="radio" >
                                   </div>
                               </div>
                            <!-- /ko -->
