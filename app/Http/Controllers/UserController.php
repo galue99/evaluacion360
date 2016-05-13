@@ -199,11 +199,12 @@ class UserController extends Controller
     }
 
 
-    public function allUserAssign()
+    public function allUserAssign($id)
     {
         $users = DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')->get();
+            ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')
+            ->where('companys.id', '=', $id)->get();
 
         return Response::json([
             'Success' => [
