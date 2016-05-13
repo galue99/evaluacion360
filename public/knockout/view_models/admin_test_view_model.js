@@ -372,7 +372,7 @@ function AdminTestViewModel(){
    };
 
    self.getUserToAssign = function(){
-      user.allUser()
+      user.allUsersAssign()
       .done(function(response){
          self.users(response);
       });

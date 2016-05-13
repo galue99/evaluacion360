@@ -18,6 +18,15 @@ function Evaluadores(){
 			contentType: "application/json"
 		});
 	};
+	
+	self.allUsersAssign = function(){
+		return $.ajax({
+			url: '/admin/all_users_assign',
+			dataType: 'json',
+			method: 'GET',
+			contentType: "application/json"
+		});
+	};
 
 	self.create = function(data){
 		return $.ajax({
