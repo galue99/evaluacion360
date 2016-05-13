@@ -364,7 +364,7 @@ class UserController extends Controller
         $data = $user;
 
         Mail::send('email.email', ['user' => $user], function ($m) use ($user) {
-            $m->from('info@mejorar-se.com.ve', 'Evaluacion 360');
+            $m->from('info@mejorar-se.com.ve', ' Evaluacion 360 ');
 
             $m->to($user->email, $user->firstname)->subject('Credenciales');
         });
