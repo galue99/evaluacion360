@@ -203,6 +203,7 @@ class UserController extends Controller
     {
         $users = DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
             ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')
             ->where('companys.id', '=', $id)->get();
 
