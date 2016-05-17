@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/encuestas/details/{id}', 'EncuestaController@encuestas_details');
     Route::get('/encuesta_users/{id}', 'EncuestaController@encuesta_users');
     Route::get('/encuestas/other_questions/{id}', 'OtherQuestionController@other_questions');
+    Route::get('/user_encuesta', 'UserController@userEncuesta');
     Route::Resource('/encuestas/other_question', 'OtherQuestionController');
     Route::get('/allusers', 'UserController@allUser');
     Route::get('/all_users_assign/{id}', 'UserController@allUserAssign');
