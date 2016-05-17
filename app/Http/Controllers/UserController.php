@@ -360,6 +360,16 @@ class UserController extends Controller
 
     }
 
+    public function userEncuesta(){
+
+        $user = Encuesta::with('active', 'evaluadores')->get();
+
+        return $user;
+
+
+    }
+
+
     public function sendEmail(){
 
         $user = User::find(2);
@@ -370,7 +380,6 @@ class UserController extends Controller
 
             $m->to($user->email, $user->firstname)->subject('Credenciales');
         });
-
     }
 
 }
