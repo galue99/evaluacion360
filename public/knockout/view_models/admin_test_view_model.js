@@ -214,16 +214,12 @@ function AdminTestViewModel(){
 
    self.showAdminTest = ko.observable(false);
    self.testSelected = ko.observable();
-
    self.users = ko.observableArray();
    self.SameUsersCompany = ko.observableArray();
-   self.sameUsersCompanyCopy = ko.observable();
-   self.userSelected = ko.observable();
    self.levels = ko.observableArray();
    self.evaluados = ko.observableArray();
    self.evaluadores = ko.observableArray();
    self.usersTesters = ko.observable();
-   self.deleteUser = ko.observable(false);
    
 
    
@@ -309,6 +305,8 @@ function AdminTestViewModel(){
       $('#modalassignuser').modal('show');
       self.getUserToAssign();
       self.formDataAssignUser().id_encuesta(self.testSelected().id);
+      self.autoEvalAsigned(false);
+      self.autoEvalSelected(false);
    };
 
    //Metodo para cerrar el modal y cancelar la asignacion
@@ -328,77 +326,77 @@ function AdminTestViewModel(){
       self.formDataAssignUser().nivel(null);
       self.formDataAssignUser().evaluadores([]);
    };
-
-   //Metodo para reasigar los mismos usuarios al array de ofrma actualizada sacando los ya seleccionados
+   
+   self.autoEvalAsigned = ko.observable(false);
+   self.autoEvalSelected = ko.observable(false);
+  //Metodo para reasigar los mismos usuarios al array de ofrma actualizada sacando los ya seleccionados
    self.formDataAssignUser().nivel.subscribe(function(value){
       if(value == 5){
-         if(!self.deleteUser()){
-            self.SameUsersCompany(self.sameUsersCompanyCopy());
-         }else{
-            self.SameUsersCompany(self.SameUsersCompany());
-         }
-         var sameUser = self.SameUsersCompany().filter(function(user){
-            if(user.id == self.userSelected()){
-               return user.id == self.userSelected();
-            }
-         })
-      self.SameUsersCompany(sameUser);
+         console.log('autoevaluacion');
+         self.autoEvalSelected(true);
+         self.formDataAssignUser().evaluadores.push(self.formDataAssignUser().id_user());
       }else{
-         if(!self.deleteUser()){
-            self.SameUsersCompany(self.sameUsersCompanyCopy());
-         }else{
-            self.SameUsersCompany(self.SameUsersCompany());
-         }
-         var differentUser = self.SameUsersCompany().filter(function(user){
-            return  user.id != self.userSelected();
-         })
-      self.SameUsersCompany(differentUser);
+         self.autoEvalSelected(false);
+         self.formDataAssignUser().evaluadores([]);
+         self.SameUsersCompany(self.SameUsersCompany());
       }
-      
-      
    })
-   
+
    //Metodo para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(value){
-      if (self.formDataAssignUser().nivel()){
-         self.unSelectNivel();
-      }
-      self.userSelected(value);
+      self.autoEvalAsigned(false)
       self.getLevels();
       var company_id = null;
       if (value){
          var newUsers = self.users().filter(function(user){
             if (user.id == value){
-               company_id = user.company_id
-            }
-            return user;
-            // return  user.id == value;
-         });
-         var usuariosCompany = newUsers.filter(function(user){
+             company_id = user.company_id
+          }
+          return  user.id != value;
+       });
+      var usuariosCompany = newUsers.filter(function(user){
             return user.company_id == company_id
          });
       }
-      self.sameUsersCompanyCopy(usuariosCompany);
       self.SameUsersCompany(usuariosCompany);
-      
    });
 
-
+   
    //Metodo para Guardar la asignacion de los evaluados a los evaluadores y sus encuestas
-   self.saveAssignUserTest = function(data){
-      // console.log(ko.toJSON(self.formDataAssignUser()))
-      assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
-      .done(function(response){
-         self.deleteUser(true);
-         self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
-         self.unSelectNivel();
-         toastr.success('La asignacion de la encuesta se ha realizado con exito');
-         // self.clearFormAssignUser();
-         self.getUserAssignedToTest();
-      })
-      .fail(function(response){
-         toastr.error('Hubo un error al asignar la encuesta al usuario');
-      });
+   self.saveAssignUserTest = function(){
+      
+      if(self.autoEvalSelected()){
+         if(!self.autoEvalAsigned()){
+            assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
+            .done(function(response){
+               if(self.formDataAssignUser().id_user() == self.formDataAssignUser().evaluadores()[0]){
+                  self.autoEvalAsigned(true);
+               }else{
+                  self.autoEvalAsigned(false);   
+                  self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
+               }
+               self.unSelectNivel();
+               toastr.success('La asignacion de la encuesta se ha realizado con exito');
+               self.getUserAssignedToTest();
+            })
+            .fail(function(response){
+               toastr.error('Hubo un error al asignar la encuesta al usuario');
+            });
+         }else{
+            toastr.warning("Ya se ha realizado la asignacion de autoevaluacion");
+         }
+      }else{
+         assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
+            .done(function(response){
+               self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
+               self.unSelectNivel();
+               toastr.success('La asignacion de la encuesta se ha realizado con exito');
+               self.getUserAssignedToTest();
+            })
+            .fail(function(response){
+               toastr.error('Hubo un error al asignar la encuesta al usuario');
+            });
+      }
    };
 
    //Metodo para cerrar el modal de los usuarios evaluados asignados a un evaluador
