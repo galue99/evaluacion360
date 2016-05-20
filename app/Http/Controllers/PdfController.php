@@ -16,7 +16,10 @@ class PdfController extends Controller
      */
     public function index()
     {
-        //
+        $conv = new \Anam\PhantomMagick\Converter();
+        $conv->addPage('/home/edgar/PhpstormProjects/evaluacion360/resources/views/pdf/encuesta.blade.php')
+            ->toPdf()
+            ->download('Reporte.pdf');
     }
 
     /**

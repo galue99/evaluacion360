@@ -138,7 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         Barryvdh\DomPDF\ServiceProvider::class,
-        Bogardo\Mailgun\MailgunServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -147,6 +147,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Anam\PhantomMagick\ConverterServiceProvider',
 
     ],
 
@@ -197,8 +198,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
-        'Mailgun'   => Bogardo\Mailgun\Facades\Mailgun::class
-
+        'Converter' => 'Anam\PhantomMagick\Facades\Converter',
 
     ],
 
