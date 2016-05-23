@@ -24,7 +24,7 @@
 						<div class="col-xs-12 col-md-6 separate">
 						    <div class="form-group">
 						        <label class="label-control">Descripción</label>
-						        <textarea name="description" id="description" class="form-control" data-bind="textInput: formData().description"></textarea>
+						        <textarea name="description" id="description" class="form-control" data-bind="textInput: formData().definicion"></textarea>
 						    </div>
 						</div>
 						<div class="form-group col-xs-9 col-md-12 text-right">
