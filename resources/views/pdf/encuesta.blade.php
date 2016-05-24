@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset("/home/edgar/PhpstormProjects/evaluacion360/public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 <div class="cabecera">
     <div class="row">
         <div class="col-xs-2">
-            <img src="/images/logo/360.png" class="img-responsive" alt="">
+
+            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
         </div>
     </div>
 </div>
 <h1 class="title"><i class="fa fa-comments" aria-hidden="true"></i> Introdución</h1>
 <p class="text">
-    La Evaluación 3600 es un instrumento que sirve como apoyo para su desarrollo profesional y de carrera ya que identifica elementos claves sobre los cuales es posible fortalecer su desempeño, así como identificar los elementos que ya usted posee desarrollados y coloca al servicio de la organización.
+    La Evaluación 360 es un instrumento que sirve como apoyo para su desarrollo profesional y de carrera ya que identifica elementos claves sobre los cuales es posible fortalecer su desempeño, así como identificar los elementos que ya usted posee desarrollados y coloca al servicio de la organización.
     En este informe se muestran los resultados del proceso de Evaluación 3600, en el cual participaron usted y sus observadores de una manera estructurada y confidencial (a excepción de la evaluación de su jefe).
 </p>
 <div class="col-xs-12 content-text-gris">
@@ -34,6 +36,7 @@
 <p class="text">
     El conjunto de competencias contenidas en este informe fueron desarrolladas y seleccionadas específicamente por la alta dirección de la organización donde labora, tratando de reflejar la manera como la organización espera cumplir sus objetivos estratégicos; es por esto que es importante su total compromiso frente a esta evaluación, y frente a las acciones posteriores que apoyarán su capacitación y desarrollo.
 </p>
+<div class="separate" style="height: 130px;"></div>
 <h1 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> Contenido</h1>
 <table class="table table-no-bordered">
     <tr>
@@ -107,7 +110,7 @@
         <td>Es la evaluación que el evaluado hace sobre sí mismo.</td>
     </tr>
 </table>
-<table class="table-no-bordered">
+<table class="table-no-bordered" width="100%">
     <tr>
         <td></td>
         <td></td>
@@ -143,10 +146,7 @@
     </tr>
 </table>
 
-<div class="separate" style="height: 400px;"></div>
-
-
-<div class="saltopagina"></div>
+<div class="separate" style="height: 250px;"></div>
 
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
 <h2 class="fringe">
@@ -156,16 +156,17 @@
 <p class="text">Capacidad para colaborar con los demás, cumpliendo con sus plazos y responsabilidades para no afectar los plazos de sus compañeros y los resultados del equipo. Implica tener empatía, escuchar a los demás y valorar sus opiniones, ayudando a motivar al equipo y a alcanzar los objetivos alineados a la visión organizacional. Así como integrar a los nuevos empleados favoreciendo un ambiente y espíritu de trabajo en equipo.</p>
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Integridad y Ética</h1>
 <p class="text">Capacidad para comportarse de acuerdo a los valores y lineamientos de la empresa, con un trato directo, sincero, honesto y respetuoso hacia los demás. Implica demostrar responsabilidad frente a los propios actos y mantener la confidencialidad.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Enfoque en resultadosa</h1>
+<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Enfoque en resultados</h1>
 <p class="text">Capacidad para orientar los comportamientos propios y/o de otros hacia el logro de metas, estableciendo objetivos, medibles y alcanzables, y obteniendo resultados. Implica saber fijar prioridades en las tareas y superar obstáculos, así como establecer y asumir responsabilidades.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Mejora Continua</h1>
+<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Mejora Continúa</h1>
 <p class="text">Capacidad de aplicar mejoras constantes al proceso y/o producto en búsqueda de la excelencia, prestando atención a los detalles y la precisión, proponiendo iniciativas de mejora, controlando los niveles de calidad, identificando la causa-raíz de los problemas y procediendo a solucionarlos.</p>
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Comunicación</h1>
 <p class="text">Capacidad para comunicarse eficazmente de forma clara, precisa y con respeto, proporcionando informes precisos y puntuales, y compartiendo información e ideas con los demás. Implica saber escuchar.</p>
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Iniciativa (Gente Ganadora)</h1>
 <p class="text">Capacidad para actuar proactivamente con el objetivo de crear, innovar e implementar acciones, en un ambiente multicultural, con resultados superiores a los esperados. Implica ser un agente de cambio comprometido con los objetivos organizacionales.</p>
-<div class="separate" style="height: 50px;"></div>
+<div class="separate" style="height: 20px;"></div>
 
+<div class="separate" style="height: 50px;"></div>
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
 <h2 class="fringe">
     DEL CARGO
@@ -181,10 +182,26 @@
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Productividad</h1>
 <p class="text">Capacidad para administrar la carga de trabajo de forma eficiente con enfoque en la mejora continua, fijando prioridades en las tareas y asegurando el cumplimiento de los procedimientos de trabajo. Implica gestionar bien el tiempo y el flujo de información.</p>
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Gestión de Personal</h1>
-<p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborativa</p>
+<p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborati.va</p>
+
 <div class="separate" style="height: 50px;"></div>
+<div id="container" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
+
+<div class="separate" style="height: 50px;"></div>
+<div id="container1" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
+
+<div class="separate" style="height: 50px;"></div>
+<div class="container2" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
+
+<div class="separate" style="height: 50px;"></div>
+<div class="container3" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
+
 </body>
+
 <style>
+    body{
+        font-size: 14px;
+    }
     .separate{
         min-height: 10px;
         width: 100%;
@@ -194,11 +211,11 @@
         color: #fff;
         text-align: center;
         padding: 4px 0;
-        font-size: 1.5em;
+        font-size: 1em;
     }
     .fringe-status{
         height: 20px;
-        width: 400px;
+        width: 100px;
         background-color: #F8F3E4;
         border: solid 1px;
         margin: 4px;
@@ -222,12 +239,15 @@
         padding-bottom: 5px;
     }
     h1.title{
-        font-size: 1.4em;
+        font-size: 1.2em;
         color: #4D4D4D;
     }
     h1.title i{
-        font-size: 1.2em;
+        font-size: 1.1em;
         color: #EF8E00;
+    }
+    p{
+        font-size: 12px;
     }
     p.text{
         color: #222222;
@@ -276,4 +296,207 @@
         }
     }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+<script>
+
+    $(function () {
+        // Create the chart
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Browser market shares. January, 2015 to May, 2015'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }]
+            }]
+        });
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Browser market shares. January, 2015 to May, 2015'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }]
+            }]
+        });
+        $('.container2').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Browser market shares. January, 2015 to May, 2015'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }]
+            }]
+        });
+        $('.container3').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Browser market shares. January, 2015 to May, 2015'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }]
+            }]
+        });
+    });
+</script>
 </html>

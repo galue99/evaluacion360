@@ -14,6 +14,11 @@ class PdfController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index1()
+    {
+        return View('pdf.encuesta');
+    }
+
     public function index()
     {
         $conv = new \Anam\PhantomMagick\Converter();

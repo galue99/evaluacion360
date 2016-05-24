@@ -15,6 +15,8 @@ Route::Resource('/', 'AuthController');
 Route::Resource('/login', 'AuthController');
 Route::Resource('/users', 'UserController');
 Route::get('/details_answers/{id}', 'EncuestaController@encuestas_respuesta');
+Route::get('/details', 'PdfController@index1');
+
 
 
 Route::group(['middleware' => 'auth'], function () {
