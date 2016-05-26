@@ -8,9 +8,11 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
-        "barryvdh/laravel-dompdf": "0.6.*",
+        "maatwebsite/excel": "~2.1.0",
         "anam/phantommagick": "^1.0",
-        "anam/phantomjs-linux-x86-binary": "^2.1"
+        "anam/phantomjs-linux-x86-binary": "^2.1",
+        "barryvdh/laravel-dompdf": "0.6.*",
+        "khill/lavacharts" : "3.0.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

@@ -137,7 +137,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
-        Barryvdh\DomPDF\ServiceProvider::class,
 
 
         /*
@@ -148,7 +147,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         'Anam\PhantomMagick\ConverterServiceProvider',
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider"
     ],
 
     /*
@@ -199,6 +200,8 @@ return [
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
         'Converter' => 'Anam\PhantomMagick\Facades\Converter',
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF' => 'Barryvdh\DomPDF\Facade',
 
     ],
 

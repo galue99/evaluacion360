@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link href="{{ asset("/home/edgar/PhpstormProjects/evaluacion360/public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 </head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Mushrooms', 3],
+            ['Onions', 1],
+            ['Olives', 1],
+            ['Zucchini', 1],
+            ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+            'width':400,
+            'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
 <body>
 <div class="cabecera">
     <div class="row">
@@ -183,18 +217,10 @@
 <p class="text">Capacidad para administrar la carga de trabajo de forma eficiente con enfoque en la mejora continua, fijando prioridades en las tareas y asegurando el cumplimiento de los procedimientos de trabajo. Implica gestionar bien el tiempo y el flujo de información.</p>
 <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Gestión de Personal</h1>
 <p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborati.va</p>
+<div id="chart_div"></div>
 
-<div class="separate" style="height: 50px;"></div>
-<div id="container" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
-
-<div class="separate" style="height: 50px;"></div>
-<div id="container1" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
-
-<div class="separate" style="height: 50px;"></div>
-<div class="container2" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
-
-<div class="separate" style="height: 50px;"></div>
-<div class="container3" style="max-width: 300px; max-height: 400px; margin: 0 auto"></div>
+<div id="poll_div"></div>
+{!! $lava->render('BarChart', 'Votes', 'poll_div') !!}
 
 </body>
 
@@ -296,207 +322,4 @@
         }
     }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-
-<script>
-
-    $(function () {
-        // Create the chart
-        $('#container').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Browser market shares. January, 2015 to May, 2015'
-            },
-            xAxis: {
-                type: 'category'
-            },
-            yAxis: {
-                title: {
-                    text: 'Total percent market share'
-                }
-
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-            },
-
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33,
-                    drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    drilldown: 'Chrome'
-                }]
-            }]
-        });
-        $('#container1').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Browser market shares. January, 2015 to May, 2015'
-            },
-            xAxis: {
-                type: 'category'
-            },
-            yAxis: {
-                title: {
-                    text: 'Total percent market share'
-                }
-
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-            },
-
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33,
-                    drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    drilldown: 'Chrome'
-                }]
-            }]
-        });
-        $('.container2').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Browser market shares. January, 2015 to May, 2015'
-            },
-            xAxis: {
-                type: 'category'
-            },
-            yAxis: {
-                title: {
-                    text: 'Total percent market share'
-                }
-
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-            },
-
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33,
-                    drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    drilldown: 'Chrome'
-                }]
-            }]
-        });
-        $('.container3').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Browser market shares. January, 2015 to May, 2015'
-            },
-            xAxis: {
-                type: 'category'
-            },
-            yAxis: {
-                title: {
-                    text: 'Total percent market share'
-                }
-
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.y:.1f}%'
-                    }
-                }
-            },
-
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-            },
-
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33,
-                    drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    drilldown: 'Chrome'
-                }]
-            }]
-        });
-    });
-</script>
 </html>
