@@ -138,7 +138,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         Barryvdh\DomPDF\ServiceProvider::class,
-        Bogardo\Mailgun\MailgunServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -197,7 +196,6 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
-        'Mailgun'   => Bogardo\Mailgun\Facades\Mailgun::class
 
 
     ],

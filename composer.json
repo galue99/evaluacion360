@@ -8,8 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
-        "barryvdh/laravel-dompdf": "0.6.*",
-        "bogardo/mailgun": "4.0.*"
+        "barryvdh/laravel-dompdf": "0.6.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
