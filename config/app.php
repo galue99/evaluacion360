@@ -147,7 +147,10 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        'Anam\PhantomMagick\ConverterServiceProvider',
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider"
     ],
 
     /*

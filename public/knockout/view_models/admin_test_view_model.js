@@ -6,12 +6,12 @@ function AdminTestViewModel(){
    var level = new Level();
    var otherq = new OtherQuestion();
    var competencia = new Competencias();
-
+   var answersDefault = ['Nunca', 'Rara Vez', 'A veces', 'Casi Siempre', 'Siempre'];
 
    self.competencias = ko.observableArray();
    self.competenciaSelected = ko.observable();
    self.currentCompetencia = ko.observable();
-   
+   self.detailsTest = ko.observableArray();
    self.showFormTest = ko.observable(false);
    self.showFormAdminTest = ko.observable(false);
    self.formCompany = ko.observable(false);
@@ -43,11 +43,12 @@ function AdminTestViewModel(){
          if ( compor.active() ){
             self.formData().items()[self.formData().items().length-1].frases.push({
             name: ko.observable(compor.name),
-            answers: ko.observableArray()
+            answers: ko.observableArray(answersDefault.map(function(answer){
+               return {name: ko.observable(answer)}
+            }))
             })
          }
       })
-      // console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
@@ -131,6 +132,18 @@ function AdminTestViewModel(){
 				});
 			});
    }
+   
+   self.toggleModalTestDetails = function(){
+      $('#modalDetailsTest').modal('toggle');
+   }
+   
+   self.viewTest = function(data){
+      test.ViewDetails(data.id)
+      .done(function(response){
+         self.toggleModalTestDetails();
+         self.detailsTest(response);
+      })
+   }
 
    self.clearFormTest = function(){
       self.formData({
@@ -158,7 +171,6 @@ function AdminTestViewModel(){
    };
 
    self.addFrase = function(data){
-      console.log(data);
       data.frases.push({
          name: ko.observable(), answers: ko.observableArray()
       });
@@ -169,9 +181,11 @@ function AdminTestViewModel(){
       if (!data.name()){
          toastr.warning('Introduzca el nombre de la pregunta');
       }else{
+         
          data.answers.push({
-            name: ko.observable(),
-         });
+            name: ko.observable()
+         })
+         
       }
 
    };
@@ -203,10 +217,14 @@ function AdminTestViewModel(){
 
    self.users = ko.observableArray();
    self.SameUsersCompany = ko.observableArray();
+   self.sameUsersCompanyCopy = ko.observable();
+   self.userSelected = ko.observable();
    self.levels = ko.observableArray();
    self.evaluados = ko.observableArray();
    self.evaluadores = ko.observableArray();
-   self.usersTesters = ko.observable()
+   self.usersTesters = ko.observable();
+   self.deleteUser = ko.observable(false);
+   
 
    
 
@@ -313,25 +331,56 @@ function AdminTestViewModel(){
 
    //Metodo para reasigar los mismos usuarios al array de ofrma actualizada sacando los ya seleccionados
    self.formDataAssignUser().nivel.subscribe(function(value){
-      self.SameUsersCompany(self.SameUsersCompany());
+      if(value == 5){
+         if(!self.deleteUser()){
+            self.SameUsersCompany(self.sameUsersCompanyCopy());
+         }else{
+            self.SameUsersCompany(self.SameUsersCompany());
+         }
+         var sameUser = self.SameUsersCompany().filter(function(user){
+            if(user.id == self.userSelected()){
+               return user.id == self.userSelected();
+            }
+         })
+      self.SameUsersCompany(sameUser);
+      }else{
+         if(!self.deleteUser()){
+            self.SameUsersCompany(self.sameUsersCompanyCopy());
+         }else{
+            self.SameUsersCompany(self.SameUsersCompany());
+         }
+         var differentUser = self.SameUsersCompany().filter(function(user){
+            return  user.id != self.userSelected();
+         })
+      self.SameUsersCompany(differentUser);
+      }
+      
+      
    })
-
+   
    //Metodo para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(value){
+      if (self.formDataAssignUser().nivel()){
+         self.unSelectNivel();
+      }
+      self.userSelected(value);
       self.getLevels();
       var company_id = null;
       if (value){
          var newUsers = self.users().filter(function(user){
             if (user.id == value){
-             company_id = user.company_id
-          }
-          return  user.id != value;
-       });
-      var usuariosCompany = newUsers.filter(function(user){
+               company_id = user.company_id
+            }
+            return user;
+            // return  user.id == value;
+         });
+         var usuariosCompany = newUsers.filter(function(user){
             return user.company_id == company_id
          });
       }
+      self.sameUsersCompanyCopy(usuariosCompany);
       self.SameUsersCompany(usuariosCompany);
+      
    });
 
 
@@ -340,6 +389,7 @@ function AdminTestViewModel(){
       // console.log(ko.toJSON(self.formDataAssignUser()))
       assignTest.AssignUserTest(ko.toJSON(self.formDataAssignUser()))
       .done(function(response){
+         self.deleteUser(true);
          self.SameUsersCompany().splice(self.formDataAssignUser().id_user, 1);
          self.unSelectNivel();
          toastr.success('La asignacion de la encuesta se ha realizado con exito');
@@ -361,13 +411,16 @@ function AdminTestViewModel(){
       level.all()
       .done(function(response){
          self.levels(response);
-         // console.log(response);
       })
    };
 
    self.getUserToAssign = function(){
       user.allUser()
       .done(function(response){
+         response = response.map(function(user){
+            user.fullname = user.firstname + ' ' + user.lastname;
+            return user;
+         })
          self.users(response);
       });
    };

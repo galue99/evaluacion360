@@ -6,7 +6,6 @@ function EvaluadoresViewModel(){
 
 	//arrays para datos
 	self.evaluadores = ko.observableArray();
-	self.roles = ko.observableArray();
 	self.companies = ko.observableArray();
 	self.selectedEvaluadores = ko.observable();
 	self.updateEvaluadores = ko.observable(false);
@@ -23,7 +22,6 @@ function EvaluadoresViewModel(){
 		position: ko.observable(),
 		company_id: ko.observable(),
 		branch_office: ko.observable(),
-		idrol: ko.observable(),
 		is_active: ko.observable()
 	});
 
@@ -44,14 +42,6 @@ function EvaluadoresViewModel(){
 			self.companies(response);
 		});
 	};
-
-	//funcion para obtener roles
-	self.getRoles = function(){
-		miscelaneo.allRoles()
-		.done(function(response){
-			self.roles(response);
-		});
-	};
 	
 	//para limpiar el formulario
 	self.clearForm = function(){
@@ -64,7 +54,6 @@ function EvaluadoresViewModel(){
 			position: ko.observable(),
 			company_id: ko.observable(),
 			branch_office: ko.observable(),
-			idroluser: ko.observable(),
 			is_active: ko.observable(),
 			password: ko.observable()
 		});
@@ -149,9 +138,6 @@ function EvaluadoresViewModel(){
 
 	//Obteniendo evaluadores(users)
 	self.getEvaluadores();
-
-	//Obteniendo roles de usuarios
-	self.getRoles();
 
 	//obteniendo empresas
 	self.getCompanies();

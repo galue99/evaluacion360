@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::Resource('/niveles', 'NivelesController');
     Route::Resource('/comportamientos', 'ComportamientoController');
     Route::get('/competencias_comportamientos', 'CompetenciasController@competencias_comportamientos');
-    Route::Resource('/competencias', 'CompetenciasController');
+    Route::Resource('/competencias', 'CompetenciasController');Route::Resource('/competencias', 'CompetenciasController');
     Route::get('/all_companys', 'CompanyController@allCompanys');
     Route::get('/assing_users', 'EncuestaController@assing_user');
     Route::get('/details_answers/{id}', 'EncuestaController@encuestas_respuesta');
@@ -40,15 +40,19 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/encuestas/details/{id}', 'EncuestaController@encuestas_details');
     Route::get('/encuesta_users/{id}', 'EncuestaController@encuesta_users');
     Route::get('/encuestas/other_questions/{id}', 'OtherQuestionController@other_questions');
+    Route::get('/user_encuesta', 'UserController@userEncuesta');
     Route::Resource('/encuestas/other_question', 'OtherQuestionController');
     Route::get('/allusers', 'UserController@allUser');
+    Route::get('/all_users_assign/{id}', 'UserController@allUserAssign');
     Route::Resource('/users_encuestas', 'UserController@users_encuesta');
     Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
-    Route::get('/pdf', 'PdfController@invoice');
+    Route::Resource('/pdf', 'PdfController');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
-    
+    Route::get('/email/{id}', 'UserController@sendEmail');
+    Route::post('/emails/{id}', 'UserController@sendEmail');
+
     // Snapp pdf
     Route::get ('/github', 'PdfController@github');
 

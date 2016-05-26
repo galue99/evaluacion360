@@ -79,15 +79,18 @@ class EncuestadoController extends Controller
         $user_encuestas->save();
 
         $otherAnswers = $request->only('otherQuestion');
-        foreach ($otherAnswers as $clave2){
-            for($j=0; $j<count($clave2); $j++){
-                $otherAnswer = new OtherQuestionAnswer();
-                $otherAnswer->answers = $clave2[$j]['OtherQ_answer'];
-                $otherAnswer->others_questions_id = $clave2[$j]['OtherQ_id'];
-                $otherAnswer->users_answers_id = Session::get('users_encuestas_id');
-                $otherAnswer->save();
+
+            foreach ($otherAnswers as $clave2){
+                for($j=0; $j<count($clave2); $j++){
+                    if(isset($clave2[$j]['OtherQ_answer'])){
+                        $otherAnswer = new OtherQuestionAnswer();
+                        $otherAnswer->answers = $clave2[$j]['OtherQ_answer'];
+                        $otherAnswer->others_questions_id = $clave2[$j]['OtherQ_id'];
+                        $otherAnswer->users_answers_id = Session::get('users_encuestas_id');
+                        $otherAnswer->save();
+                    }
+                }
             }
-        }
         return Response::json([
             'Success' => [
                 'message'     => 'Record Save Exits',

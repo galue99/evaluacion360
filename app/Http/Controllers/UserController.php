@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Encuesta;
 use App\UserEncuesta;
 use Request;
+use Mail;
 
 use App\Http\Requests;
 use App\User;
@@ -61,7 +62,7 @@ class UserController extends Controller
 
         $user->firstname      = Request::input('firstname');
         $user->lastname       = Request::input('lastname');
-        $user->idrol          = Request::input('idrol');
+        $user->idrol          = 2;
         $user->email          = Request::input('email');
         $user->password   = Hash::make($random_quote);
         $user->repassword = $random_quote;
@@ -198,6 +199,24 @@ class UserController extends Controller
     }
 
 
+    public function allUserAssign($id)
+    {
+        $users = DB::table('users')
+            ->join('companys', 'companys.id', '=', 'users.company_id')
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')
+            ->where('companys.id', '=', $id)->get();
+
+        return Response::json([
+            'Success' => [
+                'status_code' => 200,
+                'users' => $users
+            ]
+        ], 200);
+
+    }
+
+
     public function allUser()
     {
         $users = DB::table('users')->where('idrol', '!=', 1)->get();
@@ -328,6 +347,8 @@ class UserController extends Controller
         $encuesta_id  = $user['encuesta_id'];
 
         $evaluador = UserEncuesta::where('evaluador_id', '=', $evaluador_id)->where('encuesta_id', '=', $encuesta_id)->first();
+
+        //return $evaluador;
         $evaluador->delete();
 
         return Response::json([
@@ -337,6 +358,28 @@ class UserController extends Controller
             ]
         ], 200);
 
+    }
+
+    public function userEncuesta(){
+
+        $user = Encuesta::with('active', 'evaluadores')->get();
+
+        return $user;
+
+
+    }
+
+
+    public function sendEmail(){
+
+        $user = User::find(2);
+        $data = $user;
+
+        Mail::send('email.email', ['user' => $user], function ($m) use ($user) {
+            $m->from('info@mejorar-se.com.ve', ' Evaluacion 360 ');
+
+            $m->to($user->email, $user->firstname)->subject('Credenciales');
+        });
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Competencia;
 use App\Comportamiento;
 use Request;
 use App\Http\Requests;
@@ -19,7 +20,7 @@ class ComportamientoController extends Controller
     public function index()
     {
         if (Request::isJson()) {
-            $comportamientos = Comportamiento::with('competencia')->get();;
+            $comportamientos = Comportamiento::with('competencia')->get();
             return Response::json($comportamientos);
        }else{
             return View('admin.comportamientos');
@@ -65,9 +66,10 @@ class ComportamientoController extends Controller
      */
     public function show($id)
     {
-        $comportamientos = Comportamiento::find($id);
+        $comportamientos = Competencia::with('comportamiento')->find($id);
 
         return $comportamientos;
+
     }
 
     /**

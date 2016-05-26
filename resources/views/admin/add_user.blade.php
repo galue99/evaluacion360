@@ -59,12 +59,6 @@
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
-				            	<label class="label-control">Rol</label>
-				                <select class="form-control" name="idroluser" id="idroluser" data-bind="optionsCaption: 'Seleccione un rol', options: roles, optionsText: 'name', optionsValue: 'idroluser', textInput: formData().idrol" ></select>
-						    </div>
-						</div>
-						<div class="col-xs-12 col-md-4 separate">
-						    <div class="form-group">
 						    <label for="">Estado</label>
 						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
                 				<label for="status"></label>

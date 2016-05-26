@@ -49,6 +49,7 @@ function testViewModel(){
           confirmButtonText: "Continuar",
           closeOnConfirm: true },
              function(){
+               console.log('otras preguntas');
               self.openModalOtherQ();
             });
         }else{
@@ -142,7 +143,6 @@ function testViewModel(){
 
 		encuesta.find()
 		.done(function(response){
-      self.nameTest(response.name);
       self.testId(response.id);
 			//Coloco los items dentro de un observable
 			self.items(response.items);
@@ -173,7 +173,7 @@ function testViewModel(){
 			//Coloco los items dentro de un observable
 			self.items(response.items);
 			//establezco el primer item
-			//self.currentItem(self.items()[0]);
+			self.currentItem(self.items()[0]);
 		});
 	};
 

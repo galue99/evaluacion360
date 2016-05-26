@@ -6,7 +6,7 @@
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
-					Comportamientos
+					Competencias y sus comportamientos
 				</h3>
 			</div>
 			<div class="box-body">
@@ -38,34 +38,55 @@
 				<!-- Form Competencias -->
 				
 				<div class="table-responsive">
-					<table id="" class="table table-bordered table-hover">
+					<table class="table table-bordered table-hover" data-bind="visible: !tableComportamientos()">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">Comportamiento</th>
-								<th class="col-xs-2 text-center">Competencia</th>
-								<th class="col-xs-2 text-center">Acciones</th>
+								<th class=" text-center">Competencia</th>
+								<th class=" text-center">Descripcion</th>
+								<th class=" text-center">Ver Comportamientos</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: {data: comportamientos, as: 'comportamiento'}">
+						<tbody data-bind="foreach: competencias">
 							<tr>
 								<td class="text-center" data-bind="text: name" ></td>
-							    <!-- ko foreach: {data: competencia, as: 'competencia'} -->
-							    <td class="text-center" data-bind="text: name"></td>
-							    <!-- /ko -->
+							    <td class="text-center" data-bind="text: definicion"></td>
+							    <td class="text-center"><i class="fa fa-eye pointer fa-blue" data-bind="click: $root.toggleBox"></i></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<table class="table table-bordered table-hover" data-bind="visible: tableComportamientos">
+						<thead>
+						    <tr>
+								<th class=" text-center">Comportamientos</th>
+								<th class=" text-center">Acciones</th>
+						    </tr>
+						</thead>
+						<!-- ko if: competenciaSeleted --> 
+						<tbody data-bind="foreach: competenciaSeleted().comportamientos">
+							<tr>
+								<td class="text-center" data-bind="text: name"></td>
 							    <td class="text-center">
-							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
+							    	<i class="fa fa-eye fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeComportamientos"></i>
 							    </td>
 							</tr>
 						</tbody>
-					</table>					
+						<!--/ko-->
+					</table>
+					
 				</div>
+				
+				
 
 			</div>
 			<div class="box-footer">
-				
+				<!--ko if: tableComportamientos -->
+				<button class="btn btn-danger" data-bind="click: toggleBox"><span class="fa fa-arrow-left"></span> Atras</button>
+				<!--/ko-->
 			</div>
 		</div>
+		
 	</div>
 </div>
 @stop
