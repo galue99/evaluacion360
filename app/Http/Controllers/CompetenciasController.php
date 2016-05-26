@@ -123,7 +123,7 @@ class CompetenciasController extends Controller
     {
         $compentencia = Competencia::findOrFail($id);
         $compentencia->name = Request::input('name');
-        $compentencia->definicion = Request::input('description');
+        $compentencia->definicion = Request::input('definicion');
         $compentencia->save();
 
         return Response::json([

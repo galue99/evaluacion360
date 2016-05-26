@@ -290,9 +290,10 @@
                                   </div>
                               </div>
                            <!-- /ko -->
-                           <div class="col-xs-12" data-bind="if: formDataAssignUser().nivel">
+                           <div class="col-xs-12" data-bind="if: formDataAssignUser().nivel, visible: !autoEvalSelected()">
                               <h4>Seleccione los evaluadores</h4>
                            </div>
+                           <!--ko if: !autoEvalSelected() -->
                            <!-- ko foreach: SameUsersCompany -->
                               <div class="col-xs-4" data-bind="if: $root.formDataAssignUser().nivel">
                                  <div class="form-group">
@@ -301,6 +302,12 @@
                                     <label data-bind="attr: {for: firstname}"></label>
                                  </div>
                               </div>
+                           <!-- /ko -->
+                           <!-- /ko -->
+                           <!-- ko if: autoEvalSelected -->
+                               <div class="col-xs-12">
+                                  <h4>Ha seleccionado autoevaluacion, haga click en asigar para asigar la encuesta</h4>
+                               </div>
                            <!-- /ko -->
                         </form>
                      </div>

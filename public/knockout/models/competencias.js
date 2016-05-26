@@ -59,5 +59,14 @@ function Competencias(){
 			contentType: "application/json"
 		});
 	};
+	
+	self.competenciasComportamientos = function(){
+		return $.ajax({
+			url: '/admin/competencias_comportamientos',
+			dataType: 'json',
+			method: 'GET',
+			contentType: "application/json"
+		});
+	}
 
 }

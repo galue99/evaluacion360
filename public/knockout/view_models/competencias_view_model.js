@@ -10,7 +10,7 @@ function CompetenciasViewModel(){
 
 	self.formData = ko.observable({
 		name: ko.observable(),
-		description: ko.observable()
+		definicion: ko.observable()
 	});
 
 
@@ -25,7 +25,7 @@ function CompetenciasViewModel(){
 	self.clearForm = function(){
 		self.formData({
 			name: ko.observable(),
-			description: ko.observable()
+			definicion: ko.observable()
 		});
 		jQuery('#formCompetencia').validate().resetForm();
 	};
@@ -73,10 +73,10 @@ function CompetenciasViewModel(){
 	self.editCompetencias = function(data){
 		competencia.find(data.id)
 		.done(function(response){
+			self.formData(response);
 			self.updateCompetencia(true);
 			self.toggleForm();
 			self.getCompetencias();
-			self.formData(response);
 		});
 	};
 

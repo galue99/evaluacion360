@@ -3,7 +3,9 @@ function ComportamientosViewModel(){
 	var comportamiento = new Comportamientos();
 	var competencia = new Competencias();
 
-	//arrays para datos
+	
+	self.tableComportamientos = ko.observable(false);
+	
 	self.comportamientos = ko.observableArray();
 	self.competencias = ko.observableArray();
 	self.competenciasCompor = ko.observableArray();
@@ -22,17 +24,18 @@ function ComportamientosViewModel(){
 	};
 
 
-	self.getComportamientos = function(){
-		comportamiento.all()
-		.done(function(response){
-			self.comportamientos(response);
-		});
-	};
-
 	self.getCompetencias = function(){
-		competencia.all()
+		competencia.competenciasComportamientos()
 		.done(function(response){
 			self.competencias(response);
+			
+			self.competencias().map(function(competencia){
+				
+				competencia.comportamientos = ko.observableArray(competencia.comportamiento);
+				
+				return competencia;
+			});
+			
 		});
 	};
 
@@ -46,6 +49,7 @@ function ComportamientosViewModel(){
 
 	self.toggleForm = function(){
 		self.showForm(!self.showForm());
+		self.tableComportamientos(false);
 	};
 
 	self.cancel = function(){
@@ -60,7 +64,7 @@ function ComportamientosViewModel(){
 			.done(function(response){
 				self.clearForm();
 				self.toggleForm();
-				self.getComportamientos();
+				self.getCompetencias();
 				toastr.success('El comportamiento fue guardada exitosamene');
 			})
 			.fail(function(response){
@@ -72,7 +76,7 @@ function ComportamientosViewModel(){
 					self.clearForm();
 					self.toggleForm();
 					self.updateComportamiento(false);
-					self.getComportamientos();
+					self.getCompetencias();
 					toastr.info('Comportamiento actualizado con exito');	
 				})
 				.fail(function(response){
@@ -86,9 +90,11 @@ function ComportamientosViewModel(){
 
 	//buscamos el usuario para luego editarlo
 	self.editComportamientos = function(data){
-		comportamiento.find(data.id)
+		console.log(data)
+		comportamiento.find(data.competencia_id)
 		.done(function(response){
-			self.formData(response);
+			console.log(response);
+			self.formData(data);
 			self.updateComportamiento(true);
 			self.toggleForm();
 		});
@@ -107,12 +113,18 @@ function ComportamientosViewModel(){
 				comportamiento.destroy(data.id)
 				.done(function(response){
 					toastr.info('Comportamiento removido con exito');
-					self.comportamientos.remove(data);
+					self.competenciaSeleted().comportamientos.remove(data);
 				});
 			});
 	};
+	
+	self.competenciaSeleted = ko.observableArray();
+	//Toggle de box
+	self.toggleBox = function(data){
+		self.tableComportamientos(!self.tableComportamientos());
+		self.competenciaSeleted(data);
+	};
 
-	self.getComportamientos();
 	
 	self.getCompetencias();
 

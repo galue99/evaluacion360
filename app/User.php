@@ -55,7 +55,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function evaluador()
     {
-        return $this->hasMany('App\User', 'App\Encuestado', 'evaluado_id', 'id');
+        return $this->hasMany('App\User', 'App\Encuestado', 'evaluador_id', 'id');
     }
 
 

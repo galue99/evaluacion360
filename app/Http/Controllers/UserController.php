@@ -199,11 +199,13 @@ class UserController extends Controller
     }
 
 
-    public function allUserAssign()
+    public function allUserAssign($id)
     {
         $users = DB::table('users')
             ->join('companys', 'companys.id', '=', 'users.company_id')
-            ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')->get();
+            ->join('users_encuestas', 'users.id', '=', 'users_encuestas.user_id')
+            ->select(DB::raw('concat (firstname," ",lastname) as full_name'), 'companys.*')
+            ->where('companys.id', '=', $id)->get();
 
         return Response::json([
             'Success' => [
@@ -358,6 +360,16 @@ class UserController extends Controller
 
     }
 
+    public function userEncuesta(){
+
+        $user = Encuesta::with('active', 'evaluadores')->get();
+
+        return $user;
+
+
+    }
+
+
     public function sendEmail(){
 
         $user = User::find(2);
@@ -368,7 +380,6 @@ class UserController extends Controller
 
             $m->to($user->email, $user->firstname)->subject('Credenciales');
         });
-
     }
 
 }
