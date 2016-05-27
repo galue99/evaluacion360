@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link href="{{ asset("/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="cabecera">

@@ -140,6 +140,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -147,10 +148,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Anam\PhantomMagick\ConverterServiceProvider',
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-        "Khill\Lavacharts\Laravel\LavachartsServiceProvider"
+
     ],
 
     /*

@@ -11,7 +11,7 @@
 |
 */
 Route::Resource('/', 'AuthController');
-
+Route::get('/details', 'PdfController@index1');
 Route::Resource('/login', 'AuthController');
 Route::Resource('/users', 'UserController');
 Route::get('/details_answers/{id}', 'EncuestaController@encuestas_respuesta');
@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
-    Route::Resource('/pdf', 'PdfController');
+    Route::get('/pdf', 'PdfController@index');
+    Route::get('/pdf/github', 'PdfController@github');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
     Route::get('/email/{id}', 'UserController@sendEmail');
     Route::post('/emails/{id}', 'UserController@sendEmail');

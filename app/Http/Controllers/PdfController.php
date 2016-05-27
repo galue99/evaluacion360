@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Anam\PhantomMagick\Converter;
+
 use App\User;
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Maatwebsite\Excel\Facades\Excel;
+
 
 class PdfController extends Controller
 {
     public function github (){
         // return \PDF::loadFile('http://www.github.com')->stream('github.pdf'); 
-        return \PDF::loadView('pdf.reporte-general')->stream('evaluacion360.pdf');
-        
+        //return \PDF::loadFile('http://www.github.com')->stream('github.pdf');
+        return \PDF::loadFile('http://mejorar-se.com.ve/details')->stream('details.pdf');
+
     }
     /**
      * Display a listing of the resource.
@@ -25,20 +26,7 @@ class PdfController extends Controller
      */
     public function index1()
     {
-        $lava = new Lavacharts; // See note below for Laravel
-
-        $votes  = $lava->DataTable();
-
-        $votes->addStringColumn('Food Poll')
-            ->addNumberColumn('Votes')
-            ->addRow(['Tacos',  rand(1000,5000)])
-            ->addRow(['Salad',  rand(1000,5000)])
-            ->addRow(['Pizza',  rand(1000,5000)])
-            ->addRow(['Apples', rand(1000,5000)])
-            ->addRow(['Fish',   rand(1000,5000)]);
-
-        $lava->BarChart('Votes', $votes);
-        return View('pdf.encuesta', compact('lava'));
+       return View('pdf.pdf');
     }
 
     public function index()
@@ -49,21 +37,8 @@ class PdfController extends Controller
             ->toPdf()
             ->download('Reporte.pdf');*/
 
-        $lava = new Lavacharts; // See note below for Laravel
 
-        $votes  = $lava->DataTable();
-
-        $votes->addStringColumn('Food Poll')
-            ->addNumberColumn('Votes')
-            ->addRow(['Tacos',  rand(1000,5000)])
-            ->addRow(['Salad',  rand(1000,5000)])
-            ->addRow(['Pizza',  rand(1000,5000)])
-            ->addRow(['Apples', rand(1000,5000)])
-            ->addRow(['Fish',   rand(1000,5000)]);
-
-        $lava->BarChart('Votes', $votes);
-
-        $view =  \View::make('pdf.encuesta', compact('lava'))->render();
+        $view =  \View::make('pdf.pdf')->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         return $pdf->stream('invoice');
