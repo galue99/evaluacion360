@@ -315,6 +315,8 @@ class UserController extends Controller
         
         
         $encuesta = Encuesta::with(['evaluadores'])->find($id);
+
+        $users = Encuesta::with('user')->find($id);
         
         foreach ($encuesta['evaluadores'] as &$user) {
             $users_ids = UserEncuesta::where([
@@ -325,8 +327,14 @@ class UserController extends Controller
             $user['evaluados'] = User::whereIn('id',$users_ids)->get();
             
         }
-        
-        return Response::json($encuesta);
+        return Response::json([
+            'Success' => [
+                'encuesta'     => $encuesta,
+                'users' => $users,
+                'status_code' => 200
+            ]
+        ], 200);
+        //return Response::json($encuesta);
 
     }
 
