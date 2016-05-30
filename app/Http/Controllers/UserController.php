@@ -293,6 +293,7 @@ class UserController extends Controller
             ], 200);
         }
 
+
         // $test = DB::table('users_encuestas')
         //     ->join('users', 'users_encuestas.user_id', '=', 'users.id')
         //     ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
@@ -314,10 +315,9 @@ class UserController extends Controller
         // ], 200);
         
         
-        $encuesta = Encuesta::with(['evaluadores'])->find($id);
-
-        $users = Encuesta::with('user')->find($id);
         
+        //Con esta api no te metais, esto no sirve. hace una verga nueva
+        $encuesta = Encuesta::with(['evaluadores'])->find($id);
         foreach ($encuesta['evaluadores'] as &$user) {
             $users_ids = UserEncuesta::where([
                 'encuesta_id' => $encuesta->id,
@@ -327,14 +327,7 @@ class UserController extends Controller
             $user['evaluados'] = User::whereIn('id',$users_ids)->get();
             
         }
-        return Response::json([
-            'Success' => [
-                'encuesta'     => $encuesta,
-                'users' => $users,
-                'status_code' => 200
-            ]
-        ], 200);
-        //return Response::json($encuesta);
+        return Response::json($encuesta);
 
     }
 
