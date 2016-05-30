@@ -18,7 +18,7 @@
 			</div>
 			<div class="box-body">
 				<div class="col-xs-12 table-responsive" >
-					<table id="dataTable">
+					<table class="table table-bordered table-striped" id="dataTable">
 						<thead>
 							<tr>
 								<td>Nombre</td>

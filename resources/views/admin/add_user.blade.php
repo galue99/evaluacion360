@@ -3,7 +3,15 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-11 pull-center" id="evaluadores">
-		<div class="box box-primary">
+	<div data-bind='template: { name: "template-evaluadores", afterRender: loadScripts }'> </div>
+	
+	</div>
+		
+</div>
+
+
+<script type="text/html" id="template-evaluadores">
+	<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
 					Usuarios
@@ -74,46 +82,28 @@
 				</div>
 				<!-- Form Evaluadores -->
 				
-
-				<div class="table-responsive">
-					<table id="" class="table table-bordered table-hover">
+				<div class="col-xs-12 table-responsive">
+					<table id="dataTable" class="table table-bordered table-striped">
 						<thead>
 						    <tr>
-								<th class="col-xs-2 text-center">Nombre Completo</th>
-								<th class="col-xs-2 text-center">Email</th>
-								<th class="col-xs-2 text-center">Nro. de Identificacion</th>
-								<th class="col-xs-2 text-center">Cargo</th>
-								<th class="col-xs-2 text-center">Empresa</th>
-								<th class="col-xs-2 text-center">Sucursal</th>
-								<th class="col-xs-2 text-center">Estatus</th>
-								<th class="col-xs-2 text-center">Acciones</th>
+								<th class="text-center">Nombre</th>
+								<th class="text-center">Apellido</th>
+								<th class="text-center">Email</th>
+								<th class="text-center">Nro. de Identificacion</th>
+								<th class="text-center">Cargo</th>
+								<th class="text-center">Empresa</th>
+								<th class="text-center">Sucursal</th>
+								<th class="text-center">Estatus</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: {data: evaluadores, as: 'evaluador'}">
-							<!-- ko if: idrol != 1 -->
-							<tr>
-								<td data-bind="text: firstname + ' ' + lastname" class="text-center"></td>
-							    <td data-bind="text: email" class="text-center"></td>
-							    <td data-bind="text: dni" class="text-center"></td>
-							    <td data-bind="text: position" class="text-center"></td>
-							    <!--ko foreach: {data: company, as: 'company'}-->
-							    <td class="text-center" data-bind="text: name"></td>
-							    <!-- /ko-->
-							    <td data-bind="text: branch_office" class="text-center"></td>
-							    <td data-bind="text: is_active == 1 ? 'Activo' : 'Inactivo'" class="text-center"></td>
-							    <td class="text-center">
-							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editEvaluadores"></i>
-							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeEvaluadores"></i>
-							    </td>
-							</tr>
-							<!--/ko-->
-						</tbody>
 					</table>					
 				</div>
+
 			<div class="box-footer">
 				
 			</div>
 		</div>
 	</div>
-</div>
+</script>
+
 @stop

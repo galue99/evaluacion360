@@ -32,7 +32,7 @@ class UserController extends Controller
 
         if (Request::isJson()) {
             $users = User::with('company')->get();
-            return  response::json($users);
+            return response::json($users);
         } else {
             return View('admin.add_user');
         }
