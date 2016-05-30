@@ -44,4 +44,5 @@ class Encuesta extends Model
 
     }
 
+
 }

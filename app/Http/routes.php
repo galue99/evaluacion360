@@ -32,7 +32,8 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::Resource('/niveles', 'NivelesController');
     Route::Resource('/comportamientos', 'ComportamientoController');
     Route::get('/competencias_comportamientos', 'CompetenciasController@competencias_comportamientos');
-    Route::Resource('/competencias', 'CompetenciasController');Route::Resource('/competencias', 'CompetenciasController');
+    Route::Resource('/competencias', 'CompetenciasController');
+    Route::Resource('/competencias', 'CompetenciasController');
     Route::get('/all_companys', 'CompanyController@allCompanys');
     Route::get('/assing_users', 'EncuestaController@assing_user');
     Route::get('/details_answers/{id}', 'EncuestaController@encuestas_respuesta');

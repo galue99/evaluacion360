@@ -5,6 +5,9 @@
     <title>Document</title>
 
 </head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -12,6 +15,8 @@
 
 
 <body>
+<?php var_dump($answers)?>
+
 <div class="cabecera">
     <div class="row">
         <div class="col-xs-2">
@@ -189,7 +194,84 @@
 <p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborati.va</p>
 
 
-<div id="container1" style="max-width: 400px; max-height: 900px; margin: 0 auto"></div>
+
+<div class="separate" style="height: 100px;"></div>
+<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Análisis de cada competencia: ORGANIZACIONAL</h1>
+<h2 class="fringe">
+</h2>
+<div class="separate" style="height: 0px;"></div>
+<div style="position: relative; right: 200px">
+    <div id="container1" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+</div>
+<p>Estas gráficas muestran el detalle de la auto-evaluación comparada con la evaluación del jefe, los supervisados y los pares, para cada una de las competencias.</p>
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container2" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container3" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+<div id="container4" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container5" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container6" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container7" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container8" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container9" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container10" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container11" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
+
+
+<div class="separate" style="height: 330px;"></div>
+<div style="position: relative; right: 150px">
+    <div id="container12" style="max-width: 300px; max-height: 500px; margin: 0 auto"></div>
+</div>
 
 </body>
 
@@ -300,48 +382,216 @@
             chart: {
                 type: 'column'
             },
-            title: {
-                text: 'Browser market shares. January, 2015 to May, 2015'
-            },
             xAxis: {
-                type: 'category'
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
             },
-            yAxis: {
-                title: {
-                    text: 'Total percent market share'
-                }
 
-            },
-            legend: {
-                enabled: false
-            },
             plotOptions: {
                 series: {
-                    borderWidth: 0,
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.y:.1f}%'
-                    }
+                    animation: false
                 }
-            },
-
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
             },
 
             series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 76.33,
-                    drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    drilldown: 'Chrome'
-                }]
+                data: [4.5, 2.5, 4.4, 1.2]
+            }]
+        });
+        $('#container2').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container3').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container4').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container5').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container6').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container7').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container8').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container9').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container10').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container11').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [<?php  $data?>, 71.5, 106.4, 129.2, 111]
+            }]
+        });
+        $('#container12').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: ['Auto-evaluación', 'Supervisados', 'Pares', 'Jefes']
+            },
+
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+            },
+
+            series: [{
+                data: [29.9, 71.5, 106.4, 129.2, 111]
             }]
         });
     });
