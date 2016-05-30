@@ -40,12 +40,14 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::get('/encuestas/details/{id}', 'EncuestaController@encuestas_details');
     Route::get('/encuesta_users/{id}', 'EncuestaController@encuesta_users');
     Route::get('/encuestas/other_questions/{id}', 'OtherQuestionController@other_questions');
+    #Api nueva
     Route::get('/user_encuesta', 'UserController@userEncuesta');
+    ###
+    
     Route::Resource('/encuestas/other_question', 'OtherQuestionController');
     Route::get('/allusers', 'UserController@allUser');
     Route::get('/all_users_assign/{id}', 'UserController@allUserAssign');
     Route::Resource('/users_encuestas', 'UserController@users_encuesta');
-    Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
     Route::get('/pdf', 'PdfController@invoice');
@@ -54,6 +56,9 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::post('/emails/{id}', 'UserController@sendEmail');
 
     Route::Resource('prueba', 'PruebaController');
+    
+    #Api de erickson, api vieja que se esta cambiando.
+    Route::get('/users_encuesta/{id}', 'UserController@users_encuestas');
 });
 
 Route::group( ['middleware' => ['auth', 'encuestado'], 'prefix'=>'encuestado'], function() {
