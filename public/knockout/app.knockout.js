@@ -45,6 +45,11 @@
 		if (comportamientos != null){
 			ko.applyBindings(new ComportamientosViewModel(), document.getElementById("comportamientos"));
 		}
+		
+		var pruebaViewModel = document.getElementById("pruebaViewModel")
+		if (pruebaViewModel != null){
+			ko.applyBindings(new pruebaViewModel(), document.getElementById("pruebaViewModel"));
+		}
 
 	});
 })();
