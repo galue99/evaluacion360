@@ -32,7 +32,7 @@ class UserController extends Controller
 
         if (Request::isJson()) {
             $users = User::with('company')->get();
-            return  $users;
+            return  response::json($users);
         } else {
             return View('admin.add_user');
         }
@@ -377,7 +377,7 @@ class UserController extends Controller
          $evaluados = DB::table('users_encuestas')
              ->join('users', 'users_encuestas.user_id', '=', 'users.id')
              ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-             ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->where('users_encuestas.status', '>', 0)->get();
+             ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->where('users_encuestas.status', '!=', 0)->get();
 
          $evaluadores = DB::table('users_encuestas')
              ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')

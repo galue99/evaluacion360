@@ -17,13 +17,19 @@
 				</h3>
 			</div>
 			<div class="box-body">
-				<div class="table-responsive" >
+				<div class="col-xs-12 table-responsive" >
 					<table id="dataTable">
 						<thead>
 							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Nombre</td>
+								<td>Apellido</td>
+								<td>Correo</td>
+								<td>Cedula</td>
+								<td>Cargo</td>
+								<td>Sucursal</td>
+								<td>Empresa</td>
+								<td>Estado</td>
+								<td>Acciones</td>
 							</tr>
 						</thead>
 					</table>
