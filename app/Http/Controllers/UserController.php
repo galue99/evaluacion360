@@ -378,6 +378,34 @@ class UserController extends Controller
     }
 
 
+    public function evaluados(Request $request, $id)
+    {
+
+         $evaluados = DB::table('users_encuestas')
+             ->join('users', 'users_encuestas.user_id', '=', 'users.id')
+             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+             ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->where('users_encuestas.status', '>', 0)->get();
+
+         $evaluadores = DB::table('users_encuestas')
+             ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')
+             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+             ->select('users.*')->where('encuestas.id', '=', $id)->get();
+         //return  Response::json($encuesta);
+         //$test = Encuesta::with('user')->groupBy('id')->find($id);
+         //return  Response::json($encuesta);
+
+         return Response::json([
+
+             'Evaluados' => $evaluados,
+             'Evaluadores' => $evaluadores
+
+         ], 200);
+
+        return Response::json($encuesta);
+
+    }
+
+
     public function sendEmail(){
 
         $user = User::find(2);
