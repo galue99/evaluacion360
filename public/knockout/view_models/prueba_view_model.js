@@ -1,10 +1,10 @@
-function pruebaViewModel(){
+function PruebaViewModel(){
     var self = this;
     
     
     self.all = function(){
         return $.ajax({
-            url: '/admin/evaluados/1' + 1,
+            url: '/admin/evaluados/' + 1,
             method: 'GET',
             contentType: 'json'
         });

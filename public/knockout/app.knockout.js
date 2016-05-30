@@ -46,9 +46,9 @@
 			ko.applyBindings(new ComportamientosViewModel(), document.getElementById("comportamientos"));
 		}
 		
-		var pruebaViewModel = document.getElementById("pruebaViewModel")
-		if (pruebaViewModel != null){
-			ko.applyBindings(new pruebaViewModel(), document.getElementById("pruebaViewModel"));
+		var prueba = document.getElementById("prueba")
+		if (prueba != null){
+			ko.applyBindings(new PruebaViewModel(), document.getElementById("prueba"));
 		}
 
 	});
