@@ -1,7 +1,6 @@
 function PruebaViewModel(){
     var self = this;
-    
-    
+
     self.all = function(){
         return $.ajax({
             url: '/admin/evaluados/' + 1,
@@ -25,5 +24,12 @@ function PruebaViewModel(){
     }
     
     self.getAll();
+
+    
+    self.loadScripts = function(){
+        
+        jQuery('#dataTable').dataTable();
+    }
+
     
 }
