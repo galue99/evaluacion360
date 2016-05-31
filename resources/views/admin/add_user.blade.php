@@ -91,9 +91,10 @@
 								<th class="text-center">Email</th>
 								<th class="text-center">Nro. de Identificacion</th>
 								<th class="text-center">Cargo</th>
-								<th class="text-center">Empresa</th>
 								<th class="text-center">Sucursal</th>
+								<th class="text-center">Empresa</th>
 								<th class="text-center">Estatus</th>
+								<th class="text-center">Acciones</th>
 						    </tr>
 						</thead>
 					</table>					

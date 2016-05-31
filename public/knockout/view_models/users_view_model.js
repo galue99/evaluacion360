@@ -8,9 +8,10 @@ function EvaluadoresViewModel(){
 	self.evaluadores = ko.observableArray();
 	self.companies = ko.observableArray();
 	self.selectedEvaluadores = ko.observable();
-	self.updateEvaluadores = ko.observable(false);
-
 	self.showForm = ko.observable(false);
+	self.updateEvaluadores = ko.observable();
+	window.destroy = ko.observable();
+	window.modify = ko.observable();
 
 
 	self.formData = ko.observable({
@@ -26,16 +27,7 @@ function EvaluadoresViewModel(){
 	});
 
 
-	//funcion para obtener evaluadores
-	self.getEvaluadores = function(){
-		evaluador.all()
-		.done(function(response){
-			self.evaluadores(response);
-		});
-	};
-
 	//funcion para obtener empresas
-
 	self.getCompanies = function(){
 		miscelaneo.allCompanies()
 		.done(function(response){
@@ -69,7 +61,7 @@ function EvaluadoresViewModel(){
 				evaluador.create(self.formData())
 				.done(function(response){
 					self.toggleForm();
-					self.getEvaluadores();
+					self.getusers();
 	                self.clearForm();
 					toastr.info('El usuario se ha guardado con exito');
 				})
@@ -81,9 +73,10 @@ function EvaluadoresViewModel(){
 				evaluador.update(self.formData().id, self.formData())
 				.done(function(response){
 					self.toggleForm();
-					self.getEvaluadores();
+					self.getusers();
 					self.clearForm();
 					self.updateEvaluadores(false);
+					window.modify(null);
 					toastr.info('El Usuario ha sido editado con exito');
 				})
 				.fail(function(response){
@@ -98,32 +91,23 @@ function EvaluadoresViewModel(){
 
 	//buscamos el usuario para luego editarlo
 	self.editEvaluadores = function(data){
-		console.log(data);
-		evaluador.find(data.id)
+		evaluador.find(data)
 		.done(function(response){
-			self.updateEvaluadores(true);
 			self.toggleForm();
-			response.password = response.repassword;
 			self.formData(response);
+			self.updateEvaluadores(true);
+			response.password = response.repassword;
 		});
 	};
 
 	//Borrando Usuarios
 	self.removeEvaluadores = function(data){
-		swal({title: "¿Estas seguro?",
-			text: "que desea eliminar este usuario",
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "Eliminar",
-			closeOnConfirm: true },
-			function(){
-				evaluador.destroy(data.id)
-				.done(function(response){
-					toastr.info('Usuario removido con exito');
-					self.evaluadores.remove(data);
-				});
-			});
+		evaluador.destroy(data)
+		.done(function(response){
+			toastr.info('Usuario removido con exito');
+			self.getusers();
+    		window.destroy(null);
+		});
 	};
 
 	self.toggleForm = function(){
@@ -134,15 +118,31 @@ function EvaluadoresViewModel(){
 		self.toggleForm();
 		self.clearForm();
 	};
+	
+	window.destroy.subscribe(function(value){
+    	if (value){
+    		swal({title: "¿Estas seguro?",
+			text: "que desea eliminar este usuario",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Eliminar",
+			closeOnConfirm: true },
+			function(){
+				self.removeEvaluadores(value);
+			});
+    	}	
+    });
+    
+    window.modify.subscribe(function(value) {
+        if(value){
+        	self.editEvaluadores(value);
+        }
+    })
 
-
-	//Obteniendo evaluadores(users)
-	// self.getEvaluadores();
 
 	//obteniendo empresas
 	self.getCompanies();
-	
-	
 	
 	
 	//Modificaciones para el datatable
@@ -188,16 +188,24 @@ function EvaluadoresViewModel(){
                 {data: 'branch_office'},
                 {data: 'company.name'},
             ],
-            columnDefs: [{
-			targets: 7,
-			data: function ( row, type, val, meta ) {
-				if( row.is_active == 0){
-					return 'Activo';
-				}else{
-					return 'Inactivo'
-				}
-			}
-			} ]
+            columnDefs: [
+            	{
+            		targets: 7,
+            		data: function (data) {
+            			if( data.is_active == 1){
+            				return 'Activo';
+            			}else{
+            				return 'Inactivo'
+            			}
+            		}
+            	},
+            	{
+            		targets: 8,
+            		data: function(data){
+            			return '<button class="btn btn-info btn-xs" onClick="window.modify('+data.id+')"> Editar</button>    <button class="btn btn-danger btn-xs" onClick="window.destroy('+data.id+')"> Eliminar</button>';
+            		}
+            	}
+            ]
         });
     }
     
