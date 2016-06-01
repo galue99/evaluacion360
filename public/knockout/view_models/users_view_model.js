@@ -64,6 +64,7 @@ function EvaluadoresViewModel(){
 					self.getusers();
 	                self.clearForm();
 					toastr.info('El usuario se ha guardado con exito');
+					self.updateEvaluadores(false);
 				})
 				.fail(function(response){
 					toastr.error('Ocurrio un error al intentar guardar el usuario');
@@ -117,6 +118,7 @@ function EvaluadoresViewModel(){
 	self.cancel = function(){
 		self.toggleForm();
 		self.clearForm();
+		self.updateEvaluadores(false);
 	};
 	
 	window.destroy.subscribe(function(value){
@@ -149,6 +151,7 @@ function EvaluadoresViewModel(){
 	self.getusers = function(){
         evaluador.all()
         .done(function(response){
+        	self.updateEvaluadores(false);
             $('#dataTable').DataTable().clear().rows.add(response).draw();
         })
     }
