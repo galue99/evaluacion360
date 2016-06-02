@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Response;
 
 class PdfController extends Controller
 {
-    public function github (){
+    public function github(){
         // return \PDF::loadFile('http://www.github.com')->stream('github.pdf'); 
         //return \PDF::loadFile('http://www.github.com')->stream('github.pdf');
         return \PDF::loadFile('http://mejorar-se.com.ve/details')->stream('details.pdf');

@@ -38,7 +38,7 @@
     <table class="table table-no-bordered">
       <tr>
         <td class="col-xs-11">¿Cómo leer este informe?</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">3</td>
       </tr>
       <tr>
         <td class="col-xs-11">Descripción de las competencias evaluadas
@@ -47,31 +47,31 @@
             <li>Competencias del Cargo: Supervisores</li>
           </ul>
         </td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">4</td>
       </tr>
       <tr>
         <td class="col-xs-11">Resumen general de la evaluación de las competencias </td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">6</td>
       </tr>
       <tr>
         <td class="col-xs-11">Análisis de cada competencia</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">10</td>
       </tr>
       <tr>
         <td class="col-xs-11">Semáforo: Resumen general</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">14</td>
       </tr>
       <tr>
         <td class="col-xs-11">Semáforo por comportamiento específico</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">15</td>
       </tr>
       <tr>
         <td class="col-xs-11">Comentarios de los observadores</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">21</td>
       </tr>
       <tr>
         <td class="col-xs-11">Lista de competencias por desarrollar</td>
-        <td class="col-xs-1 text-center"></td>
+        <td class="col-xs-1 text-center">22</td>
       </tr>
     </table>
     <div class="separate" style="height: 50px;"></div>
@@ -88,19 +88,19 @@
     <table class="table">
     	<tr>
     		<td>Observadores:</td>
-    		<td>Es el promedio de la evaluación del  <strong>jefe</strong>,<strong> los pares</strong> y <strong> los supervisados</strong> del evaluado.</td>
+    		<td>Es el promedio de la evaluación del <strong>jefe</strong>,<strong> los pares</strong> y <strong> los supervisados</strong> del evaluado.</td>
     	</tr>
     	<tr>
     		<td>Par</td>
-    		<td>Es el promedio de la evaluación de los colegas o  <strong>compañeros</strong> que poseen el mismo nivel o cargo que el evaluado.</td>
+    		<td>Es el promedio de la evaluación de los colegas o <strong>compañeros</strong> que poseen el mismo nivel o cargo que el evaluado.</td>
     	</tr>
     	<tr>
     		<td>Supervisados:</td>
-    		<td>Es el promedio de la evaluación de los <strong> colaboradores</strong> o personas que reportan al evaluado.</td>
+    		<td>Es el promedio de la evaluación de los <strong>colaboradores</strong> o personas que reportan al evaluado.</td>
     	</tr>
     	<tr>
     		<td>Jefe:</td>
-    		<td>Es la evaluación del <strong> jefe</strong> o supervisor del evaluado.</td>
+    		<td>Es la evaluación del <strong>jefe</strong> o supervisor del evaluado.</td>
     	</tr>
     	<tr>
     		<td>Auto-evaluación:</td>
@@ -143,14 +143,11 @@
     	</tr>
     </table>
     
-    <div class="separate" style="height: 400px;"></div>
-    
-    
     <div class="saltopagina"></div>
     
     <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
-    <h2 class="fringe">
-      ORGANIZACIONALES
+	<h2 class="fringe">
+    	ORGANIZACIONALES
     </h2>
     <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Trabajo en equipo?</h1>
     <p class="text">Capacidad para colaborar con los demás, cumpliendo con sus plazos y responsabilidades para no afectar los plazos de sus compañeros y los resultados del equipo. Implica tener empatía, escuchar a los demás y valorar sus opiniones, ayudando a motivar al equipo y a alcanzar los objetivos alineados a la visión organizacional. Así como integrar a los nuevos empleados favoreciendo un ambiente y espíritu de trabajo en equipo.</p>
@@ -158,16 +155,15 @@
     <p class="text">Capacidad para comportarse de acuerdo a los valores y lineamientos de la empresa, con un trato directo, sincero, honesto y respetuoso hacia los demás. Implica demostrar responsabilidad frente a los propios actos y mantener la confidencialidad.</p>
     <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Enfoque en resultadosa</h1>
     <p class="text">Capacidad para orientar los comportamientos propios y/o de otros hacia el logro de metas, estableciendo objetivos, medibles y alcanzables, y obteniendo resultados. Implica saber fijar prioridades en las tareas y superar obstáculos, así como establecer y asumir responsabilidades.</p>
-    <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Mejora Continua</h1>
-    <p class="text">Capacidad de aplicar mejoras constantes al proceso y/o producto en búsqueda de la excelencia, prestando atención a los detalles y la precisión, proponiendo iniciativas de mejora, controlando los niveles de calidad, identificando la causa-raíz de los problemas y procediendo a solucionarlos.</p>
-    <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Comunicación</h1>
-    <p class="text">Capacidad para comunicarse eficazmente de forma clara, precisa y con respeto, proporcionando informes precisos y puntuales, y compartiendo información e ideas con los demás. Implica saber escuchar.</p>
-    <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Iniciativa (Gente Ganadora)</h1>
-    <p class="text">Capacidad para actuar proactivamente con el objetivo de crear, innovar e implementar acciones, en un ambiente multicultural, con resultados superiores a los esperados. Implica ser un agente de cambio comprometido con los objetivos organizacionales.</p>
-    <div class="separate" style="height: 50px;"></div>
-  
+	<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Mejora Continua</h1>
+	<p class="text">Capacidad de aplicar mejoras constantes al proceso y/o producto en búsqueda de la excelencia, prestando atención a los detalles y la precisión, proponiendo iniciativas de mejora, controlando los niveles de calidad, identificando la causa-raíz de los problemas y procediendo a solucionarlos.</p>
+	<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Comunicación</h1>
+	<p class="text">Capacidad para comunicarse eficazmente de forma clara, precisa y con respeto, proporcionando informes precisos y puntuales, y compartiendo información e ideas con los demás. Implica saber escuchar.</p>
+	<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Iniciativa (Gente Ganadora)</h1>
+	<p class="text">Capacidad para actuar proactivamente con el objetivo de crear, innovar e implementar acciones, en un ambiente multicultural, con resultados superiores a los esperados. Implica ser un agente de cambio comprometido con los objetivos organizacionales.</p>
+    
     <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
-	  <h2 class="fringe">
+	<h2 class="fringe">
     	DEL CARGO
     </h2>
     <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Sentido de urgencia</h1>
@@ -182,7 +178,10 @@
     <p class="text">Capacidad para administrar la carga de trabajo de forma eficiente con enfoque en la mejora continua, fijando prioridades en las tareas y asegurando el cumplimiento de los procedimientos de trabajo. Implica gestionar bien el tiempo y el flujo de información.</p>
     <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Gestión de Personal</h1>
     <p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborativa</p>
-    <div class="separate" style="height: 50px;"></div>
+    
+    
+    
+    
   </body>
   <style>
   .separate{
