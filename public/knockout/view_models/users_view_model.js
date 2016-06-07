@@ -173,7 +173,7 @@ function EvaluadoresViewModel(){
 					"sLoadingRecords": "Cargando...",
 					"oPaginate": {
 					"sFirst": "Primero",
-					"sLast": "Ãšltimo",
+					"sLast": "Ultimo",
 					"sNext": "Siguiente",
 					"sPrevious": "Anterior"
 				},
@@ -205,7 +205,7 @@ function EvaluadoresViewModel(){
             	{
             		targets: 8,
             		data: function(data){
-            			return '<button class="btn btn-info btn-xs" onClick="window.modify('+data.id+')"> Editar</button>    <button class="btn btn-danger btn-xs" onClick="window.destroy('+data.id+')"> Eliminar</button>';
+            			return '<button class="btn btn-flat btn-info btn-xs" onClick="window.modify('+data.id+')"> Editar</button>    <button class="btn btn-flat btn-danger btn-xs" onClick="window.destroy('+data.id+')"> Eliminar</button>';
             		}
             	}
             ]

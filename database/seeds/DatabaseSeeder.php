@@ -187,26 +187,31 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
+            'value' => 1,
             'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
+            'value' => 2,
             'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
+            'value' => 3,
             'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
+            'value' => 4,
             'frase_id' => 1,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
+            'value' => 5,
             'frase_id' => 1,
         ]);
 
@@ -214,26 +219,31 @@ class DatabaseSeeder extends Seeder
 
         DB::table('answers')->insert([
             'name' => 'Nunca',
+            'value' => 1,
             'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Rara vez',
+            'value' => 2,
             'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'a veces',
+            'value' => 3,
             'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'Casi siempre',
+            'value' => 4,
             'frase_id' => 2,
         ]);
 
         DB::table('answers')->insert([
             'name' => 'siempre',
+            'value' => 5,
             'frase_id' => 2,
         ]);
 

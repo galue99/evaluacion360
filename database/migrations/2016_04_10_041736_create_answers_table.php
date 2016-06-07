@@ -15,6 +15,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function(Blueprint $table){
             $table->increments('id');
             $table->string('name');
+            $table->integer('value');
             $table->integer('frase_id')->unsigned();
             $table->foreign('frase_id')->references('id')->on('frases')->onDelete('cascade');
             $table->timestamps();

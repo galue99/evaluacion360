@@ -54,12 +54,12 @@ class CompetenciasController extends Controller
 
         $messages = [
             'name.required'          => 'Enter a name',
-            'description.required'   => 'Enter a description',
+            'definicion.required'   => 'Enter a definicion',
         ];
 
         $rules = [
             'name'        => 'required|string|min:3|max:30',
-            'description' => 'required|string|min:3|max:200',
+            'definicion' => 'required|string|min:3|max:200',
         ];
 
         $validator = Validator::make($postData, $rules, $messages);
@@ -77,7 +77,7 @@ class CompetenciasController extends Controller
 
         $compentencia = new Competencia();
         $compentencia->name = Request::input('name');
-        $compentencia->definicion = Request::input('description');
+        $compentencia->definicion = Request::input('definicion');
         $compentencia->save();
 
 

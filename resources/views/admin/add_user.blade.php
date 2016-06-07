@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-xs-11 pull-center" id="evaluadores">
+	<div class="col-xs-12" id="evaluadores">
 	<div data-bind='template: { name: "template-evaluadores", afterRender: loadScripts }'> </div>
 	
 	</div>
