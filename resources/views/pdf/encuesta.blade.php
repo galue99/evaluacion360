@@ -202,7 +202,7 @@
 <?php ?>
 @for ($i = 0; $i < count($array1); $i++)
 <div class="separate" style="height: 0px;"></div>
-<div style="position: relative; right: 200px">
+<div style="position: relative; right: 200px;">
     <div id="container{{$i}}" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
 </div>
 <p>Estas gráficas muestran el detalle de la auto-evaluación comparada con la evaluación del jefe, los supervisados y los pares, para cada una de las competencias.</p>
@@ -227,7 +227,7 @@
             },
 
             series: [{
-                data: [4.5, 2.5, 4.4, 1.2]
+                data: [<?php echo $array1[$i]['Auto-Evaluacion']?>, <?php echo $array1[$i]['Supervisor']?>, <?php echo $array1[$i]['Par']?>, <?php echo $array1[$i]['Jefe']?>]
             }]
         });
     });
