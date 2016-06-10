@@ -385,7 +385,7 @@ class UserController extends Controller
          $evaluadores = DB::table('users_encuestas')
              ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')
              //->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-             ->select('users.*')->where('users_encuestas.encuesta_id', '=', $id)->get();
+             ->select('users.*', 'users_encuestas.user_id')->where('users_encuestas.encuesta_id', '=', $id)->get();
          //return  Response::json($encuesta);
          //$test = Encuesta::with('user')->groupBy('id')->find($id);
          //return  Response::json($encuesta);
