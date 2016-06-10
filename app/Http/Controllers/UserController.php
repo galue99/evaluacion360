@@ -233,14 +233,17 @@ class UserController extends Controller
 
             $test1 = Request::only(['evaluadores']);
 
-            $user_encuesta = new UserEncuesta();
-            $user_encuesta->user_id = Request::input('id_user');
-            $user_encuesta->encuesta_id = Request::input('id_encuesta');
-            $user_encuesta->evaluador_id = $test1['evaluadores'][0];
-            $user_encuesta->status = Request::input('status');
-            $user_encuesta->niveles_id = Request::input('nivel');
-            $user_encuesta->save();
-            $id_encuesta = $user_encuesta->id;
+
+            for($i=0; $i<=count($test1); $i++){
+                $user_encuesta = new UserEncuesta();
+                $user_encuesta->user_id = Request::input('id_user');
+                $user_encuesta->encuesta_id = Request::input('id_encuesta');
+                $user_encuesta->evaluador_id = $test1['evaluadores'][$i];
+                $user_encuesta->status = Request::input('status');
+                $user_encuesta->niveles_id = Request::input('nivel');
+                $user_encuesta->save();
+                $id_encuesta = $user_encuesta->id;
+            }
 
 
             return Response::json([
@@ -376,13 +379,13 @@ class UserController extends Controller
 
          $evaluados = DB::table('users_encuestas')
              ->join('users', 'users_encuestas.user_id', '=', 'users.id')
-             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-             ->select('users.*', 'users_encuestas.evaluador_id')->where('encuestas.id', '=', $id)->where('users_encuestas.status', '!=', 0)->get();
+             //->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+             ->select('users.*', 'users_encuestas.evaluador_id')->where('users_encuestas.encuesta_id', '=', $id)->groupBy('users.id')->get();
 
          $evaluadores = DB::table('users_encuestas')
              ->join('users', 'users_encuestas.evaluador_id', '=', 'users.id')
-             ->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
-             ->select('users.*')->where('encuestas.id', '=', $id)->get();
+             //->join('encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
+             ->select('users.*')->where('users_encuestas.encuesta_id', '=', $id)->get();
          //return  Response::json($encuesta);
          //$test = Encuesta::with('user')->groupBy('id')->find($id);
          //return  Response::json($encuesta);
