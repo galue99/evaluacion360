@@ -1,21 +1,13 @@
 function PruebaViewModel(){
     var self = this;
 
-    self.evaluados = function(){
+    self.apievaluados = function(){
         return $.ajax({
             url: '/admin/evaluados/' + 1,
             method: 'GET',
             contentType: 'json'
         });
     };
-    
-    self.getApiEvaluados = function(){
-        self.evaluados()
-        .done(function(response){
-            console.log(response);
-        })
-    }
-    self.getApiEvaluados();
     
 
     self.users = function(){
@@ -67,7 +59,46 @@ function PruebaViewModel(){
         });
     }
     
-    self.getusers();
+    // self.getusers();
 
+
+
+
+
+
+    self.evaluados = ko.observableArray();
+
+    self.getApiEvaluados = function(){
+        self.newApiEvaluados()
+        .done(function(response){
+            var evaluados = response.Evaluados;
+            var evaluadores = response.Evaluadores;
+
+            evaluados.map(function(evaluado){
+                evaluado.evaluadores = ko.observableArray();
+                evaluadores.map(function(evaluador){
+                    if (evaluador.user_id == evaluado.id){
+                        evaluado.evaluadores.push(evaluador);
+                    }
+                    return evaluadores;
+                })
+                return evaluados;
+            })
+            self.evaluados(evaluados);
+
+            // console.log(ko.toJSON(self.evaluados));
+        })
+    }
+    
+    self.modal = function(data){
+        console.log(data.evaluadores);
+    }
+
+    
+
+
+
+
+    self.getApiEvaluados();
     
 }

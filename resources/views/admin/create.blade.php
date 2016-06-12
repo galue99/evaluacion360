@@ -198,14 +198,14 @@
                      <table id="" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                              <th class="text-center">Nombre del evaluador</th>
+                              <th class="text-center">Nombre del evaluado</th>
                               <th class="text-center">Cargo</th>
                               <th class="text-center">Email</th>
                               <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody data-bind="foreach: evaluadores">
-                           <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Usuario evaluados" class="pointer info-tooltip">
+                        <tbody data-bind="foreach: evaluados">
+                           <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Evaluadores" class="pointer info-tooltip">
                               <td data-bind="text: firstname + ' ' + lastname, click: $root.evaluadosAssigned"></td>
                               <td data-bind="text: position, click: $root.evaluadosAssigned"></td>
                               <td data-bind="text: email, click: $root.evaluadosAssigned"></td>
@@ -242,7 +242,7 @@
                                  <th>Email</th>
                               </tr>
                            </thead>
-                           <tbody data-bind="foreach: evaluados">
+                           <tbody data-bind="foreach: evaluadoSelected">
                               <tr>
                                  <td data-bind="text: firstname + ' ' + lastname"></td>
                                  <td data-bind="text: position"></td>

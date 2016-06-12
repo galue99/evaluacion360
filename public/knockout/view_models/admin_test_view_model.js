@@ -220,6 +220,7 @@ function AdminTestViewModel(){
    self.evaluados = ko.observableArray();
    self.evaluadores = ko.observableArray();
    self.usersTesters = ko.observable();
+   self.evaluadoSelected = ko.observableArray();
    
 
    
@@ -233,38 +234,30 @@ function AdminTestViewModel(){
    self.getUserAssignedToTest = function(){
       var first = true;
 
-      assignTest.AllUserTest(self.testSelected().id)
+      assignTest.newApiEvaluados(self.testSelected().id)
       .done(function(response){
-         self.usersTesters(response);
-         self.getEvaluadoresAssigned();
+         var evaluados = response.Evaluados;
+         var evaluadores = response.Evaluadores;
+
+         evaluados.map(function(evaluado){
+             evaluado.evaluadores = ko.observableArray();
+             evaluadores.map(function(evaluador){
+                 if (evaluador.user_id == evaluado.id){
+                     evaluado.evaluadores.push(evaluador);
+                 }
+                 return evaluadores;
+             })
+             return evaluados;
+         })
+         self.evaluados(evaluados);
       });
    };
 
-   //metodo para listar todos lo evaluadores de la encuesta seleccionada
-   self.getEvaluadoresAssigned = function(){
-      var evaluadores = [];
-
-      self.usersTesters().evaluadores.forEach(function(evaluador){
-            evaluadores = evaluadores.concat(evaluador);
-         });
-         self.evaluadores(evaluadores);
-   }
-   
-   self.getComportamientos = function(){
-      
-   }
-
    //Metodo para ver los usuarios evaluados de cada evaluador
    self.evaluadosAssigned = function(data){
-      var evaluados = [];
-      evaluador = data;
       jQuery('#modalevaluadoassigned').modal('show');
 
-      evaluador.evaluados.forEach(function(evaluado){
-         evaluados = evaluados.concat(evaluado);
-      })
-      self.evaluados(evaluados);
-      
+      self.evaluadoSelected(data.evaluadores());
    };
 
    self.getStatusPrettyTest = function(statusId){

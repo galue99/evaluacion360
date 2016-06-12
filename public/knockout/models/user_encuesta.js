@@ -49,6 +49,14 @@ function UserEncuesta(){
 		});
 	}
 
+	self.newApiEvaluados = function(id){
+        return $.ajax({
+            url: '/admin/evaluados/' + id,
+            method: 'GET',
+            contentType: 'json'
+        });
+    }
+
 
 
 }
