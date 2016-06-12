@@ -229,7 +229,7 @@
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <div class="modal-header">
-               <h4 class="modal-title">Usuarios a evaluar</h4>
+               <h4 class="modal-title">Usuarios evaluadores</h4>
                </div>
                <div class="modal-body">
                   <div class="row">
@@ -237,7 +237,7 @@
                         <table class="table table-bordered table-striped">
                            <thead>
                               <tr>
-                                 <th>Usuario a evaluar</th>
+                                 <th>Usuario evaluador</th>
                                  <th>Cargo</th>
                                  <th>Email</th>
                               </tr>

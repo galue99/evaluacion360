@@ -417,10 +417,12 @@ function AdminTestViewModel(){
    };
    
    self.removeUserAsigned = function(data){
+      console.log(data);
       var params = {
-         evaluador_id: data.id,
-         encuesta_id: data.pivot.encuesta_id
+         evaluado_id: data.id,
+         encuesta_id: self.testSelected().id
       };
+      console.log(params);
       	swal({title: "¿Estas seguro?",
 			text: "de eliminar la asignación",
 			type: "warning",
