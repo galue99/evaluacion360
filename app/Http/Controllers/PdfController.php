@@ -387,8 +387,9 @@ class PdfController extends Controller
             ->join('users', 'evaluador_id', '=', 'users.id')
             ->join('companys', 'companys.id', '=', 'users.company_id')
             ->join('niveles', 'users_encuestas.niveles_id', '=', 'niveles.id')
-            ->select('users.id', 'niveles.name as nivel')
-            ->where('encuestas.id', '=', $id)->get();
+            ->select('users.id', 'niveles.name as nivel', 'niveles.id as id_nivel')
+            ->where('users_encuestas.user_id', '=', $id)
+            ->where('users_encuestas.encuesta_id', '=', $id)->get();
 
         $answers = DB::table('encuestas')
             ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
@@ -399,7 +400,8 @@ class PdfController extends Controller
             ->join('frases', 'answers.frase_id', '=', 'frases.id')
             ->join('items', 'frases.item_id', '=', 'items.id')
             ->select('users_answers.*', 'answers.name as respuesta', 'frases.id as id_pregunta', 'frases.name as pregunta', 'users_encuestas.evaluador_id', 'items.id as item_id', 'items.name as items_name', 'niveles.*')
-            ->where('encuestas.id', '=', $id)->get();
+            ->where('users_encuestas.user_id', '=', $id)
+            ->where('users_encuestas.encuesta_id', '=', $id)->get();
 
         $frases = DB::table('items')
             ->join('encuestas', 'encuestas.id', '=', 'items.encuesta_id')
@@ -417,141 +419,251 @@ class PdfController extends Controller
             ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')
             ->join('users_answers', 'users_answers_others_questions.users_answers_id', '=', 'users_answers.id')
             ->join('users_encuestas', 'users_answers.users_encuestas_id', '=', 'users_encuestas.id')
-           // ->select('others_questions.*', 'users_answers_others_questions.*')
+            ->select('others_questions.*', 'users_answers_others_questions.*')
+            ->where('others_questions.encuestas_id', '=', $id)
+            ->where('users_encuestas.user_id', '=', $id)->get();
+
+
+        $other_questions = DB::table('others_questions')
             ->where('others_questions.encuestas_id', '=', $id)->get();
+
+
+
 
         $niveles = DB::table('niveles')
             ->join('users_encuestas', 'users_encuestas.niveles_id', '=', 'niveles.id')
             ->select('niveles.name')
             ->where('users_encuestas.encuesta_id', '=', $id)->get();
 
-        //return $niveles;
 
 
-//        SELECT question,answers FROM encuesta360.others_questions join encuestas on encuestas.id = others_questions.encuestas_id join users_answers_others_questions on users_answers_others_questions.others_questions_id = others_questions.id join users_encuestas on users_encuestas.encuesta_id=encuestas.id join users on users.id=users_encuestas.evaluador_id where users.id=3;
-
-        //->join('answers', 'users_answers.answers_id', '=', 'users_answers.id')->get();
-        //->select('users_answers.*')->get();
-        // ->join('companys', 'company_id', '=', 'companys.id')
-        //->where('users_encuestas.status', '=', 1)->groupBy('encuestas.id')->get();
-        //return  Response::json($encuesta);
-        /*$conv = new Converter();
-        $conv->addPage('/home/edgar/PhpstormProjects/evaluacion360/resources/views/pdf/encuesta.blade.php')
-            ->setBinary('../vendor/anam/phantomjs-linux-x86-binary/bin/phantomjs')
-            ->toPdf()
-            ->download('Reporte.pdf');*/
-
-       return $answers;
-        $const_nunca        = 1;
-        $const_rara_vez     = 2;
-        $const_a_veces      = 3;
-        $const_casi_siempre = 4;
-        $const_siempre      = 5;
 
 
-        $nunca        = 0;
-        $rara_vez     = 0;
-        $a_veces      = 0;
-        $casi_siempre = 0;
-        $siempre      = 0;
+
+        $u = count($users);
+
+        $arrayUser = array();
+        $countJ = 0;
+        $countP = 0;
+        $countS = 0;
+        $countA = 0;
+        $countC = 0;
+
+        for($i=0; $i<count($users); $i++){
+            if($users[$i]->nivel === 'Jefe'){
+                $countJ++;
+            }else if($users[$i]->nivel === 'Par'){
+                $countP++;
+            }else if($users[$i]->nivel === 'Supervisado'){
+                $countS++;
+            }else if($users[$i]->nivel === 'Auto-Evaluacion'){
+                $countA++;
+            }else if($users[$i]->nivel === 'Cliente'){
+                $countC++;
+            }
+        }
+
+
+        $array4 = array();
+
+        for($i=0; $i<count($other_questions); $i++){
+            for($j=0; $j<count($other_question); $j++){
+                if($other_question[$j]->others_questions_id === $other_questions[$i]->id){
+                    $array4[$i][$j] = array('id_question'=>$other_questions[$i]->id, 'question'=>$other_question[$j]->question, 'Respuesta' =>$other_question[$j]->answers);
+
+                }
+
+
+            }
+
+        }
+
+
+        $Jnunca        = 0;
+        $Jrara_vez     = 0;
+        $Ja_veces      = 0;
+        $Jcasi_siempre = 0;
+        $Jsiempre      = 0;
+        $Pnunca        = 0;
+        $Prara_vez     = 0;
+        $Pa_veces      = 0;
+        $Pcasi_siempre = 0;
+        $Psiempre      = 0;
+        $Snunca        = 0;
+        $Srara_vez     = 0;
+        $Sa_veces      = 0;
+        $Scasi_siempre = 0;
+        $Ssiempre      = 0;
+        $Anunca        = 0;
+        $Arara_vez     = 0;
+        $Aa_veces      = 0;
+        $Acasi_siempre = 0;
+        $Asiempre      = 0;
 
         $jefe = null;
         $pares = null;
         $supervisores = null;
         $autoevaluacion = null;
 
+        $result = 0;
+
         $array =  array();
         $array1 =  array();
         $array2 =  array();
+        $array3 =  array();
 
-
+        $name = null;
         $count = 0;
         $name = null;
 
-
-
-
-        for($j=0; $j<count($frases); $j++){
-            for($i=0; $i<count($answers); $i++){
-                if($frases[$j]->id === $answers[$i]->id_pregunta){
-
-                    if($answers[$i]->name === 'Jefe'){
-                        if($answers[$i]->respuesta === 'Siempre'){
-                            $siempre++;
-                        }
-                        if($answers[$i]->respuesta === 'Rara Vez'){
-                            $rara_vez++;
-                        }
-                        if($answers[$i]->respuesta === 'a veces'){
-                            $a_veces++;
-                        }
-                        if($answers[$i]->respuesta === 'Nunca'){
-                            $nunca++;
-                        }
-                        if($answers[$i]->respuesta === 'Casi Siempre'){
-                            $casi_siempre++;
-                        }
-
-                    }else if($answers[$i]->name === 'Par'){
-                        if($answers[$i]->respuesta === 'Siempre'){
-                            $siempre++;
-
-                        }
-                        if($answers[$i]->respuesta === 'Rara Vez'){
-                            $rara_vez++;
-                        }
-                        if($answers[$i]->respuesta === 'a veces'){
-                            $a_veces++;
-                        }
-                        if($answers[$i]->respuesta === 'Nunca'){
-                            $nunca++;
-
-                        }
-                        if($answers[$i]->respuesta === 'Casi Siempre'){
-                            $casi_siempre++;
-
-                        }
-
-
-                    }else if($answers[$i]->name === 'Subordinado'){
-                        if($answers[$i]->respuesta === 'Siempre'){
-                            $siempre++;
-
-                        }
-                        if($answers[$i]->respuesta === 'Rara Vez'){
-                            $rara_vez++;
-
-                        }
-                        if($answers[$i]->respuesta === 'a veces'){
-                            $a_veces++;
-
-                        }
-                        if($answers[$i]->respuesta === 'Nunca'){
-                            $nunca++;
-
-                        }
-                        if($answers[$i]->respuesta === 'Casi Siempre'){
-                            $casi_siempre++;
-
-                        }
-                    }
-
+        for($k=0; $k<count($items); $k++){
+            for($i=0; $i<count($frases); $i++){
+                if($frases[$i]->item_id === $items[$k]->id){
+                    $array[$k][$i] = array("items"=>$items[$k]->name, "id"=>$i, "id_frase"=>$frases[$i]->id, "frase" => $frases[$i]->name);
                 }
             }
-
-                $array[$j] = array('id'=>$frases[$j]->id, 'name'=>($frases[$j]->name), 'siempre'=>$siempre, 'rara_vez'=>$rara_vez, 'a_veces'=>$a_veces, 'nunca'=>$nunca, 'casi_siempre'=>$casi_siempre);
-                $nunca        = 0;
-                $rara_vez     = 0;
-                $a_veces      = 0;
-                $casi_siempre = 0;
-                $siempre      = 0;
         }
 
-        $nunca        = 0;
-        $rara_vez     = 0;
-        $a_veces      = 0;
-        $casi_siempre = 0;
-        $siempre      = 0;
+
+
+        for($k=0; $k<count($frases); $k++){
+            $jefe = 0;
+            $pares = 0;
+            $supervisores = 0;
+            $autoevaluacion = 0;
+            for($l=0; $l<count($answers); $l++) {
+                if ($frases[$k]->id === $answers[$l]->id_pregunta) {
+                    if(strtoupper($answers[$l]->name) === strtoupper('Jefe')){
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
+                            $Jsiempre+=5;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
+                            $Jrara_vez+=2;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
+                            $Ja_veces+=3;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
+                            $Jnunca+=1;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
+                            $Jcasi_siempre+=4;
+                        }
+
+                    }
+
+                    if(strtoupper($answers[$l]->name) === strtoupper('Par')){
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
+                            $Psiempre+=5;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
+                            $Prara_vez+=2;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
+                            $Pa_veces+=3;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
+                            $Pnunca+=1;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
+                            $Pcasi_siempre+=4;
+                        }
+                    }else if(strtoupper($answers[$l]->name) === strtoupper('Subordinado')){
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
+                            $Ssiempre+=5;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
+                            $Srara_vez+=3;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
+                            $Sa_veces+=2;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
+                            $Snunca+=1;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
+                            $Scasi_siempre+=4;
+                        }
+                    }elseif(strtoupper($answers[$l]->name) === strtoupper('Auto-Evaluacion')){
+
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
+                            $Asiempre+=5;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
+                            $Arara_vez+=3;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
+                            $Aa_veces+=2;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
+                            $Anunca+=1;
+                        }
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
+                            $Acasi_siempre+=4;
+                        }
+
+                    }
+
+                    if($Jsiempre !== 0){
+                        $jefe += ($Jsiempre/$countJ);
+                    }else if($Jcasi_siempre !== 0){
+                        $jefe += ($Jcasi_siempre/$countJ);
+                    }else if($Jrara_vez !== 0){
+                        $jefe += ($Jrara_vez/$countJ);
+                    }else if($Ja_veces !== 0){
+                        $jefe += $Ja_veces;
+                    }else if($Jnunca !== 0){
+                        $jefe += ($Jnunca/$countJ);
+                    }
+
+                    if($Psiempre !== 0){
+                        $pares += ($Psiempre/$countP);
+                    }else if($Pcasi_siempre !== 0){
+                        $pares +=  ($Pcasi_siempre/$countP);
+                    }else if($Prara_vez !== 0){
+                        $pares +=  ($Prara_vez/$countP);
+                    }else if($Pa_veces !== 0){
+                        $pares +=  ($Pa_veces/$countP);
+                    }else if($Pnunca !== 0){
+                        $pares +=  ($Pnunca/$countP);
+                    }
+
+                    if($Asiempre !== 0){
+                        $autoevaluacion += ($Asiempre/$countA);
+                    }else if($Acasi_siempre !== 0){
+                        $autoevaluacion +=  ($Acasi_siempre/$countA);
+                    }else if($Arara_vez !== 0){
+                        $autoevaluacion +=  ($Arara_vez/$countA);
+                    }else if($Aa_veces !== 0){
+                        $autoevaluacion +=  ($Aa_veces/$countA);
+                    }else if($Anunca !== 0){
+                        $autoevaluacion +=  ($Anunca/$countA);
+                    }
+
+                    if($Ssiempre !== 0){
+                        $supervisores += ($Ssiempre/$countS);
+                    }else if($Scasi_siempre !== 0){
+                        $supervisores +=  ($Scasi_siempre/$countS);
+                    }else if($Srara_vez !== 0){
+                        $supervisores +=  ($Srara_vez/$countS);
+                    }else if($Sa_veces !== 0){
+                        $supervisores +=  ($Sa_veces/$countS);
+                    }else if($Snunca !== 0){
+                        $supervisores +=  ($Snunca/$countS);
+                    }
+
+                   $Psiempre=0;
+                   $Jsiempre=0;
+                   $Jrara_vez = 0;
+                   $Pcasi_siempre = 0;
+                   $Jcasi_siempre = 0;
+
+                   $array3[$k] = array('id'=>$frases[$k]->id, "id"=>$answers[$l]->id_pregunta, "Jefe"=>$jefe,"Par"=>$pares,"Subordinado"=>$supervisores,"Auto-Evaluacion"=>$autoevaluacion);
+
+                }
+
+            }
+        }
 
         for($k=0; $k<count($items); $k++){
             $Jnunca        = 0;
@@ -575,210 +687,94 @@ class PdfController extends Controller
             $Acasi_siempre = 0;
             $Asiempre      = 0;
 
-
-
-
-
-
             for($l=0; $l<count($answers); $l++){
-                //   echo $items[$k]->id;
-                //echo $answers[$l]->name;
+
                 if($items[$k]->id === $answers[$l]->item_id){
 
                     if(strtoupper($answers[$l]->name) === strtoupper('Jefe')){
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
-                            $Jsiempre++;
+                            $Jsiempre+=5;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
-                            $Jrara_vez++;
+                            $Jrara_vez+=2;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
-                            $Ja_veces++;
+                            $Ja_veces+=3;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
-                            $Jnunca++;
+                            $Jnunca+=1;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
-                            $Jcasi_siempre++;
+                            $Jcasi_siempre+=4;
                         }
 
                     }else if(strtoupper($answers[$l]->name) === strtoupper('Par')){
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
-                            $Psiempre++;
+                            $Psiempre+=5;
                         }
-                        if(strtoupper($answers[$l])->respuesta === strtoupper('Rara Vez')){
-                            $Prara_vez++;
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
+                            $Prara_vez+=2;
                         }
-                        if(strtoupper($answers[$l])->respuesta === strtoupper('a veces')){
-                            $Pa_veces++;
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
+                            $Pa_veces+=3;
                         }
-                        if(strtoupper($answers[$l])->respuesta === strtoupper('Nunca')){
-                            $Pnunca++;
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
+                            $Pnunca+=1;
                         }
-                        if(strtoupper($answers[$l])->respuesta === strtoupper('Casi Siempre')){
-                            $Pcasi_siempre++;
+                        if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
+                            $Pcasi_siempre+=4;
                         }
 
                     }else if(strtoupper($answers[$l]->name) === strtoupper('Subordinado')){
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
-                            $Ssiempre++;
+                            $Ssiempre+=5;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
-                            $Srara_vez++;
+                            $Srara_vez+=2;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
-                            $Sa_veces++;
+                            $Sa_veces+=3;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
-                            $Snunca++;
+                            $Snunca+=1;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
-                            $Scasi_siempre++;
+                            $Scasi_siempre+=4;
                         }
                     }elseif(strtoupper($answers[$l]->name) === strtoupper('Auto-Evaluacion')){
 
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Siempre')){
-                            $Asiempre++;
+                            $Asiempre+=5;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Rara Vez')){
-                            $Arara_vez++;
+                            $Arara_vez+=2;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('a veces')){
-                            $Aa_veces++;
+                            $Aa_veces+=3;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Nunca')){
-                            $Anunca++;
+                            $Anunca+=1;
                         }
                         if(strtoupper($answers[$l]->respuesta) === strtoupper('Casi Siempre')){
-                            $Acasi_siempre++;
+                            $Acasi_siempre+=4;
                         }
 
                     }
 
                 }
             }
-           // echo $Jsiempre;
 
-            if($Jsiempre === 0){
-                $Jsiempre = 0;
-            }else{
-                //$Jsiempre = floatval(($Jsiempre*5));
-            }
-            if($Jcasi_siempre === 0){
-                $Jcasi_siempre = 0;
-            }else{
-                $Jcasi_siempre = floatval(($Jcasi_siempre*4));
-            }
-            if($Ja_veces === 0){
-                $Ja_veces = 0;
-            }else{
-                $Ja_veces = floatval(($Ja_veces*3));
-            }
-            if($Jrara_vez === 0){
-                $Jrara_vez = 0;
-            }else{
-                $Jrara_vez = floatval(($Jrara_vez*2));
-
-            }
-            if($Jnunca === 0){
-                $Jnunca = 0;
-            }else{
-                $Jnunca = floatval(($Jnunca*1));
-            }
-
-            if($Psiempre === 0){
-                $Psiempre = 0;
-            }else{
-                $Psiempre = floatval(($Psiempre*5));
-            }
-            if($Pcasi_siempre === 0){
-                $Pcasi_siempre = 0;
-            }else{
-                $Pcasi_siempre = floatval(($Pcasi_siempre*4));
-            }
-            if($Pa_veces === 0){
-                $Pa_veces = 0;
-            }else{
-                $Pa_veces = floatval(($Pa_veces*3));
-            }
-            if($Prara_vez === 0){
-                $Prara_vez = 0;
-            }else{
-                $Prara_vez = floatval(($Prara_vez*2));
-            }
-            if($Pnunca === 0){
-                $Pnunca = 0;
-            }else{
-                $Pnunca = floatval(($Pnunca*1));
-            }
-
-
-            if($Ssiempre === 0){
-                $Ssiempre = 0;
-            }else{
-                $Ssiempre = floatval(($Ssiempre*5));
-            }
-            if($Scasi_siempre === 0){
-                $Scasi_siempre = 0;
-            }else{
-                $Scasi_siempre = floatval(($Scasi_siempre*4));
-            }
-            if($Sa_veces === 0){
-                $Sa_veces = 0;
-            }else{
-                $Sa_veces = floatval(($Sa_veces*3));
-            }
-            if($Srara_vez === 0){
-                $Srara_vez = 0;
-            }else{
-                $Srara_vez = floatval(($Srara_vez*2));
-            }
-            if($Snunca === 0){
-                $Snunca = 0;
-            }else{
-                $Snunca = floatval(($Snunca*1));
-            }
-
-
-            if($Asiempre === 0){
-                $Asiempre = 0;
-            }else{
-                $Asiempre = floatval(($Asiempre*5));
-            }
-            if($Acasi_siempre === 0){
-                $Acasi_siempre = 0;
-            }else{
-                $Acasi_siempre = floatval(($Acasi_siempre*4));
-            }
-            if($Aa_veces === 0){
-                $Aa_veces = 0;
-            }else{
-                $Aa_veces = floatval(($Aa_veces*3));
-            }
-            if($Arara_vez === 0){
-                $Arara_vez = 0;
-            }else{
-                $Arara_vez = floatval(($Arara_vez*2));
-            }
-            if($Anunca === 0){
-                $Anunca = 0;
-            }else{
-                $Anunca = floatval(($Anunca*1));
-            }
-
-            $result  =  ($Jsiempre + $Jcasi_siempre + $Ja_veces + $Jrara_vez  + $Jnunca)/((count($answers)/count($items)));
-            $result1 =  ($Psiempre + $Pcasi_siempre + $Pa_veces + $Prara_vez  + $Pnunca)/((count($answers)/count($items)));
-            $result2 =  ($Ssiempre + $Scasi_siempre + $Sa_veces + $Srara_vez  + $Snunca)/((count($answers)/count($items)));
-            $result3 =  ($Asiempre + $Acasi_siempre + $Aa_veces + $Arara_vez  + $Anunca)/((count($answers)/count($items)));
-           // echo $Jsiempre.'<br>';
+            $result  =  ($Jsiempre+$Jrara_vez+$Jcasi_siempre+$Ja_veces+$Jnunca)/((count($frases)/count($items)));
+            $result1 =  ($Psiempre + $Pcasi_siempre + $Pa_veces + $Prara_vez  + $Pnunca)/((count($frases)/count($items)));
+            $result2 =  ($Ssiempre + $Scasi_siempre + $Sa_veces + $Srara_vez  + $Snunca)/((count($frases)/count($items)));
+            $result3 =  ($Asiempre + $Acasi_siempre + $Aa_veces + $Arara_vez  + $Anunca)/((count($frases)/count($items)));
             $array1[$k] = array('id'=>$items[$k]->id, 'name'=>($items[$k]->name), 'Jefe'=>$result, 'Par'=>$result1, 'Supervisor'=>$result2, 'Auto-Evaluacion'=>$result3);
         }
 
-      //  var_dump($niveles);
 
-
-       // $pdf = \PDF::loadView('pdf.encuesta', compact('array', 'array1'));
-      //  return $pdf->stream('informe_individual.pdf');
+        $pdf = \PDF::loadView('pdf.encuesta', compact('array', 'array1', 'array3', 'array4'));
+        $pdf->setOption('orientation', 'landscape');
+        return $pdf->stream('informe_individual.pdf');
     }
 
     /**

@@ -196,8 +196,7 @@
 
 <div class="separate" style="height: 100px;"></div>
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Análisis de cada competencia: ORGANIZACIONAL</h1>
-<h2 class="fringe">
-</h2>
+<h2 class="fringe"></h2>
 
 <?php ?>
 @for ($i = 0; $i < count($array1); $i++)
@@ -235,6 +234,112 @@
 
 @endfor
 
+<div class="separate" style="height: 280px;"></div>
+<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Semáforo: Resumen General.</h1>
+<h2 class="fringe"></h2>
+<p>El siguiente cuadro muestra la auto-evaluación, así como la evaluación del jefe, los pares y los supervisores, representado en colores</p>
+<div class="table">
+    <table class="table">
+        <tr style="border-bottom: none; font-size: 11px;">
+            <th class="text-center">Tipo</th>
+            <th class="text-center"></th>
+            <th class="text-center">Competencia</th>
+            <th class="text-center">Jefe</th>
+            <th class="text-center">Pares</th>
+            <th class="text-center">Super-</br>visados</th>
+            <th class="text-center">Auto-</br>Evaluacion</th>
+        </tr>
+
+        <tr>
+            <td rowspan="<?php echo count($array1)+1 ?>" class="text-center">Organizacionales</td>
+        </tr>
+        <?php $contador = 0; $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; ?>
+        @for ($i = 0; $i < count($array1); $i++)
+            <?php $contadorJefe = 0; $contadorPar = 0; $contadorSupervisor = 0; $contadorAuto = 0; ?>
+
+            <tr>
+                <td class="text-center">{{$i+1}}</td>
+                <td class="text-center"><?php echo $array1[$i]['name'] ?></td>
+                <td class="text-center" <?php if($array1[$i]['Jefe'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Jefe']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array1[$i]['Par'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Par']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array1[$i]['Supervisor'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Supervisor'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Supervisor']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array1[$i]['Auto-Evaluacion'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Auto-Evaluacion']), 2, ',', ' ');?></td>
+            </tr>
+
+        @endfor
+    </table>
+</div>
+
+
+<div class="separate" style="height: 10px;"></div>
+<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Semáforo por comportamiento específico.</h1>
+<h2 class="fringe"></h2>
+
+<div class="table">
+    <table class="table">
+        <tr style="border-bottom: none; font-size: 11px;">
+            <th class="text-center">Compentencia</th>
+            <th class="text-center"></th>
+            <th class="text-center">Comportamientos</th>
+            <th class="text-center">Jefe</th>
+            <th class="text-center">Pares</th>
+            <th class="text-center">Super-visados</th>
+            <th class="text-center">Auto-Evaluacion</th>
+        </tr>
+
+
+        <?php $contador = 0; $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; ?>
+        @for ($i = 0; $i < count($array); $i++)
+            <?php $contadorJefe = 0; $contadorPar = 0; $contadorSupervisor = 0; $contadorAuto = 0; ?>
+
+            <tr>
+                <td rowspan="<?php echo count($array[$i])+2;?>"><?php print_r($array[$i][$contador]['items']); ?></td>
+            </tr>
+        @for ($j = 0; $j < count($array[$i]); $j++)
+
+        <tr style="border: 2px solid black;">
+                <td class="text-center" >{{$j+1}}</td>
+                <td class="text-center" style="font-size: 12px;"><?php print_r($array[$i][$contador]['frase']); ?></td>
+
+                <td class="text-center" <?php if($array3[$contador]['Jefe'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Jefe']);  $jefe += ($array3[$contador]['Jefe']); ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Par'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Par']); $par += $array3[$contador]['Par']; ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Subordinado'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Subordinado'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Subordinado']); $supervisor += ($array3[$contador]['Subordinado']); ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Auto-Evaluacion'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Auto-Evaluacion']); $auto += ($array3[$contador]['Auto-Evaluacion']);?></td>
+            <?php $contador++; $contadorJefe++; ?>
+        </tr>
+        @endfor
+            <tr>
+                <td colspan="" span="" style="background-color: lightgrey; color: black;"></td>
+                <td colspan="" span="" class="text-center" style="background-color: lightgrey; color: black;">Sub-Total</td>
+                <td colspan="" span="" class="text-center" style="border: 2px solid black;"><?php echo number_format(($jefe/($contadorJefe)), 2, ',', ' '); $jefe=0; ?></td>
+                <td colspan="" span="" class="text-center" style="border: 2px solid black;"><?php echo number_format(($par/($contadorJefe)), 2, ',', ' '); $par=0; ?></td>
+                <td colspan="" span="" class="text-center" style="border: 2px solid black;"><?php echo number_format(($supervisor/($contadorJefe)), 2, ',', ' '); $supervisor=0; ?></td>
+                <td colspan="" span="" class="text-center" style="border: 2px solid black;"><?php echo number_format(($auto/($contadorJefe)), 2, ',', ' '); $auto=0; ?></td>
+            </tr>
+        @endfor
+    </table>
+</div>
+
+
+<div class="separate" style="height: 0px;"></div>
+<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Comentario de los Observadores</h1>
+<h2 class="fringe">Los comentarios están presentados en orden aleatorio.</h2>
+<div class="table">
+    <table class="table">
+        @for ($i=0; $i<count($array4); $i++)
+            <tr>
+
+                <td style="background-color: lightgrey; color: black;">{{$array4[$i][$contador1]['question']}}</td>
+            @for ($j = 0; $j<count($array4[$i]); $j++)
+                <tr>
+                <td>{{$array4[$i][$contador1]['Respuesta']}}</td>
+                <?php $contador1++; ?>
+                </tr>
+        @endfor
+            </tr>
+            @endfor
+    </table>
+</div>
 
 
 </body>
