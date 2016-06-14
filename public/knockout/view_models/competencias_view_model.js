@@ -6,10 +6,14 @@ function CompetenciasViewModel(){
 	self.competencias = ko.observableArray();
 	self.showForm = ko.observable(false);
 	self.updateCompetencia = ko.observable(false)
-
+	self.typeCompetencia = ko.observableArray([
+		{type : 'Organizacional'},
+		{type : 'Del cargo'}
+		])
 
 	self.formData = ko.observable({
 		name: ko.observable(),
+		type: ko.observable(),
 		description: ko.observable()
 	});
 
@@ -25,6 +29,7 @@ function CompetenciasViewModel(){
 	self.clearForm = function(){
 		self.formData({
 			name: ko.observable(),
+			type: ko.observable(),
 			description: ko.observable()
 		});
 		jQuery('#formCompetencia').validate().resetForm();
@@ -99,6 +104,7 @@ function CompetenciasViewModel(){
 	};
 
 	self.getCompetencias();
+
 
 
 }
