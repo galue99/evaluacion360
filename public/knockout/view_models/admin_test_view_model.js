@@ -17,6 +17,11 @@ function AdminTestViewModel(){
    self.formCompany = ko.observable(false);
    self.assignOtherQ = ko.observable(false);
    self.tests = ko.observableArray();
+   self.typeCompetenciaSelected = ko.observable();
+   self.typeCompetencia = ko.observableArray([
+      {type : 'Organizacional'},
+      {type : 'Del cargo'}
+      ]);
    self.formData = ko.observable({
       name: ko.observable(),
       items: ko.observableArray()
@@ -35,6 +40,7 @@ function AdminTestViewModel(){
    self.assignQuestions = function(){
       self.formData().items.push({
          name: ko.observable(),
+         type: ko.observable(self.typeCompetenciaSelected().type),
          frases: ko.observableArray()
       });
 
@@ -49,6 +55,7 @@ function AdminTestViewModel(){
             })
          }
       })
+      console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
