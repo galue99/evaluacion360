@@ -324,9 +324,13 @@
 <div class="separate" style="height: 0px;"></div>
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Comentario de los Observadores</h1>
 <h2 class="fringe">Los comentarios están presentados en orden aleatorio.</h2>
-<div class="table">
-    <table class="table">
-        @for ($i=0; $i<count($array4); $i++)
+<div style="width: 100%">
+@for ($i=0; $i<count($array4); $i++)
+
+<div  <?php if($i%2 == 0){ echo 'style="width: 50%; float:right;"';}else{echo 'style="width: 50%;"';}?>>
+
+    <table class="table" width="50%">
+
             <tr>
 
                 <td style="background-color: lightgrey; color: black;">{{$array4[$i][$contador1]['question']}}</td>
@@ -337,11 +341,12 @@
                 </tr>
         @endfor
             </tr>
-            @endfor
+
     </table>
+
 </div>
-
-
+@endfor
+</div>
 </body>
 
 <style>
