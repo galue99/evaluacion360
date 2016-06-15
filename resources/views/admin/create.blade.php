@@ -122,13 +122,18 @@
                <div class="modal-body">
                   <div class="row">
                      <div class="col-xs-12">
-                        <div class="row col-xs-4 separate">
+                        <div class="row col-xs-12 col-sm-4 separate">
                            <div class="form-group separate">
                               <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', value: competenciaSelected "></select>
                            </div>
                         </div>
+                        <div class="col-xs-12 col-sm-4 separate">
+                           <div class="form-group separate">
+                              <select class="form-control" data-bind="options: typeCompetencia, optionsText: 'type', optionsCaption: 'indique el tipo', value: typeCompetenciaSelected "></select>
+                           </div>
+                        </div>
                      </div>
-                     <!-- ko if: competenciaSelected -->
+                     <!-- ko if: typeCompetenciaSelected -->
                         <!--ko foreach: competenciaSelected().comportamiento -->
                         <div class="col-xs-6">
                            <div class="form-group text-center">
