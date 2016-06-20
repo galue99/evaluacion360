@@ -16,11 +16,34 @@
 
 <body>
 
+<div class="cabecera" style="height:720px">
+    <div class="row">
+        <div style="height: 50px"></div>
+        <div class="col-xs-12">
+            <div class="text-center">
+                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" >
+            </div>
+            <div class="text-center">
+                <h2>Informe Integral de Competencias</h2>
+            </div>
+
+            <div style="margin-top:180px" class="text-right">
+                <p><h3>Nombre del Evaluado</h3></p>
+                <p>Supervisor o Jefe de Línea</p>
+                <p>Mayo, 2015</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="cabecera">
     <div class="row">
         <div class="col-xs-2">
 
-            <img src="360.png" class="img-responsive" alt="" width="160px" height="80px">
+            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
         </div>
     </div>
 </div>
@@ -44,7 +67,7 @@
 <p class="text">
     El conjunto de competencias contenidas en este informe fueron desarrolladas y seleccionadas específicamente por la alta dirección de la organización donde labora, tratando de reflejar la manera como la organización espera cumplir sus objetivos estratégicos; es por esto que es importante su total compromiso frente a esta evaluación, y frente a las acciones posteriores que apoyarán su capacitación y desarrollo.
 </p>
-<div class="separate" style="height: 130px;"></div>
+<div class="separate" style="height: 0px;"></div>
 <h1 class="title"><i class="fa fa-file-text" aria-hidden="true"></i> Contenido</h1>
 <table class="table table-no-bordered">
     <tr>
@@ -85,10 +108,10 @@
         <td class="col-xs-1 text-center"></td>
     </tr>
 </table>
-<div class="separate" style="height: 50px;"></div>
+<div class="separate" style="height: 0px;"></div>
 
 <div class="saltopagina"></div>
-
+<div style="height: 690px">
 <h1 class="title"><i class="fa fa-book"></i> ¿Cómo leer este informe?</h1>
 <p class="text">
     Encontrará gráficas de análisis donde estará el puntaje de su evaluación (auto-evaluación) comparado con la evaluación de todos los observadores, así como por cada observador por separado.
@@ -153,8 +176,8 @@
         <td style="padding-left: 15px;">1.00 - 2.99</td>
     </tr>
 </table>
-
-<div class="separate" style="height: 250px;"></div>
+</div>
+<div class="separate" style="height: 0px;"></div>
 
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Descripción de las competencias?</h1>
 <h2 class="fringe">
@@ -194,7 +217,7 @@
 
 
 
-<div class="separate" style="height: 100px;"></div>
+<div class="separate" style="height: 120px;"></div>
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Análisis de cada competencia: ORGANIZACIONAL</h1>
 <h2 class="fringe"></h2>
 
@@ -250,20 +273,52 @@
             <th class="text-center">Auto-</br>Evaluacion</th>
         </tr>
 
-        <tr>
-            <td rowspan="<?php echo count($array1)+1 ?>" class="text-center">Organizacionales</td>
-        </tr>
-        <?php $contador = 0; $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; ?>
-        @for ($i = 0; $i < count($array1); $i++)
+        <?php $organizacional = 0; $cargo = 0; ?>
+
+        @for ($i = 0; $i < count($array5); $i++)
+            @if($array5[$i]['type_id'] == 1)
+                <?php $organizacional++ ?>
+            @endif
+
+            @if($array5[$i]['type_id'] == 2)
+                <?php $cargo++ ?>
+            @endif
+
+        @endfor
+
+
+
+        <?php $contador = 0; $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; $countO = 0; $countD = 0; ?>
+        @for ($i = 0; $i < count($array5); $i++)
             <?php $contadorJefe = 0; $contadorPar = 0; $contadorSupervisor = 0; $contadorAuto = 0; ?>
 
             <tr>
+                @if($array5[$i]['type_id'] == 1 and $countO === 0 )
+                    <td rowspan="{{$organizacional}}" class="text-center">Organizacionales</td>
+                    <?php $countO++; ?>
+                @endif
+                @if($array5[$i]['type_id'] == 2 and $countD === 0)
+                        <td rowspan="{{$cargo}}" class="text-center">Del Cargo</td>
+                        <?php $countD++; ?>
+                @endif
+
+                @if($array5[$i]['type_id'] == 1)
+                    <td class="text-center">{{$i+1}}</td>
+                    <td class="text-center"><?php echo $array5[$i]['name'] ?></td>
+                    <td class="text-center" <?php if($array5[$i]['Jefe'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Jefe']), 2, ',', ' ');?></td>
+                    <td class="text-center" <?php if($array5[$i]['Par'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Par']), 2, ',', ' ');?></td>
+                    <td class="text-center" <?php if($array5[$i]['Supervisor'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Supervisor'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Supervisor']), 2, ',', ' ');?></td>
+                    <td class="text-center" <?php if($array5[$i]['Auto-Evaluacion'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Auto-Evaluacion']), 2, ',', ' ');?></td>
+                @endif
+
+                @if($array5[$i]['type_id'] == 2)
                 <td class="text-center">{{$i+1}}</td>
-                <td class="text-center"><?php echo $array1[$i]['name'] ?></td>
-                <td class="text-center" <?php if($array1[$i]['Jefe'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Jefe']), 2, ',', ' ');?></td>
-                <td class="text-center" <?php if($array1[$i]['Par'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Par']), 2, ',', ' ');?></td>
-                <td class="text-center" <?php if($array1[$i]['Supervisor'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Supervisor'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Supervisor']), 2, ',', ' ');?></td>
-                <td class="text-center" <?php if($array1[$i]['Auto-Evaluacion'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array1[$i]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array1[$i]['Auto-Evaluacion']), 2, ',', ' ');?></td>
+                <td class="text-center"><?php echo $array5[$i]['name'] ?></td>
+                <td class="text-center" <?php if($array5[$i]['Jefe'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Jefe']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array5[$i]['Par'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Par']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array5[$i]['Supervisor'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Supervisor'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Supervisor']), 2, ',', ' ');?></td>
+                <td class="text-center" <?php if($array5[$i]['Auto-Evaluacion'] < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array5[$i]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($array5[$i]['Auto-Evaluacion']), 2, ',', ' ');?></td>
+                @endif
             </tr>
 
         @endfor
@@ -271,7 +326,7 @@
 </div>
 
 
-<div class="separate" style="height: 10px;"></div>
+<div class="separate" ></div>
 <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Semáforo por comportamiento específico.</h1>
 <h2 class="fringe"></h2>
 
@@ -301,10 +356,10 @@
                 <td class="text-center" >{{$j+1}}</td>
                 <td class="text-center" style="font-size: 12px;"><?php print_r($array[$i][$contador]['frase']); ?></td>
 
-                <td class="text-center" <?php if($array3[$contador]['Jefe'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Jefe']);  $jefe += ($array3[$contador]['Jefe']); ?></td>
-                <td class="text-center" <?php if($array3[$contador]['Par'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Par']); $par += $array3[$contador]['Par']; ?></td>
-                <td class="text-center" <?php if($array3[$contador]['Subordinado'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Subordinado'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Subordinado']); $supervisor += ($array3[$contador]['Subordinado']); ?></td>
-                <td class="text-center" <?php if($array3[$contador]['Auto-Evaluacion'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:white;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Auto-Evaluacion']); $auto += ($array3[$contador]['Auto-Evaluacion']);?></td>
+                <td class="text-center" <?php if($array3[$contador]['Jefe'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Jefe'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Jefe']);  $jefe += ($array3[$contador]['Jefe']); ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Par'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Par'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Par']); $par += $array3[$contador]['Par']; ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Subordinado'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Subordinado'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Subordinado']); $supervisor += ($array3[$contador]['Subordinado']); ?></td>
+                <td class="text-center" <?php if($array3[$contador]['Auto-Evaluacion'] < 2.99){ echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($array3[$contador]['Auto-Evaluacion'] < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';} ?>><?php print_r($array3[$contador]['Auto-Evaluacion']); $auto += ($array3[$contador]['Auto-Evaluacion']);?></td>
             <?php $contador++; $contadorJefe++; ?>
         </tr>
         @endfor
@@ -346,6 +401,69 @@
 
 </div>
 @endfor
+</div>
+
+<div class="separate" style="height: 280px;"></div>
+<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> Lista de competencias por desarrollar.</h1>
+<h2 class="fringe"></h2>
+<p>(De acuerdo a la calificación de los observadores).</p>
+<p>En los siguientes cuadros se muestran las competencias que requieren ser desarrolladas para alcanzar la calificación mínima esperada, así como la lista de competencias ordenadas de acuerdo a su calificación.</p>
+<div class="table">
+    <table class="table">
+        <tr style="border-bottom: none; font-size: 11px;">
+            <th class="text-center">Tipo</th>
+            <th class="text-center"></th>
+            <th class="text-center">Competencia</th>
+            <th class="text-center">Desarrollada</th>
+            <th class="text-center">Calificacion</th>
+        </tr>
+
+        <?php $organizacional = 0; $cargo = 0; ?>
+
+        @for ($i = 0; $i < count($array5); $i++)
+            @if($array5[$i]['type_id'] == 1)
+                <?php $organizacional++ ?>
+            @endif
+
+            @if($array5[$i]['type_id'] == 2)
+                <?php $cargo++ ?>
+            @endif
+
+        @endfor
+
+
+
+        <?php $contador = 0; $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; $countO = 0; $countD = 0; ?>
+        @for ($i = 0; $i < count($array5); $i++)
+            <?php $contadorJefe = 0; $contadorPar = 0; $contadorSupervisor = 0; $contadorAuto = 0; ?>
+
+            <tr>
+                @if($array5[$i]['type_id'] == 1 and $countO === 0 )
+                    <td rowspan="{{$organizacional}}" class="text-center">Organizacionales</td>
+                    <?php $countO++; ?>
+                @endif
+                @if($array5[$i]['type_id'] == 2 and $countD === 0)
+                    <td rowspan="{{$cargo}}" class="text-center">Del Cargo</td>
+                    <?php $countD++; ?>
+                @endif
+
+                @if($array5[$i]['type_id'] == 1)
+                    <td class="text-center">{{$i+1}}</td>
+                    <td class="text-center"><?php echo $array5[$i]['name'] ?></td>
+                    <td class="text-center"><?php ($result = ($array5[$i]['Jefe']+$array5[$i]['Par']+$array5[$i]['Supervisor'])/3); if($result > 3.99){echo '<img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/check.png">';}else {echo '<img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/cancel.png">';}?></td>
+                    <td class="text-center" <?php ($result = ($array5[$i]['Jefe']+$array5[$i]['Par']+$array5[$i]['Supervisor'])/3); if($result < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($result < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($result), 2, ',', ' ');?></td>
+                @endif
+
+                @if($array5[$i]['type_id'] == 2)
+                    <td class="text-center">{{$i+1}}</td>
+                    <td class="text-center"><?php echo $array5[$i]['name'] ?></td>
+                    <td class="text-center"><?php ($result = ($array5[$i]['Jefe']+$array5[$i]['Par']+$array5[$i]['Supervisor'])/3); if($result > 3.99){echo '<img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/check.png">';}else {echo '<img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/cancel.png">';}?></td>
+                    <td class="text-center" <?php ($result = ($array5[$i]['Jefe']+$array5[$i]['Par']+$array5[$i]['Supervisor'])/3); if($result < 2.99){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}else if($result < 3.99){echo 'style="background-color:yellow;border: 2px solid black;color:black;font-weight:bold"';}else{echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format(($result), 2, ',', ' ');?></td>
+                @endif
+            </tr>
+
+        @endfor
+    </table>
 </div>
 </body>
 
