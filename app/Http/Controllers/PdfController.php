@@ -467,7 +467,7 @@ class PdfController extends Controller
 
         //return $array5;
 
-        return View('pdf.encuesta', compact('array', 'array1', 'array2', 'array3', 'array4', 'array5'));
+        return View('pdf.new', compact('array', 'array1', 'array2', 'array3', 'array4', 'array5'));
     }
 
     public function index()
@@ -906,7 +906,7 @@ class PdfController extends Controller
 
 
        // return $answers;
-        $pdf = \PDF::loadView('pdf.encuesta', compact('array', 'array1', 'array3', 'array4', 'array5'));
+        $pdf = \PDF::loadView('pdf.new', compact('array', 'array1', 'array3', 'array4', 'array5'));
         $pdf->setOption('orientation', 'landscape');
 
         return $pdf->stream('informe_individual.pdf');
