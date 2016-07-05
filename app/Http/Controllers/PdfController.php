@@ -93,6 +93,11 @@ class PdfController extends Controller
             ->where('users_encuestas.encuesta_id', '=', $id)->get();
 
 
+        $count_items = DB::table('items')->where('encuesta_id', '=', 2)->groupBy('type_id')->count();
+
+
+
+
 
         $u = count($users);
 
@@ -281,7 +286,6 @@ class PdfController extends Controller
 
                     }
 
-
                     if($Jsiempre !== 0){
                         $jefe += ($Jsiempre);
                     }else if($Jcasi_siempre !== 0){
@@ -340,7 +344,6 @@ class PdfController extends Controller
                     $array3[$k] = array('id'=>$frases[$k]->id, "id"=>$answers[$l]->id_pregunta, "Jefe"=>$jefe,"Par"=>$pares,"Subordinado"=>$supervisores,"Auto-Evaluacion"=>$autoevaluacion);
                     // $jefe = 0;
                     // echo $jefe.'<br>';
-
                 }
 
             }
@@ -454,9 +457,6 @@ class PdfController extends Controller
             $array1[$k] = array('id'=>$items[$k]->id, 'type_id' =>$items[$k]->type_id,'name'=>($items[$k]->name), 'Jefe'=>$result, 'Par'=>$result1, 'Supervisor'=>$result2, 'Auto-Evaluacion'=>$result3);
         }
 
-     //   return$items;
-
-
         for($k=0; $k<count($array1); $k++){
 
             $array5[$k] = array('id'=>$array1[$k]['id'], 'type_id' =>$array1[$k]['type_id'],'name'=>($array1[$k]['name']), 'Jefe'=>$array1[$k]['Jefe'], 'Par'=>$array1[$k]['Par'], 'Supervisor'=>$array1[$k]['Supervisor'], 'Auto-Evaluacion'=>$array1[$k]['Auto-Evaluacion']);
@@ -465,9 +465,8 @@ class PdfController extends Controller
 
         usort($array5, array($this,"cmp"));
 
-        //return $array5;
 
-        return View('pdf.new', compact('array', 'array1', 'array2', 'array3', 'array4', 'array5'));
+        return View('pdf.new', compact('array', 'array1', 'array2', 'array3', 'array4', 'array5', 'count_items'));
     }
 
     public function index()
@@ -504,6 +503,7 @@ class PdfController extends Controller
 
         $items = DB::table('items')
             ->join('encuestas', 'encuestas.id', '=', 'items.encuesta_id')
+            //->join('competencias', 'competencias.id', '=', 'items.id')
              ->select('items.*')
             ->where('encuestas.id', '=', $id)->get();
 
@@ -529,7 +529,9 @@ class PdfController extends Controller
             ->where('users_encuestas.encuesta_id', '=', $id)->get();
 
 
+        $count_items = DB::table('items')->where('encuesta_id', '=', 2)->groupBy('type_id')->count();
 
+       // return $items;
 
 
 
@@ -904,9 +906,9 @@ class PdfController extends Controller
 
         usort($array5, array($this,"cmp"));
 
-
+        //return $array5;
        // return $answers;
-        $pdf = \PDF::loadView('pdf.new', compact('array', 'array1', 'array3', 'array4', 'array5'));
+        $pdf = \PDF::loadView('pdf.new', compact('array', 'array1', 'array3', 'array4', 'array5', 'count_items'));
         $pdf->setOption('orientation', 'landscape');
 
         return $pdf->stream('informe_individual.pdf');

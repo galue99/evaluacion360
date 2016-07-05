@@ -179,6 +179,57 @@
     </table>
 </div>
 <hr/>
+@for($i=0; $i<$count_items; $i++)
+
+    <div class="cabecera">
+        <div class="row">
+            <div class="col-xs-2">
+
+                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            </div>
+        </div>
+    </div>
+
+    <div class="" style="height: 0px;"></div>
+    <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Descripción de las competencias?</b></h1>
+    <h2 class="fringe">
+        ORGANIZACIONALES
+    </h2>
+
+    @for ($i = 0; $i < count($array5); $i++)
+
+        @if($array5[$i]['type_id'] == 1)
+
+            <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> <?php echo $array1[$i]['name'] ?></h1>
+            <p class="text">Capacidad para colaborar con los demás, cumpliendo con sus plazos y responsabilidades para no afectar los plazos de sus compañeros y los resultados del equipo. Implica tener empatía, escuchar a los demás y valorar sus opiniones, ayudando a motivar al equipo y a alcanzar los objetivos alineados a la visión organizacional. Así como integrar a los nuevos empleados favoreciendo un ambiente y espíritu de trabajo en equipo.</p>
+        @endif
+    @endfor
+    <hr/>
+
+    <div class="cabecera">
+        <div class="row">
+            <div class="col-xs-2">
+                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            </div>
+        </div>
+    </div>
+
+    <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Descripción de las competencias?</b></h1>
+    <h2 class="fringe">
+        DEL CARGO
+    </h2>
+
+    @for ($i = 0; $i < count($array5); $i++)
+
+        @if($array5[$i]['type_id'] == 2)
+
+            <h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> <?php echo $array1[$i]['name'] ?></h1>
+            <p class="text">Capacidad para establecer prioridades, reaccionando con energía y entusiasmo ante las oportunidades o problemas que requieren acción inmediata. Implica inculcar el sentido de urgencia a otros, sin perder el control.</p>
+        @endif
+    @endfor
+    <hr/>
+@endfor
+
 
 <div class="cabecera">
     <div class="row">
@@ -188,24 +239,193 @@
         </div>
     </div>
 </div>
-<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Descripción de las competencias?</b></h1>
+
+
 <h2 class="fringe">
-    ORGANIZACIONALES
+    Resumen General de la evaluación de las competencias.
 </h2>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Trabajo en equipo?</h1>
-<p class="text">Capacidad para colaborar con los demás, cumpliendo con sus plazos y responsabilidades para no afectar los plazos de sus compañeros y los resultados del equipo. Implica tener empatía, escuchar a los demás y valorar sus opiniones, ayudando a motivar al equipo y a alcanzar los objetivos alineados a la visión organizacional. Así como integrar a los nuevos empleados favoreciendo un ambiente y espíritu de trabajo en equipo.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Integridad y Ética</h1>
-<p class="text">Capacidad para comportarse de acuerdo a los valores y lineamientos de la empresa, con un trato directo, sincero, honesto y respetuoso hacia los demás. Implica demostrar responsabilidad frente a los propios actos y mantener la confidencialidad.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Enfoque en resultados</h1>
-<p class="text">Capacidad para orientar los comportamientos propios y/o de otros hacia el logro de metas, estableciendo objetivos, medibles y alcanzables, y obteniendo resultados. Implica saber fijar prioridades en las tareas y superar obstáculos, así como establecer y asumir responsabilidades.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Mejora Continúa</h1>
-<p class="text">Capacidad de aplicar mejoras constantes al proceso y/o producto en búsqueda de la excelencia, prestando atención a los detalles y la precisión, proponiendo iniciativas de mejora, controlando los niveles de calidad, identificando la causa-raíz de los problemas y procediendo a solucionarlos.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Comunicación</h1>
-<p class="text">Capacidad para comunicarse eficazmente de forma clara, precisa y con respeto, proporcionando informes precisos y puntuales, y compartiendo información e ideas con los demás. Implica saber escuchar.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Iniciativa (Gente Ganadora)</h1>
-<p class="text">Capacidad para actuar proactivamente con el objetivo de crear, innovar e implementar acciones, en un ambiente multicultural, con resultados superiores a los esperados. Implica ser un agente de cambio comprometido con los objetivos organizacionales.</p>
+
+<p>Esta gráfica muestra la evaluación de todos los observadores comparada con la auto-evaluación.</p>
+<p>Se presentan todas las competencias por separado (organizacionales + del cargo).</p>
+<p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
+
+
+        <div style="position: relative; right: 200px;">
+
+            <div class="" id="containers" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+
+        </div>
+
+        <script>
+        $(function () {
+            $('#containers').highcharts({
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Resumen de los Observadores'
+                },
+                subtitle: {
+                    text: '(jefe + pares + supervisados)'
+                },
+                xAxis: {
+                    categories: (function() {
+                        // generate an array of random data
+                        var data = [];
+                        <?php
+                            for($i = 0 ;$i<count($array5);$i++){
+                        ?>
+                        data.push('<?php echo $array5[$i]['name'];?>');
+                        <?php } ?>
+                                return data;
+                    })()
+                },
+                yAxis: {
+                    title: {
+                        text: 'Puntuación'
+                    }
+                },
+                plotOptions: {
+                    series: {
+                        animation: false
+                    },
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: 'Auto-Evaluación',
+                    data: (function() {
+                        // generate an array of random data
+                        var data1 = [];
+                        <?php
+                            for($i = 0 ;$i<count($array5);$i++){
+                        ?>
+                        data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                        <?php } ?>
+                                return data1;
+                    })()
+                }, {
+                    name: 'Observadores',
+                    data: (function() {
+                        // generate an array of random data
+                        var data2 = [];
+                        <?php
+                            $result = 0;
+                            for($i = 0 ;$i<count($array5);$i++){
+                            $result = ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;
+                        ?>
+                        data2.push(<?php echo ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;?>);
+                        <?php } ?>
+                                return data2;
+                    })()
+                }]
+            });
+        });
+    </script>
+<hr/>
+
+
+<div class="cabecera">
+    <div class="row">
+        <div class="col-xs-2">
+
+            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+        </div>
+    </div>
+</div>
+
+
+<h2 class="fringe">
+    Resumen General de la evaluación de las competencias.
+</h2>
+
+<p>Estas gráficas muestran la evaluación del jefe comparada con la auto-evaluación.</p>
+<p>Se presentan todas las competencias por separado (organizacionales + del cargo).</p>
+<p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
+
+<div style="position: relative; right: 200px;">
+
+    <div class="" id="containers1" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+
+</div>
+
+<script>
+    $(function () {
+        $('#containers1').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Resumen del Jefe'
+            },
+            subtitle: {
+                text: ' '
+            },
+            xAxis: {
+                categories: (function() {
+                    // generate an array of random data
+                    var data = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data.push('<?php echo $array5[$i]['name'];?>');
+                    <?php } ?>
+                            return data;
+                })()
+            },
+            yAxis: {
+                title: {
+                    text: 'Puntuación'
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Auto-Evaluación',
+                data: (function() {
+                    // generate an array of random data
+                    var data1 = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                    <?php } ?>
+                            return data1;
+                })()
+            }, {
+                name: 'Jefes',
+                data: (function() {
+                    // generate an array of random data
+                    var data2 = [];
+                    <?php
+                        $result = 0;
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data2.push(<?php echo ((float)$array5[$i]['Jefe']);?>);
+                    <?php } ?>
+                            return data2;
+                })()
+            }]
+        });
+    });
+</script>
+
 
 <hr/>
+
 <div class="cabecera">
     <div class="row">
         <div class="col-xs-2">
@@ -214,22 +434,275 @@
         </div>
     </div>
 </div>
-<h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Descripción de las competencias?</b></h1>
+
+
 <h2 class="fringe">
-    DEL CARGO
+    Resumen General de la evaluación de las competencias.
 </h2>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Sentido de urgencia</h1>
-<p class="text">Capacidad para establecer prioridades, reaccionando con energía y entusiasmo ante las oportunidades o problemas que requieren acción inmediata. Implica inculcar el sentido de urgencia a otros, sin perder el control.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Capacidad de escuchar</h1>
-<p class="text">Capacidad para escuchar atentamente y con apertura a los demás, haciendo preguntas para aclarar las dudas, tomando en cuenta otros puntos de vista y controlando las distracciones y las interrupciones.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Liderazgo</h1>
-<p class="text">Capacidad para dirigir con confianza en situaciones de cambio y adversidad, creando consenso cuando es apropiado, y motivando y animando a los demás.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Seguridad en el entorno de trabajo</h1>
-<p class="text">Capacidad para cumplir y respaldar los lineamientos de seguridad e higiene, manteniendo el lugar de trabajo limpio y seguro. Implica crear conciencia sobre la necesidad de trabajar con seguridad y con visión de cero (0) accidentes.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Productividad</h1>
-<p class="text">Capacidad para administrar la carga de trabajo de forma eficiente con enfoque en la mejora continua, fijando prioridades en las tareas y asegurando el cumplimiento de los procedimientos de trabajo. Implica gestionar bien el tiempo y el flujo de información.</p>
-<h1 class="title"><i class="fa fa-plus" aria-hidden="true"></i> Gestión de Personal</h1>
-<p class="text">Capacidad para asignar y delegar funciones y responsabilidades de manera eficiente, capacitando, motivando y apoyando a los empleados. Implica reconocer las contribuciones e iniciativas, así como solucionar conflictos. Se gestiona de forma colaborati.va</p>
+
+<p>Estas gráficas muestran la evaluación de los supervisados comparada con la auto-evaluación.</p>
+<p>Se presentan todas las competencias por separado (organizacionales + del cargo).</p>
+<p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
+
+<div style="position: relative; right: 200px;">
+
+    <div class="" id="containers2" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+
+</div>
+
+<script>
+    $(function () {
+        $('#containers2').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Resumen del Supervisor'
+            },
+            subtitle: {
+                text: ' '
+            },
+            xAxis: {
+                categories: (function() {
+                    // generate an array of random data
+                    var data = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data.push('<?php echo $array5[$i]['name'];?>');
+                    <?php } ?>
+                            return data;
+                })()
+            },
+            yAxis: {
+                title: {
+                    text: 'Puntuación'
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Auto-Evaluacion',
+                data: (function() {
+                    // generate an array of random data
+                    var data1 = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                    <?php } ?>
+                            return data1;
+                })()
+            }, {
+                name: 'Supervisados',
+                data: (function() {
+                    // generate an array of random data
+                    var data2 = [];
+                    <?php
+                        $result = 0;
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data2.push(<?php echo ((float)$array5[$i]['Supervisor']);?>);
+                    <?php } ?>
+                            return data2;
+                })()
+            }]
+        });
+    });
+</script>
+
+
+
+<hr/>
+
+<div class="cabecera">
+    <div class="row">
+        <div class="col-xs-2">
+
+            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+        </div>
+    </div>
+</div>
+
+
+<h2 class="fringe">
+    Resumen General de la evaluación de las competencias.
+</h2>
+
+<p>Estas gráficas muestran la evaluación de los pares comparada con la auto-evaluación.</p>
+<p>Se presentan todas las competencias por separado (organizacionales + del cargo).</p>
+<p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
+
+<div style="position: relative; right: 200px;">
+
+    <div class="" id="containers3" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+
+</div>
+
+<script>
+    $(function () {
+        $('#containers3').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Resumen de los Pares'
+            },
+            subtitle: {
+                text: ' '
+            },
+            xAxis: {
+                categories: (function() {
+                    // generate an array of random data
+                    var data = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data.push('<?php echo $array5[$i]['name'];?>');
+                    <?php } ?>
+                            return data;
+                })()
+            },
+            yAxis: {
+                title: {
+                    text: 'Puntuación'
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Auto-Evaluacion',
+                data: (function() {
+                    // generate an array of random data
+                    var data1 = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                    <?php } ?>
+                            return data1;
+                })()
+            }, {
+                name: 'Par',
+                data: (function() {
+                    // generate an array of random data
+                    var data2 = [];
+                    <?php
+                        $result = 0;
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data2.push(<?php echo ((float)$array5[$i]['Par']);?>);
+                    <?php } ?>
+                            return data2;
+                })()
+            }]
+        });
+    });
+</script>
+
+
+
+<hr/>
+
+<div class="cabecera">
+    <div class="row">
+        <div class="col-xs-2">
+
+            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+        </div>
+    </div>
+</div>
+
+
+<h2 class="fringe">
+    Resumen General de la evaluación de las competencias.
+</h2>
+
+<p>Estas gráficas muestran la auto-evaluación.</p>
+<p>Se presentan todas las competencias por separado (organizacionales + del cargo).</p>
+<p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
+
+<div style="position: relative; right: 200px;">
+
+    <div class="" id="containers4" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+
+</div>
+
+<script>
+    $(function () {
+        $('#containers4').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Resumen del Auto-Evaluacion'
+            },
+            subtitle: {
+                text: ' '
+            },
+            xAxis: {
+                categories: (function() {
+                    // generate an array of random data
+                    var data = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data.push('<?php echo $array5[$i]['name'];?>');
+                    <?php } ?>
+                            return data;
+                })()
+            },
+            yAxis: {
+                title: {
+                    text: 'Puntuación'
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Auto-Evaluacion',
+                data: (function() {
+                    // generate an array of random data
+                    var data1 = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                    <?php } ?>
+                            return data1;
+                })()
+            }]
+        });
+    });
+</script>
+
 
 
 <hr/>
@@ -244,11 +717,9 @@
     </div>
 </div>
 <?php $resultx = 0; $resulty = 0; $resultAuto1 = 0; $resultAuto2 = 0; $countx=0; $county = 0;?>
-<?php var_dump($array5); ?>
-
 
     @for($x=0; $x<count($array5); $x++)
-        <?php if($array5[$x]['type_id'] == 1){ $countx++; $resultx += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto1 += $array5[$x]['Auto-Evaluacion']; }elseif($array5[$x]['type_id'] == 2){$resulty = ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor'])/3; $resultAuto2 += $array5[$x]['Auto-Evaluacion'];} ?>
+        <?php if($array5[$x]['type_id'] == 1){ $countx++; $resultx += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto1 += $array5[$x]['Auto-Evaluacion']; }elseif($array5[$x]['type_id'] == 2){$resulty += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto2 += $array5[$x]['Auto-Evaluacion'];} ?>
     @endfor
 
 
@@ -292,7 +763,10 @@
                 plotOptions: {
                     series: {
                         colorByPoint: true,
-                        animation: false
+                        animation: false,
+                        dataLabels: {
+                            enabled: true
+                        }
                     }
                 },
 
@@ -341,7 +815,10 @@
                     plotOptions: {
                         series: {
                             colorByPoint: true,
-                            animation: false
+                            animation: false,
+                            dataLabels: {
+                                enabled: true
+                            }
                         }
                     },
 
@@ -416,7 +893,10 @@
                 plotOptions: {
                     series: {
                         colorByPoint: true,
-                        animation: false
+                        animation: false,
+                        dataLabels: {
+                            enabled: true
+                        }
                     }
                 },
 
