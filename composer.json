@@ -8,7 +8,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
-        "barryvdh/laravel-dompdf": "0.6.*"
+        "barryvdh/laravel-dompdf": "0.6.*",
+        "anam/phantommagick": "^1.0",
+        "anam/phantomjs-linux-x86-binary": "^2.1"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

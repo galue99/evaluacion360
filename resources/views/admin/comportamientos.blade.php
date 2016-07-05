@@ -67,7 +67,7 @@
 							<tr>
 								<td class="text-center" data-bind="text: name"></td>
 							    <td class="text-center">
-							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
+							    	<i class="fa fa-eye fa-blue pointer" data-bind="click: $root.editComportamientos"></i>
 							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeComportamientos"></i>
 							    </td>
 							</tr>

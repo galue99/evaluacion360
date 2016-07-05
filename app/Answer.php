@@ -15,4 +15,12 @@ class Answer extends Model
         return $this->belongsTo('App\Frase');
     }
 
+
+    public function encuesta() {
+        return $this->belongsTo('App\Encuesta');
+    }
+
+
+
+
 }

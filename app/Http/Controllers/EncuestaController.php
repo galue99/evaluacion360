@@ -278,7 +278,7 @@ class EncuestaController extends Controller
             ->select('users_answers.*', 'answers.name as respuesta', 'frases.name as pregunta')
             ->where('users_encuestas.evaluador_id', '=', $id)->get();
 
-
+/*
         $other_question = DB::table('others_questions')
             ->join('encuestas', 'encuestas.id', '=', 'others_questions.encuestas_id')
             ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')
@@ -287,7 +287,14 @@ class EncuestaController extends Controller
 /*            ->join('others_questions', 'others_questions.encuestas_id', '=', 'encuestas.id')
             ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')*/
             //->join('frases', 'answers.frase_id', '=', 'frases.id')
-            ->select('others_questions.*', 'users_answers_others_questions.*')
+  /*          ->select('others_questions.*', 'users_answers_others_questions.*')
+            ->where('users_encuestas.evaluador_id', '=', $id)->get();
+*/
+        $other_question = DB::table('others_questions')
+            ->join('users_answers_others_questions', 'users_answers_others_questions.others_questions_id', '=', 'others_questions.id')
+            ->join('users_answers', 'users_answers_others_questions.users_answers_id', '=', 'users_answers.id')
+            ->join('users_encuestas', 'users_answers.users_encuestas_id', '=', 'users_encuestas.id')
+            // ->select('others_questions.*', 'users_answers_others_questions.*')
             ->where('users_encuestas.evaluador_id', '=', $id)->get();
 
 

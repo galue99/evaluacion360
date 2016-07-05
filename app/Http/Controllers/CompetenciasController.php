@@ -74,10 +74,18 @@ class CompetenciasController extends Controller
                 ]
             ], 400);
         }
+        $id_type = 0;
+        if(Request::input('type') === 'Organizacional'){
+            $id_type = 1;
+        }else{
+            $id_type = 2;
+        }
 
         $compentencia = new Competencia();
         $compentencia->name = Request::input('name');
-        $compentencia->definicion = Request::input('definicion');
+        $compentencia->definicion = Request::input('description');
+        $compentencia->type = Request::input('type');
+        $compentencia->type_id = $id_type;
         $compentencia->save();
 
 
