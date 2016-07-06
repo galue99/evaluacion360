@@ -17,11 +17,8 @@ function AdminTestViewModel(){
    self.formCompany = ko.observable(false);
    self.assignOtherQ = ko.observable(false);
    self.tests = ko.observableArray();
-   self.typeCompetenciaSelected = ko.observable();
-   self.typeCompetencia = ko.observableArray([
-      {type : 'Organizacional'},
-      {type : 'Del cargo'}
-      ]);
+   
+   //formdata para enviar a crear la encuesta
    self.formData = ko.observable({
       name: ko.observable(),
       items: ko.observableArray()
@@ -36,11 +33,10 @@ function AdminTestViewModel(){
       }
    };
 
-
    self.assignQuestions = function(){
       self.formData().items.push({
          name: ko.observable(),
-         type: ko.observable(self.typeCompetenciaSelected().type),
+         type_id: ko.observable(self.competenciaSelected().type_id),
          frases: ko.observableArray()
       });
 
@@ -55,7 +51,7 @@ function AdminTestViewModel(){
             })
          }
       })
-      console.log(ko.toJSON(self.formData()));
+      // console.log(ko.toJSON(self.formData()));
    };
 
    self.getCompetencias = function(){
@@ -164,38 +160,38 @@ function AdminTestViewModel(){
       jQuery('#myModal').modal('show');
    }
 
-   self.addItems = function(){
-      if (self.formData().name()){
-         self.formData().items.push({
-            name: ko.observable(),
-            frases:ko.observableArray()
-         }
-         );
-      }else{
-         toastr.warning('Ingrese un nombre de la encuesta');
-         jQuery('#nameTest').focus();
-      };
-   };
+   // self.addItems = function(){
+   //    if (self.formData().name()){
+   //       self.formData().items.push({
+   //          name: ko.observable(),
+   //          frases:ko.observableArray()
+   //       }
+   //       );
+   //    }else{
+   //       toastr.warning('Ingrese un nombre de la encuesta');
+   //       jQuery('#nameTest').focus();
+   //    };
+   // };
 
-   self.addFrase = function(data){
-      data.frases.push({
-         name: ko.observable(), answers: ko.observableArray()
-      });
-   };
+   // self.addFrase = function(data){
+   //    data.frases.push({
+   //       name: ko.observable(), answers: ko.observableArray()
+   //    });
+   // };
 
-   self.addAnswers = function(data){
+   // self.addAnswers = function(data){
 
-      if (!data.name()){
-         toastr.warning('Introduzca el nombre de la pregunta');
-      }else{
+   //    if (!data.name()){
+   //       toastr.warning('Introduzca el nombre de la pregunta');
+   //    }else{
          
-         data.answers.push({
-            name: ko.observable()
-         })
+   //       data.answers.push({
+   //          name: ko.observable()
+   //       })
          
-      }
+   //    }
 
-   };
+   // };
 
 
    self.delItem = function(data){

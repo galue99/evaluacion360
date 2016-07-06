@@ -52,7 +52,6 @@
                      <div class="form-group">
                         <label class="label-control">Nombre de la Evaluación</label><br>
                         <input type="text" id="nameTest" class="form-control" data-bind="textInput: formData().name">
-                        <button class="btn btn-xs btn-default" data-bind="click: $root.addItems"><i class="fa fa-plus"></i></button>
                         <button class="btn btn-xs btn-default" data-bind="click: $root.openModalComportamientos">
                            <i class="fa fa-plus"></i> Competencias
                         </button>
@@ -72,10 +71,6 @@
                                  <input type="text" class="form-control separate" data-bind="textInput: name">
                               </div>
 
-                                 <button class="btn btn-xs btn-default" data-bind="click: $root.addFrase">
-                                    <i class="fa fa-plus"></i> Comportamiento
-                                 </button>
-
                            </div>
                            <ul class="ul-second col-xs-12" data-bind="foreach: frases">
                               <li>
@@ -86,9 +81,6 @@
                                     </label>
                                     <br>
                                     <input type="text" id="frase" class="form-control separate" data-bind="textInput: name">
-                                    <button class="btn btn-xs btn-default" data-bind="click: $root.addAnswers">
-                                       <i class="fa fa-plus"></i> Respuestas
-                                    </button>
                                  </div>
                                  <ul class="ul-third col-xs-12" data-bind="foreach: answers">
                                     <div class="form-group col-xs-6 col-md-2">
@@ -127,13 +119,8 @@
                               <select class="form-control" data-bind="optionsCaption: 'Seleccione una competencia', options: competencias, optionsText: 'name', value: competenciaSelected "></select>
                            </div>
                         </div>
-                        <div class="col-xs-12 col-sm-4 separate">
-                           <div class="form-group separate">
-                              <select class="form-control" data-bind="options: typeCompetencia, optionsText: 'type', optionsCaption: 'indique el tipo', value: typeCompetenciaSelected "></select>
-                           </div>
-                        </div>
                      </div>
-                     <!-- ko if: typeCompetenciaSelected -->
+                     <!-- ko if: competenciaSelected -->
                         <!--ko foreach: competenciaSelected().comportamiento -->
                         <div class="col-xs-6">
                            <div class="form-group text-center">
