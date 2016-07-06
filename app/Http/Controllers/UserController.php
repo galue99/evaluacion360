@@ -233,8 +233,9 @@ class UserController extends Controller
 
             $test1 = Request::only(['evaluadores']);
 
+           // return $test1;
 
-            for($i=0; $i<=count($test1); $i++){
+            for($i=0; $i<count($test1); $i++){
                 $user_encuesta = new UserEncuesta();
                 $user_encuesta->user_id = Request::input('id_user');
                 $user_encuesta->encuesta_id = Request::input('id_encuesta');
@@ -282,6 +283,7 @@ class UserController extends Controller
 
 
             return Request::all();
+
                 $user_encuesta->user_id = Request::input('id_user');
                 $user_encuesta->encuesta_id = Request::input('encuesta_id');
                 $user_encuesta->evaluador_id = Request::input('evaluado_id');

@@ -70,6 +70,7 @@ class EncuestaController extends Controller
                 $item = new Item();
                 $item->encuesta_id = $id_encuesta;
                 $item->name = $test1['items'][$i]['name'];
+                $item->type_id = $test1['items'][$i]['type_id'];
                 $item->save();
                 $id_item = $item->id;
 
@@ -83,31 +84,26 @@ class EncuestaController extends Controller
 
                         $answer = new Answer();
                         $answer->name = 'Nunca';
-                        $answer->value = 1;
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
                         $answer = new Answer();
                         $answer->name = 'Rara Vez';
-                        $answer->value = 2;
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
                         $answer = new Answer();
                         $answer->name = 'A Veces';
-                        $answer->value = 3;
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
                         $answer = new Answer();
                         $answer->name = 'Casi Siempre';
-                        $answer->value = 4;
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
                         $answer = new Answer();
                         $answer->name = 'Siempre';
-                        $answer->value = 5;
                         $answer->frase_id = $id_frase;
                         $answer->save();
 
