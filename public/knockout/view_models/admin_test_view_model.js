@@ -284,6 +284,8 @@ function AdminTestViewModel(){
          toastr.error('Hubo un problema al cambiar la encuesta');
       })
    }
+   
+   
 
 
 //Administracion de las Asginaciones de los evaluadores a las encuestas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -420,12 +422,10 @@ function AdminTestViewModel(){
    };
    
    self.removeUserAsigned = function(data){
-      console.log(data);
       var params = {
          evaluado_id: data.id,
          encuesta_id: self.testSelected().id
       };
-      console.log(params);
       	swal({title: "¿Estas seguro?",
 			text: "de eliminar la asignación",
 			type: "warning",
@@ -441,6 +441,23 @@ function AdminTestViewModel(){
 				});
 			});
    }
+   
+   
+   //Funcion para enviar los parametros para el reporte
+   
+   self.printReport = function(data){
+      var params = {
+         evaluado_id: data.id,
+         encuesta_id: self.testSelected().id
+      };
+      
+      assignTest.printReport(params)
+      .done(function(response){
+         console.log(params);
+         console.log(response);
+      })
+      
+   };
    
 
 

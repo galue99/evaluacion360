@@ -56,6 +56,15 @@ function UserEncuesta(){
             contentType: 'json'
         });
     }
+    
+    self.printReport = function(data){
+    	return $.ajax({
+    		url: '/admin/printReport',
+    		method: 'POST',
+    		contentType: 'json',
+    		data
+    	});
+    }
 
 
 
