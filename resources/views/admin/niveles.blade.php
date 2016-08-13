@@ -14,11 +14,11 @@
 
                 <div class="row"><div class="box-divider col-xs-12"></div></div>
                 <div class="col-xs-12" data-bind="visible: showForm">
-                    <form action="" class="form row" id="formEvaluadores">
+                    <form action="" class="form row" id="formLevels">
                         <div class="col-xs-6 col-md-4 separate">
-                            <div class="form-group">
+                            <div class="form-group separate">
                                 <label class="label-control">Descripcion</label>
-                                <input type="text" class="form-control" data-bind="textInput: formData().name">
+                                <input type="text" class="form-control" name="name" data-bind="textInput: formData().name">
                             </div>
                         </div>
                         <div class="form-group col-xs-9 col-md-12 text-right">

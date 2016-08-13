@@ -17,14 +17,9 @@ function LevelsViewModel(){
 			name: ko.observable()
 		});
 	};
-	
-	self.isValid = function(){
-		return self.formData().name();
-	}
-
 
 	self.save = function(){
-		if (self.isValid()){
+		if ($('#formLevels').valid()) {
 			if (self.updateLevels() == false){
 			level.create(self.formData())
 			.done(function(response){

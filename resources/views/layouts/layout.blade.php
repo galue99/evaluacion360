@@ -146,6 +146,7 @@
 
       <!-- Validaciones de Formularios -->
       <script src="{{ asset ("/validates/validate_user.js") }}" type="text/javascript"></script>
+      <script src="{{ asset ("/validates/validate_levels.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/validates/validate_comportamiento.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/validates/validate_competencia.js") }}" type="text/javascript"></script>
       <script src="{{ asset ("/validates/formAssignUsersTest.js") }}" type="text/javascript"></script>
