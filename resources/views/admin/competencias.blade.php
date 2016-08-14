@@ -3,7 +3,14 @@
 @section('content')
 <div class="row">
 	<div class="col-sm-11 col-xs-12 pull-center" id="competencias">
-		<div class="box box-primary">
+		<div data-bind='template: { name: "template", afterRender: loadScripts }'> </div>
+		
+		</div>
+	</div>
+</div>
+
+<script type="text/html" id="template">
+	<div class="box box-primary">
 			<div class="box-header with-border">
 				<h3 class="box-title">
 					Competencias
@@ -47,7 +54,7 @@
 				
 
 				<div class="table-responsive">
-					<table id="" class="table table-bordered table-hover">
+					<table id="dataTable" class="table table-bordered table-hover">
 						<thead>
 						    <tr>
 								<th class="col-xs-2 text-center">Nombre</th>
@@ -56,18 +63,7 @@
 								<th class="col-xs-2 text-center">Acciones</th>
 						    </tr>
 						</thead>
-						<tbody data-bind="foreach: competencias">
-							<tr>
-								<td class="text-center" data-bind="text: name"></td>
-							    <td data-bind="text: type" class="text-center"></td>
-							    <td data-bind="text: definicion" class="text-center"></td>
-							    <td class="text-center">
-							    	<i class="fa fa-pencil fa-blue pointer" data-bind="click: $root.editCompetencias"></i>
-							    	<i class="fa fa-close fa-red pointer" data-bind="click: $root.removeCompetencias"></i>
-							    </td>
-							</tr>
-						</tbody>
-					</table>					
+					</table>
 				</div>
 
 			</div>
@@ -75,6 +71,5 @@
 				
 			</div>
 		</div>
-	</div>
-</div>
+</script>
 @stop
