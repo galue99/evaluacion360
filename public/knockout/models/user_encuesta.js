@@ -58,12 +58,17 @@ function UserEncuesta(){
     }
     
     self.printReport = function(data){
-    	return $.ajax({
-    		url: '/admin/printReport',
-    		method: 'POST',
-    		contentType: 'json',
-    		data
-    	});
+
+        var encuesta_id = data.encuesta_id;
+        var evaluado_id = data.evaluado_id;
+
+        var url = '/admin/printReport/' + encuesta_id + '/' + evaluado_id ;
+        window.open(url, '_blank');
+    /*	return $.ajax({
+    		url: '/admin/printReport/' + encuesta_id,
+    		method: 'get',
+    		contentType: 'json'
+    	});*/
     }
 
 

@@ -108,6 +108,7 @@ class DatabaseSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'Puntualidad',
             'encuesta_id' => 1,
+            'type_id' => 1,
         ]);
 
         // DB::table('items')->insert([

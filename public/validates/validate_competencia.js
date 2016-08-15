@@ -11,8 +11,7 @@
         },
         description:{
             required: true,
-            maxlength: 100,
-            minlength: 2,
+            minlength: 3,
         }
     },
     messages: {
@@ -26,7 +25,7 @@
         },
         description:{
             required: "Descripcion no puede estar vacio",
-            maxlength: "No debe pasar de 100 Caracteres",
+            maxlength: "No debe pasar de 255 Caracteres",
             minlength: "Minimo de caractes 2"
         }
     }

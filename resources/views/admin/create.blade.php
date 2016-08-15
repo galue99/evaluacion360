@@ -198,10 +198,10 @@
                         </thead>
                         <tbody data-bind="foreach: evaluados">
                            <tr data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ver Evaluadores" class="pointer info-tooltip">
-                              <td data-bind="text: firstname + ' ' + lastname, click: $root.evaluadosAssigned"></td>
-                              <td data-bind="text: position, click: $root.evaluadosAssigned"></td>
-                              <td data-bind="text: email, click: $root.evaluadosAssigned"></td>
-                              <td>
+                              <td class="text-center" data-bind="text: firstname + ' ' + lastname, click: $root.evaluadosAssigned"></td>
+                              <td class="text-center" data-bind="text: position, click: $root.evaluadosAssigned"></td>
+                              <td class="text-center" data-bind="text: email, click: $root.evaluadosAssigned"></td>
+                              <td class="text-center">
 							    	      <i class="fa fa-close fa-red pointer" data-bind="click: $root.removeUserAsigned"></i>
 							    	      <i class="fa fa-file-pdf-o fa-brown pointer" aria-hidden="true" data-bind="click: $root.printReport"></i>
                               </td>

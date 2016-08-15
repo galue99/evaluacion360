@@ -223,6 +223,7 @@ class UserController extends Controller
         return Response::json($users);
     }
 
+
     public function users_encuesta(Request $request)
     {
         $method = Request::method();
@@ -242,15 +243,26 @@ class UserController extends Controller
                 $user_encuesta->evaluador_id = $test1['evaluadores'][$i];
                 $user_encuesta->status = Request::input('status');
                 $user_encuesta->niveles_id = Request::input('nivel');
-                $user_encuesta->save();
-                $id_encuesta = $user_encuesta->id;
+
+                $user = User::find($test1['evaluadores'][$i]);
+
+                Mail::send('email.email', ['user' => $user], function ($m) use ($user) {
+                    $m->from('info@mejorar-se.com.ve', ' Evaluacion 360 ');
+
+                    $m->to($user->email, $user->firstname)->subject('Credenciales');
+                });
+
+               /* $user_encuesta->save();
+                $id_encuesta = $user_encuesta->id;*/
             }
+
+
 
 
             return Response::json([
                 'Success' => [
                     'status_code' => 200,
-                    'id_encuesta' => $id_encuesta
+                    'id_encuesta' => ''
                 ]
             ], 200);
         }
@@ -348,12 +360,18 @@ class UserController extends Controller
     public function users_encuestas_delete(Request $request)
     {
 
-        $user = Request::all();
-        $evaluador_id = $user['evaluador_id'];
-        $encuesta_id  = $user['encuesta_id'];
 
-        $evaluador = UserEncuesta::where('evaluador_id', '=', $evaluador_id)->where('encuesta_id', '=', $encuesta_id)->first();
+        $evaluador_id = Request::input('evaluado_id');
+        $encuesta_id  = Request::input('encuesta_id');
 
+
+      //  return $evaluador_id;
+
+       // echo $evaluador_id;
+        //$users = DB::table('users_encuestas')->where('user_id', '=', 2)->get();
+        //return $users;
+        $evaluador = UserEncuesta::where('user_id', '=', $evaluador_id)->where('encuesta_id', '=', $encuesta_id)->first();
+        //return $evaluador;
         //return $evaluador;
         $evaluador->delete();
 

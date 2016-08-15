@@ -15,10 +15,10 @@ class CreateUsersEncuestasTable extends Migration
         Schema::create('users_encuestas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('evaluador_id')->nullable();
             $table->integer('encuesta_id')->unsigned();
-            $table->foreign('encuesta_id')->references('id')->on('encuestas');
+            $table->foreign('encuesta_id')->references('id')->on('encuestas')->onDelete('cascade');
             $table->integer('niveles_id')->unsigned();
             $table->boolean('status')->default(0);
             $table->timestamps();

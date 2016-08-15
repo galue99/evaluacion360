@@ -469,19 +469,18 @@ class PdfController extends Controller
         return View('pdf.new', compact('array', 'array1', 'array2', 'array3', 'array4', 'array5', 'count_items'));
     }
 
-    public function index()
+    public function index($encuesta_id, $evaluador_id)
     {
 
-        $id = 2;
-
+ 
         $users = DB::table('encuestas')
             ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
             ->join('users', 'evaluador_id', '=', 'users.id')
             ->join('companys', 'companys.id', '=', 'users.company_id')
             ->join('niveles', 'users_encuestas.niveles_id', '=', 'niveles.id')
             ->select('users.id', 'niveles.name as nivel', 'niveles.id as id_nivel')
-            ->where('users_encuestas.user_id', '=', $id)
-            ->where('users_encuestas.encuesta_id', '=', $id)->get();
+            ->where('users_encuestas.user_id', '=', $evaluador_id)
+            ->where('users_encuestas.encuesta_id', '=', $encuesta_id)->get();
 
         $answers = DB::table('encuestas')
             ->join('users_encuestas', 'encuestas.id', '=', 'users_encuestas.encuesta_id')
@@ -492,20 +491,20 @@ class PdfController extends Controller
             ->join('frases', 'answers.frase_id', '=', 'frases.id')
             ->join('items', 'frases.item_id', '=', 'items.id')
             ->select('users_answers.*', 'answers.name as respuesta', 'frases.id as id_pregunta', 'frases.name as pregunta', 'users_encuestas.evaluador_id', 'items.id as item_id', 'items.name as items_name', 'niveles.*')
-            ->where('users_encuestas.user_id', '=', $id)
-            ->where('users_encuestas.encuesta_id', '=', $id)->get();
+            ->where('users_encuestas.user_id', '=', $evaluador_id)
+            ->where('users_encuestas.encuesta_id', '=', $encuesta_id)->get();
 
         $frases = DB::table('items')
             ->join('encuestas', 'encuestas.id', '=', 'items.encuesta_id')
             ->join('frases', 'frases.item_id', '=', 'items.id')
             ->select('items.*', 'frases.*')
-            ->where('encuestas.id', '=', $id)->get();
+            ->where('encuestas.id', '=', $encuesta_id)->get();
 
         $items = DB::table('items')
             ->join('encuestas', 'encuestas.id', '=', 'items.encuesta_id')
             //->join('competencias', 'competencias.id', '=', 'items.id')
              ->select('items.*')
-            ->where('encuestas.id', '=', $id)->get();
+            ->where('encuestas.id', '=', $encuesta_id)->get();
 
 
         $other_question = DB::table('others_questions')
@@ -513,25 +512,24 @@ class PdfController extends Controller
             ->join('users_answers', 'users_answers_others_questions.users_answers_id', '=', 'users_answers.id')
             ->join('users_encuestas', 'users_answers.users_encuestas_id', '=', 'users_encuestas.id')
             ->select('others_questions.*', 'users_answers_others_questions.*')
-            ->where('others_questions.encuestas_id', '=', $id)
-            ->where('users_encuestas.user_id', '=', $id)->get();
-
+            ->where('others_questions.encuestas_id', '=', $encuesta_id)
+            ->where('users_encuestas.user_id', '=', $evaluador_id)->get();
 
         $other_questions = DB::table('others_questions')
-            ->where('others_questions.encuestas_id', '=', $id)->get();
-
-
-
+            ->where('others_questions.encuestas_id', '=', $encuesta_id)->get();
 
         $niveles = DB::table('niveles')
             ->join('users_encuestas', 'users_encuestas.niveles_id', '=', 'niveles.id')
             ->select('niveles.name')
-            ->where('users_encuestas.encuesta_id', '=', $id)->get();
+            ->where('users_encuestas.encuesta_id', '=', $encuesta_id)->get();
 
 
-        $count_items = DB::table('items')->where('encuesta_id', '=', 2)->groupBy('type_id')->count();
+        $count_items = DB::table('items')->where('encuesta_id', '=', $encuesta_id)->groupBy('type_id')->count();
 
-       // return $items;
+
+
+
+      //  return $users;
 
 
 
