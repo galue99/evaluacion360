@@ -19,6 +19,7 @@ function ComportamientosViewModel(){
 	});
 	
 	self.newComportamiento = function(){
+		self.getCompeteciasToDataTable();
 		self.getCompetencias();
 		self.toggleForm();
 	};
@@ -53,8 +54,7 @@ function ComportamientosViewModel(){
 	};
 
 	self.cancel = function(){
-		self.toggleForm();
-		self.clearForm();
+		location.reload();
 	};
 
 	self.save = function(){
@@ -62,8 +62,9 @@ function ComportamientosViewModel(){
 			if(self.updateComportamiento() != true){
 				comportamiento.create(self.formData())
 			.done(function(response){
-				self.clearForm();
-				self.toggleForm();
+				self.formData().name('');
+				// self.clearForm();
+				// self.toggleForm();
 				self.getCompetencias();
 				toastr.success('El comportamiento fue guardada exitosamene');
 			})
@@ -73,8 +74,8 @@ function ComportamientosViewModel(){
 			}else{
 				comportamiento.update(self.formData().id, self.formData())
 				.done(function(response){
+					self.cancel();
 					self.clearForm();
-					self.toggleForm();
 					self.updateComportamiento(false);
 					self.getCompetencias();
 					toastr.info('Comportamiento actualizado con exito');	
@@ -90,10 +91,8 @@ function ComportamientosViewModel(){
 
 	//buscamos el usuario para luego editarlo
 	self.editComportamientos = function(data){
-		console.log(data)
 		comportamiento.find(data.competencia_id)
 		.done(function(response){
-			console.log(response);
 			self.formData(data);
 			self.updateComportamiento(true);
 			self.toggleForm();
@@ -118,14 +117,87 @@ function ComportamientosViewModel(){
 			});
 	};
 	
+	self.Unselected = ko.observable(true);
 	self.competenciaSeleted = ko.observableArray();
+	self.competeSelected = ko.observable();
 	//Toggle de box
 	self.toggleBox = function(data){
 		self.tableComportamientos(!self.tableComportamientos());
-		self.competenciaSeleted(data);
+		self.competenciaSeleted(data[0]);
+		self.competeSelected(data[0]);
+		self.formData().competencia_id(data[0].id)
+		self.Unselected(false);
 	};
-
 	
-	self.getCompetencias();
+	
+	window.view = ko.observable();
+	window.view.subscribe(function(value) {
+		var id = value;
+		
+		var competencia = self.competencias().filter(function(val){
+			if( val.id == id ){
+				return val
+			}
+		})
+		competencia.map(function(obs){
+			obs.comportamientos = ko.observableArray(obs.comportamiento);
+		})
+		self.toggleBox(competencia);
+		
+		
+	})
+	
+	
+	self.getCompeteciasToDataTable = function(){
+		competencia.competenciasComportamientos()
+        .done(function(response){
+        	var data = response;
+            $('#dataTable').DataTable().clear().rows.add(data).draw();
+        })
+    }
+    
+    self.loadScripts = function(){
+        $('#dataTable').dataTable({
+        	"language": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningun dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Ultimo",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior"
+				},
+					"oAria": {
+					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				}
+			},
+            columns: [
+                {data: 'name'},
+                {data: 'definicion'},
+            ],
+            columnDefs: [
+            	{
+            		targets: 2,
+            		data: function(data){
+            			return '<i class="fa fa-blue fa-eye pointer" onClick="window.view('+data.id+')"></i>';
+            		}
+            	}
+            ]
+        });
+    }
+    
+    self.getCompetencias();
+    self.getCompeteciasToDataTable();
 
 }
