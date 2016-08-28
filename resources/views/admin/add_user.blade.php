@@ -26,49 +26,49 @@
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nombre</label>
-						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().firstname">
+						        <input type="text" name="firstname" id="firstname" class="form-control" data-bind="textInput: formData().firstname" required>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Apellido</label>
-						        <input type="text" name="lastname" id="lastname" class="form-control" data-bind="textInput: formData().lastname">
+						        <input type="text" name="lastname" id="lastname" class="form-control" data-bind="textInput: formData().lastname" required>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Nro. de Identificacion</label>
-						        <input type="number" name="dni" id="dni" class="form-control" data-bind="textInput: formData().dni">
+						        <input type="text" name="dni" id="dni" class="form-control" data-bind="textInput: formData().dni" required>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Email</label>
-						        <input type="email" name="email" id="email" class="form-control" data-bind="textInput: formData().email">
+						        <input type="email" name="email" id="email" class="form-control" data-bind="textInput: formData().email" required>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Cargo</label>
-						        <input type="text" name="position" id="position" class="form-control" data-bind="textInput: formData().position">
+						        <input type="text" name="position" id="position" class="form-control" data-bind="textInput: formData().position" required>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						        <label class="label-control">Empresa</label>
-						        <select class="form-control" name="company" data-bind="optionsCaption: 'Seleccione una empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company_id "></select>
+						        <select class="form-control" name="company" data-bind="optionsCaption: 'Seleccione una empresa', options: companies, optionsText: 'name', optionsValue: 'id', value: $root.formData().company_id " required></select>
 						    </div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 							<div class="form-group">
 								<label class="label-control">Sucursal</label>
-								<input type="text" name="branch_office" id="branch_office" class="form-control" data-bind="textInput: formData().branch_office">
+								<input type="text" name="branch_office" id="branch_office" class="form-control" data-bind="textInput: formData().branch_office" required>
 							</div>
 						</div>
 						<div class="col-xs-12 col-md-4 separate">
 						    <div class="form-group">
 						    <label for="">Estado</label>
-						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active">
+						      <input id="status" class="cmn-toggle cmn-toggle-round" type="checkbox" data-bind="checked: formData().is_active" required>
                 				<label for="status"></label>
 						    </div>
 						</div>

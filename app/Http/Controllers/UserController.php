@@ -252,12 +252,8 @@ class UserController extends Controller
                     $m->to($user->email, $user->firstname)->subject('Credenciales');
                 });
 
-               /* $user_encuesta->save();
-                $id_encuesta = $user_encuesta->id;*/
+                $user_encuesta->save();
             }
-
-
-
 
             return Response::json([
                 'Success' => [

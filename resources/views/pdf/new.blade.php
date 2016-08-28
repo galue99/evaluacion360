@@ -21,7 +21,7 @@
         <div style="height: 50px"></div>
         <div class="col-xs-12">
             <div class="text-center">
-                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" >
+                <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
             </div>
             <div class="text-center">
                 <h2>Informe Integral de Competencias</h2>
@@ -39,7 +39,7 @@
 <div class="">
     <div class="row">
         <div class="col-xs-2">
-            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
         </div>
     </div>
 </div>
@@ -108,7 +108,7 @@
     <div class="row">
         <div class="col-xs-2">
 
-            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
         </div>
     </div>
 </div>
@@ -185,7 +185,7 @@
         <div class="row">
             <div class="col-xs-2">
 
-                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+                <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
             </div>
         </div>
     </div>
@@ -209,7 +209,7 @@
     <div class="cabecera">
         <div class="row">
             <div class="col-xs-2">
-                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+                <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
             </div>
         </div>
     </div>
@@ -235,7 +235,7 @@
     <div class="row">
         <div class="col-xs-2">
 
-            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
         </div>
     </div>
 </div>
