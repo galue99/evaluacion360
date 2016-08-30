@@ -116,6 +116,7 @@ function CompetenciasViewModel(){
     }
     
     self.loadScripts = function(){
+    	window.competenciaValidation.apply();
         $('#dataTable').dataTable({
         	"language": {
 					"sProcessing": "Procesando...",
