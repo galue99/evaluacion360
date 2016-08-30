@@ -157,6 +157,7 @@ function ComportamientosViewModel(){
     }
     
     self.loadScripts = function(){
+    	window.comportamientoValidation.apply();
         $('#dataTable').dataTable({
         	"language": {
 					"sProcessing": "Procesando...",
