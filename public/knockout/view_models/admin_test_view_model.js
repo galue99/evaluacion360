@@ -338,11 +338,11 @@ function AdminTestViewModel(){
          self.formDataAssignUser().evaluadores([]);
          self.SameUsersCompany(self.SameUsersCompany());
       }
-   })
+   });
 
    //Metodo para eliminar el usuario seleccionado en el siguiente select para evitar la seleccion del mismo
    self.formDataAssignUser().id_user.subscribe(function(value){
-      self.autoEvalAsigned(false)
+      self.autoEvalAsigned(false);
       self.getLevels();
       var company_id = null;
       if (value){
@@ -458,6 +458,20 @@ function AdminTestViewModel(){
       })
       
    };
+
+    self.printReport1 = function(data){
+        var params = {
+            evaluado_id: data.id,
+            encuesta_id: self.testSelected().id
+        };
+
+        assignTest.printReport1(params)
+            .done(function(response){
+                console.log(params);
+                console.log(response);
+            })
+
+    };
    
 
 

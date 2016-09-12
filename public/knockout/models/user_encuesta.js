@@ -69,7 +69,21 @@ function UserEncuesta(){
     		method: 'get',
     		contentType: 'json'
     	});*/
-    }
+    };
+
+    self.printReport1 = function(data){
+
+        var encuesta_id = data.encuesta_id;
+        var evaluado_id = data.evaluado_id;
+
+        var url = '/admin/printReport1/' + encuesta_id + '/' + evaluado_id ;
+        window.open(url, '_blank');
+    /*	return $.ajax({
+    		url: '/admin/printReport/' + encuesta_id,
+    		method: 'get',
+    		contentType: 'json'
+    	});*/
+    };
 
 
 

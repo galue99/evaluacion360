@@ -21,12 +21,13 @@
         <div style="height: 50px"></div>
         <div class="col-xs-12">
             <div class="text-center">
-                <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="" width="160px" height="80px">
             </div>
             <div class="text-center">
                 <h2>Informe Integral de Competencias</h2>
             </div>
-
+            <div>
+                <img src="http://mejorar-se.com.ve/360.png" class="img-responsive" alt="">
+            </div>
             <div style="margin-top:180px" class="text-right">
                 <p><h3>Nombre del Evaluado</h3></p>
                 <p>Supervisor o Jefe de Línea</p>
@@ -250,82 +251,82 @@
 <p>Se desea visualizar en términos generales si la línea de los observadores está por debajo o por encima de la auto-evaluación, y si ambas están por encima del mínimo esperado.</p>
 
 
-        <div style="position: relative; right: 200px;">
+<div style="position: relative; right: 200px;">
 
-            <div class="" id="containers" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+    <div class="" id="containers" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
 
-        </div>
+</div>
 
-        <script>
-        $(function () {
-            $('#containers').highcharts({
-                chart: {
-                    type: 'line'
-                },
+<script>
+    $(function () {
+        $('#containers').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Resumen de los Observadores'
+            },
+            subtitle: {
+                text: '(jefe + pares + supervisados)'
+            },
+            xAxis: {
+                categories: (function() {
+                    // generate an array of random data
+                    var data = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data.push('<?php echo $array5[$i]['name'];?>');
+                    <?php } ?>
+                            return data;
+                })()
+            },
+            yAxis: {
                 title: {
-                    text: 'Resumen de los Observadores'
+                    text: 'Puntuación'
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
                 },
-                subtitle: {
-                    text: '(jefe + pares + supervisados)'
-                },
-                xAxis: {
-                    categories: (function() {
-                        // generate an array of random data
-                        var data = [];
-                        <?php
-                            for($i = 0 ;$i<count($array5);$i++){
-                        ?>
-                        data.push('<?php echo $array5[$i]['name'];?>');
-                        <?php } ?>
-                                return data;
-                    })()
-                },
-                yAxis: {
-                    title: {
-                        text: 'Puntuación'
-                    }
-                },
-                plotOptions: {
-                    series: {
-                        animation: false
+                line: {
+                    dataLabels: {
+                        enabled: true
                     },
-                    line: {
-                        dataLabels: {
-                            enabled: true
-                        },
-                        enableMouseTracking: false
-                    }
-                },
-                series: [{
-                    name: 'Auto-Evaluación',
-                    data: (function() {
-                        // generate an array of random data
-                        var data1 = [];
-                        <?php
-                            for($i = 0 ;$i<count($array5);$i++){
-                        ?>
-                        data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
-                        <?php } ?>
-                                return data1;
-                    })()
-                }, {
-                    name: 'Observadores',
-                    data: (function() {
-                        // generate an array of random data
-                        var data2 = [];
-                        <?php
-                            $result = 0;
-                            for($i = 0 ;$i<count($array5);$i++){
-                            $result = ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;
-                        ?>
-                        data2.push(<?php echo ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;?>);
-                        <?php } ?>
-                                return data2;
-                    })()
-                }]
-            });
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Auto-Evaluación',
+                data: (function() {
+                    // generate an array of random data
+                    var data1 = [];
+                    <?php
+                        for($i = 0 ;$i<count($array5);$i++){
+                    ?>
+                    data1.push(<?php echo (float)$array5[$i]['Auto-Evaluacion'];?>);
+                    <?php } ?>
+                            return data1;
+                })()
+            }, {
+                name: 'Observadores',
+                data: (function() {
+                    // generate an array of random data
+                    var data2 = [];
+                    <?php
+                        $result = 0;
+                        for($i = 0 ;$i<count($array5);$i++){
+                        $result = ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;
+                    ?>
+                    data2.push(<?php echo ((float)$array5[$i]['Jefe']+(float)$array5[$i]['Supervisor']+(float)$array5[$i]['Par'])/3;?>);
+                    <?php } ?>
+                            return data2;
+                })()
+            }]
         });
-    </script>
+    });
+</script>
 <hr/>
 
 
@@ -718,67 +719,67 @@
 </div>
 <?php $resultx = 0; $resulty = 0; $resultAuto1 = 0; $resultAuto2 = 0; $countx=0; $county = 0;?>
 
-    @for($x=0; $x<count($array5); $x++)
-        <?php if($array5[$x]['type_id'] == 1){ $countx++; $resultx += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto1 += $array5[$x]['Auto-Evaluacion']; }elseif($array5[$x]['type_id'] == 2){$resulty += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto2 += $array5[$x]['Auto-Evaluacion'];} ?>
-    @endfor
+@for($x=0; $x<count($array5); $x++)
+    <?php if($array5[$x]['type_id'] == 1){ $countx++; $resultx += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto1 += $array5[$x]['Auto-Evaluacion']; }elseif($array5[$x]['type_id'] == 2){$resulty += ($array5[$x]['Jefe']+$array5[$x]['Par']+$array5[$x]['Supervisor']); $resultAuto2 += $array5[$x]['Auto-Evaluacion'];} ?>
+@endfor
 
 
 @for($j=0; $j<2; $j++)
 
-@if($j == 0)
-    <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Competencias Organizacionales </b></h1>
+    @if($j == 0)
+        <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Competencias Organizacionales </b></h1>
 
 
-<h2 class="fringe">
-    Resumen General de la evaluación de las competencias.
-</h2>
+        <h2 class="fringe">
+            Resumen General de la evaluación de las competencias.
+        </h2>
 
-<p>Esta gráfica muestra la evaluación de todos los observadores comparada con la auto-evaluación.</p>
-<p>Aquí se incluye el promedio de todas las competencias organizacionales</p>
+        <p>Esta gráfica muestra la evaluación de todos los observadores comparada con la auto-evaluación.</p>
+        <p>Aquí se incluye el promedio de todas las competencias organizacionales</p>
 
-    <div style="position: relative; right: 200px;">
+        <div style="position: relative; right: 200px;">
 
-        <div class="" id="containerx" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
+            <div class="" id="containerx" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
 
-    </div>
-    <hr/>
-    <script>
-        $(function () {
-            // Create the chart
-            $('#containerx').highcharts({
-                chart: {
-                    type: 'column'
-                },
-                title:{
-                    text: 'Competencias Organizacionales'
-                },
-                xAxis: {
-                    categories: ['Observadores', 'Auto-Evaluacion']
-                },
-                yAxis: [{
-                    title: {
-                        text: 'Puntuación'
-                    }
-                }],
-                plotOptions: {
-                    series: {
-                        colorByPoint: true,
-                        animation: false,
-                        dataLabels: {
-                            enabled: true
+        </div>
+        <hr/>
+        <script>
+            $(function () {
+                // Create the chart
+                $('#containerx').highcharts({
+                    chart: {
+                        type: 'column'
+                    },
+                    title:{
+                        text: 'Competencias Organizacionales'
+                    },
+                    xAxis: {
+                        categories: ['Observadores', 'Auto-Evaluacion']
+                    },
+                    yAxis: [{
+                        title: {
+                            text: 'Puntuación'
                         }
-                    }
-                },
+                    }],
+                    plotOptions: {
+                        series: {
+                            colorByPoint: true,
+                            animation: false,
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
 
-                series: [{
-                    name: ' ',
-                    data: [<?php echo $resultx/4?>, <?php echo $resultAuto1/2?>]
-                }]
+                    series: [{
+                        name: ' ',
+                        data: [<?php echo $resultx/4?>, <?php echo $resultAuto1/2?>]
+                    }]
+                });
             });
-        });
-    </script>
-@endif
-@if($j == 1)
+        </script>
+    @endif
+    @if($j == 1)
         <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Competencias del Cargo</b></h1>
 
         <h2 class="fringe">
@@ -829,10 +830,10 @@
                 });
             });
         </script>
-@endif
+    @endif
 
 
-<hr/>
+    <hr/>
 
 
 @endfor
@@ -843,26 +844,26 @@
 
 <hr/>
 @for ($i = 0; $i < count($array5); $i++)
-<div class="" style="height: 0px;"></div>
-<div class="cabecera">
-    <div class="row">
-        <div class="col-xs-2">
+    <div class="" style="height: 0px;"></div>
+    <div class="cabecera">
+        <div class="row">
+            <div class="col-xs-2">
 
-            <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+                <img src="/home/edgar/PhpstormProjects/evaluacion360/public/images/logo/360.png" class="img-responsive" alt="" width="160px" height="80px">
+            </div>
         </div>
     </div>
-</div>
 
-@if($array5[$i]['type_id'] == 1)
-    <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Análisis de cada competencia: ORGANIZACIONAL</b></h1>
-@endif
+    @if($array5[$i]['type_id'] == 1)
+        <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Análisis de cada competencia: ORGANIZACIONAL</b></h1>
+    @endif
 
-@if($array5[$i]['type_id'] == 2)
-    <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Análisis de cada competencia: Del Cargo</b></h1>
-@endif
+    @if($array5[$i]['type_id'] == 2)
+        <h1 class="title"><i class="fa fa-sitemap" aria-hidden="true"></i> <b>Análisis de cada competencia: Del Cargo</b></h1>
+    @endif
 
-<h2 class=""></h2>
-<p style="">Estas gráficas muestran el detalle de la auto-evaluación comparada con la evaluación del jefe, los supervisados y los pares, para cada una de las competencias.</p>
+    <h2 class=""></h2>
+    <p style="">Estas gráficas muestran el detalle de la auto-evaluación comparada con la evaluación del jefe, los supervisados y los pares, para cada una de las competencias.</p>
 
 
 
@@ -871,7 +872,7 @@
         <div class="" id="container{{$i}}" style="max-width: 200px; max-height: 700px; margin: 0 auto"></div>
 
     </div>
-<hr/>
+    <hr/>
     <script>
         $(function () {
             // Create the chart
@@ -1148,6 +1149,49 @@
         @endfor
     </table>
 </div>
+<br><br>
+
+        <?php $organizacional = 0; $cargo = 0; ?>
+        <?php $contador = 0; $order = array(); $contador1 = 0; $contadorJefe = 0; $jefe = 0; $par = 0; $supervisor = 0; $auto = 0; $countO = 0; $countD = 0; ?>
+        @for ($i = 0; $i < count($array5); $i++)
+            <?php $contadorJefe = 0; $contadorPar = 0; $contadorSupervisor = 0; $contadorAuto = 0;
+            $order[$i] = array('value'=>(string)(($array5[$i]['Jefe']+$array5[$i]['Par']+$array5[$i]['Supervisor'])/3), 'name'=>$array5[$i]['name']);
+            ?>
+        @endfor
+        <?php
+        uasort($order, 'ordename');
+        function ordename ($a, $b) {
+            return strcmp ($a['value'] , $b['value'] );
+        }
+        $countOrder = count($order);
+        $counx = 0;
+        ?>
+
+
+
+<div class="col-xs-offset-3">
+    <div class="text-center">
+        <table class="table" width="100px" style="width: 400px!important;max-width: 400px; border: 2px solid black;">
+            <tr style="border: 2px solid black;font-size: 11px;">
+                <th class="text-center">Competencias Ordenadas de Mayor a Menor</th>
+                <th class="text-center">Calificación</th>
+            </tr>
+            <?php $reversed = array_reverse($order); ?>
+            @foreach($reversed as $value)
+                <?php $counx++;?>
+                <tr style="border: 2px solid black;">
+                    <td class="text-center" <?php if($countOrder-3 < $counx){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}?> <?php if($value['value'] > 3.99){ echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo ($value['name']); ?></td>
+                    <td class="text-center" <?php if($countOrder-3 < $counx){echo 'style="background-color:red;border: 2px solid black;color:white;font-weight:bold"';}?> <?php if($value['value'] > 3.99){ echo 'style="background-color:green;border: 2px solid black;color:white;font-weight:bold"';}?>><?php echo number_format((($value['value'])), 2, ',', ' ');?></td>
+                </tr>
+            @endforeach
+            <tr>
+                <td colspan="2" class="text-left"><strong>Leyenda:</strong> <i class="fa fa-square" aria-hidden="true" style="color:red;"></i> Competencias mas baja</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
 </body>
 
 <style>

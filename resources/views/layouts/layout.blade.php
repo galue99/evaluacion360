@@ -30,10 +30,10 @@
       <div class="wrapper">
         <header class="main-header">
           <!-- Logo -->
-          <a class="logo" href="/">
+          <a class="logo" href="/" style="background-color: #fefefe!important;">
 
-            <span class="logo-mini"><b>E</b>360</span>
-            <span class="logo-lg"><b>Evaluacion360</b></span>
+            <span class="logo-mini" style="color: black!important;"><b>E</b>360</span>
+            <span class="logo-lg"><img src="http://mejorar-se.com.ve/360.png" class="img-responsive "/></span>
           </a>
           <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->

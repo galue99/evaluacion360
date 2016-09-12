@@ -94,11 +94,26 @@ function PruebaViewModel(){
         console.log(data.evaluadores);
     }
 
-    
-
-
-
-
     self.getApiEvaluados();
     
+}
+
+function myFunction(){
+    var id = $("#img").val();
+    swal({title: "¿Estas seguro?",
+            text: "que desea eliminar este usuario",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Eliminar",
+            closeOnConfirm: true },
+        function(){
+            console.log(id);
+            $.ajax({
+                url: '/admin/img/'+ id + '/edit',
+                contentType: "application/json",
+            })
+
+            window.location.reload();
+        });
 }

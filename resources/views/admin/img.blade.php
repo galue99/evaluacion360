@@ -23,12 +23,12 @@
 					
 					<div class="form-group separate col-xs-6 col-md-4">
 					    {!! Form::label('Nombre de la empresa') !!}
-					    {!! Form::text('name',null ,['class' => 'form-control']) !!}
+					    {!! Form::text('name',null, ['class' => 'form-control', 'required' => 'required']) !!}
 					</div>
 
 					<div class="form-group separate col-xs-6  col-md-4">
 					    {!! Form::label('Logo de la Empresa') !!}
-					    {!! Form::file('image', null) !!}
+					    {!! Form::file('image', null, ['required' => 'required']) !!}
 					</div>
 
 					<div class="form-group col-xs-12 separate">
@@ -56,8 +56,8 @@
 							    	</figure>
 							    </td>
 							    <td class="text-center">
-							    	<a data-bind="attr: {href: '/admin/img/'+ id + '/edit'}"><i class="fa fa-blue fa-remove pointer"></i></a>
-								</td>
+                                    <input type="hidden" data-bind="value: id" id="img">
+                                    <i class="fa fa-close fa-red pointer" data-bind="click: $root.destroyMiscelaneos"></i>
 							</tr>
 						</tbody>
 					</table>					

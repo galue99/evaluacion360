@@ -5,11 +5,11 @@ function CompetenciasViewModel(){
 	//arrays para datos
 	self.competencias = ko.observableArray();
 	self.showForm = ko.observable(false);
-	self.updateCompetencia = ko.observable(false)
+	self.updateCompetencia = ko.observable(false);
 	self.typeCompetencia = ko.observableArray([
 		{type : 'Organizacional'},
 		{type : 'Del cargo'}
-		])
+		]);
 	window.destroy = ko.observable();
 	window.modify = ko.observable();
 
@@ -102,7 +102,7 @@ function CompetenciasViewModel(){
         if(value){
         	self.editCompetencias(value);
         }
-    })
+    });
 
 	// self.getCompetencias();
 	
@@ -113,7 +113,7 @@ function CompetenciasViewModel(){
         	var data = response;
             $('#dataTable').DataTable().clear().rows.add(data).draw();
         })
-    }
+    };
     
     self.loadScripts = function(){
     	window.competenciaValidation.apply();
@@ -157,7 +157,7 @@ function CompetenciasViewModel(){
             	}
             ]
         });
-    }
+    };
 	
 	self.getCompeteciasToDataTable();
 	

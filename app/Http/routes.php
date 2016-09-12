@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth', 'administrador'], 'prefix'=>'admin'], fun
     Route::post('/user_encuestas_delete', 'UserController@users_encuestas_delete');
     Route::get('/diferents_user/{id}', 'UserController@users_id_diferent');
     Route::get('/printReport/{encuesta_id}/{evaluador_id}', 'PdfController@index');
+    Route::get('/printReport1/{encuesta_id}/{evaluador_id}', 'PdfController@informe_gerente');
     Route::get('/pdf/github', 'PdfController@github');
     Route::get('/pdf/encuestas_ready', 'PdfController@encuestas_ready');
     Route::get('/email/{id}', 'UserController@sendEmail');

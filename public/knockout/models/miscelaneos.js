@@ -40,4 +40,14 @@ function Miscelaneos(){
 		});
 	}
 
+    self.destroy = function(id){
+        return $.ajax({
+            url: '/admin/img/'+ id ,
+            method: 'DELETE',
+            dataType: 'json',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            contentType: "application/json"
+        });
+    };
+
 }

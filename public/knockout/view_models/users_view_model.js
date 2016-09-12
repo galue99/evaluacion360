@@ -83,7 +83,7 @@ function EvaluadoresViewModel(){
 				.fail(function(response){
 					toastr.error('Ha habido un error al actualizar el usuario');
 				});
-			};
+			}
 		}else{
 			toastr.warning('Debe completar todos los campos');
 		}
@@ -140,7 +140,7 @@ function EvaluadoresViewModel(){
         if(value){
         	self.editEvaluadores(value);
         }
-    })
+    });
 
 
 	//obteniendo empresas
@@ -154,7 +154,7 @@ function EvaluadoresViewModel(){
         	self.updateEvaluadores(false);
             $('#dataTable').DataTable().clear().rows.add(response).draw();
         })
-    }
+    };
     
     self.loadScripts = function(){
     	window.userValidation.apply();

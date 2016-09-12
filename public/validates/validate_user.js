@@ -6,23 +6,22 @@
                     firstname: {
                         required: true,
                         maxlength: 100,
-                        minlength: 2,
+                        minlength: 2
                     },
                     lastname:{
                         required: true,
                         maxlength: 200,
-                        minlength: 2,
+                        minlength: 2
                     },
                     dni:{
                         required: true,
-                        minlength: 2,
-                        number: true
+                        minlength: 2
                     },
                     email:{
                         required: true,
                         email: true,
                         maxlength: 50,
-                        minlength: 2,
+                        minlength: 2
                     },
                     deparment:{
                         required: true,
@@ -35,10 +34,10 @@
                         minlength: 2
                     },
                     idroluser:{
-                        required: true,
+                        required: true
                     },
                     company:{
-                        required: true,
+                        required: true
                     },
                 },
                 messages: {

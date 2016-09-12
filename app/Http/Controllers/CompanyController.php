@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -122,8 +123,13 @@ class CompanyController extends Controller
         $logo = Company::find($id);
         
         $logo->delete();
-        
-         return redirect('admin/img');
+
+        return Response::json([
+            'Success' => [
+                'message'     => 'Record Delete with Exits',
+                'status_code' => 200
+            ]
+        ], 200);
     }
 
     public function allCompanys(Request $request)

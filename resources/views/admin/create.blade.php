@@ -203,7 +203,8 @@
                               <td class="text-center" data-bind="text: email, click: $root.evaluadosAssigned"></td>
                               <td class="text-center">
 							    	      <i class="fa fa-close fa-red pointer" data-bind="click: $root.removeUserAsigned"></i>
-							    	      <i class="fa fa-file-pdf-o fa-brown pointer" aria-hidden="true" data-bind="click: $root.printReport"></i>
+							    	      <i class="fa fa-file-pdf-o fa-brown pointer" aria-hidden="true" data-bind="click: $root.printReport" title="Informe Individual"></i>
+							    	      <i class="fa fa-file-pdf-o fa-brown pointer" aria-hidden="true" data-bind="click: $root.printReport1" title="Informe para el Gerente"></i>
                               </td>
                            </tr>
                         </tbody>
