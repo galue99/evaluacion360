@@ -157,6 +157,7 @@ function EvaluadoresViewModel(){
     }
     
     self.loadScripts = function(){
+    	window.userValidation.apply();
         $('#dataTable').dataTable({
         	"language": {
 					"sProcessing": "Procesando...",
@@ -213,6 +214,7 @@ function EvaluadoresViewModel(){
     }
     
     self.getusers();
+    
 
 
 }

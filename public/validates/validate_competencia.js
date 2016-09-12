@@ -1,35 +1,40 @@
 (function(){
-    $("#formCompetencia").validate({
-    rules: {
-        name: {
-            required: true,
-            maxlength: 100,
-            minlength: 2,
-        },
-        type: {
-            required: true,
-        },
-        description:{
-            required: true,
-            minlength: 3,
-        }
-    },
-    messages: {
-        name: {
-            required: "Competencia no puede estar vacio",
-            maxlength: "No debe pasar de 100 Caracteres",
-            minlength: "Minimo de caractes 2"
-        },
-        type: {
-            required: "Tipo de competencia requerida"
-        },
-        description:{
-            required: "Descripcion no puede estar vacio",
-            maxlength: "No debe pasar de 255 Caracteres",
-            minlength: "Minimo de caractes 2"
+    window.competenciaValidation  = {
+        apply: function() {
+            $("#formCompetencia").validate({
+            rules: {
+                name: {
+                    required: true,
+                    maxlength: 100,
+                    minlength: 2,
+                },
+                type: {
+                    required: true,
+                },
+                description:{
+                    required: true,
+                    maxlength: 100,
+                    minlength: 2,
+                }
+            },
+            messages: {
+                name: {
+                    required: "Competencia no puede estar vacio",
+                    maxlength: "No debe pasar de 100 Caracteres",
+                    minlength: "Minimo de caractes 2"
+                },
+                type: {
+                    required: "Tipo de competencia requerida"
+                },
+                description:{
+                    required: "Descripcion no puede estar vacio",
+                    maxlength: "No debe pasar de 100 Caracteres",
+                    minlength: "Minimo de caractes 2"
+                }
+            }
+        });
         }
     }
-});
 })();
 
 
